@@ -29,13 +29,13 @@ dogs(:) = '________'
 
 read (27, nml=theList, iostat=ierr)
 
-if (ierr .ne. 0) call abort
+if (ierr .ne. 0) stop 1
 
 rslt = ['Rover   ','Spot    ','________','________']
-if (any(dogs.ne.rslt)) call abort
+if (any(dogs.ne.rslt)) stop 1
 
 rslt = ['Fluffy  ','Hairball','________','________']
-if (any(cats.ne.rslt)) call abort
+if (any(cats.ne.rslt)) stop 1
 
 close(27)
 

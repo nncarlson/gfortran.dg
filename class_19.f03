@@ -20,11 +20,11 @@ subroutine foo_checkit()
   type(foo_outer),allocatable :: try2
   class(foo_outer), allocatable :: try3
   
-  if (allocated(try%int)) call abort()
+  if (allocated(try%int)) stop 1
   allocate(foo_outer :: try3)
-  if (allocated(try3%int)) call abort()
+  if (allocated(try3%int)) stop 1
   allocate(try2)
-  if (allocated(try2%int)) call abort()
+  if (allocated(try2%int)) stop 1
  
 end subroutine foo_checkit
 end module foo_mod

@@ -37,8 +37,8 @@ contains
     type(t1_t), dimension(:), allocatable :: p_born
     allocate (p_born(1:size(t3%int_born%func ())), &
          source = t3%int_born%func ())
-    if (.not. allocated(p_born)) call abort()
-    if (size(p_born) /= 5) call abort()
+    if (.not. allocated(p_born)) stop 1
+    if (size(p_born) /= 5) stop 1
   end subroutine evaluate
 
 end module processes

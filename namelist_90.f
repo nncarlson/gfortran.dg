@@ -23,6 +23,6 @@
       open(unit=7,file='test.out',form='formatted')
       read(7,nml=fith, iostat=ierr)
       close(7, status="delete")
-      if (ierr.ne.0) call abort
-      if (any(senid.ne.res)) call abort
+      if (ierr.ne.0) stop 1
+      if (any(senid.ne.res)) stop 1
       end

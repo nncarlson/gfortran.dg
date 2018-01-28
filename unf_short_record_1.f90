@@ -9,9 +9,9 @@ program main
   a = 'b'
   rewind 10
   read (10, err=20, iomsg=msg) a
-  call abort
+  stop 1
 20 continue
-  if (msg .ne. "I/O past end of record on unformatted file") call abort
-  if (a(1) .ne. 'a' .or. a(2) .ne. 'b' .or. a(3) .ne. 'b') call abort
+  if (msg .ne. "I/O past end of record on unformatted file") stop 1
+  if (a(1) .ne. 'a' .or. a(2) .ne. 'b' .or. a(3) .ne. 'b') stop 1
   close (10, status="delete")
 end program main

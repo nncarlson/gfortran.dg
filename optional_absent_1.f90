@@ -30,19 +30,19 @@ program test
 contains
   subroutine scalar(a)
     integer, optional :: a
-    if (present(a)) call abort()
+    if (present(a)) stop 1
   end subroutine scalar
   subroutine assumed_size(a)
     integer, optional :: a(*)
-    if (present(a)) call abort()
+    if (present(a)) stop 1
   end subroutine assumed_size
   subroutine assumed_shape(a)
     integer, optional :: a(:)
-    if (present(a)) call abort()
+    if (present(a)) stop 1
   end subroutine assumed_shape
   subroutine ptr_func(is_psnt, a)
     integer, optional, pointer :: a
     logical :: is_psnt
-    if (is_psnt .neqv. present(a)) call abort()
+    if (is_psnt .neqv. present(a)) stop 1
   end subroutine ptr_func
 end program test

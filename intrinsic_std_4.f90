@@ -25,7 +25,7 @@ SUBROUTINE implicit_none
   REAL :: x
 
   ! Both times our version above should be called
-  CALL abort () ! { dg-bogus "extension" }
+  stop 1 ! { dg-bogus "extension" }
   x = ASINH (1.) ! { dg-bogus "Fortran 2008" }
 END SUBROUTINE implicit_none
 

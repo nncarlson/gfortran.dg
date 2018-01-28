@@ -7,9 +7,9 @@ program test
    real, allocatable :: x(:,:)
 
    allocate(x(2,5))
-   if (any(shape(x) /= [ 2, 5 ])) call abort
-   if (any(shape(x,kind=1) /= [ 2, 5 ])) call abort
-   if (any(shape(x,kind=2) /= [ 2, 5 ])) call abort
-   if (any(shape(x,kind=4) /= [ 2, 5 ])) call abort
-   if (any(shape(x,kind=8) /= [ 2, 5 ])) call abort
+   if (any(shape(x) /= [ 2, 5 ])) stop 1
+   if (any(shape(x,kind=1) /= [ 2, 5 ])) stop 1
+   if (any(shape(x,kind=2) /= [ 2, 5 ])) stop 1
+   if (any(shape(x,kind=4) /= [ 2, 5 ])) stop 1
+   if (any(shape(x,kind=8) /= [ 2, 5 ])) stop 1
 end

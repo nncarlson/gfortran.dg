@@ -15,7 +15,7 @@ PROGRAM helloworld
      n = ceiling(11*rnd)
      call hello(n, string)
 !     print '(A,1X,I0)', '>' // string // '<', len(string)
-     if (n /= len (string) .or. string /= cmp(1:n)) call abort ()
+     if (n /= len (string) .or. string /= cmp(1:n)) stop 1
   end do
 
   call test_PR53642()
@@ -38,17 +38,17 @@ contains
     character(:), allocatable :: trimmed
 
     trimmed = trim(string)
-    if (len_trim(string) /= len(trimmed)) call abort ()
-    if (len(trimmed) /= 3) call abort ()
-    if (trimmed /= "123") call abort ()
+    if (len_trim(string) /= len(trimmed)) stop 1
+    if (len(trimmed) /= 3) stop 1
+    if (trimmed /= "123") stop 1
 !    print *,len_trim(string),len(trimmed)
 
     ! Clear
     trimmed = "XXXXXX"
-    if (trimmed /= "XXXXXX" .or. len(trimmed) /= 6) call abort ()
+    if (trimmed /= "XXXXXX" .or. len(trimmed) /= 6) stop 1
 
     trimmed = string(1:len_trim(string))
-    if (len_trim(trimmed) /= 3) call abort ()
-    if (trimmed /= "123") call abort ()
+    if (len_trim(trimmed) /= 3) stop 1
+    if (trimmed /= "123") stop 1
   end subroutine test_PR53642
 end PROGRAM helloworld

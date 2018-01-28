@@ -23,21 +23,21 @@ contains
         type(tx), target :: that
         that%i = [1,2]
         this%x => this%find_x(that, .true.)
-        if (associated (this%x)) call abort()
+        if (associated (this%x)) stop 1
         this%x => this%find_x(that, .false.)
-        if(any (this%x%i /= [5, 7])) call abort()
-        if (.not.associated (this%x,that)) call abort()
+        if(any (this%x%i /= [5, 7])) stop 1
+        if (.not.associated (this%x,that)) stop 1
         allocate(this%x)
-        if (associated (this%x,that)) call abort()
-        if (allocated(this%x%i)) call abort()
+        if (associated (this%x,that)) stop 1
+        if (allocated(this%x%i)) stop 1
         this%x = this%find_x(that, .false.)
         that%i = [3,4]
-        if(any (this%x%i /= [5, 7])) call abort() ! FAILS
+        if(any (this%x%i /= [5, 7])) stop 1 ! FAILS
 
-        if (allocated (this%y%i)) call abort()
+        if (allocated (this%y%i)) stop 1
         this%y = this%find_y()  ! FAILS
-        if (.not.allocated (this%y%i)) call abort()
-        if(any (this%y%i /= [6, 8])) call abort()
+        if (.not.allocated (this%y%i)) stop 1
+        if(any (this%y%i /= [6, 8])) stop 1
     end subroutine calc
     function find_x(this, that, l_null)
        class(t), intent(in) :: this

@@ -29,18 +29,18 @@
       write (48,iostat = istat, rec = 3) bda1(nf1:nf10:nf2),
      $                    bda1(nf4:nf3), bda1(nf2:nf10:nf2)
       if ( istat .ne. 0) then
-        call abort
+        stop 1
       endif
       istat = -314
 
       read (48,iostat = istat, rec = np2+1) bda(nf1:nf9:nf2),
      $                       bda(nf4:nf3), bda(nf2:nf10:nf2)
       if ( istat .ne. 0) then
-        call abort
+        stop 1
       endif
 
       do j1 = 1,10
         bval = bda1(j1)
-        if (bda(j1) .ne. bval) call abort
+        if (bda(j1) .ne. bval) stop 1
       enddo
       end subroutine

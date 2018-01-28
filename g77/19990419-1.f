@@ -5,10 +5,10 @@ c { dg-do run }
       j = 0
       do while (i() .eq. 1)
          j = j + 1
-         if (j .gt. 5) call abort
+         if (j .gt. 5) stop 1
       end do
-      if (j .ne. 4) call abort
-      if (ival .ne. 5) call abort
+      if (j .ne. 4) stop 1
+      if (ival .ne. 5) stop 1
       end
       function i()
       common /x/ ival

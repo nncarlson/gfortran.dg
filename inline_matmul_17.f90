@@ -28,21 +28,21 @@ program main
   b = bval
   c = matmul(a,b)
   a = matmul(a,b)
-  if (any(a-c /= 0)) call abort
+  if (any(a-c /= 0)) stop 1
   a = aval
   b = bval
   b = matmul(a,b)
-  if (any(b-c /= 0)) call abort
+  if (any(b-c /= 0)) stop 1
   b = bval
   a = matmul(aval, b)
-  if (any(a-c /= 0)) call abort
+  if (any(a-c /= 0)) stop 1
   ind = [1, 3, 2]
   c = matmul(a(ind,:),b)
-  if (any(c-ri /= 0)) call abort
+  if (any(c-ri /= 0)) stop 1
   c = matmul(afunc(),b)
-  if (any(c-d /= 0)) call abort
+  if (any(c-d /= 0)) stop 1
   a = afunc()
   c = matmul(a, bfunc())
-  if (any(c-d /= 0)) call abort
+  if (any(c-d /= 0)) stop 1
 end program main
 ! { dg-final { scan-tree-dump-times "matmul_r4" 2 "optimized" } }

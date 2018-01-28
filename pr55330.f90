@@ -16,7 +16,7 @@ contains
   end subroutine
   subroutine redirect_ (ch)
     character(*) :: ch(:)
-    if (ch(1) /= line) call abort ()
+    if (ch(1) /= line) stop 1
   end subroutine redirect_
 end module global
 
@@ -35,8 +35,8 @@ contains
     use global
     type(point), pointer :: ptr
     character(128) :: io(:)
-    if (associated (ptr)) call abort ()
-    if (io(1) .ne. line) call abort ()
+    if (associated (ptr)) stop 1
+    if (io(1) .ne. line) stop 1
   end subroutine r
 end module my_module
 
@@ -67,7 +67,7 @@ contains
   end subroutine option_stopwatch_s 
   subroutine option_stopwatch_a (a)
     character (*) :: a(:)
-    if (any (a .ne. (/'hello ','hola! ','goddag'/))) call abort ()
+    if (any (a .ne. (/'hello ','hola! ','goddag'/))) stop 1
   end subroutine option_stopwatch_a
 
 end program main

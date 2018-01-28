@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  call abort()
+  stop 1
 end subroutine
 
 module dec_structure_7m
@@ -60,16 +60,16 @@ program dec_structure_7
   junk = func (r2, -20.14)
 
   if (r1.i1 .ne. 10) then
-    call aborts("sub(r1, 10)")
+    stop 1s("sub(r1, 10)")
   endif
 
   if (r2.r1.r1 .ne. -20.14) then
-    call aborts("func(r2, -20.14)")
+    stop 1s("func(r2, -20.14)")
   endif
 
   if (junk .ne. -20.14) then
     print *, junk
-    call aborts("junk = func()")
+    stop 1s("junk = func()")
   endif
 
 end program

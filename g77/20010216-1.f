@@ -46,7 +46,7 @@ C and its expected return value.
          result = foo(a(i), b(i))
          if (abs(result - x(i)) > tolerance) then
            print *, i, a(i), b(i), x(i), result
-           call abort
+           stop 1
          end if
       end do
       end

@@ -12,13 +12,13 @@ integer(kind=ATOMIC_INT_KIND) :: atomic_int
 logical(kind=ATOMIC_LOGICAL_KIND) :: atomic_bool
 
 i = 0
-if (IOSTAT_INQUIRE_INTERNAL_UNIT <= 0) call abort()
-if (IOSTAT_INQUIRE_INTERNAL_UNIT == STAT_STOPPED_IMAGE) call abort()
-if (STAT_STOPPED_IMAGE <= 0) call abort()
+if (IOSTAT_INQUIRE_INTERNAL_UNIT <= 0) stop 1
+if (IOSTAT_INQUIRE_INTERNAL_UNIT == STAT_STOPPED_IMAGE) stop 1
+if (STAT_STOPPED_IMAGE <= 0) stop 1
 
 if ((STAT_LOCKED_OTHER_IMAGE == STAT_LOCKED) &
-    .or.(STAT_LOCKED_OTHER_IMAGE == STAT_UNLOCKED)) call abort()
-if (STAT_LOCKED == STAT_UNLOCKED) call abort()
+    .or.(STAT_LOCKED_OTHER_IMAGE == STAT_UNLOCKED)) stop 1
+if (STAT_LOCKED == STAT_UNLOCKED) stop 1
 
 end
 

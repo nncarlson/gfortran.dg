@@ -64,8 +64,8 @@ contains
     USE ymod, ONLY: yrenamed => y
     USE ymod
     implicit integer(2) (a-z)
-    if (kind(xrenamed) == kind(x)) call abort ()
-    if (kind(yrenamed) == kind(y)) call abort ()
+    if (kind(xrenamed) == kind(x)) stop 1
+    if (kind(yrenamed) == kind(y)) stop 1
   end subroutine
 
   subroutine test2  ! Test the fix applies to generic interfaces
@@ -74,8 +74,8 @@ contains
     USE ymod, ONLY: yfoobar_renamed => yfoobar
     USE ymod
     implicit integer(4) (a-z)
-    if (xfoobar_renamed (42) == xfoobar ()) call abort ()
-    if (yfoobar_renamed (42) == yfoobar ()) call abort ()
+    if (xfoobar_renamed (42) == xfoobar ()) stop 1
+    if (yfoobar_renamed (42) == yfoobar ()) stop 1
   end subroutine
 
   subroutine test3  ! Check that USE_NAME == LOCAL_NAME is OK
@@ -83,9 +83,9 @@ contains
     USE xmod, ONLY: x => x, xfoobar => xfoobar
     USE ymod, ONLY: y => y, yfoobar => yfoobar
     USE ymod
-    if (kind (x) /= 4) call abort ()    
-    if (kind (y) /= 4) call abort ()    
-    if (xfoobar (77) /= 77_4) call abort ()
-    if (yfoobar (77) /= 77_4) call abort ()
+    if (kind (x) /= 4) stop 1    
+    if (kind (y) /= 4) stop 1    
+    if (xfoobar (77) /= 77_4) stop 1
+    if (yfoobar (77) /= 77_4) stop 1
   end subroutine
 END PROGRAM test2uses

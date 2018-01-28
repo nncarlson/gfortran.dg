@@ -48,23 +48,23 @@ program main
   
 
   call foo(a,b,n,m)
-  if (n .ne. 1 .or. m .ne. -2) call abort
+  if (n .ne. 1 .or. m .ne. -2) stop 1
   call foo(a(2:0), empty, n, m)
-  if (n .ne. 1 .or. m .ne. 1) call abort
+  if (n .ne. 1 .or. m .ne. 1) stop 1
   call foo(empty, a(2:0), n, m)
-  if (n .ne. 1 .or. m .ne. 1) call abort
+  if (n .ne. 1 .or. m .ne. 1) stop 1
   allocate (x(0))
   y => a(3:2)
   call bar (x, y, n, m)
-  if (n .ne. 1 .or. m .ne. 1) call abort
+  if (n .ne. 1 .or. m .ne. 1) stop 1
 
   call baz(a,3,2,n)
-  if (n .ne. 1) call abort
+  if (n .ne. 1) stop 1
 
   call baz(a,2,3,n)
-  if (n .ne. 2) call abort
+  if (n .ne. 2) stop 1
 
   call qux(a, -3, n)
-  if (n .ne. 1) call abort
+  if (n .ne. 1) stop 1
 end program main
 ! { dg-final { scan-tree-dump-times "\\*one = 1" 2 "original" } }

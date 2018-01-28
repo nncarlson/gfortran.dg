@@ -7,10 +7,10 @@
 !
 program main
   implicit none
-  if (f5 ('1') .ne. "a") call abort
-  if (len (f5 ('1')) .ne. 1) call abort
-  if (f5 ('4') .ne. "abcd") call abort
-  if (len (f5 ('4')) .ne. 4) call abort
+  if (f5 ('1') .ne. "a") stop 1
+  if (len (f5 ('1')) .ne. 1) stop 1
+  if (f5 ('4') .ne. "abcd") stop 1
+  if (len (f5 ('4')) .ne. 4) stop 1
 contains
   function f5 (c)
     character(len=1_8) :: c

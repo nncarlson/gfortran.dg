@@ -7,5 +7,5 @@ program rabbithole
    character(len=20) :: ctwenty='abcdefghijabcdefghij'
    ii = -6
    text_block = [character(len=ii) :: cten, ctwenty]
-   if (any(len_trim(text_block) /= 0)) call abort
+   if (any(len_trim(text_block) /= 0)) stop 1
 end program rabbithole

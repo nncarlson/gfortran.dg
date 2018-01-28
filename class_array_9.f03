@@ -29,16 +29,16 @@ end module
   use m
   class(t1), allocatable :: x(:)
   allocate (x(4), source = [(t1 (i), i=1,4)])
-  if (any (x%disp () .ne. [1,2,3,4])) call abort
-  if (any (x(2:3)%disp () .ne. [2,3])) call abort
-  if (any (x(4:3:-1)%disp () .ne. [4,3])) call abort
-  if (x(4)%disp () .ne. 4) call abort
+  if (any (x%disp () .ne. [1,2,3,4])) stop 1
+  if (any (x(2:3)%disp () .ne. [2,3])) stop 1
+  if (any (x(4:3:-1)%disp () .ne. [4,3])) stop 1
+  if (x(4)%disp () .ne. 4) stop 1
 
   deallocate (x)
   allocate (x(4), source = [(t2 (2 * i, real (i) + 0.333), i=1,4)])
-  if (any (x%disp () .ne. [1,2,3,4])) call abort
-  if (any (x(2:3)%disp () .ne. [2,3])) call abort
-  if (any (x(4:3:-1)%disp () .ne. [4,3])) call abort
-  if (x(4)%disp () .ne. 4) call abort
+  if (any (x%disp () .ne. [1,2,3,4])) stop 1
+  if (any (x(2:3)%disp () .ne. [2,3])) stop 1
+  if (any (x(4:3:-1)%disp () .ne. [4,3])) stop 1
+  if (x(4)%disp () .ne. 4) stop 1
 
 end

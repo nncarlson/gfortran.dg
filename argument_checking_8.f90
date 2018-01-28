@@ -21,8 +21,8 @@ program test
   character(10) astr
   integer i
   write(astr,'(a)') ouch('YOW!      ','jerry      ')
-  if (astr(1:5) /= "3*%SY") call abort
+  if (astr(1:5) /= "3*%SY") stop 1
   do i=6,10
-    if (astr(i:i) /= achar(0)) call abort
+    if (astr(i:i) /= achar(0)) stop 1
   end do    
 end program test

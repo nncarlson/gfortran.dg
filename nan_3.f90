@@ -15,32 +15,32 @@ program main
 
   str = "nan"
   read(str,*) r
-  if (.not.isnan(r)) call abort()
+  if (.not.isnan(r)) stop 1
   str = "(nan,4.0)"
   read(str,*) z
-  if (.not.isnan(real(z)) .or. aimag(z) /= 4.0) call abort()
+  if (.not.isnan(real(z)) .or. aimag(z) /= 4.0) stop 1
   str = "(7.0,nan)"
   read(str,*) z
-  if (.not.isnan(aimag(z)) .or. real(z) /= 7.0) call abort()
+  if (.not.isnan(aimag(z)) .or. real(z) /= 7.0) stop 1
 
   str = "inFinity"
   read(str,*) r
-  if (r <= huge(r)) call abort()
+  if (r <= huge(r)) stop 1
   str = "(+inFinity,4.0)"
   read(str,*) z
-  if ((real(z) <= huge(r)) .or. aimag(z) /= 4.0) call abort()
+  if ((real(z) <= huge(r)) .or. aimag(z) /= 4.0) stop 1
   str = "(7.0,-inFinity)"
   read(str,*) z
-  if ((aimag(z) >= -huge(r)) .or. real(z) /= 7.0) call abort()
+  if ((aimag(z) >= -huge(r)) .or. real(z) /= 7.0) stop 1
 
   str = "inf"
   read(str,*) r
-  if (r <= huge(r)) call abort()
+  if (r <= huge(r)) stop 1
   str = "(+inf,4.0)"
   read(str,*) z
-  if ((real(z) <= huge(r)) .or. aimag(z) /= 4.0) call abort()
+  if ((real(z) <= huge(r)) .or. aimag(z) /= 4.0) stop 1
   str = "(7.0,-inf)"
   read(str,*) z
-  if ((aimag(z) >= -huge(r)) .or. real(z) /= 7.0) call abort()
+  if ((aimag(z) >= -huge(r)) .or. real(z) /= 7.0) stop 1
 
 end program main

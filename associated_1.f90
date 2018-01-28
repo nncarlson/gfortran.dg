@@ -5,16 +5,16 @@ program test
    real, pointer :: a, b
 
    nullify(a,b)
-   if(associated(a,b).or.associated(a,a)) call abort()
+   if(associated(a,b).or.associated(a,a)) stop 1
    allocate(a)
-   if(associated(b,a)) call abort()
-   if (.not.associated(x(a))) call abort ()
-   if (.not.associated(a, x(a))) call abort ()
+   if(associated(b,a)) stop 1
+   if (.not.associated(x(a))) stop 1
+   if (.not.associated(a, x(a))) stop 1
 
    nullify(b)
-   if (associated(x(b))) call abort ()
+   if (associated(x(b))) stop 1
    allocate(b)
-   if (associated(x(b), x(a))) call abort ()
+   if (associated(x(b), x(a))) stop 1
 
 contains
 

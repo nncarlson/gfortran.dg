@@ -12,8 +12,8 @@ PROGRAM test_pointer_value
   INTEGER, POINTER, DIMENSION(:) :: ptr_array_fifth => NULL()
   ptr_array => array
   array_fifth = every_fifth (ptr_array)
-  if (any (array_fifth .ne. [1,11])) call abort
-  if (any (every_fifth(ptr_array) .ne. [1,11])) call abort
+  if (any (array_fifth .ne. [1,11])) stop 1
+  if (any (every_fifth(ptr_array) .ne. [1,11])) stop 1
 CONTAINS
   FUNCTION every_fifth (ptr_array) RESULT (ptr_fifth)
     IMPLICIT NONE

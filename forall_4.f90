@@ -25,34 +25,34 @@ end module foo
 
 ! Check that non-mask case is still OK and the fix for PR28119
   a = 0
-  forall (i=1:n) a(i) = i ; if (any (a .ne. (/1,2,3,4/))) call abort ()
+  forall (i=1:n) a(i) = i ; if (any (a .ne. (/1,2,3,4/))) stop 1
 
 ! Now a mask using a function with an explicit interface
 ! via use association.
   a = 0
   forall (i=1:n, foot (i)) a(i) = i
-  if (any (a .ne. (/0,2,3,0/))) call abort ()
+  if (any (a .ne. (/0,2,3,0/))) stop 1
 
 ! Now an array variable mask
   a = 0
   forall (i=1:n, .not. s(i)) a(i) = i
-  if (any (a .ne. (/1,0,0,4/))) call abort ()
+  if (any (a .ne. (/1,0,0,4/))) stop 1
 
 ! This was the PR - an internal function mask
   a = 0
   forall (i=1:n, t (i)) a(i) = i
-  if (any (a .ne. (/0,2,0,4/))) call abort ()
+  if (any (a .ne. (/0,2,0,4/))) stop 1
 
 ! Check that an expression is OK - this also gave a syntax
 ! error
   a = 0
   forall (i=1:n, mod (i, 2) == 0) a(i) = i
-  if (any (a .ne. (/0,2,0,4/))) call abort ()
+  if (any (a .ne. (/0,2,0,4/))) stop 1
 
 ! And that an expression that used to work is OK
   a = 0
   forall (i=1:n, s (i) .or. t(i)) a(i) = w (i)
-  if (any (a .ne. (/0,3,2,1/))) call abort ()
+  if (any (a .ne. (/0,3,2,1/))) stop 1
 
 contains
   pure logical function t(i)

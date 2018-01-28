@@ -19,6 +19,6 @@ m%i = 5
 select type(bar => m%foo)
 type is(t0)
  print *, bar
- if (bar%j /= 42) call abort ()
+ if (bar%j /= 42) stop 1
 end select
 end

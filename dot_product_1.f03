@@ -6,6 +6,6 @@
   INTEGER, PARAMETER :: p = DOT_PRODUCT(a, a)
   INTEGER, PARAMETER :: e = DOT_PRODUCT(SHAPE(1), SHAPE(1))
 
-  IF (p /= n) CALL abort()
-  IF (e /= 0) CALL abort()
+  IF (p /= n) stop 1
+  IF (e /= 0) stop 1
 END

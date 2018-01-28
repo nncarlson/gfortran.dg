@@ -15,17 +15,17 @@ contains
   subroutine fini(x)
     type(t) :: x
     !print *, 'fini:',x%i
-    if (global_count1 == -1) call abort ()
-    if (x%i /= 42) call abort() 
+    if (global_count1 == -1) stop 1
+    if (x%i /= 42) stop 1 
     x%i = 33
     global_count1 = global_count1 + 1
   end subroutine fini
   subroutine fini2(x)
     type(t) :: x(:)
     !print *, 'fini2', x%i
-    if (global_count2 == -1) call abort ()
-    if (size(x) /= 5) call abort()
-    if (any (x%i /= [1,2,3,4,5]) .and. any (x%i /= [6,7,8,9,10])) call abort() 
+    if (global_count2 == -1) stop 1
+    if (size(x) /= 5) stop 1
+    if (any (x%i /= [1,2,3,4,5]) .and. any (x%i /= [6,7,8,9,10])) stop 1 
     x%i = 33
     global_count2 = global_count2 + 10
   end subroutine fini2
@@ -55,8 +55,8 @@ program pp
   yca%i = [1,2,3,4,5]
 
   call foo(ya, yc, yaa, yca)
-  if (global_count1 /= 2) call abort ()
-  if (global_count2 /= 20) call abort ()
+  if (global_count1 /= 2) stop 1
+  if (global_count2 /= 20) stop 1
 
   ! Coarray finalization
   allocate (ca[*], cc[*], caa(5)[*], cca(5)[*])
@@ -67,8 +67,8 @@ program pp
   caa%i = [1,2,3,4,5]
   cca%i = [1,2,3,4,5]
   deallocate (ca, cc, caa, cca)
-  if (global_count1 /= 2) call abort ()
-  if (global_count2 /= 20) call abort ()
+  if (global_count1 /= 2) stop 1
+  if (global_count2 /= 20) stop 1
   global_count1 = -1
   global_count2 = -1
 
@@ -88,8 +88,8 @@ program pp
     zca%i = [1,2,3,4,5]
 
     call foo(za, zc, zaa, zca)
-    if (global_count1 /= 2) call abort ()
-    if (global_count2 /= 20) call abort ()
+    if (global_count1 /= 2) stop 1
+    if (global_count2 /= 20) stop 1
 
     ! Test intent(out) finalization with optional
     call foo_opt()
@@ -105,8 +105,8 @@ program pp
     zca%i = [1,2,3,4,5]
 
     call foo_opt(za, zc, zaa, zca)
-    if (global_count1 /= 2) call abort ()
-    if (global_count2 /= 20) call abort ()
+    if (global_count1 /= 2) stop 1
+    if (global_count2 /= 20) stop 1
 
     ! Test DEALLOCATE finalization
     allocate (za, zc, zaa(5), zca(5))
@@ -117,8 +117,8 @@ program pp
     zaa%i = [1,2,3,4,5]
     zca%i = [6,7,8,9,10]
     deallocate (za, zc, zaa, zca)
-    if (global_count1 /= 2) call abort ()
-    if (global_count2 /= 20) call abort ()
+    if (global_count1 /= 2) stop 1
+    if (global_count2 /= 20) stop 1
 
     ! Test end-of-scope finalization
     allocate (za, zc, zaa(5), zca(5))
@@ -130,8 +130,8 @@ program pp
     zca%i = [6,7,8,9,10]
   end block
 
-  if (global_count1 /= 2) call abort ()
-  if (global_count2 /= 20) call abort ()
+  if (global_count1 /= 2) stop 1
+  if (global_count2 /= 20) stop 1
 
   ! Test that no end-of-scope finalization occurs
   ! for SAVED variable in main
@@ -157,19 +157,19 @@ contains
 
     if (.not. present(xa)) &
       return
-    if (allocated (xa)) call abort ()
-    if (allocated (xc)) call abort ()
-    if (allocated (xaa)) call abort ()
-    if (allocated (xca)) call abort ()
+    if (allocated (xa)) stop 1
+    if (allocated (xc)) stop 1
+    if (allocated (xaa)) stop 1
+    if (allocated (xca)) stop 1
   end subroutine foo_opt
   subroutine foo(xa, xc, xaa, xca)
     type(t),  allocatable, intent(out) :: xa
     class(t), allocatable, intent(out) :: xc
     type(t),  allocatable, intent(out) :: xaa(:)
     class(t), allocatable, intent(out) :: xca(:)
-    if (allocated (xa)) call abort ()
-    if (allocated (xc)) call abort ()
-    if (allocated (xaa)) call abort ()
-    if (allocated (xca)) call abort ()
+    if (allocated (xa)) stop 1
+    if (allocated (xc)) stop 1
+    if (allocated (xaa)) stop 1
+    if (allocated (xca)) stop 1
   end subroutine foo
 end program

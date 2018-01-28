@@ -16,20 +16,20 @@ program main
              191.,  458.,  914.,  223.,  534., 1062./
 
   c = matmul(transpose(a),b)
-  if (sum(c-cres)>1e-4) call abort
-  if (sum(c-cres)>1e-4) call abort
+  if (sum(c-cres)>1e-4) stop 1
+  if (sum(c-cres)>1e-4) stop 1
 
   ! Unallocated
   calloc = matmul(transpose(a),b) ! { dg-warning "Code for reallocating the allocatable array" }
-  if (any(shape(c) /= shape(calloc))) call abort
-  if (sum(calloc-cres)>1e-4) call abort
+  if (any(shape(c) /= shape(calloc))) stop 1
+  if (sum(calloc-cres)>1e-4) stop 1
   deallocate(calloc)
 
   ! Allocated to wrong shape
   allocate (calloc(10,10))
   calloc = matmul(transpose(a),b) ! { dg-warning "Code for reallocating the allocatable array" }
-  if (any(shape(c) /= shape(calloc))) call abort
-  if (sum(calloc-cres)>1e-4) call abort
+  if (any(shape(c) /= shape(calloc))) stop 1
+  if (sum(calloc-cres)>1e-4) stop 1
   deallocate(calloc)
 
   ! cycle through a few test cases...
@@ -52,7 +52,7 @@ program main
                 end do
              end do
              cr = matmul(transpose(a2), b2)
-             if (any(abs(c2-cr) > 1e-4)) call abort
+             if (any(abs(c2-cr) > 1e-4)) stop 1
            end block
         end do
      end do

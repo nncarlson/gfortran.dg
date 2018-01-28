@@ -21,73 +21,73 @@
 
   call suba(alloc=.false., prsnt=.false.)
   call suba(xa, alloc=.false., prsnt=.true.)
-  if (.not. allocated (xa)) call abort ()
-  if (.not. allocated (xa%i)) call abort ()
-  if (xa%i /= 5) call abort ()
+  if (.not. allocated (xa)) stop 1
+  if (.not. allocated (xa%i)) stop 1
+  if (xa%i /= 5) stop 1
   xa%i = -3
   call suba(xa, alloc=.true., prsnt=.true.)
-  if (allocated (xa)) call abort ()
+  if (allocated (xa)) stop 1
 
   call suba2(alloc=.false., prsnt=.false.)
   call suba2(xa2, alloc=.false., prsnt=.true.)
-  if (.not. allocated (xa2)) call abort ()
-  if (size (xa2) /= 1) call abort ()
-  if (.not. allocated (xa2(1)%i)) call abort ()
-  if (xa2(1)%i /= 5) call abort ()
+  if (.not. allocated (xa2)) stop 1
+  if (size (xa2) /= 1) stop 1
+  if (.not. allocated (xa2(1)%i)) stop 1
+  if (xa2(1)%i /= 5) stop 1
   xa2(1)%i = -3
   call suba2(xa2, alloc=.true., prsnt=.true.)
-  if (allocated (xa2)) call abort ()
+  if (allocated (xa2)) stop 1
 
   call subp(alloc=.false., prsnt=.false.)
   call subp(xp, alloc=.false., prsnt=.true.)
-  if (.not. associated (xp)) call abort ()
-  if (.not. allocated (xp%i)) call abort ()
-  if (xp%i /= 5) call abort ()
+  if (.not. associated (xp)) stop 1
+  if (.not. allocated (xp%i)) stop 1
+  if (xp%i /= 5) stop 1
   xp%i = -3
   call subp(xp, alloc=.true., prsnt=.true.)
-  if (associated (xp)) call abort ()
+  if (associated (xp)) stop 1
 
   call subp2(alloc=.false., prsnt=.false.)
   call subp2(xp2, alloc=.false., prsnt=.true.)
-  if (.not. associated (xp2)) call abort ()
-  if (size (xp2) /= 1) call abort ()
-  if (.not. allocated (xp2(1)%i)) call abort ()
-  if (xp2(1)%i /= 5) call abort ()
+  if (.not. associated (xp2)) stop 1
+  if (size (xp2) /= 1) stop 1
+  if (.not. allocated (xp2(1)%i)) stop 1
+  if (xp2(1)%i /= 5) stop 1
   xp2(1)%i = -3
   call subp2(xp2, alloc=.true., prsnt=.true.)
-  if (associated (xp2)) call abort ()
+  if (associated (xp2)) stop 1
 
   call subac(alloc=.false., prsnt=.false.)
   call subac(xac, alloc=.false., prsnt=.true.)
-  if (.not. allocated (xac)) call abort ()
-  if (.not. allocated (xac%i)) call abort ()
-  if (xac%i /= 5) call abort ()
+  if (.not. allocated (xac)) stop 1
+  if (.not. allocated (xac%i)) stop 1
+  if (xac%i /= 5) stop 1
   xac%i = -3
   call subac(xac, alloc=.true., prsnt=.true.)
-  if (allocated (xac)) call abort ()
+  if (allocated (xac)) stop 1
 
   call suba2c(alloc=.false., prsnt=.false.)
   call suba2c(xa2c, alloc=.false., prsnt=.true.)
-  if (.not. allocated (xa2c)) call abort ()
-  if (size (xa2c) /= 1) call abort ()
-  if (.not. allocated (xa2c(1)%i)) call abort ()
-  if (xa2c(1)%i /= 5) call abort ()
+  if (.not. allocated (xa2c)) stop 1
+  if (size (xa2c) /= 1) stop 1
+  if (.not. allocated (xa2c(1)%i)) stop 1
+  if (xa2c(1)%i /= 5) stop 1
   xa2c(1)%i = -3
   call suba2c(xa2c, alloc=.true., prsnt=.true.)
-  if (allocated (xa2c)) call abort ()
+  if (allocated (xa2c)) stop 1
 
 contains
  subroutine suba2c(x, prsnt, alloc)
    class(t), optional, allocatable :: x(:)[:]
    logical prsnt, alloc
-   if (present (x) .neqv. prsnt) call abort ()
+   if (present (x) .neqv. prsnt) stop 1
    if (prsnt) then
-     if (alloc .neqv. allocated(x)) call abort ()
+     if (alloc .neqv. allocated(x)) stop 1
      if (.not. allocated (x)) then
        allocate (x(1)[*])
        x(1)%i = 5
      else
-       if (x(1)%i /= -3) call abort()
+       if (x(1)%i /= -3) stop 1
        deallocate (x)
      end if
    end if
@@ -96,14 +96,14 @@ contains
  subroutine subac(x, prsnt, alloc)
    class(t), optional, allocatable :: x[:]
    logical prsnt, alloc
-   if (present (x) .neqv. prsnt) call abort ()
+   if (present (x) .neqv. prsnt) stop 1
    if (present (x)) then
-     if (alloc .neqv. allocated(x)) call abort ()
+     if (alloc .neqv. allocated(x)) stop 1
      if (.not. allocated (x)) then
        allocate (x[*])
        x%i = 5
      else
-       if (x%i /= -3) call abort()
+       if (x%i /= -3) stop 1
        deallocate (x)
      end if
    end if
@@ -112,14 +112,14 @@ contains
  subroutine suba2(x, prsnt, alloc)
    class(t), optional, allocatable :: x(:)
    logical prsnt, alloc
-   if (present (x) .neqv. prsnt) call abort ()
+   if (present (x) .neqv. prsnt) stop 1
    if (prsnt) then
-     if (alloc .neqv. allocated(x)) call abort ()
+     if (alloc .neqv. allocated(x)) stop 1
      if (.not. allocated (x)) then
        allocate (x(1))
        x(1)%i = 5
      else
-       if (x(1)%i /= -3) call abort()
+       if (x(1)%i /= -3) stop 1
        deallocate (x)
      end if
    end if
@@ -128,14 +128,14 @@ contains
  subroutine suba(x, prsnt, alloc)
    class(t), optional, allocatable :: x
    logical prsnt, alloc
-   if (present (x) .neqv. prsnt) call abort ()
+   if (present (x) .neqv. prsnt) stop 1
    if (present (x)) then
-     if (alloc .neqv. allocated(x)) call abort ()
+     if (alloc .neqv. allocated(x)) stop 1
      if (.not. allocated (x)) then
        allocate (x)
        x%i = 5
      else
-       if (x%i /= -3) call abort()
+       if (x%i /= -3) stop 1
        deallocate (x)
      end if
    end if
@@ -144,14 +144,14 @@ contains
  subroutine subp2(x, prsnt, alloc)
    class(t), optional, pointer :: x(:)
    logical prsnt, alloc
-   if (present (x) .neqv. prsnt) call abort ()
+   if (present (x) .neqv. prsnt) stop 1
    if (present (x)) then
-     if (alloc .neqv. associated(x)) call abort ()
+     if (alloc .neqv. associated(x)) stop 1
      if (.not. associated (x)) then
        allocate (x(1))
        x(1)%i = 5
      else
-       if (x(1)%i /= -3) call abort()
+       if (x(1)%i /= -3) stop 1
        deallocate (x)
      end if
    end if
@@ -160,14 +160,14 @@ contains
  subroutine subp(x, prsnt, alloc)
    class(t), optional, pointer :: x
    logical prsnt, alloc
-   if (present (x) .neqv. prsnt) call abort ()
+   if (present (x) .neqv. prsnt) stop 1
    if (present (x)) then
-     if (alloc .neqv. associated(x)) call abort ()
+     if (alloc .neqv. associated(x)) stop 1
      if (.not. associated (x)) then
        allocate (x)
        x%i = 5
      else
-       if (x%i /= -3) call abort()
+       if (x%i /= -3) stop 1
        deallocate (x)
      end if
    end if

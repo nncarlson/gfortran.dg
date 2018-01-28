@@ -15,13 +15,13 @@ program test
    b = g2(a)
    b = g2(a)
    ans = g1(a)
-   if (ans%f .ne. -1) call abort
+   if (ans%f .ne. -1) stop 1
    ans = g1(a)
-   if (ans%f .ne. -1) call abort
+   if (ans%f .ne. -1) stop 1
    ans = g1a(a)
-   if (ans%f .ne. -1) call abort
+   if (ans%f .ne. -1) stop 1
    ans = g1a(a)
-   if (ans%f .ne. -1) call abort
+   if (ans%f .ne. -1) stop 1
    b = g3(a)
    b = g3(a)
 contains
@@ -31,7 +31,7 @@ contains
          if (res(j)%f == -1) then
              res(j)%f = a%f - 1
          else
-             call abort
+             stop 1
          endif
       enddo
    end function g3
@@ -42,19 +42,19 @@ contains
          if (g2(j)%f == -1) then
              g2(j)%f = a%f - 1
          else
-             call abort
+             stop 1
          endif
       enddo
    end function g2
 
    function g1(a)
      type(f) :: g1, a
-     if (g1%f .ne. -1 ) call abort
+     if (g1%f .ne. -1 ) stop 1
    end function
 
    function g1a(a) result(res)
      type(f) :: res, a
-     if (res%f .ne. -1 ) call abort
+     if (res%f .ne. -1 ) stop 1
    end function
 end program test
 

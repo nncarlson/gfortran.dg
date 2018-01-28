@@ -17,5 +17,5 @@ program ds
    character(len = 4) :: ins = ' no!'
    character(len = 20) st, aufun 
    st = aufun(ins)
-   if (trim(st) /= 'Oh no!') call abort
+   if (trim(st) /= 'Oh no!') stop 1
 end

@@ -44,8 +44,8 @@ contains
     elsewhere
       tla2l = -1
     endwhere
-    if (any (tla2l%i .ne. tda2l%i)) call abort
-    if (any (tla2l%l .neqv. tda2l%l)) call abort
+    if (any (tla2l%i .ne. tda2l%i)) stop 1
+    if (any (tla2l%l .neqv. tda2l%l)) stop 1
   end subroutine
 end module rg0045_stuff
 

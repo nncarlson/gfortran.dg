@@ -13,18 +13,18 @@ enddo
 ! flush(25)
 
 inquire(unit=25, named=is_named, name=aname, size=i)
-if (.not.is_named) call abort
-if (aname /= "testfile_inquire_size") call abort
-if (i /= 3000) call abort
+if (.not.is_named) stop 1
+if (aname /= "testfile_inquire_size") stop 1
+if (i /= 3000) stop 1
 
 inquire(file="testfile_inquire_size", size=i)
-if (.not.is_named) call abort
-if (aname /= "testfile_inquire_size") call abort
-if (i /= 3000) call abort
+if (.not.is_named) stop 1
+if (aname /= "testfile_inquire_size") stop 1
+if (i /= 3000) stop 1
 
 close(25, status="delete")
 inquire(file="testfile_inquire_size", size=i)
-if (i /= -1)  call abort
+if (i /= -1)  stop 1
 end
 
 

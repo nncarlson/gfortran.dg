@@ -17,6 +17,6 @@ subroutine bar(ii,b)
   byte b
   if (b.ne.ii) then
 !     print *,"Failed"
-     call abort
+     stop 1
   end if
 end subroutine bar

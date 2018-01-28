@@ -82,7 +82,7 @@ program main
     type(C2) :: t2
     type(C1) :: t3
 
-    if ( t1 % test( 2. ) /= -100.) call abort()
-    if ( t2 % test( 2. ) /= 4.) call abort()
-    if ( t3 % test( 2. ) /= 4.) call abort()
+    if ( t1 % test( 2. ) /= -100.) stop 1
+    if ( t2 % test( 2. ) /= 4.) stop 1
+    if ( t3 % test( 2. ) /= 4.) stop 1
 end program

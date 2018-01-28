@@ -25,17 +25,17 @@ contains
    ! All procedures/variables below refer to the ones in module "m"
    ! and not to the siblings in this module "m2".
    use m 
-   if (fun() /= 42) call abort()
-   if (var /= 43) call abort()
+   if (fun() /= 42) stop 1
+   if (var /= 43) stop 1
    call fun2()
-   if (var /= 44) call abort()
+   if (var /= 44) stop 1
  end subroutine test
  integer function fun()
-   call abort()
+   stop 1
    fun = -3
  end function fun
  subroutine fun2()
-   call abort()
+   stop 1
  end subroutine fun2
 end module m2
 

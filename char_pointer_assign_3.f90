@@ -9,10 +9,10 @@ program test
   character (len = 5), pointer :: textp2
   textp => textt
   textp2 => textt(1:5)
-  if(len(textp)  /= 7) call abort()
-  if(len(textp2) /= 5) call abort()
+  if(len(textp)  /= 7) stop 1
+  if(len(textp2) /= 5) stop 1
   textp  = 'aaaaaaa'
   textp2 = 'bbbbbbb'
-  if(textp  /= 'bbbbbaa') call abort()
-  if(textp2 /= 'bbbbb') call abort()
+  if(textp  /= 'bbbbbaa') stop 1
+  if(textp2 /= 'bbbbb') stop 1
 end program test

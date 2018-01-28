@@ -36,6 +36,6 @@ program test_optional
   type(myobj) :: myinstance
 
   res = myinstance%myfunc()
-  if (res /= 2) call abort()
+  if (res /= 2) stop 1
 
 end program

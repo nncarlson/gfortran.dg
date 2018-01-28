@@ -14,8 +14,8 @@ PROGRAM main
   tgt = 1
   ASSOCIATE (x => tgt)
     ptr => x
-    IF (ptr /= 1) CALL abort ()
+    IF (ptr /= 1) stop 1
     ptr = 2
   END ASSOCIATE
-  IF (tgt /= 2) CALL abort ()
+  IF (tgt /= 2) stop 1
 END PROGRAM main

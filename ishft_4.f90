@@ -5,15 +5,15 @@
 
 program test
 
-  if (ishft (foo(), 2) /= 4) call abort
-  if (ishft (foo(), -1) /= 1) call abort
-  if (ishft (1, foo()) /= 8) call abort
-  if (ishft (16, -foo()) /= 1) call abort
+  if (ishft (foo(), 2) /= 4) stop 1
+  if (ishft (foo(), -1) /= 1) stop 1
+  if (ishft (1, foo()) /= 8) stop 1
+  if (ishft (16, -foo()) /= 1) stop 1
 
-  if (ishftc (bar(), 2) /= 4) call abort
-  if (ishftc (bar(), -1) /= 1) call abort
-  if (ishftc (1, bar()) /= 8) call abort
-  if (ishftc (16, -bar()) /= 1) call abort
+  if (ishftc (bar(), 2) /= 4) stop 1
+  if (ishftc (bar(), -1) /= 1) stop 1
+  if (ishftc (1, bar()) /= 8) stop 1
+  if (ishftc (16, -bar()) /= 1) stop 1
 
 contains
   

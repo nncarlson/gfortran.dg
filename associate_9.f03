@@ -38,10 +38,10 @@ PROGRAM main
   a = mynum (5)
 
   ASSOCIATE (x => add (a, a))
-    IF (x%comp /= 10) CALL abort ()
+    IF (x%comp /= 10) stop 1
   END ASSOCIATE
 
   ASSOCIATE (x => a + a)
-    IF (x%comp /= 10) CALL abort ()
+    IF (x%comp /= 10) stop 1
   END ASSOCIATE
 END PROGRAM main

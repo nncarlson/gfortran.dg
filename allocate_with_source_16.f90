@@ -62,14 +62,14 @@ endmodule m2
   c1%steps= 1
   d=> c1%construct(prev)
 
-  if (.not. associated(d) ) call abort()
+  if (.not. associated(d) ) stop 1
   select type (d)
     class is (exttype)
-      if (d%i2 /= 5) call abort()
+      if (d%i2 /= 5) stop 1
     class default
-      call abort()
+      stop 1
   end select 
-  if (d%i /= 2) call abort()
+  if (d%i /= 2) stop 1
   deallocate(c1)
   deallocate(prev)
   deallocate(d)

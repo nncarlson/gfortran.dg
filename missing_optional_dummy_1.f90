@@ -9,17 +9,17 @@
 ! This was the case that would fail - PR case was an intrinsic call.
   if (scan ("A quick brown fox jumps over the lazy dog", "lazy", back) &
       .ne. myscan ("A quick brown fox jumps over the lazy dog", "lazy")) &
-    call abort ()
+    stop 1
 
 ! Check that the patch works with non-intrinsic functions.
   if (myscan ("A quick brown fox jumps over the lazy dog", "fox", back) &
       .ne. thyscan ("A quick brown fox jumps over the lazy dog", "fox")) &
-    call abort ()
+    stop 1
 
 ! Check that missing, optional character actual arguments are OK.
   if (scan ("A quick brown fox jumps over the lazy dog", "over", back) &
       .ne. thyscan ("A quick brown fox jumps over the lazy dog")) &
-    call abort ()
+    stop 1
 
 contains
   integer function myscan (str, substr, back)

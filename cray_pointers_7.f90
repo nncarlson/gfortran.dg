@@ -21,12 +21,12 @@ program cray_pointers_7
   ! Check pointers to subroutines.
   subptr = loc(sub)
   call subpte(tmp)
-  if (tmp .ne. 17) call abort()
+  if (tmp .ne. 17) stop 1
 
   ! Check pointers to functions.
   fnptr = loc(fn)
   tmp = fnpte(7)
-  if (tmp .ne. 14) call abort()
+  if (tmp .ne. 14) stop 1
   
 end program cray_pointers_7
 

@@ -16,7 +16,7 @@ program mvall_03
   i2 = 2
   call move_alloc(i2, i1)
   if (size(i1) /= n2 .or. allocated(i2)) then
-    call abort
+    stop 1
 !   write(*,*) 'FAIL'
   else
 !    write(*,*) 'OK'
@@ -24,18 +24,18 @@ program mvall_03
 
   select type (i1)
     type is (integer)
-      if (any (i1 /= 2)) call abort
+      if (any (i1 /= 2)) stop 1
     class default
-      call abort()
+      stop 1
   end select
   call move_alloc (i1, i3)
   if (size(i3) /= n2 .or. allocated(i1)) then
-    call abort()
+    stop 1
   end if
   select type (i3)
     type is (integer)
-      if (any (i3 /= 2)) call abort
+      if (any (i3 /= 2)) stop 1
     class default
-      call abort()
+      stop 1
   end select
 end program

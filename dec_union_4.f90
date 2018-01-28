@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  call abort()
+  stop 1
 end subroutine
 
 ! Nested unions
@@ -50,14 +50,14 @@ record /s4/ r4
 ! Nested unions
 r4.rx     =     'AAAAAAAA.BBB.C.D'
 
-if ( r4.rx .ne. 'AAAAAAAA.BBB.C.D' ) call aborts ("rax")
-if ( r4.rh .ne. 'AAAAAAAA'         ) call aborts ("rah")
-if ( r4.rl .ne.         '.BBB.C.D' ) call aborts ("ral")
-if ( r4.ex .ne.         '.BBB.C.D' ) call aborts ("eax")
-if ( r4.eh .ne.         '.BBB'     ) call aborts ("eah")
-if ( r4.el .ne.             '.C.D' ) call aborts ("eal")
-if ( r4.x  .ne.             '.C.D' ) call aborts ("ax")
-if ( r4.h  .ne.             '.C'   ) call aborts ("ah")
-if ( r4.l  .ne.               '.D' ) call aborts ("al")
+if ( r4.rx .ne. 'AAAAAAAA.BBB.C.D' ) stop 1s ("rax")
+if ( r4.rh .ne. 'AAAAAAAA'         ) stop 1s ("rah")
+if ( r4.rl .ne.         '.BBB.C.D' ) stop 1s ("ral")
+if ( r4.ex .ne.         '.BBB.C.D' ) stop 1s ("eax")
+if ( r4.eh .ne.         '.BBB'     ) stop 1s ("eah")
+if ( r4.el .ne.             '.C.D' ) stop 1s ("eal")
+if ( r4.x  .ne.             '.C.D' ) stop 1s ("ax")
+if ( r4.h  .ne.             '.C'   ) stop 1s ("ah")
+if ( r4.l  .ne.               '.D' ) stop 1s ("al")
 
 end

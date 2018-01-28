@@ -7,16 +7,16 @@
   implicit none
 
 #define CHECK(I,SHIFT,RESA,RESL,RESR) \
-  if (shifta(I,SHIFT) /= RESA) call abort ; \
-  if (shiftr(I,SHIFT) /= RESR) call abort ; \
-  if (shiftl(I,SHIFT) /= RESL) call abort ; \
-  if (run_shifta(I,SHIFT) /= RESA) call abort ; \
-  if (run_shiftr(I,SHIFT) /= RESR) call abort ; \
-  if (run_shiftl(I,SHIFT) /= RESL) call abort ; \
-  if (ishft(I,SHIFT) /= RESL) call abort ; \
-  if (ishft(I,-SHIFT) /= RESR) call abort ; \
-  if (run_ishft(I,SHIFT) /= RESL) call abort ; \
-  if (run_ishft(I,-SHIFT) /= RESR) call abort
+  if (shifta(I,SHIFT) /= RESA) stop 1 ; \
+  if (shiftr(I,SHIFT) /= RESR) stop 1 ; \
+  if (shiftl(I,SHIFT) /= RESL) stop 1 ; \
+  if (run_shifta(I,SHIFT) /= RESA) stop 1 ; \
+  if (run_shiftr(I,SHIFT) /= RESR) stop 1 ; \
+  if (run_shiftl(I,SHIFT) /= RESL) stop 1 ; \
+  if (ishft(I,SHIFT) /= RESL) stop 1 ; \
+  if (ishft(I,-SHIFT) /= RESR) stop 1 ; \
+  if (run_ishft(I,SHIFT) /= RESL) stop 1 ; \
+  if (run_ishft(I,-SHIFT) /= RESR) stop 1
 
   CHECK(0_16,0,0_16,0_16,0_16)
   CHECK(11_16,0,11_16,11_16,11_16)

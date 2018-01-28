@@ -9,10 +9,10 @@ program main
   b = 'b '
   c = 'c '
   d = a // b // a // trim(c)   ! This should be optimized away.
-  if (d /= 'a b a c ') call abort
+  if (d /= 'a b a c ') stop 1
   d = a // trim(b) // c // a   ! This shouldn't.
-  if (d /= 'a bc a  ') call abort
+  if (d /= 'a bc a  ') stop 1
   d = a // b // a // trim(trim(c)) ! This should also be optimized away.
-  if (d /= 'a b a c ') call abort
+  if (d /= 'a b a c ') stop 1
 end
 ! { dg-final { scan-tree-dump-times "string_len_trim" 1 "original" } }

@@ -13,36 +13,36 @@ program main
   a = [ 1.0, 3.0, 2.0]
   write (unit=l1,fmt=*) 2_1
   write (unit=l2,fmt=*) maxloc(a,kind=1)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
   write (unit=l1,fmt=*) 2_2
   write (unit=l2,fmt=*) maxloc(a,kind=2)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
   write (unit=l1,fmt=*) 2_4
   write (unit=l2,fmt=*) maxloc(a,kind=4)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
   write (unit=l1,fmt=*) 2_8
   write (unit=l2,fmt=*) maxloc(a,kind=8)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
   a = [ 3.0, -1.0, 2.0]
 
   write (unit=l1,fmt=*) 2_1
   write (unit=l2,fmt=*) minloc(a,kind=1)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
   write (unit=l1,fmt=*) 2_2
   write (unit=l2,fmt=*) minloc(a,kind=2)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
   write (unit=l1,fmt=*) 2_4
   write (unit=l2,fmt=*) minloc(a,kind=4)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
   write (unit=l1,fmt=*) 2_8
   write (unit=l2,fmt=*) minloc(a,kind=8)
-  if (l1 /= l2) call abort
+  if (l1 /= l2) stop 1
 
 end program main

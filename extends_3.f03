@@ -37,15 +37,15 @@ end module person_education
   recruit => entry ("John Smith", 123456, 1, "Bog Hill High School", &
                     99, "Records", supervisor)
 
-  if (supervisor%ss /= 123455) call abort
-  if (trim (supervisor%name) /= "Joe Honcho") call abort
-  if (trim (supervisor%institution) /= "") call abort
-  if (supervisor%attainment /= 0) call abort
+  if (supervisor%ss /= 123455) stop 1
+  if (trim (supervisor%name) /= "Joe Honcho") stop 1
+  if (trim (supervisor%institution) /= "") stop 1
+  if (supervisor%attainment /= 0) stop 1
 
-  if (trim (recruit%name) /= "John Smith") call abort
-  if (recruit%name /= recruit%service%name) call abort
-  if (recruit%supervisor%ss /= 123455) call abort
-  if (recruit%supervisor%ss /= supervisor%person%ss) call abort
+  if (trim (recruit%name) /= "John Smith") stop 1
+  if (recruit%name /= recruit%service%name) stop 1
+  if (recruit%supervisor%ss /= 123455) stop 1
+  if (recruit%supervisor%ss /= supervisor%person%ss) stop 1
 
   deallocate (supervisor)
   deallocate (recruit)

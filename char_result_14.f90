@@ -74,26 +74,26 @@ PROGRAM WheresThatbLinkingConstantGone
   integer :: i
 
 ! Test the fix for the original bug
-  if (len (Get0(1)) .ne. 5) call abort
-  if (Get0(2) .ne. "Orange") call abort
+  if (len (Get0(1)) .ne. 5) stop 1
+  if (Get0(2) .ne. "Orange") stop 1
 
 ! Test the fix for the subsequent issues
   call fruity
-  if (trim (buffer) .ne. " 6Orange") call abort
+  if (trim (buffer) .ne. " 6Orange") stop 1
   call fruity2
-  if (trim (buffer) .ne. " 5Mango") call abort
+  if (trim (buffer) .ne. " 5Mango") stop 1
   call fruity3
-  if (trim (buffer) .ne. " 4Pear") call abort
+  if (trim (buffer) .ne. " 4Pear") stop 1
   do i = 3, 4
     call Sget (i, arg)
     if (i == 3) then
-      if (trim (buffer) .ne. " 5Mango") call abort
-      if (trim (arg) .ne. "Mango") call abort
+      if (trim (buffer) .ne. " 5Mango") stop 1
+      if (trim (arg) .ne. "Mango") stop 1
     else
-      if (trim (buffer) .ne. " 4Pear") call abort
+      if (trim (buffer) .ne. " 4Pear") stop 1
 ! Since arg is fixed length in this scope, it gets over-written
 ! by s, which in this case is length 4. Thus, the 'o' remains.
-      if (trim (arg) .ne. "Pearo") call abort
+      if (trim (arg) .ne. "Pearo") stop 1
     end if
   enddo
 contains

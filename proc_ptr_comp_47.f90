@@ -31,10 +31,10 @@ CONTAINS
     TYPE( sm_type ), DIMENSION( : ), ALLOCATABLE :: matrices_a, matrices_b
     n_push_tot =2
     ALLOCATE( matrices_a( n_push_tot + 1 ), matrices_b( n_push_tot + 1), STAT=istat )
-    if (istat /= 0) call abort()
-    if (.not. allocated(matrices_a)) call abort()
-    if (.not. allocated(matrices_b)) call abort()
-    if (associated(matrices_a(1)%dist%map_blk_to_proc)) call abort()
+    if (istat /= 0) stop 1
+    if (.not. allocated(matrices_a)) stop 1
+    if (.not. allocated(matrices_b)) stop 1
+    if (associated(matrices_a(1)%dist%map_blk_to_proc)) stop 1
   END SUBROUTINE sm_multiply_a
 END PROGRAM comp_proc_ptr_test
 

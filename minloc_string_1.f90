@@ -28,64 +28,64 @@ program main
   res1 = minloc(c)
   res2 = minloc(a)
 
-  if (any(res1 /= res2)) call abort
+  if (any(res1 /= res2)) stop 1
   res1 = minloc(c4)
-  if (any(res1 /= res2)) call abort
+  if (any(res1 /= res2)) stop 1
 
   amask = a < 50
   res1 = minloc(c,mask=amask)
   res2 = minloc(a,mask=amask)
 
- if (any(res1 /= res2)) call abort
+ if (any(res1 /= res2)) stop 1
 
  amask = .false.
  res1 = minloc(c,mask=amask)
- if (any(res1 /= 0)) call abort
+ if (any(res1 /= 0)) stop 1
 
  amask(2,3) = .true.
  res1 = minloc(c,mask=amask)
- if (any(res1 /= [2,3])) call abort
+ if (any(res1 /= [2,3])) stop 1
 
  res1 = minloc(c,mask=.false.)
- if (any(res1 /= 0)) call abort
+ if (any(res1 /= 0)) stop 1
 
  res2 = minloc(a)
  res1 = minloc(c,mask=.true.)
- if (any(res1 /= res2)) call abort
+ if (any(res1 /= res2)) stop 1
 
  q1 = minloc(c, dim=1)
  q2 = minloc(a, dim=1)
- if (any(q1 /= q2)) call abort
+ if (any(q1 /= q2)) stop 1
 
  q1 = minloc(c, dim=2)
  q2 = minloc(a, dim=2)
- if (any(q1 /= q2)) call abort
+ if (any(q1 /= q2)) stop 1
 
  q1 = minloc(c, dim=1, mask=amask)
  q2 = minloc(a, dim=1, mask=amask)
- if (any(q1 /= q2)) call abort
+ if (any(q1 /= q2)) stop 1
 
  q1 = minloc(c, dim=2, mask=amask)
  q2 = minloc(a, dim=2, mask=amask)
- if (any(q1 /= q2)) call abort
+ if (any(q1 /= q2)) stop 1
 
   amask = a < 50
 
  q1 = minloc(c, dim=1, mask=amask)
  q2 = minloc(a, dim=1, mask=amask)
- if (any(q1 /= q2)) call abort
+ if (any(q1 /= q2)) stop 1
 
  q1 = minloc(c, dim=2, mask=amask)
  q2 = minloc(a, dim=2, mask=amask)
- if (any(q1 /= q2)) call abort
+ if (any(q1 /= q2)) stop 1
 
  e = reshape(c, shape(e))
  f = reshape(a, shape(f))
- if (minloc(e,dim=1) /= minloc(f,dim=1)) call abort
+ if (minloc(e,dim=1) /= minloc(f,dim=1)) stop 1
 
  cmask = .false.
- if (minloc(e,dim=1,mask=cmask) /= 0) call abort
+ if (minloc(e,dim=1,mask=cmask) /= 0) stop 1
 
  cmask = f > 50
- if ( minloc(e, dim=1, mask=cmask) /= minloc (f, dim=1, mask=cmask)) call abort
+ if ( minloc(e, dim=1, mask=cmask) /= minloc (f, dim=1, mask=cmask)) stop 1
 end program main

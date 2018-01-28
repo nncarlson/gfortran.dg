@@ -31,21 +31,21 @@ Program test_constructor
 
     ! Check that null() works
     x = mytype(null(), null())
-    if (allocated(x%a) .or. allocated(x%q)) call abort()
+    if (allocated(x%a) .or. allocated(x%q)) stop 1
 
     ! Check that unallocated allocatables work
     x = mytype(yy, bar)
-    if (allocated(x%a) .or. allocated(x%q)) call abort()
+    if (allocated(x%a) .or. allocated(x%q)) stop 1
 
     ! Check that non-allocatables work
     x = mytype(y, [foo, foo])
-    if (.not.allocated(x%a) .or. .not.allocated(x%q)) call abort()
-    if (any(lbound(x%a) /= lbound(y))) call abort()
-    if (any(ubound(x%a) /= ubound(y))) call abort()
-    if (any(x%a /= y)) call abort()
-    if (size(x%q) /= 2) call abort()
+    if (.not.allocated(x%a) .or. .not.allocated(x%q)) stop 1
+    if (any(lbound(x%a) /= lbound(y))) stop 1
+    if (any(ubound(x%a) /= ubound(y))) stop 1
+    if (any(x%a /= y)) stop 1
+    if (size(x%q) /= 2) stop 1
     do i = 1, 2
-        if (any(x%q(i)%a /= foo%a)) call abort()
+        if (any(x%q(i)%a /= foo%a)) stop 1
     end do
 
     ! Check that allocated allocatables work
@@ -54,22 +54,22 @@ Program test_constructor
     allocate(bar(2))
     bar = [foo, foo]
     x = mytype(yy, bar)
-    if (.not.allocated(x%a) .or. .not.allocated(x%q)) call abort()
-    if (any(x%a /= y)) call abort()
-    if (size(x%q) /= 2) call abort()
+    if (.not.allocated(x%a) .or. .not.allocated(x%q)) stop 1
+    if (any(x%a /= y)) stop 1
+    if (size(x%q) /= 2) stop 1
     do i = 1, 2
-        if (any(x%q(i)%a /= foo%a)) call abort()
+        if (any(x%q(i)%a /= foo%a)) stop 1
     end do
 
     ! Functions returning arrays
     x = mytype(bluhu(), null())
-    if (.not.allocated(x%a) .or. allocated(x%q)) call abort()
-    if (any(x%a /= reshape ([41, 98, 54, 76], [2,2]))) call abort()
+    if (.not.allocated(x%a) .or. allocated(x%q)) stop 1
+    if (any(x%a /= reshape ([41, 98, 54, 76], [2,2]))) stop 1
 
     ! Functions returning allocatable arrays
     x = mytype(blaha(), null())
-    if (.not.allocated(x%a) .or. allocated(x%q)) call abort()
-    if (any(x%a /= reshape ([40, 97, 53, 75], [2,2]))) call abort()
+    if (.not.allocated(x%a) .or. allocated(x%q)) stop 1
+    if (any(x%a /= reshape ([40, 97, 53, 75], [2,2]))) stop 1
 
     ! Check that passing the constructor to a procedure works
     call check_mytype (mytype(y, [foo, foo]))
@@ -80,13 +80,13 @@ contains
         type(mytype), intent(in) :: x
         integer :: i
 
-        if (.not.allocated(x%a) .or. .not.allocated(x%q)) call abort()
-        if (any(lbound(x%a) /= lbound(y))) call abort()
-        if (any(ubound(x%a) /= ubound(y))) call abort()
-        if (any(x%a /= y)) call abort()
-        if (size(x%q) /= 2) call abort()
+        if (.not.allocated(x%a) .or. .not.allocated(x%q)) stop 1
+        if (any(lbound(x%a) /= lbound(y))) stop 1
+        if (any(ubound(x%a) /= ubound(y))) stop 1
+        if (any(x%a /= y)) stop 1
+        if (size(x%q) /= 2) stop 1
         do i = 1, 2
-            if (any(x%q(i)%a /= foo%a)) call abort()
+            if (any(x%q(i)%a /= foo%a)) stop 1
         end do
 
     end subroutine check_mytype

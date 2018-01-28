@@ -26,17 +26,17 @@ contains
   subroutine test (a)
     character (len = slen), dimension (:, :) :: a
 
-    if (size (a, 1) .ne. n1) call abort
-    if (size (a, 2) .ne. n2) call abort
+    if (size (a, 1) .ne. n1) stop 1
+    if (size (a, 2) .ne. n2) stop 1
 
     i = 0
     do i2 = 1, n2
       do i1 = 1, n1
         if (mask (i1, i2)) then
           i = i + 1
-          if (a (i1, i2) .ne. vector (i)) call abort
+          if (a (i1, i2) .ne. vector (i)) stop 1
         else
-          if (a (i1, i2) .ne. field (i1, i2)) call abort
+          if (a (i1, i2) .ne. field (i1, i2)) stop 1
         end if
       end do
     end do

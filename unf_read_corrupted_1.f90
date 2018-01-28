@@ -20,8 +20,8 @@ program main
   i1 = 0
   i2 = 0
   read (10, iostat=ios, iomsg=msg) i1, i2
-  if (ios == 0) call abort
-  if (i1 /= 1) call abort
-  if (msg /= "Unformatted file structure has been corrupted") call abort
+  if (ios == 0) stop 1
+  if (i1 /= 1) stop 1
+  if (msg /= "Unformatted file structure has been corrupted") stop 1
   close (10, status="delete")
 end program main

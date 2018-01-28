@@ -46,6 +46,6 @@ program test
   call show_real (array)
   call show_generic1 (array)
   call show_generic2 (array)
-  if (chksum0 .ne. chksum1) call abort
-  if (chksum0 .ne. chksum2) call abort
+  if (chksum0 .ne. chksum1) stop 1
+  if (chksum0 .ne. chksum2) stop 1
 end program test

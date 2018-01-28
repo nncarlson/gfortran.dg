@@ -16,7 +16,7 @@ contains
 ! The PR testcase.
 
      cmp = transfer (z, cmp) * 2.0
-     if (any (cmp .ne. (/2.0, 4.0/))) call abort ()
+     if (any (cmp .ne. (/2.0, 4.0/))) stop 1
 
    end subroutine test1
 

@@ -12,8 +12,8 @@
 
    call alloc( foo , foofoo)
 
-   if (len(foo) .ne. 42) call abort
-   if (len(foofoo) .ne. 22) call abort
+   if (len(foo) .ne. 42) stop 1
+   if (len(foofoo) .ne. 22) stop 1
 
 contains
 

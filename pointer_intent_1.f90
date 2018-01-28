@@ -25,21 +25,21 @@ program test
  allocate(t2%point)
  t2%point = 42
  call nonpointer(t2)
- if(t2%point /= 7) call abort()
+ if(t2%point /= 7) stop 1
 contains
   subroutine a(p,t)
     integer, pointer,intent(in)    :: p
     type(myT), pointer, intent(in) :: t
     integer, pointer :: tmp
     if(.not.associated(p)) return
-    if(p /= 33) call abort()
+    if(p /= 33) stop 1
     p = 7
     if (associated(t)) then
       ! allocating is valid as we don't change the status
       ! of the pointer "t", only of it's target
       t%x = -15
-      if(.not.associated(t%point)) call abort()
-      if(t%point /= 55) call abort()
+      if(.not.associated(t%point)) stop 1
+      if(t%point /= 55) stop 1
       nullify(t%point)
       allocate(tmp)
       t%point => tmp
@@ -48,14 +48,14 @@ contains
       tmp => null(tmp)
       allocate(t%point)
       t%point = 27
-      if(t%point /= 27) call abort()
-      if(t%x     /= -15) call abort()
+      if(t%point /= 27) stop 1
+      if(t%x     /= -15) stop 1
       call foo(t)
-      if(t%x     /=  32) call abort()
-      if(t%point /= -98) call abort()
+      if(t%x     /=  32) stop 1
+      if(t%point /= -98) stop 1
     end if
     call b(p)
-    if(p /= 5) call abort()
+    if(p /= 5) stop 1
   end subroutine
   subroutine b(v)
     integer, intent(out) :: v
@@ -63,15 +63,15 @@ contains
   end subroutine b
   subroutine foo(comp)
     type(myT), intent(inout) :: comp
-    if(comp%x     /= -15) call abort()
-    if(comp%point /=  27) call abort()
+    if(comp%x     /= -15) stop 1
+    if(comp%point /=  27) stop 1
     comp%x     = 32
     comp%point = -98
   end subroutine foo
   subroutine nonpointer(t)
      type(myT), intent(in) :: t
-     if(t%x     /= 5 ) call abort()
-     if(t%point /= 42) call abort()
+     if(t%x     /= 5 ) stop 1
+     if(t%point /= 42) stop 1
      t%point = 7
   end subroutine nonpointer
 end program

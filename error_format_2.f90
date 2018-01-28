@@ -9,8 +9,8 @@ subroutine s(fmt)
   integer :: i
   write (c, fmt, iostat=i) 42
  ! print *, i
-  if (i==0) call abort()
+  if (i==0) stop 1
   write (c, fmt, err=100) 42
-  call abort()
+  stop 1
 100 continue
 end subroutine

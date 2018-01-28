@@ -17,18 +17,18 @@
   call test_adjust2 (s1, s4)
 
   s4 = "\0  foo bar \xFF"
-  if (adjustl (s4) /= adjustl (4_"\0  foo bar \xFF        ")) call abort
-  if (adjustr (s4) /= adjustr (4_"\0  foo bar \xFF        ")) call abort
+  if (adjustl (s4) /= adjustl (4_"\0  foo bar \xFF        ")) stop 1
+  if (adjustr (s4) /= adjustr (4_"\0  foo bar \xFF        ")) stop 1
 
   s4 = "   \0  foo bar \xFF"
-  if (adjustl (s4) /= adjustl (4_"   \0  foo bar \xFF     ")) call abort
-  if (adjustr (s4) /= adjustr (4_"   \0  foo bar \xFF     ")) call abort
+  if (adjustl (s4) /= adjustl (4_"   \0  foo bar \xFF     ")) stop 1
+  if (adjustr (s4) /= adjustr (4_"   \0  foo bar \xFF     ")) stop 1
 
   s4 = 4_" \U12345678\xeD bar \ufd30"
   if (adjustl (s4) /= &
-      adjustl (4_" \U12345678\xeD bar \ufd30           ")) call abort
+      adjustl (4_" \U12345678\xeD bar \ufd30           ")) stop 1
   if (adjustr (s4) /= &
-      adjustr (4_" \U12345678\xeD bar \ufd30           ")) call abort
+      adjustr (4_" \U12345678\xeD bar \ufd30           ")) stop 1
 
 contains
 
@@ -40,38 +40,38 @@ contains
     character(kind=1,len=len(s4)) :: t1
     character(kind=4,len=len(s1)) :: t4
 
-    if (len(s1) /= len(s4)) call abort
-    if (len(t1) /= len(t4)) call abort
+    if (len(s1) /= len(s4)) stop 1
+    if (len(t1) /= len(t4)) stop 1
 
-    if (len_trim(s1) /= len_trim (s4)) call abort
+    if (len_trim(s1) /= len_trim (s4)) stop 1
 
     t1 = adjustl (s4)
     t4 = adjustl (s1)
-    if (t1 /= adjustl (s1)) call abort
-    if (t4 /= adjustl (s4)) call abort
-    if (len_trim (t1) /= len_trim (t4)) call abort
-    if (len_trim (adjustl (s1)) /= len_trim (t4)) call abort
-    if (len_trim (adjustl (s4)) /= len_trim (t1)) call abort
+    if (t1 /= adjustl (s1)) stop 1
+    if (t4 /= adjustl (s4)) stop 1
+    if (len_trim (t1) /= len_trim (t4)) stop 1
+    if (len_trim (adjustl (s1)) /= len_trim (t4)) stop 1
+    if (len_trim (adjustl (s4)) /= len_trim (t1)) stop 1
 
-    if (len_trim (t1) /= len (trim (t1))) call abort
-    if (len_trim (s1) /= len (trim (s1))) call abort
-    if (len_trim (t4) /= len (trim (t4))) call abort
-    if (len_trim (s4) /= len (trim (s4))) call abort
+    if (len_trim (t1) /= len (trim (t1))) stop 1
+    if (len_trim (s1) /= len (trim (s1))) stop 1
+    if (len_trim (t4) /= len (trim (t4))) stop 1
+    if (len_trim (s4) /= len (trim (s4))) stop 1
 
     t1 = adjustr (s4)
     t4 = adjustr (s1)
-    if (t1 /= adjustr (s1)) call abort
-    if (t4 /= adjustr (s4)) call abort
-    if (len_trim (t1) /= len_trim (t4)) call abort
-    if (len_trim (adjustr (s1)) /= len_trim (t4)) call abort
-    if (len_trim (adjustr (s4)) /= len_trim (t1)) call abort
-    if (len (t1) /= len_trim (t1)) call abort
-    if (len (t4) /= len_trim (t4)) call abort
+    if (t1 /= adjustr (s1)) stop 1
+    if (t4 /= adjustr (s4)) stop 1
+    if (len_trim (t1) /= len_trim (t4)) stop 1
+    if (len_trim (adjustr (s1)) /= len_trim (t4)) stop 1
+    if (len_trim (adjustr (s4)) /= len_trim (t1)) stop 1
+    if (len (t1) /= len_trim (t1)) stop 1
+    if (len (t4) /= len_trim (t4)) stop 1
 
-    if (len_trim (t1) /= len (trim (t1))) call abort
-    if (len_trim (s1) /= len (trim (s1))) call abort
-    if (len_trim (t4) /= len (trim (t4))) call abort
-    if (len_trim (s4) /= len (trim (s4))) call abort
+    if (len_trim (t1) /= len (trim (t1))) stop 1
+    if (len_trim (s1) /= len (trim (s1))) stop 1
+    if (len_trim (t4) /= len (trim (t4))) stop 1
+    if (len_trim (s4) /= len (trim (s4))) stop 1
 
   end subroutine test_adjust1
 
@@ -83,38 +83,38 @@ contains
     character(kind=1,len=len(s4)) :: t1
     character(kind=4,len=len(s1)) :: t4
 
-    if (len(s1) /= len(s4)) call abort
-    if (len(t1) /= len(t4)) call abort
+    if (len(s1) /= len(s4)) stop 1
+    if (len(t1) /= len(t4)) stop 1
 
-    if (len_trim(s1) /= len_trim (s4)) call abort
+    if (len_trim(s1) /= len_trim (s4)) stop 1
 
     t1 = adjustl (s4)
     t4 = adjustl (s1)
-    if (t1 /= adjustl (s1)) call abort
-    if (t4 /= adjustl (s4)) call abort
-    if (len_trim (t1) /= len_trim (t4)) call abort
-    if (len_trim (adjustl (s1)) /= len_trim (t4)) call abort
-    if (len_trim (adjustl (s4)) /= len_trim (t1)) call abort
+    if (t1 /= adjustl (s1)) stop 1
+    if (t4 /= adjustl (s4)) stop 1
+    if (len_trim (t1) /= len_trim (t4)) stop 1
+    if (len_trim (adjustl (s1)) /= len_trim (t4)) stop 1
+    if (len_trim (adjustl (s4)) /= len_trim (t1)) stop 1
 
-    if (len_trim (t1) /= len (trim (t1))) call abort
-    if (len_trim (s1) /= len (trim (s1))) call abort
-    if (len_trim (t4) /= len (trim (t4))) call abort
-    if (len_trim (s4) /= len (trim (s4))) call abort
+    if (len_trim (t1) /= len (trim (t1))) stop 1
+    if (len_trim (s1) /= len (trim (s1))) stop 1
+    if (len_trim (t4) /= len (trim (t4))) stop 1
+    if (len_trim (s4) /= len (trim (s4))) stop 1
 
     t1 = adjustr (s4)
     t4 = adjustr (s1)
-    if (t1 /= adjustr (s1)) call abort
-    if (t4 /= adjustr (s4)) call abort
-    if (len_trim (t1) /= len_trim (t4)) call abort
-    if (len_trim (adjustr (s1)) /= len_trim (t4)) call abort
-    if (len_trim (adjustr (s4)) /= len_trim (t1)) call abort
-    if (len (t1) /= len_trim (t1)) call abort
-    if (len (t4) /= len_trim (t4)) call abort
+    if (t1 /= adjustr (s1)) stop 1
+    if (t4 /= adjustr (s4)) stop 1
+    if (len_trim (t1) /= len_trim (t4)) stop 1
+    if (len_trim (adjustr (s1)) /= len_trim (t4)) stop 1
+    if (len_trim (adjustr (s4)) /= len_trim (t1)) stop 1
+    if (len (t1) /= len_trim (t1)) stop 1
+    if (len (t4) /= len_trim (t4)) stop 1
 
-    if (len_trim (t1) /= len (trim (t1))) call abort
-    if (len_trim (s1) /= len (trim (s1))) call abort
-    if (len_trim (t4) /= len (trim (t4))) call abort
-    if (len_trim (s4) /= len (trim (s4))) call abort
+    if (len_trim (t1) /= len (trim (t1))) stop 1
+    if (len_trim (s1) /= len (trim (s1))) stop 1
+    if (len_trim (t4) /= len (trim (t4))) stop 1
+    if (len_trim (s4) /= len (trim (s4))) stop 1
 
   end subroutine test_adjust2
 

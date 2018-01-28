@@ -7,5 +7,5 @@
       a(b) = .true.
       b = .false.
       if (a(.false.)) b = .true.
-      if (.not.b) call abort
+      if (.not.b) stop 1
       end

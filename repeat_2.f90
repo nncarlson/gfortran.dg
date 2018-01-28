@@ -7,7 +7,7 @@ subroutine foo(i, j, s, t)
   character(len=i), intent(in) :: s
   character(len=i*j), intent(in) :: t
 
-  if (repeat(s,j) /= t) call abort
+  if (repeat(s,j) /= t) stop 1
   call bar(j,s,t)
 end subroutine foo
 
@@ -17,7 +17,7 @@ subroutine bar(j, s, t)
   character(len=*), intent(in) :: s
   character(len=len(s)*j), intent(in) :: t
 
-  if (repeat(s,j) /= t) call abort
+  if (repeat(s,j) /= t) stop 1
 end subroutine bar
 
 program test
@@ -34,51 +34,51 @@ program test
   t1 = "a"
   t2 = "ab"
 
-  if (repeat(t0, 0) /= "") call abort
-  if (repeat(t1, 0) /= "") call abort
-  if (repeat(t2, 0) /= "") call abort
-  if (repeat(t0, 1) /= "") call abort
-  if (repeat(t1, 1) /= "a") call abort
-  if (repeat(t2, 1) /= "ab") call abort
-  if (repeat(t0, 2) /= "") call abort
-  if (repeat(t1, 2) /= "aa") call abort
-  if (repeat(t2, 2) /= "abab") call abort
+  if (repeat(t0, 0) /= "") stop 1
+  if (repeat(t1, 0) /= "") stop 1
+  if (repeat(t2, 0) /= "") stop 1
+  if (repeat(t0, 1) /= "") stop 1
+  if (repeat(t1, 1) /= "a") stop 1
+  if (repeat(t2, 1) /= "ab") stop 1
+  if (repeat(t0, 2) /= "") stop 1
+  if (repeat(t1, 2) /= "aa") stop 1
+  if (repeat(t2, 2) /= "abab") stop 1
 
-  if (repeat(s0, 0) /= "") call abort
-  if (repeat(s1, 0) /= "") call abort
-  if (repeat(s2, 0) /= "") call abort
-  if (repeat(s0, 1) /= "") call abort
-  if (repeat(s1, 1) /= "a") call abort
-  if (repeat(s2, 1) /= "ab") call abort
-  if (repeat(s0, 2) /= "") call abort
-  if (repeat(s1, 2) /= "aa") call abort
-  if (repeat(s2, 2) /= "abab") call abort
-
-  i = 0
-  if (repeat(t0, i) /= "") call abort
-  if (repeat(t1, i) /= "") call abort
-  if (repeat(t2, i) /= "") call abort
-  i = 1
-  if (repeat(t0, i) /= "") call abort
-  if (repeat(t1, i) /= "a") call abort
-  if (repeat(t2, i) /= "ab") call abort
-  i = 2
-  if (repeat(t0, i) /= "") call abort
-  if (repeat(t1, i) /= "aa") call abort
-  if (repeat(t2, i) /= "abab") call abort
+  if (repeat(s0, 0) /= "") stop 1
+  if (repeat(s1, 0) /= "") stop 1
+  if (repeat(s2, 0) /= "") stop 1
+  if (repeat(s0, 1) /= "") stop 1
+  if (repeat(s1, 1) /= "a") stop 1
+  if (repeat(s2, 1) /= "ab") stop 1
+  if (repeat(s0, 2) /= "") stop 1
+  if (repeat(s1, 2) /= "aa") stop 1
+  if (repeat(s2, 2) /= "abab") stop 1
 
   i = 0
-  if (repeat(s0, i) /= "") call abort
-  if (repeat(s1, i) /= "") call abort
-  if (repeat(s2, i) /= "") call abort
+  if (repeat(t0, i) /= "") stop 1
+  if (repeat(t1, i) /= "") stop 1
+  if (repeat(t2, i) /= "") stop 1
   i = 1
-  if (repeat(s0, i) /= "") call abort
-  if (repeat(s1, i) /= "a") call abort
-  if (repeat(s2, i) /= "ab") call abort
+  if (repeat(t0, i) /= "") stop 1
+  if (repeat(t1, i) /= "a") stop 1
+  if (repeat(t2, i) /= "ab") stop 1
   i = 2
-  if (repeat(s0, i) /= "") call abort
-  if (repeat(s1, i) /= "aa") call abort
-  if (repeat(s2, i) /= "abab") call abort
+  if (repeat(t0, i) /= "") stop 1
+  if (repeat(t1, i) /= "aa") stop 1
+  if (repeat(t2, i) /= "abab") stop 1
+
+  i = 0
+  if (repeat(s0, i) /= "") stop 1
+  if (repeat(s1, i) /= "") stop 1
+  if (repeat(s2, i) /= "") stop 1
+  i = 1
+  if (repeat(s0, i) /= "") stop 1
+  if (repeat(s1, i) /= "a") stop 1
+  if (repeat(s2, i) /= "ab") stop 1
+  i = 2
+  if (repeat(s0, i) /= "") stop 1
+  if (repeat(s1, i) /= "aa") stop 1
+  if (repeat(s2, i) /= "abab") stop 1
 
   call foo(0,0,"","")
   call foo(0,1,"","")

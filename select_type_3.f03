@@ -25,8 +25,8 @@
   end select
 
   print *,b%i,b%j
-  if (b%i /= -1) call abort()
-  if (b%j /= 2) call abort()
+  if (b%i /= -1) stop 1
+  if (b%j /= 2) stop 1
 
   select type (cp)
   type is (t1)
@@ -36,7 +36,7 @@
   end select
 
   print *,b%i,b%j
-  if (b%i /= 6) call abort()
-  if (b%j /= 2) call abort()
+  if (b%i /= 6) stop 1
+  if (b%j /= 2) stop 1
 
 end

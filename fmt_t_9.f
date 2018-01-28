@@ -29,13 +29,13 @@ c      write(6,fmt='(2i6)') IFLGHT,NFLCYC
 c      write(6,fmt='(20I4)') (IFLTSQ(I), I=1,NFLCYC)
 c      write(6,*) "Program is correct"
       close(29)
-      if (IFLGHT.ne.451) call abort
-      if (NFLCYC.ne.40) call abort
+      if (IFLGHT.ne.451) stop 1
+      if (NFLCYC.ne.40) stop 1
       stop
 C
  100  CONTINUE
 C      write(6,*) "End of file encountered (wrong)"
       close (29)
-      call abort
+      stop 1
       STOP
       END

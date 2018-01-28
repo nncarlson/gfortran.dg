@@ -20,122 +20,122 @@ program test
 
   ! Checking ieee_is_finite
 
-  if (.not. ieee_is_finite(huge(0._k1))) call abort
-  if (ieee_is_finite(ieee_value(0._k1, ieee_negative_inf))) call abort
+  if (.not. ieee_is_finite(huge(0._k1))) stop 1
+  if (ieee_is_finite(ieee_value(0._k1, ieee_negative_inf))) stop 1
   x1 = -42
-  if (.not. ieee_is_finite(x1)) call abort
-  if (ieee_is_finite(sqrt(x1))) call abort
+  if (.not. ieee_is_finite(x1)) stop 1
+  if (ieee_is_finite(sqrt(x1))) stop 1
 
-  if (.not. ieee_is_finite(huge(0._k2))) call abort
-  if (ieee_is_finite(ieee_value(0._k2, ieee_negative_inf))) call abort
+  if (.not. ieee_is_finite(huge(0._k2))) stop 1
+  if (ieee_is_finite(ieee_value(0._k2, ieee_negative_inf))) stop 1
   x2 = -42
-  if (.not. ieee_is_finite(x2)) call abort
-  if (ieee_is_finite(sqrt(x2))) call abort
+  if (.not. ieee_is_finite(x2)) stop 1
+  if (ieee_is_finite(sqrt(x2))) stop 1
 
   ! Other ieee_is intrinsics
 
-  if (ieee_is_nan(huge(0._k1))) call abort
-  if (.not. ieee_is_negative(-huge(0._k1))) call abort
-  if (.not. ieee_is_normal(-huge(0._k1))) call abort
+  if (ieee_is_nan(huge(0._k1))) stop 1
+  if (.not. ieee_is_negative(-huge(0._k1))) stop 1
+  if (.not. ieee_is_normal(-huge(0._k1))) stop 1
 
-  if (ieee_is_nan(huge(0._k2))) call abort
-  if (.not. ieee_is_negative(-huge(0._k2))) call abort
-  if (.not. ieee_is_normal(-huge(0._k2))) call abort
+  if (ieee_is_nan(huge(0._k2))) stop 1
+  if (.not. ieee_is_negative(-huge(0._k2))) stop 1
+  if (.not. ieee_is_normal(-huge(0._k2))) stop 1
 
   ! ieee_support intrinsics
 
-  if (.not. ieee_support_datatype(x1)) call abort
-  if (.not. ieee_support_denormal(x1)) call abort
-  if (.not. ieee_support_divide(x1)) call abort
-  if (.not. ieee_support_inf(x1)) call abort
-  if (.not. ieee_support_io(x1)) call abort
-  if (.not. ieee_support_nan(x1)) call abort
-  if (.not. ieee_support_rounding(ieee_nearest, x1)) call abort
-  if (.not. ieee_support_sqrt(x1)) call abort
-  if (.not. ieee_support_standard(x1)) call abort
+  if (.not. ieee_support_datatype(x1)) stop 1
+  if (.not. ieee_support_denormal(x1)) stop 1
+  if (.not. ieee_support_divide(x1)) stop 1
+  if (.not. ieee_support_inf(x1)) stop 1
+  if (.not. ieee_support_io(x1)) stop 1
+  if (.not. ieee_support_nan(x1)) stop 1
+  if (.not. ieee_support_rounding(ieee_nearest, x1)) stop 1
+  if (.not. ieee_support_sqrt(x1)) stop 1
+  if (.not. ieee_support_standard(x1)) stop 1
 
   l = ieee_support_underflow_control(x1)
 
-  if (.not. ieee_support_datatype(x2)) call abort
-  if (.not. ieee_support_denormal(x2)) call abort
-  if (.not. ieee_support_divide(x2)) call abort
-  if (.not. ieee_support_inf(x2)) call abort
-  if (.not. ieee_support_io(x2)) call abort
-  if (.not. ieee_support_nan(x2)) call abort
-  if (.not. ieee_support_rounding(ieee_nearest, x2)) call abort
-  if (.not. ieee_support_sqrt(x2)) call abort
-  if (.not. ieee_support_standard(x2)) call abort
+  if (.not. ieee_support_datatype(x2)) stop 1
+  if (.not. ieee_support_denormal(x2)) stop 1
+  if (.not. ieee_support_divide(x2)) stop 1
+  if (.not. ieee_support_inf(x2)) stop 1
+  if (.not. ieee_support_io(x2)) stop 1
+  if (.not. ieee_support_nan(x2)) stop 1
+  if (.not. ieee_support_rounding(ieee_nearest, x2)) stop 1
+  if (.not. ieee_support_sqrt(x2)) stop 1
+  if (.not. ieee_support_standard(x2)) stop 1
 
   l = ieee_support_underflow_control(x2)
 
   ! ieee_value and ieee_class
 
-  if (.not. ieee_is_nan(ieee_value(x1, ieee_quiet_nan))) call abort
+  if (.not. ieee_is_nan(ieee_value(x1, ieee_quiet_nan))) stop 1
   if (ieee_class(ieee_value(x1, ieee_positive_denormal)) &
-    /= ieee_positive_denormal) call abort
+    /= ieee_positive_denormal) stop 1
 
-  if (.not. ieee_is_nan(ieee_value(x2, ieee_quiet_nan))) call abort
+  if (.not. ieee_is_nan(ieee_value(x2, ieee_quiet_nan))) stop 1
   if (ieee_class(ieee_value(x2, ieee_positive_denormal)) &
-    /= ieee_positive_denormal) call abort
+    /= ieee_positive_denormal) stop 1
 
   ! ieee_unordered
 
-  if (.not. ieee_unordered(ieee_value(x1, ieee_quiet_nan), 0._k1)) call abort
-  if (ieee_unordered(ieee_value(x1, ieee_negative_inf), 0._k1)) call abort
+  if (.not. ieee_unordered(ieee_value(x1, ieee_quiet_nan), 0._k1)) stop 1
+  if (ieee_unordered(ieee_value(x1, ieee_negative_inf), 0._k1)) stop 1
 
-  if (.not. ieee_unordered(ieee_value(x2, ieee_quiet_nan), 0._k2)) call abort
-  if (ieee_unordered(ieee_value(x2, ieee_negative_inf), 0._k2)) call abort
+  if (.not. ieee_unordered(ieee_value(x2, ieee_quiet_nan), 0._k2)) stop 1
+  if (ieee_unordered(ieee_value(x2, ieee_negative_inf), 0._k2)) stop 1
 
   ! ieee_copy_sign
 
   if (.not. ieee_class(ieee_copy_sign(ieee_value(x1, ieee_positive_inf), -1.)) &
-            == ieee_negative_inf) call abort
+            == ieee_negative_inf) stop 1
   if (.not. ieee_class(ieee_copy_sign(0._k1, -42._k2)) &
-            == ieee_negative_zero) call abort
+            == ieee_negative_zero) stop 1
 
   if (.not. ieee_class(ieee_copy_sign(ieee_value(x2, ieee_positive_inf), -1.)) &
-            == ieee_negative_inf) call abort
+            == ieee_negative_inf) stop 1
   if (.not. ieee_class(ieee_copy_sign(0._k2, -42._k1)) &
-            == ieee_negative_zero) call abort
+            == ieee_negative_zero) stop 1
 
   ! ieee_logb
 
-  if (ieee_logb (42._k1) /= exponent(42._k1) - 1) call abort
+  if (ieee_logb (42._k1) /= exponent(42._k1) - 1) stop 1
 
-  if (ieee_logb (42._k2) /= exponent(42._k2) - 1) call abort
+  if (ieee_logb (42._k2) /= exponent(42._k2) - 1) stop 1
 
   ! ieee_next_after
 
   if (ieee_next_after(42._k1, ieee_value(x1, ieee_positive_inf)) &
-      /= 42._k1 + spacing(42._k1)) call abort
+      /= 42._k1 + spacing(42._k1)) stop 1
 
   if (ieee_next_after(42._k2, ieee_value(x2, ieee_positive_inf)) &
-      /= 42._k2 + spacing(42._k2)) call abort
+      /= 42._k2 + spacing(42._k2)) stop 1
 
   ! ieee_rem
 
   if (ieee_class(ieee_rem(-42._k1, 2._k1)) /= ieee_negative_zero) &
-    call abort
+    stop 1
 
   if (ieee_class(ieee_rem(-42._k2, 2._k2)) /= ieee_negative_zero) &
-    call abort
+    stop 1
 
   ! ieee_rint
 
-  if (ieee_rint(-1.1_k1) /= -1._k1) call abort
-  if (ieee_rint(huge(x1)) /= huge(x1)) call abort
+  if (ieee_rint(-1.1_k1) /= -1._k1) stop 1
+  if (ieee_rint(huge(x1)) /= huge(x1)) stop 1
 
-  if (ieee_rint(-1.1_k2) /= -1._k2) call abort
-  if (ieee_rint(huge(x2)) /= huge(x2)) call abort
+  if (ieee_rint(-1.1_k2) /= -1._k2) stop 1
+  if (ieee_rint(huge(x2)) /= huge(x2)) stop 1
 
   ! ieee_scalb
 
   x1 = sqrt(42._k1)
-  if (ieee_scalb(x1, 2) /= 4._k1 * x1) call abort
-  if (ieee_scalb(x1, -2) /= x1 / 4._k1) call abort
+  if (ieee_scalb(x1, 2) /= 4._k1 * x1) stop 1
+  if (ieee_scalb(x1, -2) /= x1 / 4._k1) stop 1
 
   x2 = sqrt(42._k2)
-  if (ieee_scalb(x2, 2) /= 4._k2 * x2) call abort
-  if (ieee_scalb(x2, -2) /= x2 / 4._k2) call abort
+  if (ieee_scalb(x2, 2) /= 4._k2 * x2) stop 1
+  if (ieee_scalb(x2, -2) /= x2 / 4._k2) stop 1
 
 end program test

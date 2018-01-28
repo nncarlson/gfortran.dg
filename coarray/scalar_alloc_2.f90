@@ -17,13 +17,13 @@ p%x = 11
 p%y = 13
 p%z = 15
 
-if (a /= 7) call abort()
+if (a /= 7) stop 1
 a = 88
-if (a /= 88) call abort()
+if (a /= 88) stop 1
 
-if (p%x /= 11) call abort()
+if (p%x /= 11) stop 1
 p%x = 17
-if (p%x /= 17) call abort()
+if (p%x /= 17) stop 1
 
  block
    integer, allocatable :: b[:]
@@ -31,10 +31,10 @@ if (p%x /= 17) call abort()
    allocate(b[*])
    b = 8494
    
-   if (b /= 8494) call abort()
+   if (b /= 8494) stop 1
  end block
 
-if (a /= 88) call abort()
+if (a /= 88) stop 1
 call test ()
 end
 
@@ -54,7 +54,7 @@ subroutine test()
   v%y = 23
   v%z = 25
 
-  if (z /= sqrt(2.0)) call abort()
-  if (v%x /= 21) call abort()
+  if (z /= sqrt(2.0)) stop 1
+  if (v%x /= 21) stop 1
 
 end subroutine test

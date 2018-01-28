@@ -48,11 +48,11 @@ contains
         do i1 = 1, n1
           i2p = i2 + shift1 (i1, i3)
           if (i2p .le. n2) then
-            if (b (i1, i2, i3) .ne. a (i1, i2p, i3)) call abort
+            if (b (i1, i2, i3) .ne. a (i1, i2p, i3)) stop 1
           else if (has_filler) then
-            if (b (i1, i2, i3) .ne. filler (i1, i3)) call abort
+            if (b (i1, i2, i3) .ne. filler (i1, i3)) stop 1
           else
-            if (b (i1, i2, i3) .ne. '') call abort
+            if (b (i1, i2, i3) .ne. '') stop 1
           end if
         end do
       end do

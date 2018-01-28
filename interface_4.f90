@@ -39,7 +39,7 @@ program main
   USE f77_blas_generic
   character(6) :: chr
   call bl_copy(1, chr)
-  if (chr /= "sdcopy") call abort ()
+  if (chr /= "sdcopy") stop 1
   call bl_copy(1.0, chr)
-  if (chr /= "recopy") call abort ()  
+  if (chr /= "recopy") stop 1  
 end program main

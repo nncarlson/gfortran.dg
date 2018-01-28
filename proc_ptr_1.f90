@@ -39,33 +39,33 @@ program procPtrTest
   EXTERNAL :: foo1,foo2
   real :: foo2
 
-  if(ASSOCIATED(ptr3)) call abort()
+  if(ASSOCIATED(ptr3)) stop 1
 
   NULLIFY(ptr1)
-  if (ASSOCIATED(ptr1)) call abort()
+  if (ASSOCIATED(ptr1)) stop 1
   ptr1 => proc1
-  if (.not. ASSOCIATED(ptr1)) call abort()
+  if (.not. ASSOCIATED(ptr1)) stop 1
   call ptr1 (str)
-  if (str .ne. "proc1") call abort ()
+  if (str .ne. "proc1") stop 1
 
   ptr2 => NULL()
-  if (ASSOCIATED(ptr2)) call abort()
+  if (ASSOCIATED(ptr2)) stop 1
   ptr2 => proc2
-  if (.not. ASSOCIATED(ptr2,proc2)) call abort()
-  if (10*ptr2 (10) .ne. 1000) call abort ()
+  if (.not. ASSOCIATED(ptr2,proc2)) stop 1
+  if (10*ptr2 (10) .ne. 1000) stop 1
 
   ptr3 => NULL (ptr3)
-  if (ASSOCIATED(ptr3)) call abort()
+  if (ASSOCIATED(ptr3)) stop 1
   ptr3 => proc3
-  if (ptr3 (1.0, 2.0) .ne. (1.0, 2.0)) call abort ()
+  if (ptr3 (1.0, 2.0) .ne. (1.0, 2.0)) stop 1
 
   ptr4 => cos
-  if (ptr4(0.0)/=1.0) call abort()
+  if (ptr4(0.0)/=1.0) stop 1
 
   ptr5 => foo1
   call ptr5()
 
   ptr6 => foo2
-  if (ptr6()/=6.3) call abort()
+  if (ptr6()/=6.3) stop 1
 
 end program 

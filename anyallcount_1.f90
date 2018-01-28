@@ -16,56 +16,56 @@ program main
    m8 = a > 0
 
    write (unit=res,fmt=f) any(m1,dim=1)
-   if (res /= 'FTT') call abort
+   if (res /= 'FTT') stop 1
    write (unit=res,fmt=f) any(m2,dim=1)
-   if (res /= 'FTT') call abort
+   if (res /= 'FTT') stop 1
    write (unit=res,fmt=f) any(m4,dim=1)
-   if (res /= 'FTT') call abort
+   if (res /= 'FTT') stop 1
    write (unit=res,fmt=f) any(m8,dim=1)
-   if (res /= 'FTT') call abort
+   if (res /= 'FTT') stop 1
    write (unit=res,fmt=f) any(m1,dim=2)
-   if (res /= 'TTT') call abort
+   if (res /= 'TTT') stop 1
    write (unit=res,fmt=f) any(m2,dim=2)
-   if (res /= 'TTT') call abort
+   if (res /= 'TTT') stop 1
    write (unit=res,fmt=f) any(m4,dim=2)
-   if (res /= 'TTT') call abort
+   if (res /= 'TTT') stop 1
    write (unit=res,fmt=f) any(m8,dim=2)
-   if (res /= 'TTT') call abort
+   if (res /= 'TTT') stop 1
 
    write (unit=res,fmt=f) all(m1,dim=1)
-   if (res /= 'FFT') call abort
+   if (res /= 'FFT') stop 1
    write (unit=res,fmt=f) all(m2,dim=1)
-   if (res /= 'FFT') call abort
+   if (res /= 'FFT') stop 1
    write (unit=res,fmt=f) all(m4,dim=1)
-   if (res /= 'FFT') call abort
+   if (res /= 'FFT') stop 1
    write (unit=res,fmt=f) all(m8,dim=1)
-   if (res /= 'FFT') call abort
+   if (res /= 'FFT') stop 1
 
    write (unit=res,fmt=f) all(m1,dim=2)
-   if (res /= 'FFF') call abort
+   if (res /= 'FFF') stop 1
    write (unit=res,fmt=f) all(m2,dim=2)
-   if (res /= 'FFF') call abort
+   if (res /= 'FFF') stop 1
    write (unit=res,fmt=f) all(m4,dim=2)
-   if (res /= 'FFF') call abort
+   if (res /= 'FFF') stop 1
    write (unit=res,fmt=f) all(m8,dim=2)
-   if (res /= 'FFF') call abort
+   if (res /= 'FFF') stop 1
 
    write (unit=res,fmt=g) count(m1,dim=1)
-   if (res /= '023') call abort
+   if (res /= '023') stop 1
    write (unit=res,fmt=g) count(m2,dim=1)
-   if (res /= '023') call abort
+   if (res /= '023') stop 1
    write (unit=res,fmt=g) count(m4,dim=1)
-   if (res /= '023') call abort
+   if (res /= '023') stop 1
    write (unit=res,fmt=g) count(m8,dim=1)
-   if (res /= '023') call abort
+   if (res /= '023') stop 1
 
    write (unit=res,fmt=g) count(m1,dim=2)
-   if (res /= '221') call abort
+   if (res /= '221') stop 1
    write (unit=res,fmt=g) count(m2,dim=2)
-   if (res /= '221') call abort
+   if (res /= '221') stop 1
    write (unit=res,fmt=g) count(m4,dim=2)
-   if (res /= '221') call abort
+   if (res /= '221') stop 1
    write (unit=res,fmt=g) count(m8,dim=2)
-   if (res /= '221') call abort
+   if (res /= '221') stop 1
 
 end program main

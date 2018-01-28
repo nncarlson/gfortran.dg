@@ -11,9 +11,9 @@ program main
   character(len=10) :: line
   a%x = 'a'
   write(unit=line,fmt='(A,A)') trim(a%x),"X"
-  if (line /= 'aX        ') call abort
+  if (line /= 'aX        ') stop 1
   b = 'ab'
   write (unit=line,fmt='(A,A)') trim(b),"Y"
-  if (line /= 'abY       ') call abort
+  if (line /= 'abY       ') stop 1
 end program main
 ! { dg-final { scan-tree-dump-times "string_len_trim" 2 "original" } }

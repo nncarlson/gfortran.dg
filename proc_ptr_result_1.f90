@@ -31,47 +31,47 @@ procedure(integer),pointer :: p,p2
 procedure(sub),pointer :: ps
 
 p => a()
-if (p(-1)/=1) call abort()
+if (p(-1)/=1) stop 1
 p => b()
-if (p(-2)/=2) call abort()
+if (p(-2)/=2) stop 1
 p => c()
-if (p(-3)/=3) call abort()
+if (p(-3)/=3) stop 1
 
 ps => d()
 x = 4
 call ps(x)
-if (x/=16) call abort()
+if (x/=16) stop 1
 
 p => dd()
-if (p(-4)/=4) call abort()
+if (p(-4)/=4) stop 1
 
 ps => e(sub)
 x = 5
 call ps(x)
-if (x/=25) call abort()
+if (x/=25) stop 1
 
 p => ee()
-if (p(-5)/=5) call abort()
+if (p(-5)/=5) stop 1
 p => f()
-if (p(-6)/=6) call abort()
+if (p(-6)/=6) stop 1
 p => g()
-if (p(-7)/=7) call abort()
+if (p(-7)/=7) stop 1
 
 ps => h(sub)
 x = 2
 call ps(x)
-if (x/=4) call abort()
+if (x/=4) stop 1
 
 p => i()
-if (p(-8)/=8) call abort()
+if (p(-8)/=8) stop 1
 p => j()
-if (p(-9)/=9) call abort()
+if (p(-9)/=9) stop 1
 
 p => k(p2)
-if (p(-10)/=p2(-10)) call abort()
+if (p(-10)/=p2(-10)) stop 1
 
 p => l()
-if (p(-11)/=11) call abort()
+if (p(-11)/=11) stop 1
 
 contains
 
@@ -180,7 +180,7 @@ contains
     procedure(interf_iabs),pointer :: l
     integer :: i
     l => iabs
-    if (l(-11)/=11) call abort()
+    if (l(-11)/=11) stop 1
   end function 
 
 end

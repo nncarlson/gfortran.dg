@@ -29,14 +29,14 @@ program test
   integer, target :: tgt
 
   call sub(file, noreinit)
-  if(c_associated(file%gsl_file)) call abort()
-  if(c_associated(file%gsl_func)) call abort()
+  if(c_associated(file%gsl_file)) stop 1
+  if(c_associated(file%gsl_func)) stop 1
 
   file%gsl_file = c_loc(tgt)
   file%gsl_func = c_funloc(proc)
   call sub(file, noreinit)
-  if(c_associated(file%gsl_file)) call abort()
-  if(c_associated(file%gsl_func)) call abort()
+  if(c_associated(file%gsl_file)) stop 1
+  if(c_associated(file%gsl_func)) stop 1
 end program test
 
 ! { dg-final { scan-tree-dump-times "c_funptr.\[0-9\]+ = 0B;" 1 "original" } }

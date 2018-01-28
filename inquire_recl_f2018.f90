@@ -7,7 +7,7 @@ program inqrecl
   ! F2018 (N2137) 12.10.2.26: recl for unconnected should be -1
   inquire(10, recl=r)
   if (r /= -1) then
-     call abort()
+     stop 1
   end if
   
   ! Formatted sequential
@@ -16,10 +16,10 @@ program inqrecl
   inquire(10, recl=r4)
   close(10)
   if (r /= huge(0_8) - huge(0_4) - 1) then
-     call abort()
+     stop 1
   end if
   if (r4 /= huge(0)) then
-     call abort()
+     stop 1
   end if
 
   ! Formatted sequential with recl= specifier
@@ -27,7 +27,7 @@ program inqrecl
   inquire(10, recl=r)
   close(10)
   if (r /= 100) then
-     call abort()
+     stop 1
   end if
 
   ! Formatted stream
@@ -37,6 +37,6 @@ program inqrecl
   inquire(10, recl=r)
   close(10)
   if (r /= -2) then
-     call abort()
+     stop 1
   end if
 end program inqrecl

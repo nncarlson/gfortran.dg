@@ -20,16 +20,16 @@ program boz
    integer(2), parameter :: z2 = z'00ab'
    integer(4), parameter :: z4 = z'0000dead'
 
-   if (b1 /= 15_1) call abort
-   if (b2 /= 28912_2) call abort
-   if (b4 /= 1894838512_4) call abort
+   if (b1 /= 15_1) stop 1
+   if (b2 /= 28912_2) stop 1
+   if (b4 /= 1894838512_4) stop 1
 
-   if (o1 /= 10_1) call abort
-   if (o2 /= 2257_2) call abort
-   if (o4 /= 9245173_4) call abort
+   if (o1 /= 10_1) stop 1
+   if (o2 /= 2257_2) stop 1
+   if (o4 /= 9245173_4) stop 1
 
-   if (z1 /= 10_1) call abort
-   if (z2 /= 171_2) call abort
-   if (z4 /= 57005_4) call abort
+   if (z1 /= 10_1) stop 1
+   if (z2 /= 171_2) stop 1
+   if (z4 /= 57005_4) stop 1
 
 end program boz

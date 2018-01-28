@@ -25,5 +25,5 @@ end module m
 use m
 real :: res(1)
 res = matmul (one(2.0), (/ 2.0/))
-if (abs (res(1)-4.0) > epsilon (res)) call abort ()
+if (abs (res(1)-4.0) > epsilon (res)) stop 1
 end

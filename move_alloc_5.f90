@@ -18,7 +18,7 @@ program testmv1
   allocate (sm2)
   call move_alloc (sm2,sm)
 
-  if (allocated(sm2)) call abort()
-  if (.not. allocated(sm)) call abort()
+  if (allocated(sm2)) stop 1
+  if (.not. allocated(sm)) stop 1
 
 end program 

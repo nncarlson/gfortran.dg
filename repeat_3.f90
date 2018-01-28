@@ -18,12 +18,12 @@ program test
   r = nearest(r,r)
 
   s2 = repeat(s1,i1)
-  if (s2 /= s1) call abort
+  if (s2 /= s1) stop 1
   s2 = repeat(s1,i2)
-  if (s2 /= s1) call abort
+  if (s2 /= s1) stop 1
   s2 = repeat(s1,i4)
-  if (s2 /= s1) call abort
+  if (s2 /= s1) stop 1
   s2 = repeat(s1,i8)
-  if (s2 /= s1) call abort
+  if (s2 /= s1) stop 1
 
 end program test

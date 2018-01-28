@@ -23,6 +23,6 @@ END MODULE m
   character(:), allocatable :: str
   integer :: i = 999
   str = .ToString. i
-  if (str .ne. "  999") call abort
+  if (str .ne. "  999") stop 1
 end
 

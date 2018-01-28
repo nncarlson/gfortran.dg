@@ -22,7 +22,7 @@ CONTAINS
       if (any (values .ne. [1,2])) print *, values(2)
     else
       values => d(:)%tag
-      if (any (values .ne. [101,102])) call abort
+      if (any (values .ne. [101,102])) stop 1
     end if
   END SUBROUTINE
 
@@ -33,10 +33,10 @@ CONTAINS
     allocate (d, source = [my_type(1,101), my_type(2,102)])
     if (switch .eq. 1) then
       values => d(:)%value
-      if (any (values .ne. [1,2])) call abort
+      if (any (values .ne. [1,2])) stop 1
     else
       values => d(:)%tag
-      if (any (values([2,1]) .ne. [102,101])) call abort
+      if (any (values([2,1]) .ne. [102,101])) stop 1
     end if
   END function
 END MODULE
@@ -49,12 +49,12 @@ END MODULE
   type(your_type) :: y
 
   call get_values (x, 1)
-  if (any (x .ne. [1,2])) call abort
+  if (any (x .ne. [1,2])) stop 1
   call get_values (y%x, 2)
-  if (any (y%x .ne. [101,102])) call abort
+  if (any (y%x .ne. [101,102])) stop 1
 
   x => return_values (2)
-  if (any (x .ne. [101,102])) call abort
+  if (any (x .ne. [101,102])) stop 1
   y%x => return_values (1)
-  if (any (y%x .ne. [1,2])) call abort
+  if (any (y%x .ne. [1,2])) stop 1
 end

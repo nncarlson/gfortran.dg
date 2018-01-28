@@ -15,8 +15,8 @@ PROGRAM readUstream
   WRITE(11) 7
   READ(11, POS=3) string
   READ(11, POS=12) n
-  if (string.ne."rst") call abort()
-  if (n.ne.7) call abort()
+  if (string.ne."rst") stop 1
+  if (n.ne.7) stop 1
   close(unit=11, status="delete")
 END PROGRAM readUstream
 

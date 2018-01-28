@@ -16,24 +16,24 @@ program test_caf_alloc
 
   allocate (xx[*])
 
-  if (allocated(xx%i)) call abort()
-  if (allocated(xx[1]%i)) call abort()
-  if (allocated(xx[1]%r)) call abort()
+  if (allocated(xx%i)) stop 1
+  if (allocated(xx[1]%i)) stop 1
+  if (allocated(xx[1]%r)) stop 1
   allocate(xx%i)
-  if (.not. allocated(xx[1]%i)) call abort()
-  if (allocated(xx[1]%r)) call abort()
+  if (.not. allocated(xx[1]%i)) stop 1
+  if (allocated(xx[1]%r)) stop 1
   
   allocate(xx%r(5))
-  if (.not. allocated(xx[1]%i)) call abort()
-  if (.not. allocated(xx[1]%r)) call abort()
+  if (.not. allocated(xx[1]%i)) stop 1
+  if (.not. allocated(xx[1]%r)) stop 1
   
   deallocate(xx%i)
-  if (allocated(xx[1]%i)) call abort()
-  if (.not. allocated(xx[1]%r)) call abort()
+  if (allocated(xx[1]%i)) stop 1
+  if (.not. allocated(xx[1]%r)) stop 1
 
   deallocate(xx%r)
-  if (allocated(xx[1]%i)) call abort()
-  if (allocated(xx[1]%r)) call abort()
+  if (allocated(xx[1]%i)) stop 1
+  if (allocated(xx[1]%r)) stop 1
 
   deallocate(xx)
 end

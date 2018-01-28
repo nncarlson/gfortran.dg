@@ -43,9 +43,9 @@ contains
 
     j = 1
     do i = l, u, step
-      if (a (j) .ne. i) call abort
+      if (a (j) .ne. i) stop 1
       j = j + 1
     end do
-    if (size (a, 1) .ne. j - 1) call abort
+    if (size (a, 1) .ne. j - 1) stop 1
   end subroutine test
 end program main

@@ -20,10 +20,10 @@ read(99,nml=nam)
 close(99)
 
 if (b01234567890123456789012345678901234567890123456789012345678901(1).ne.&
-    " AAP NOOT MIES WIM ZUS JET                   ") call abort
+    " AAP NOOT MIES WIM ZUS JET                   ") stop 1
 if (b01234567890123456789012345678901234567890123456789012345678901(2).ne.&
-    "SURF.PRESSURE                                ") call abort
+    "SURF.PRESSURE                                ") stop 1
 if (b01234567890123456789012345678901234567890123456789012345678901(3).ne.&
-    "APEKOOL                                      ") call abort
+    "APEKOOL                                      ") stop 1
 end program test
 

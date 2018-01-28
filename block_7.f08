@@ -13,7 +13,7 @@ RECURSIVE SUBROUTINE myproc (i)
       INTEGER :: x
       x = i
       IF (i > 0) CALL myproc (i - 1)
-      IF (x /= i) CALL abort ()
+      IF (x /= i) stop 1
     END BLOCK
     EXIT
   END DO

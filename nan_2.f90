@@ -40,68 +40,68 @@ program test
   real, parameter :: nan = 0.0/0.0, large = huge(large), inf = 1.0/0.0
 
   if (nan == nan .or. nan > nan .or. nan < nan .or. nan >= nan &
-      .or. nan <= nan) call abort
+      .or. nan <= nan) stop 1
   if (isnan (2.d0) .or. (.not. isnan(nan)) .or. &
-      (.not. isnan(real(nan,kind=kind(2.d0))))) call abort
+      (.not. isnan(real(nan,kind=kind(2.d0))))) stop 1
 
   ! Create an INF and check it
-  if (isinf(nan) .or. isinf(large) .or. .not. isinf(inf)) call abort
-  if (isinf(-nan) .or. isinf(-large) .or. .not. isinf(-inf)) call abort
+  if (isinf(nan) .or. isinf(large) .or. .not. isinf(inf)) stop 1
+  if (isinf(-nan) .or. isinf(-large) .or. .not. isinf(-inf)) stop 1
 
   ! Check that MIN and MAX behave correctly
-  if (max(2.0, nan) /= 2.0) call abort
-  if (min(2.0, nan) /= 2.0) call abort
-  if (max(nan, 2.0) /= 2.0) call abort
-  if (min(nan, 2.0) /= 2.0) call abort
+  if (max(2.0, nan) /= 2.0) stop 1
+  if (min(2.0, nan) /= 2.0) stop 1
+  if (max(nan, 2.0) /= 2.0) stop 1
+  if (min(nan, 2.0) /= 2.0) stop 1
 
-  if (max(2.d0, nan) /= 2.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (min(2.d0, nan) /= 2.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (max(nan, 2.d0) /= 2.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (min(nan, 2.d0) /= 2.d0) call abort ! { dg-warning "Extension: Different type kinds" }
+  if (max(2.d0, nan) /= 2.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (min(2.d0, nan) /= 2.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (max(nan, 2.d0) /= 2.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (min(nan, 2.d0) /= 2.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
 
-  if (.not. isnan(min(nan,nan))) call abort
-  if (.not. isnan(max(nan,nan))) call abort
+  if (.not. isnan(min(nan,nan))) stop 1
+  if (.not. isnan(max(nan,nan))) stop 1
 
   ! Same thing, with more arguments
 
-  if (max(3.0, 2.0, nan) /= 3.0) call abort
-  if (min(3.0, 2.0, nan) /= 2.0) call abort
-  if (max(3.0, nan, 2.0) /= 3.0) call abort
-  if (min(3.0, nan, 2.0) /= 2.0) call abort
-  if (max(nan, 3.0, 2.0) /= 3.0) call abort
-  if (min(nan, 3.0, 2.0) /= 2.0) call abort
+  if (max(3.0, 2.0, nan) /= 3.0) stop 1
+  if (min(3.0, 2.0, nan) /= 2.0) stop 1
+  if (max(3.0, nan, 2.0) /= 3.0) stop 1
+  if (min(3.0, nan, 2.0) /= 2.0) stop 1
+  if (max(nan, 3.0, 2.0) /= 3.0) stop 1
+  if (min(nan, 3.0, 2.0) /= 2.0) stop 1
 
-  if (max(3.d0, 2.d0, nan) /= 3.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (min(3.d0, 2.d0, nan) /= 2.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (max(3.d0, nan, 2.d0) /= 3.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (min(3.d0, nan, 2.d0) /= 2.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (max(nan, 3.d0, 2.d0) /= 3.d0) call abort ! { dg-warning "Extension: Different type kinds" }
-  if (min(nan, 3.d0, 2.d0) /= 2.d0) call abort ! { dg-warning "Extension: Different type kinds" }
+  if (max(3.d0, 2.d0, nan) /= 3.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (min(3.d0, 2.d0, nan) /= 2.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (max(3.d0, nan, 2.d0) /= 3.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (min(3.d0, nan, 2.d0) /= 2.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (max(nan, 3.d0, 2.d0) /= 3.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
+  if (min(nan, 3.d0, 2.d0) /= 2.d0) stop 1 ! { dg-warning "Extension: Different type kinds" }
 
-  if (.not. isnan(min(nan,nan,nan))) call abort
-  if (.not. isnan(max(nan,nan,nan))) call abort
-  if (.not. isnan(min(nan,nan,nan,nan))) call abort
-  if (.not. isnan(max(nan,nan,nan,nan))) call abort
-  if (.not. isnan(min(nan,nan,nan,nan,nan))) call abort
-  if (.not. isnan(max(nan,nan,nan,nan,nan))) call abort
+  if (.not. isnan(min(nan,nan,nan))) stop 1
+  if (.not. isnan(max(nan,nan,nan))) stop 1
+  if (.not. isnan(min(nan,nan,nan,nan))) stop 1
+  if (.not. isnan(max(nan,nan,nan,nan))) stop 1
+  if (.not. isnan(min(nan,nan,nan,nan,nan))) stop 1
+  if (.not. isnan(max(nan,nan,nan,nan,nan))) stop 1
 
   ! Large values, INF and NaNs
-  if (.not. isinf(max(large, inf))) call abort
-  if (isinf(min(large, inf))) call abort
-  if (.not. isinf(max(nan, large, inf))) call abort
-  if (isinf(min(nan, large, inf))) call abort
-  if (.not. isinf(max(large, nan, inf))) call abort
-  if (isinf(min(large, nan, inf))) call abort
-  if (.not. isinf(max(large, inf, nan))) call abort
-  if (isinf(min(large, inf, nan))) call abort
+  if (.not. isinf(max(large, inf))) stop 1
+  if (isinf(min(large, inf))) stop 1
+  if (.not. isinf(max(nan, large, inf))) stop 1
+  if (isinf(min(nan, large, inf))) stop 1
+  if (.not. isinf(max(large, nan, inf))) stop 1
+  if (isinf(min(large, nan, inf))) stop 1
+  if (.not. isinf(max(large, inf, nan))) stop 1
+  if (isinf(min(large, inf, nan))) stop 1
 
-  if (.not. isinf(min(-large, -inf))) call abort
-  if (isinf(max(-large, -inf))) call abort
-  if (.not. isinf(min(nan, -large, -inf))) call abort
-  if (isinf(max(nan, -large, -inf))) call abort
-  if (.not. isinf(min(-large, nan, -inf))) call abort
-  if (isinf(max(-large, nan, -inf))) call abort
-  if (.not. isinf(min(-large, -inf, nan))) call abort
-  if (isinf(max(-large, -inf, nan))) call abort
+  if (.not. isinf(min(-large, -inf))) stop 1
+  if (isinf(max(-large, -inf))) stop 1
+  if (.not. isinf(min(nan, -large, -inf))) stop 1
+  if (isinf(max(nan, -large, -inf))) stop 1
+  if (.not. isinf(min(-large, nan, -inf))) stop 1
+  if (isinf(max(-large, nan, -inf))) stop 1
+  if (.not. isinf(min(-large, -inf, nan))) stop 1
+  if (isinf(max(-large, -inf, nan))) stop 1
 
 end program test

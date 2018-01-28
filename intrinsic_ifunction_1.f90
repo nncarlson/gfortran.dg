@@ -17,20 +17,20 @@
 
       lda = (/ (i/2*2 .eq. I, i=1,9) /)
       LDA = ALL ( IDA .NE. -1000,  1)
-      if (.not. all(lda)) call abort
-      if (.not. all(ida .ne. -1000)) call abort
+      if (.not. all(lda)) stop 1
+      if (.not. all(ida .ne. -1000)) stop 1
 
       lda = (/ (i/2*2 .eq. I, i=1,9) /)
       LDA = any ( IDA .NE. -1000,  1)
       print *, lda          !expect FALSE
-      if (any(lda)) call abort
+      if (any(lda)) stop 1
       print *, any(ida .ne. -1000)   !expect FALSE
-      if (any(ida .ne. -1000)) call abort
+      if (any(ida .ne. -1000)) stop 1
 
       iii = 137
       iii = count ( IDA .NE. -1000,  1)
-      if (any(iii /= 0)) call abort
-      if (count(ida .ne. -1000) /= 0) call abort
+      if (any(iii /= 0)) stop 1
+      if (count(ida .ne. -1000) /= 0) stop 1
 
       END SUBROUTINE
 
@@ -39,5 +39,5 @@
       integer, dimension(nf0,9) :: ida
       res = (/ (-i, i=1,9) /)
       res = product (ida, 1)
-      if (any(res /= 1)) call abort
+      if (any(res /= 1)) stop 1
       end subroutine foo

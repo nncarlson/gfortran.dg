@@ -22,11 +22,11 @@ rewind(10)
 CHAR = 'Initialize string ***'
 X    = -777.
 READ(10, nml=CODE, END=999)
-if (x.ne.-3.0) call abort
+if (x.ne.-3.0) stop 1
 READ(10, nml=CODE, END=999)
-if (x.ne.44.0) call abort
+if (x.ne.44.0) stop 1
 READ(10, nml=CODE, END=999)
-if (x.ne.66.0) call abort
+if (x.ne.66.0) stop 1
 READ(10, nml=CODE, END=999)
- 999 if (x.ne.77.0) call abort
+ 999 if (x.ne.77.0) stop 1
 END PROGRAM namelist

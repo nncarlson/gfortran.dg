@@ -64,15 +64,15 @@ end module m
   type(t2), target :: c
   type(l1), target :: d
   a => b                                   ! declared type
-  if (a%real() .ne. real (42)) call abort
-  if (a%prod() .ne. 42) call abort
-  if (a%extract (2) .ne. 84) call abort
+  if (a%real() .ne. real (42)) stop 1
+  if (a%prod() .ne. 42) stop 1
+  if (a%extract (2) .ne. 84) stop 1
   a => c                                   ! extension in module
-  if (a%real() .ne. real (99)) call abort
-  if (a%prod() .ne. 99) call abort
-  if (a%extract (3) .ne. 297) call abort
+  if (a%real() .ne. real (99)) stop 1
+  if (a%prod() .ne. 99) stop 1
+  if (a%extract (3) .ne. 297) stop 1
   a => d                                   ! extension in main
-  if (a%real() .ne. real (42)) call abort
-  if (a%prod() .ne. 42) call abort
-  if (a%extract (4) .ne. 168) call abort
+  if (a%real() .ne. real (42)) stop 1
+  if (a%prod() .ne. 42) stop 1
+  if (a%extract (4) .ne. 168) stop 1
 end

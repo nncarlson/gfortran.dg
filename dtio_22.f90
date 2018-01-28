@@ -29,5 +29,5 @@ program p
   class(t), allocatable :: z
   allocate(z)
   write(buffer,"(DT)") z
-  if (buffer /= "123") call abort()
+  if (buffer /= "123") stop 1
 end

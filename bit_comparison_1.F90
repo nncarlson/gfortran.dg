@@ -32,14 +32,14 @@
   end interface
 
 #define CHECK(I,J,RES) \
-  if (bge(I,J) .neqv. RES) call abort ; \
-  if (run_bge(I,J) .neqv. RES) call abort ; \
-  if (bgt(I,J) .neqv. (RES .and. (I/=J))) call abort ; \
-  if (run_bgt(I,J) .neqv. (RES .and. (I/=J))) call abort ; \
-  if (ble(J,I) .neqv. RES) call abort ; \
-  if (run_ble(J,I) .neqv. RES) call abort ; \
-  if (blt(J,I) .neqv. (RES .and. (I/=J))) call abort ; \
-  if (run_blt(J,I) .neqv. (RES .and. (I/=J))) call abort
+  if (bge(I,J) .neqv. RES) stop 1 ; \
+  if (run_bge(I,J) .neqv. RES) stop 1 ; \
+  if (bgt(I,J) .neqv. (RES .and. (I/=J))) stop 1 ; \
+  if (run_bgt(I,J) .neqv. (RES .and. (I/=J))) stop 1 ; \
+  if (ble(J,I) .neqv. RES) stop 1 ; \
+  if (run_ble(J,I) .neqv. RES) stop 1 ; \
+  if (blt(J,I) .neqv. (RES .and. (I/=J))) stop 1 ; \
+  if (run_blt(J,I) .neqv. (RES .and. (I/=J))) stop 1
 
 #define T .true.
 #define F .false.

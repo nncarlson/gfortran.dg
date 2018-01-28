@@ -4,10 +4,10 @@
 program main
   character(3) :: a
   a = 'ab'
-  if (.not. LLE(a,a)) call abort
-  if (LLT(a,a)) call abort
-  if (.not. LGE(a,a)) call abort
-  if (LGT(a,a)) call abort
+  if (.not. LLE(a,a)) stop 1
+  if (LLT(a,a)) stop 1
+  if (.not. LGE(a,a)) stop 1
+  if (LGT(a,a)) stop 1
 end program main
 ! { dg-final { scan-tree-dump-times "gfortran_compare_string" 0 "original" } }
 

@@ -18,11 +18,11 @@
 
   INTEGER, PARAMETER :: array_7(3) = MERGE ([1,2,3], -array, mask)
 
-  IF (scalar_1 /= 1 .OR. scalar_2 /= 1) CALL abort
-  IF (.NOT. ALL (array_1 == array)) CALL abort
-  IF (.NOT. ALL (array_2 == [0, 0, 0])) CALL abort
-  IF (.NOT. ALL (array_3 == [0, 0, 0])) CALL abort
-  IF (.NOT. ALL (array_4 == array)) CALL abort
-  IF (.NOT. ALL (array_5 == [1, 0, 1])) CALL abort
-  IF (.NOT. ALL (array_6 == [1, -2, 3])) CALL abort
+  IF (scalar_1 /= 1 .OR. scalar_2 /= 1) stop 1
+  IF (.NOT. ALL (array_1 == array)) stop 1
+  IF (.NOT. ALL (array_2 == [0, 0, 0])) stop 1
+  IF (.NOT. ALL (array_3 == [0, 0, 0])) stop 1
+  IF (.NOT. ALL (array_4 == array)) stop 1
+  IF (.NOT. ALL (array_5 == [1, 0, 1])) stop 1
+  IF (.NOT. ALL (array_6 == [1, -2, 3])) stop 1
 END

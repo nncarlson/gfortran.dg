@@ -32,52 +32,52 @@ UNLOCK(lock3(4))
 
 stat = 99
 LOCK(lock1, stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 
 LOCK(lock2(1,1), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 LOCK(lock2(2,2), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 
 LOCK(lock3(3), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 LOCK(lock3(4), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 
 stat = 99
 UNLOCK(lock1, stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 
 UNLOCK(lock2(1,1), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 UNLOCK(lock2(2,2), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 
 UNLOCK(lock3(3), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 UNLOCK(lock3(4), stat=stat)
-if (stat /= 0) call abort()
+if (stat /= 0) stop 1
 
 if (this_image() == 1) then
   acquired = .false.
   LOCK (lock1[this_image()], acquired_lock=acquired)
-  if (.not. acquired) call abort()
+  if (.not. acquired) stop 1
 
   acquired = .false.
   LOCK (lock2(1,1)[this_image()], acquired_lock=acquired)
-  if (.not. acquired) call abort()
+  if (.not. acquired) stop 1
 
   acquired = .false.
   LOCK (lock2(2,2)[this_image()], acquired_lock=acquired)
-  if (.not. acquired) call abort()
+  if (.not. acquired) stop 1
 
   acquired = .false.
   LOCK (lock3(3)[this_image()], acquired_lock=acquired)
-  if (.not. acquired) call abort()
+  if (.not. acquired) stop 1
 
   acquired = .false.
   LOCK (lock3(4)[this_image()], acquired_lock=acquired)
-  if (.not. acquired) call abort()
+  if (.not. acquired) stop 1
 
   UNLOCK (lock1[1])
   UNLOCK (lock2(1,1)[1])

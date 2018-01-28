@@ -12,5 +12,5 @@ end module m
 
 use m
 implicit none
-if (allocated(x)) call abort()
+if (allocated(x)) stop 1
 end 

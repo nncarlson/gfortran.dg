@@ -11,20 +11,20 @@
   call check_merge1 ("foo", "gee", .true., .false.)
   call check_merge4 (4_"foo", 4_"gee", .true., .false.)
 
-  if (merge ("foo", "gee", .true.) /= "foo") call abort
-  if (merge ("foo", "gee", .false.) /= "gee") call abort
-  if (merge (4_"foo", 4_"gee", .true.) /= 4_"foo") call abort
-  if (merge (4_"foo", 4_"gee", .false.) /= 4_"gee") call abort
+  if (merge ("foo", "gee", .true.) /= "foo") stop 1
+  if (merge ("foo", "gee", .false.) /= "gee") stop 1
+  if (merge (4_"foo", 4_"gee", .true.) /= 4_"foo") stop 1
+  if (merge (4_"foo", 4_"gee", .false.) /= 4_"gee") stop 1
 
   ! Test TRANSFER intrinsic
 
   if (bigendian) then
-    if (transfer (4_"x", "    ") /= "\0\0\0x") call abort
+    if (transfer (4_"x", "    ") /= "\0\0\0x") stop 1
   else
-    if (transfer (4_"x", "    ") /= "x\0\0\0") call abort
+    if (transfer (4_"x", "    ") /= "x\0\0\0") stop 1
   endif
-  if (transfer (4_"\U44444444", "    ") /= "\x44\x44\x44\x44") call abort
-  if (transfer (4_"\U3FE91B5A", 0_4) /= int(z'3FE91B5A', 4)) call abort
+  if (transfer (4_"\U44444444", "    ") /= "\x44\x44\x44\x44") stop 1
+  if (transfer (4_"\U3FE91B5A", 0_4) /= int(z'3FE91B5A', 4)) stop 1
 
   call check_transfer_i (4_"\U3FE91B5A", [int(z'3FE91B5A', 4)])
   call check_transfer_i (4_"\u1B5A", [int(z'1B5A', 4)])
@@ -35,19 +35,19 @@ contains
     character(kind=1,len=*) :: s1, t1
     logical :: t, f
 
-    if (merge (s1, t1, .true.) /= s1) call abort
-    if (merge (s1, t1, .false.) /= t1) call abort
-    if (len (merge (s1, t1, .true.)) /= len (s1)) call abort
-    if (len (merge (s1, t1, .false.)) /= len (t1)) call abort
-    if (len_trim (merge (s1, t1, .true.)) /= len_trim (s1)) call abort
-    if (len_trim (merge (s1, t1, .false.)) /= len_trim (t1)) call abort
+    if (merge (s1, t1, .true.) /= s1) stop 1
+    if (merge (s1, t1, .false.) /= t1) stop 1
+    if (len (merge (s1, t1, .true.)) /= len (s1)) stop 1
+    if (len (merge (s1, t1, .false.)) /= len (t1)) stop 1
+    if (len_trim (merge (s1, t1, .true.)) /= len_trim (s1)) stop 1
+    if (len_trim (merge (s1, t1, .false.)) /= len_trim (t1)) stop 1
 
-    if (merge (s1, t1, t) /= s1) call abort
-    if (merge (s1, t1, f) /= t1) call abort
-    if (len (merge (s1, t1, t)) /= len (s1)) call abort
-    if (len (merge (s1, t1, f)) /= len (t1)) call abort
-    if (len_trim (merge (s1, t1, t)) /= len_trim (s1)) call abort
-    if (len_trim (merge (s1, t1, f)) /= len_trim (t1)) call abort
+    if (merge (s1, t1, t) /= s1) stop 1
+    if (merge (s1, t1, f) /= t1) stop 1
+    if (len (merge (s1, t1, t)) /= len (s1)) stop 1
+    if (len (merge (s1, t1, f)) /= len (t1)) stop 1
+    if (len_trim (merge (s1, t1, t)) /= len_trim (s1)) stop 1
+    if (len_trim (merge (s1, t1, f)) /= len_trim (t1)) stop 1
 
   end subroutine check_merge1
 
@@ -55,19 +55,19 @@ contains
     character(kind=4,len=*) :: s4, t4
     logical :: t, f
 
-    if (merge (s4, t4, .true.) /= s4) call abort
-    if (merge (s4, t4, .false.) /= t4) call abort
-    if (len (merge (s4, t4, .true.)) /= len (s4)) call abort
-    if (len (merge (s4, t4, .false.)) /= len (t4)) call abort
-    if (len_trim (merge (s4, t4, .true.)) /= len_trim (s4)) call abort
-    if (len_trim (merge (s4, t4, .false.)) /= len_trim (t4)) call abort
+    if (merge (s4, t4, .true.) /= s4) stop 1
+    if (merge (s4, t4, .false.) /= t4) stop 1
+    if (len (merge (s4, t4, .true.)) /= len (s4)) stop 1
+    if (len (merge (s4, t4, .false.)) /= len (t4)) stop 1
+    if (len_trim (merge (s4, t4, .true.)) /= len_trim (s4)) stop 1
+    if (len_trim (merge (s4, t4, .false.)) /= len_trim (t4)) stop 1
 
-    if (merge (s4, t4, t) /= s4) call abort
-    if (merge (s4, t4, f) /= t4) call abort
-    if (len (merge (s4, t4, t)) /= len (s4)) call abort
-    if (len (merge (s4, t4, f)) /= len (t4)) call abort
-    if (len_trim (merge (s4, t4, t)) /= len_trim (s4)) call abort
-    if (len_trim (merge (s4, t4, f)) /= len_trim (t4)) call abort
+    if (merge (s4, t4, t) /= s4) stop 1
+    if (merge (s4, t4, f) /= t4) stop 1
+    if (len (merge (s4, t4, t)) /= len (s4)) stop 1
+    if (len (merge (s4, t4, f)) /= len (t4)) stop 1
+    if (len_trim (merge (s4, t4, t)) /= len_trim (s4)) stop 1
+    if (len_trim (merge (s4, t4, f)) /= len_trim (t4)) stop 1
 
   end subroutine check_merge4
 
@@ -75,10 +75,10 @@ contains
     character(kind=4,len=*) :: s
     integer(kind=4), dimension(len(s)) :: i
 
-    if (transfer (s, 0_4) /= ichar (s(1:1))) call abort
-    if (transfer (s, 0_4) /= i(1)) call abort
-    if (any (transfer (s, [0_4]) /= i)) call abort
-    if (any (transfer (s, 0_4, len(s)) /= i)) call abort
+    if (transfer (s, 0_4) /= ichar (s(1:1))) stop 1
+    if (transfer (s, 0_4) /= i(1)) stop 1
+    if (any (transfer (s, [0_4]) /= i)) stop 1
+    if (any (transfer (s, 0_4, len(s)) /= i)) stop 1
 
   end subroutine check_transfer_i
 

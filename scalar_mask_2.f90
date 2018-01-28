@@ -9,25 +9,25 @@ program main
   a(1,2) = -1.
   a(2,1) = 13.
   a(2,2) = -31.
-  if (any (minloc (a, lo) /= 0)) call abort
-  if (any (minloc (a, .true.) /= (/ 2, 2 /))) call abort
-  if (any (minloc(a, 1, .true.) /= (/ 1, 2/))) call abort
-  if (any (minloc(a, 1, lo ) /= (/ 0, 0/))) call abort
+  if (any (minloc (a, lo) /= 0)) stop 1
+  if (any (minloc (a, .true.) /= (/ 2, 2 /))) stop 1
+  if (any (minloc(a, 1, .true.) /= (/ 1, 2/))) stop 1
+  if (any (minloc(a, 1, lo ) /= (/ 0, 0/))) stop 1
 
-  if (any (maxloc (a, lo) /= 0)) call abort
-  if (any (maxloc (a, .true.) /= (/ 2,1 /))) call abort
-  if (any (maxloc(a, 1, .true.) /= (/ 2, 1/))) call abort
-  if (any (maxloc(a, 1, lo) /= (/ 0, 0/))) call abort
+  if (any (maxloc (a, lo) /= 0)) stop 1
+  if (any (maxloc (a, .true.) /= (/ 2,1 /))) stop 1
+  if (any (maxloc(a, 1, .true.) /= (/ 2, 1/))) stop 1
+  if (any (maxloc(a, 1, lo) /= (/ 0, 0/))) stop 1
 
-  if (any (maxval(a, 1, lo) /= -HUGE(a))) call abort
-  if (any (maxval(a, 1, .true.) /= (/13., -1./))) call abort
-  if (any (minval(a, 1, lo) /= HUGE(a))) call abort
-  if (any (minval(a, 1, .true.) /= (/1., -31./))) call abort
+  if (any (maxval(a, 1, lo) /= -HUGE(a))) stop 1
+  if (any (maxval(a, 1, .true.) /= (/13., -1./))) stop 1
+  if (any (minval(a, 1, lo) /= HUGE(a))) stop 1
+  if (any (minval(a, 1, .true.) /= (/1., -31./))) stop 1
 
-  if (any (product(a, 1, .true.) /= (/13., 31./))) call abort
-  if (any (product(a, 1, lo ) /= (/1., 1./))) call abort
+  if (any (product(a, 1, .true.) /= (/13., 31./))) stop 1
+  if (any (product(a, 1, lo ) /= (/1., 1./))) stop 1
 
-  if (any (sum(a, 1, .true.) /= (/14., -32./))) call abort
-  if (any (sum(a, 1, lo) /= (/0., 0./))) call abort
+  if (any (sum(a, 1, .true.) /= (/14., -32./))) stop 1
+  if (any (sum(a, 1, lo) /= (/0., 0./))) stop 1
 
 end program main

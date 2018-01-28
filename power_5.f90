@@ -14,21 +14,21 @@ program main
   m = n
   ! Test in scalar expressions
   do i=-n,n
-     if (v /= 1**i) call abort
+     if (v /= 1**i) stop 1
   end do
 
   ! Test in array constructors
   a(-m:m) = [ (1**i, i= -m, m) ]
-  if (any(a .ne. v)) call abort
+  if (any(a .ne. v)) stop 1
 
   ! Test in array expressions
   c = [ ( i, i = -n , n ) ]
   d = 1**c
-  if (any(d .ne. v)) call abort
+  if (any(d .ne. v)) stop 1
 
   ! Test in different kind expressions
   do i2=-n,n
-     if (v /= 1**i2) call abort
+     if (v /= 1**i2) stop 1
   end do
 
 end program main

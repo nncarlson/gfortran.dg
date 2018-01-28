@@ -34,7 +34,7 @@ implicit none
 
 type (t) :: u
 
-if (pp()/=42) call abort()
-if (u%ppc()/=43) call abort()
+if (pp()/=42) stop 1
+if (u%ppc()/=43) stop 1
 
 end

@@ -10,16 +10,16 @@
 integer :: a(2,2)
 a = -42
 a(1,:) = func()
-if (any (reshape (a, [4]) /= [1, -42, 2, -42])) call abort 
+if (any (reshape (a, [4]) /= [1, -42, 2, -42])) stop 1 
 a = -42
 a(2,:) = func()
-if (any (reshape (a, [4]) /= [-42, 1, -42, 2])) call abort 
+if (any (reshape (a, [4]) /= [-42, 1, -42, 2])) stop 1 
 a = -42
 a(:,1) = func()
-if (any (reshape (a, [4]) /= [1, 2, -42, -42])) call abort 
+if (any (reshape (a, [4]) /= [1, 2, -42, -42])) stop 1 
 a = -42
 a(:,2) = func()
-if (any (reshape (a, [4]) /= [-42, -42, 1, 2])) call abort 
+if (any (reshape (a, [4]) /= [-42, -42, 1, 2])) stop 1 
 contains
  function func()
    integer :: func(2)

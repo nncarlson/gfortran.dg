@@ -12,11 +12,11 @@ program list_read_1
   rewind(11)
 
   read (11, *) i
-  if (i .ne. 42) call abort
+  if (i .ne. 42) stop 1
   read (11, *) i
-  if (i .ne. 43) call abort
+  if (i .ne. 43) stop 1
   read (11, *) i
-  if (i .ne. 44) call abort
+  if (i .ne. 44) stop 1
   close (11)
 end
 

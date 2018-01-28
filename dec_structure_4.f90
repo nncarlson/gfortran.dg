@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  call abort()
+  stop 1
 end subroutine
 
 structure /s5/
@@ -25,19 +25,19 @@ r5.recrd_a(2).x = 5.7
 r5.recrd_a(2).y = 1.3
 
 if (r5.recrd.x .ne. 1.3) then
-  call aborts("r5.recrd.x")
+  stop 1s("r5.recrd.x")
 endif
 
 if (r5.recrd.y .ne. 5.7) then
-  call aborts("r5.recrd.y")
+  stop 1s("r5.recrd.y")
 endif
 
 if (r5.recrd_a(1).x .ne. 1.3 .or. r5.recrd_a(1).y .ne. 5.7) then
-  call aborts("r5.recrd_a(1)")
+  stop 1s("r5.recrd_a(1)")
 endif
 
 if (r5.recrd_a(2).x .ne. 5.7 .or. r5.recrd_a(2).y .ne. 1.3) then
-  call aborts("r5.recrd_a(2)")
+  stop 1s("r5.recrd_a(2)")
 endif
 
 end

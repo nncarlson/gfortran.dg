@@ -37,11 +37,11 @@ program foo
 
   call p_bld (a, pre)
 
-  if (associated (wee%ap) .or. wee%i /= 101) call abort ()
+  if (associated (wee%ap) .or. wee%i /= 101) stop 1
   wee%ap => a
-  if (.not.associated (wee%ap) .or. allocated (wee%av)) call abort ()
+  if (.not.associated (wee%ap) .or. allocated (wee%av)) stop 1
   wee = basep_type ((/m_type ((/201, 202, 203/))/), null (), 99)
-  if (.not.allocated (wee%av) .or. associated (wee%ap) .or. (wee%i .ne. 99)) call abort () 
+  if (.not.allocated (wee%av) .or. associated (wee%ap) .or. (wee%i .ne. 99)) stop 1 
 
 contains
 
@@ -53,9 +53,9 @@ contains
     if (.not.allocated(p%basepv)) then 
       allocate(p%basepv(1),stat=ierr)
     endif
-    if (allocated (p%basepv) .neqv. .true.) call abort ()
-    if (allocated (p%basepv(1)%av) .neqv. .false.) call abort
-    if (p%basepv(1)%i .ne. 101) call abort ()
+    if (allocated (p%basepv) .neqv. .true.) stop 1
+    if (allocated (p%basepv(1)%av) .neqv. .false.) stop 1
+    if (p%basepv(1)%i .ne. 101) stop 1
 
   end subroutine test_ab8
 
@@ -63,8 +63,8 @@ contains
       use p_type_mod
       type (m_type) :: a
       type(p_type) :: p
-      if (any (a%p .ne. (/101,102/))) call abort ()
-      if (allocated (p%basepv) .or. (p%p2 .ne. 1)) call abort ()
+      if (any (a%p .ne. (/101,102/))) stop 1
+      if (allocated (p%basepv) .or. (p%p2 .ne. 1)) stop 1
     end subroutine p_bld
 
 end program foo

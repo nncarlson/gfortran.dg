@@ -21,7 +21,7 @@ contains
     integer :: i1, i2, i3, ai, padi
 
     do i = 1, 3
-      if (size (b, i) .ne. shape (i)) call abort
+      if (size (b, i) .ne. shape (i)) stop 1
     end do
     ai = 0
     padi = 0
@@ -30,11 +30,11 @@ contains
         do i3 = 1, shape (3)
           if (ai .lt. n) then
             ai = ai + 1
-            if (b (i1, i2, i3) .ne. a (ai)) call abort
+            if (b (i1, i2, i3) .ne. a (ai)) stop 1
           else
             padi = padi + 1
             if (padi .gt. n) padi = 1
-            if (b (i1, i2, i3) .ne. pad (padi)) call abort
+            if (b (i1, i2, i3) .ne. pad (padi)) stop 1
           end if
         end do
       end do

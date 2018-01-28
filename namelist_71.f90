@@ -25,12 +25,12 @@ write(10,'(a)') " field_setup%scal(3)%number=  8,"
 write(10,'(a)') "/"
 rewind(10)
 read(10,nml=nl_setup)
-if (field_setup%vel(1)%number .ne. 3) call abort
-if (field_setup%vel(2)%number .ne. 9) call abort
-if (field_setup%vel(3)%number .ne. 27) call abort
-if (field_setup%scal(1)%number .ne. 2) call abort
-if (field_setup%scal(2)%number .ne. 4) call abort
-if (field_setup%scal(3)%number .ne. 8) call abort
+if (field_setup%vel(1)%number .ne. 3) stop 1
+if (field_setup%vel(2)%number .ne. 9) stop 1
+if (field_setup%vel(3)%number .ne. 27) stop 1
+if (field_setup%scal(1)%number .ne. 2) stop 1
+if (field_setup%scal(2)%number .ne. 4) stop 1
+if (field_setup%scal(3)%number .ne. 8) stop 1
 !write(*,nml=nl_setup)
 end program test_nml
 

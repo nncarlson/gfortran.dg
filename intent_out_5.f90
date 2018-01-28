@@ -13,13 +13,13 @@ program main
 
  type(container_t) :: container
 
- if (container%n /= 42) call abort()
- if (allocated(container%a)) call abort()
+ if (container%n /= 42) stop 1
+ if (allocated(container%a)) stop 1
  container%n = 1
  allocate(container%a(50))
  call init (container)
- if (container%n /= 42) call abort()
- if (allocated(container%a)) call abort()
+ if (container%n /= 42) stop 1
+ if (allocated(container%a)) stop 1
 contains
  subroutine init (container)
    type(container_t), intent(out) :: container

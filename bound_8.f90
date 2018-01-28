@@ -26,19 +26,19 @@ PROGRAM main
   ! and additionally correct (of course).
 
   ! Shape of expressions known at compile-time.
-  IF (ANY (LBOUND (a + b) /= 1)) CALL abort ()
-  IF (ANY (UBOUND (2 * b) /= (/ 2, 3 /))) CALL abort ()
-  IF (ANY (SHAPE (- b) /= (/ 2, 3 /))) CALL abort ()
-  IF (SIZE (a ** 2) /= 6) CALL abort
+  IF (ANY (LBOUND (a + b) /= 1)) stop 1
+  IF (ANY (UBOUND (2 * b) /= (/ 2, 3 /))) stop 1
+  IF (ANY (SHAPE (- b) /= (/ 2, 3 /))) stop 1
+  IF (SIZE (a ** 2) /= 6) stop 1
 
   ! Shape unknown at compile-time.
-  IF (ANY (LBOUND (x + y) /= 1)) CALL abort ()
-  IF (SIZE (x ** 2) /= 6) CALL abort ()
+  IF (ANY (LBOUND (x + y) /= 1)) stop 1
+  IF (SIZE (x ** 2) /= 6) stop 1
 
   ! Unfortunately, the array-version of UBOUND and SHAPE keep generating
   ! temporary arrays for their results (not for the operation).  Thus we
   ! can not check SHAPE in this case and do UBOUND in the single-dimension
   ! version.
-  IF (UBOUND (2 * y, 1) /= 2 .OR. UBOUND (2 * y, 2) /= 3) CALL abort ()
-  !IF (ANY (SHAPE (- y) /= (/ 2, 3 /))) CALL abort ()
+  IF (UBOUND (2 * y, 1) /= 2 .OR. UBOUND (2 * y, 2) /= 3) stop 1
+  !IF (ANY (SHAPE (- y) /= (/ 2, 3 /))) stop 1
 END PROGRAM main

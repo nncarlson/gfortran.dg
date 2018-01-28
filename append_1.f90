@@ -4,7 +4,7 @@
 ! { dg-do run }
       subroutine failed
         close (10,status='delete')
-        call abort
+        stop 1
       end subroutine failed
 
       integer,parameter :: n = 13

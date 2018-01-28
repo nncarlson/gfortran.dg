@@ -18,8 +18,8 @@
 
    type(Grandchild), parameter :: object = Grandchild(23, 42, -99)
 
-   if (object%member1 /= 23) call abort
-   if (object%member2 /= 42) call abort
-   if (object%member3 /= -99) call abort
+   if (object%member1 /= 23) stop 1
+   if (object%member2 /= 42) stop 1
+   if (object%member3 /= -99) stop 1
 
 end

@@ -23,6 +23,6 @@ contains
 end function f
 
   integer, external :: f, g
-  if (f ().ne.2) call abort ()
-  if (g ().ne.33) call abort ()
+  if (f ().ne.2) stop 1
+  if (g ().ne.33) stop 1
 end

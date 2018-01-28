@@ -33,28 +33,28 @@ program xjoin
   character (len=5) :: words(5:8) = (/"two  ","three","four ","five "/), sep = "^#^"
   character (len=5) :: words2(4) = (/"bat  ","ball ","goal ","stump"/), sep2 = "&"
 
-  if (join (words, sep) .ne. "two^#^three^#^four^#^five") call abort ()
-  if (len (join (words, sep)) .ne. 25) call abort ()
+  if (join (words, sep) .ne. "two^#^three^#^four^#^five") stop 1
+  if (len (join (words, sep)) .ne. 25) stop 1
 
-  if (join (words(5:6), sep) .ne. "two^#^three") call abort ()
-  if (len (join (words(5:6), sep)) .ne. 11) call abort ()
+  if (join (words(5:6), sep) .ne. "two^#^three") stop 1
+  if (len (join (words(5:6), sep)) .ne. 11) stop 1
 
-  if (join (words(7:8), sep) .ne. "four^#^five") call abort ()
-  if (len (join (words(7:8), sep)) .ne. 11) call abort ()
+  if (join (words(7:8), sep) .ne. "four^#^five") stop 1
+  if (len (join (words(7:8), sep)) .ne. 11) stop 1
 
-  if (join (words(5:7:2), sep) .ne. "two^#^four") call abort ()
-  if (len (join (words(5:7:2), sep)) .ne. 10) call abort ()
+  if (join (words(5:7:2), sep) .ne. "two^#^four") stop 1
+  if (len (join (words(5:7:2), sep)) .ne. 10) stop 1
 
-  if (join (words(6:8:2), sep) .ne. "three^#^five") call abort ()
-  if (len (join (words(6:8:2), sep)) .ne. 12) call abort ()
+  if (join (words(6:8:2), sep) .ne. "three^#^five") stop 1
+  if (len (join (words(6:8:2), sep)) .ne. 12) stop 1
 
-  if (join (words2, sep2) .ne. "bat&ball&goal&stump") call abort ()
-  if (len (join (words2, sep2)) .ne. 19) call abort ()
+  if (join (words2, sep2) .ne. "bat&ball&goal&stump") stop 1
+  if (len (join (words2, sep2)) .ne. 19) stop 1
 
-  if (join (words2(1:2), sep2) .ne. "bat&ball") call abort ()
-  if (len (join (words2(1:2), sep2)) .ne. 8) call abort ()
+  if (join (words2(1:2), sep2) .ne. "bat&ball") stop 1
+  if (len (join (words2(1:2), sep2)) .ne. 8) stop 1
 
-  if (join (words2(2:4:2), sep2) .ne. "ball&stump") call abort ()
-  if (len (join (words2(2:4:2), sep2)) .ne. 10) call abort ()
+  if (join (words2(2:4:2), sep2) .ne. "ball&stump") stop 1
+  if (len (join (words2(2:4:2), sep2)) .ne. 10) stop 1
 
 end program xjoin

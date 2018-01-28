@@ -11,17 +11,17 @@ program matrix
   real,dimension(2,2)::m, n
 
   m=f()+c
-  if (any (m .ne. reshape((/2,3,4,5/),(/2,2/)))) call abort ()
+  if (any (m .ne. reshape((/2,3,4,5/),(/2,2/)))) stop 1
   m=c+f()
-  if (any (m .ne. reshape((/2,3,4,5/),(/2,2/)))) call abort ()
+  if (any (m .ne. reshape((/2,3,4,5/),(/2,2/)))) stop 1
   call sub(m+f())
-  if (any (n .ne. reshape((/3,4,5,6/),(/2,2/)))) call abort ()
+  if (any (n .ne. reshape((/3,4,5,6/),(/2,2/)))) stop 1
   call sub(c+m)
-  if (any (n .ne. reshape((/3,5,7,9/),(/2,2/)))) call abort ()
+  if (any (n .ne. reshape((/3,5,7,9/),(/2,2/)))) stop 1
   call sub(f()+c)
-  if (any (n .ne. reshape((/2,3,4,5/),(/2,2/)))) call abort ()
+  if (any (n .ne. reshape((/2,3,4,5/),(/2,2/)))) stop 1
   call sub(c+f())
-  if (any (n .ne. reshape((/2,3,4,5/),(/2,2/)))) call abort ()
+  if (any (n .ne. reshape((/2,3,4,5/),(/2,2/)))) stop 1
 
 contains
 

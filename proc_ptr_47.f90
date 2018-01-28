@@ -14,10 +14,10 @@
 
   res = my_AA%funct ()
 
-  if (res%i .ne. 3) call abort
-  if (.not.associated (res%funct)) call abort
-  if (my_AA%i .ne. 4) call abort
-  if (associated (my_AA%funct)) call abort
+  if (res%i .ne. 3) stop 1
+  if (.not.associated (res%funct)) stop 1
+  if (my_AA%i .ne. 4) stop 1
+  if (associated (my_AA%funct)) stop 1
 
 contains
   function foo(A)

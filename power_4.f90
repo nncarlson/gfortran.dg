@@ -11,18 +11,18 @@ program main
   v = 2
   ! Test scalar expressions.
   do i=-n,n
-     if (2**i /= v**i) call abort
+     if (2**i /= v**i) stop 1
   end do
 
   ! Test array constructors
   b = [(2**i,i=-m,m)]
   c = [(v**i,i=-m,m)]
-  if (any(b /= c)) call abort
+  if (any(b /= c)) stop 1
 
   ! Test array expressions
   a = [(i,i=-m,m)]
   d = 2**a
   e = v**a
-  if (any(d /= e)) call abort
+  if (any(d /= e)) stop 1
 end program main
 ! { dg-final { scan-tree-dump-times "_gfortran_pow_i4_i4" 3 "original" } }

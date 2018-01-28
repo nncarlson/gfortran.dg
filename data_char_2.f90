@@ -9,6 +9,6 @@ CHARACTER          C1
 DATA               INTSTR / '0123456789' /
 
 C1 = INTSTR(1:1)
-if(C1 .ne. '0')  call abort()
+if(C1 .ne. '0')  stop 1
 
 end

@@ -13,10 +13,10 @@ do i=1,len(out)
 enddo
 
 write(out,nl1)
-if (out(1).ne."&NL1") call abort
-if (out(2).ne." A=  1.00000000    ,") call abort
-if (out(3).ne." B=  2.00000000    ,") call abort
-if (out(4).ne." C=  3.00000000    ,") call abort
-if (out(5).ne." /") call abort
+if (out(1).ne."&NL1") stop 1
+if (out(2).ne." A=  1.00000000    ,") stop 1
+if (out(3).ne." B=  2.00000000    ,") stop 1
+if (out(4).ne." C=  3.00000000    ,") stop 1
+if (out(5).ne." /") stop 1
 
 end program oneline

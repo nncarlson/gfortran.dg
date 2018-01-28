@@ -10,14 +10,14 @@ character(len=:), allocatable :: command
    msg='' ! seems to only be defined if exitstatus.ne.0
    ! ok -- these work
    call execute_command_line(command , wait=.false., exitstat=i, cmdstat=j, cmdmsg=msg)
-   if (j /= 0 .or. msg /= '') call abort
+   if (j /= 0 .or. msg /= '') stop 1
    call execute_command_line(command ,               exitstat=i, cmdstat=j, cmdmsg=msg )
-   if (j /= 3 .or. msg /= "Invalid command line" ) call abort
+   if (j /= 3 .or. msg /= "Invalid command line" ) stop 1
    msg = ''
    call execute_command_line(command , wait=.false., exitstat=i,            cmdmsg=msg )
-   if (j /= 3) call abort
+   if (j /= 3) stop 1
    call execute_command_line(command , wait=.false., exitstat=i                        )
-   if (msg /= '') call abort
+   if (msg /= '') stop 1
    call execute_command_line(command ,               exitstat=i, cmdstat=j             )
 
 end program boom

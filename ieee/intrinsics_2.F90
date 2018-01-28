@@ -13,38 +13,38 @@ program test
 
   x = 0.
   call check_positive_zero(fraction(x))
-  if (exponent(x) /= 0) call abort
-  if (spacing(x) /= spacing(tiny(x))) call abort
+  if (exponent(x) /= 0) stop 1
+  if (spacing(x) /= spacing(tiny(x))) stop 1
   call check_positive_zero(rrspacing(x))
   call check_positive_zero(set_exponent(x,42))
 
   x = -0.
   call check_negative_zero(fraction(x))
-  if (exponent(x) /= 0) call abort
-  if (spacing(x) /= spacing(tiny(x))) call abort
+  if (exponent(x) /= 0) stop 1
+  if (spacing(x) /= spacing(tiny(x))) stop 1
   call check_positive_zero(rrspacing(x))
   call check_negative_zero(set_exponent(x,42))
 
   x = inf
-  if (.not. isnan(fraction(x))) call abort
-  if (exponent(x) /= huge(0)) call abort
-  if (.not. isnan(spacing(x))) call abort
-  if (.not. isnan(rrspacing(x))) call abort
-  if (.not. isnan(set_exponent(x, 42))) call abort
+  if (.not. isnan(fraction(x))) stop 1
+  if (exponent(x) /= huge(0)) stop 1
+  if (.not. isnan(spacing(x))) stop 1
+  if (.not. isnan(rrspacing(x))) stop 1
+  if (.not. isnan(set_exponent(x, 42))) stop 1
 
   x = -inf
-  if (.not. isnan(fraction(x))) call abort
-  if (exponent(x) /= huge(0)) call abort
-  if (.not. isnan(spacing(x))) call abort
-  if (.not. isnan(rrspacing(x))) call abort
-  if (.not. isnan(set_exponent(x, 42))) call abort
+  if (.not. isnan(fraction(x))) stop 1
+  if (exponent(x) /= huge(0)) stop 1
+  if (.not. isnan(spacing(x))) stop 1
+  if (.not. isnan(rrspacing(x))) stop 1
+  if (.not. isnan(set_exponent(x, 42))) stop 1
 
   x = nan
-  if (.not. isnan(fraction(x))) call abort
-  if (exponent(x) /= huge(0)) call abort
-  if (.not. isnan(spacing(x))) call abort
-  if (.not. isnan(rrspacing(x))) call abort
-  if (.not. isnan(set_exponent(x, 42))) call abort
+  if (.not. isnan(fraction(x))) stop 1
+  if (exponent(x) /= huge(0)) stop 1
+  if (.not. isnan(spacing(x))) stop 1
+  if (.not. isnan(rrspacing(x))) stop 1
+  if (.not. isnan(set_exponent(x, 42))) stop 1
 
 contains
 
@@ -53,7 +53,7 @@ contains
     implicit none
     real, value :: x
 
-    if (ieee_class (x) /= ieee_positive_zero) call abort
+    if (ieee_class (x) /= ieee_positive_zero) stop 1
   end
 
   subroutine check_negative_zero(x)
@@ -61,7 +61,7 @@ contains
     implicit none
     real, value :: x
 
-    if (ieee_class (x) /= ieee_negative_zero) call abort
+    if (ieee_class (x) /= ieee_negative_zero) stop 1
   end
 
 end

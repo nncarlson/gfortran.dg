@@ -67,5 +67,5 @@ PROGRAM TEST
   NDB%PT => POINTB
   NDB%KEY = 3
 
-  if (.NOT. NDA .LT. NDB) call abort()
+  if (.NOT. NDA .LT. NDB) stop 1
 END

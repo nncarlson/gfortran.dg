@@ -61,50 +61,50 @@ program main
   c2_lower = 1 + offset ; c2_upper = c2 + offset
 
   c = matmul(a,b)
-  if (sum(abs(c-cres))>1e-4) call abort
+  if (sum(abs(c-cres))>1e-4) stop 1
 
   c_alloc = matmul(a,b)      ! { dg-warning "Code for reallocating the allocatable array" }
-  if (sum(abs(c_alloc-cres))>1e-4) call abort
-  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) call abort
+  if (sum(abs(c_alloc-cres))>1e-4) stop 1
+  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) stop 1
   deallocate(c_alloc)
 
   allocate(c_alloc(4,4))
   c_alloc = matmul(a,b)      ! { dg-warning "Code for reallocating the allocatable array" }
-  if (sum(abs(c_alloc-cres))>1e-4) call abort
-  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) call abort
+  if (sum(abs(c_alloc-cres))>1e-4) stop 1
+  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) stop 1
   deallocate(c_alloc)
 
   allocate(c_alloc(3,3))
   c_alloc = matmul(a,b)      ! { dg-warning "Code for reallocating the allocatable array" }
-  if (sum(abs(c_alloc-cres))>1e-4) call abort
-  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) call abort
+  if (sum(abs(c_alloc-cres))>1e-4) stop 1
+  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) stop 1
 
   c_alloc = 42.
   c_alloc(:,:) = matmul(a,b)
-  if (sum(abs(c_alloc-cres))>1e-4) call abort
-  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) call abort
+  if (sum(abs(c_alloc-cres))>1e-4) stop 1
+  if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) stop 1
 
   deallocate(c_alloc)
   
   ap = a
   bp = b
   cp = matmul(ap, bp)
-  if (sum(abs(cp-cres)) > 1e-4) call abort
+  if (sum(abs(cp-cres)) > 1e-4) stop 1
 
   f = 0
   f(1,1:3,2:3) = a
   f(2,2:3,:) = b
   c = matmul(f(1,1:3,2:3), f(2,2:3,:))
-  if (sum(abs(c-cres))>1e-4) call abort
+  if (sum(abs(c-cres))>1e-4) stop 1
 
   f(3,1:eight:2,:) = matmul(a, b)
-  if (sum(abs(f(3,1:eight:2,:)-cres))>1e-4) call abort
+  if (sum(abs(f(3,1:eight:2,:)-cres))>1e-4) stop 1
 
   afoo%a = a
   bfoo%a = b
   cfoo%a = matmul(afoo%a, bfoo%a)
 
-  if (sum(abs(cfoo%a-cres)) > 1e-4) call abort
+  if (sum(abs(cfoo%a-cres)) > 1e-4) stop 1
 
   block
     real :: aa(a1, a2), bb(b1, b2), cc(c1, c2)
@@ -118,32 +118,32 @@ program main
     bm = b
 
     cc = matmul(aa,bb)
-    if (sum(cc-cres)>1e-4) call abort
+    if (sum(cc-cres)>1e-4) stop 1
     c_alloc = matmul(aa,bb)    ! { dg-warning "Code for reallocating the allocatable array" }
-    if (sum(abs(c_alloc-cres))>1e-4) call abort
-    if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) call abort
+    if (sum(abs(c_alloc-cres))>1e-4) stop 1
+    if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) stop 1
     c_alloc = 42.
     deallocate(c_alloc)
 
     allocate(c_alloc(4,4))
     c_alloc = matmul(aa,bb)   ! { dg-warning "Code for reallocating the allocatable array" }
-    if (sum(abs(c_alloc-cres))>1e-4) call abort
-    if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) call abort
+    if (sum(abs(c_alloc-cres))>1e-4) stop 1
+    if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) stop 1
     deallocate(c_alloc)
 
     allocate(c_alloc(3,3))
     c_alloc = matmul(aa,bb)  ! { dg-warning "Code for reallocating the allocatable array" }
-    if (sum(abs(c_alloc-cres))>1e-4) call abort
-    if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) call abort
+    if (sum(abs(c_alloc-cres))>1e-4) stop 1
+    if (any([size(c_alloc,1), size(c_alloc,2)] /= [3,4])) stop 1
     deallocate(c_alloc)
 
     cm = matmul(am, bm)
-    if (sum(abs(cm-cres)) > 1e-4) call abort
+    if (sum(abs(cm-cres)) > 1e-4) stop 1
 
     cm = 42.
 
     cm(:,:) = matmul(a,bm)
-    if (sum(abs(cm-cres)) > 1e-4) call abort
+    if (sum(abs(cm-cres)) > 1e-4) stop 1
 
   end block
 

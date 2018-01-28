@@ -10,17 +10,17 @@
   character(kind=selected_char_kind ("ascii")) :: s3
   character(kind=selected_char_kind ("default")) :: s4
 
-  if (kind (s1) /= selected_char_kind ("ascii")) call abort
-  if (kind (s2) /= selected_char_kind ("default")) call abort
-  if (kind (s3) /= ascii) call abort
-  if (kind (s4) /= default) call abort
+  if (kind (s1) /= selected_char_kind ("ascii")) stop 1
+  if (kind (s2) /= selected_char_kind ("default")) stop 1
+  if (kind (s3) /= ascii) stop 1
+  if (kind (s4) /= default) stop 1
 
-  if (selected_char_kind("ascii") /= 1) call abort
-  if (selected_char_kind("default") /= 1) call abort
-  if (selected_char_kind("defauLt") /= 1) call abort
-  if (selected_char_kind("foo") /= -1) call abort
-  if (selected_char_kind("asciiiii") /= -1) call abort
-  if (selected_char_kind("default       ") /= 1) call abort
+  if (selected_char_kind("ascii") /= 1) stop 1
+  if (selected_char_kind("default") /= 1) stop 1
+  if (selected_char_kind("defauLt") /= 1) stop 1
+  if (selected_char_kind("foo") /= -1) stop 1
+  if (selected_char_kind("asciiiii") /= -1) stop 1
+  if (selected_char_kind("default       ") /= 1) stop 1
 
   call test("ascii", 1)
   call test("default", 1)
@@ -46,7 +46,7 @@
   call test(default_"default     ", 1)
   call test(default_"default     x", -1)
 
-  if (kind (selected_char_kind ("")) /= kind(0)) call abort
+  if (kind (selected_char_kind ("")) /= kind(0)) stop 1
 end
 
 subroutine test(s,i)
@@ -54,12 +54,12 @@ subroutine test(s,i)
   integer i
 
   call test2(s,i)
-  if (selected_char_kind (s) /= i) call abort
+  if (selected_char_kind (s) /= i) stop 1
 end subroutine test
 
 subroutine test2(s,i)
   character(len=*,kind=selected_char_kind("default")) s
   integer i
 
-  if (selected_char_kind (s) /= i) call abort
+  if (selected_char_kind (s) /= i) stop 1
 end subroutine test2

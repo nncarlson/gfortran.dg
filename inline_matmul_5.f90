@@ -9,5 +9,5 @@ program main
 
   c = matmul(a,b)
   a = matmul(a,b)
-  if (any(a /= c)) call abort
+  if (any(a /= c)) stop 1
 end program main

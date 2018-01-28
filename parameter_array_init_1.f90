@@ -6,6 +6,6 @@
 !
   INTEGER :: K(3) = 1
   INTEGER, PARAMETER :: J(3) = 2
-  IF (ANY (MAXLOC (K, J<3) .NE. 1)) CALL ABORT ()
-  IF (ANY (J .NE. 2)) CALL ABORT ()
+  IF (ANY (MAXLOC (K, J<3) .NE. 1)) stop 1
+  IF (ANY (J .NE. 2)) stop 1
 END

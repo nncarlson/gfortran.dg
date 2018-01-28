@@ -45,44 +45,44 @@ object[neighbor]%volume = vol_static
 object[neighbor]%matrix = reshape([(i, i=1, 70)], [10, 7])
 object[neighbor]%dynvol = vol_static
 sync all
-if (object%scalar /= 42) call abort()
-if (any( object%indices /= [1,2,3,4,5] )) call abort()
-if (any( object%matrix /= reshape([(i, i=1, 70)], [10, 7]))) call abort()
-if (any( object%volume /= vol_static)) call abort()
-if (any( object%dynvol /= vol_static)) call abort()
+if (object%scalar /= 42) stop 1
+if (any( object%indices /= [1,2,3,4,5] )) stop 1
+if (any( object%matrix /= reshape([(i, i=1, 70)], [10, 7]))) stop 1
+if (any( object%volume /= vol_static)) stop 1
+if (any( object%dynvol /= vol_static)) stop 1
 
 vol2 = vol_static
 vol2(:, ::2, :) = 42
 object[neighbor]%volume(:, ::2, :) = 42
 object[neighbor]%dynvol(:, ::2, :) = 42
-if (any( object%volume /= vol2)) call abort()
-if (any( object%dynvol /= vol2)) call abort()
+if (any( object%volume /= vol2)) stop 1
+if (any( object%dynvol /= vol2)) stop 1
 
 allocate(bar%vec(-2:2))
 
 bar[neighbor]%vec(1)%volume = vol_static
-if (any(bar%vec(1)%volume /= vol_static)) call abort()
+if (any(bar%vec(1)%volume /= vol_static)) stop 1
 
 allocate(bar%vec(1)%scalar, bar%vec(0)%scalar, bar%vec(1)%indices(3))
 i = 15
 bar[neighbor]%vec(1)%scalar = i
-if (.not. associated(bar%vec(1)%scalar)) call abort()
-if (bar%vec(1)%scalar /= 15) call abort()
+if (.not. associated(bar%vec(1)%scalar)) stop 1
+if (bar%vec(1)%scalar /= 15) stop 1
 
 bar[neighbor]%vec(0)%scalar = 27
-if (.not. associated(bar%vec(0)%scalar)) call abort()
-if (bar%vec(0)%scalar /= 27) call abort()
+if (.not. associated(bar%vec(0)%scalar)) stop 1
+if (bar%vec(0)%scalar /= 27) stop 1
 
 bar[neighbor]%vec(1)%indices = [ 3, 4, 15 ]
 allocate(bar%vec(2)%indices(5))
 bar[neighbor]%vec(2)%indices = 89
 
-if (.not. associated(bar%vec(1)%indices)) call abort()
-if (associated(bar%vec(-2)%indices)) call abort()
-if (associated(bar%vec(-1)%indices)) call abort()
-if (associated(bar%vec( 0)%indices)) call abort()
-if (.not. associated(bar%vec( 2)%indices)) call abort()
-if (any(bar%vec(2)%indices /= 89)) call abort()
+if (.not. associated(bar%vec(1)%indices)) stop 1
+if (associated(bar%vec(-2)%indices)) stop 1
+if (associated(bar%vec(-1)%indices)) stop 1
+if (associated(bar%vec( 0)%indices)) stop 1
+if (.not. associated(bar%vec( 2)%indices)) stop 1
+if (any(bar%vec(2)%indices /= 89)) stop 1
 
-if (any (bar%vec(1)%indices /= [ 3,4,15])) call abort()
+if (any (bar%vec(1)%indices /= [ 3,4,15])) stop 1
 end program

@@ -18,7 +18,7 @@ contains
    character(:), allocatable :: temp
    x%ppt => deferred_len
    temp = deferred_len()
-   if ("abc" /= temp) call abort()
+   if ("abc" /= temp) stop 1
  end subroutine doIt
 end module test
 

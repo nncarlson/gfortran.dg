@@ -41,17 +41,17 @@ c { dg-options "-std=gnu" }
       real r1, r2, r3
       character c4, c5, c6
 
-      if (c1(1) .ne. '1') call abort
-      if (r1 .ne. 1.) call abort
-      if (c1(11) .ne. '1') call abort
-      if (c4 .ne. '4') call abort
-      if (c2(1) .ne. '2') call abort
-      if (r2 .ne. 2.) call abort
-      if (c2(11) .ne. '2') call abort
-      if (c5 .ne. '5') call abort
-      if (c3(1) .ne. '3') call abort
-      if (r3 .ne. 3.) call abort
-      if (c3(11) .ne. '3') call abort
-      if (c6 .ne. '6') call abort
+      if (c1(1) .ne. '1') stop 1
+      if (r1 .ne. 1.) stop 1
+      if (c1(11) .ne. '1') stop 1
+      if (c4 .ne. '4') stop 1
+      if (c2(1) .ne. '2') stop 1
+      if (r2 .ne. 2.) stop 1
+      if (c2(11) .ne. '2') stop 1
+      if (c5 .ne. '5') stop 1
+      if (c3(1) .ne. '3') stop 1
+      if (r3 .ne. 3.) stop 1
+      if (c3(11) .ne. '3') stop 1
+      if (c6 .ne. '6') stop 1
 
       end

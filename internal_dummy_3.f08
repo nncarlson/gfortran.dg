@@ -25,17 +25,17 @@ CONTAINS
     PROCEDURE(returnValue), OPTIONAL :: previous, current
 
     IF (PRESENT (current)) THEN
-      IF (current () /= level - 1) CALL abort ()
+      IF (current () /= level - 1) stop 1
     END IF
 
     IF (PRESENT (previous)) THEN
-      IF (previous () /= level - 2) CALL abort ()
+      IF (previous () /= level - 2) stop 1
     END IF
 
     IF (level == 1) THEN
       first => myLevel
     END IF
-    IF (first () /= 1) CALL abort ()
+    IF (first () /= 1) stop 1
 
     IF (level == 10) RETURN
 

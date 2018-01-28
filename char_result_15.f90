@@ -37,8 +37,8 @@ PROGRAM WheresThatbLinkingConstantGone
   IMPLICIT NONE
   integer :: i
   write (buffer, '(i2,a)') len (Get (1)), Get (1)
-  if (trim (buffer) .ne. " 5Apple") call abort
+  if (trim (buffer) .ne. " 5Apple") stop 1
   call fruity(3)
-  if (trim (buffer) .ne. " 5Mango") call abort
-  if (trim (names(3)) .ne. "Mangue") Call abort
+  if (trim (buffer) .ne. " 5Mango") stop 1
+  if (trim (names(3)) .ne. "Mangue") stop 1
 END PROGRAM WheresThatbLinkingConstantGone

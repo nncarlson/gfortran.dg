@@ -13,8 +13,8 @@ subroutine foo(i)
   integer :: i
   integer, allocatable :: j
   if (i == 1) j = 42
-  if (.not. allocated (j)) call abort ()
-  if (j /= 42) call abort ()
+  if (.not. allocated (j)) stop 1
+  if (j /= 42) stop 1
 end
 
 ! Deferred-length string scalar
@@ -23,12 +23,12 @@ subroutine bar()
   character(len=:), allocatable :: str
   if (first) then
     first = .false.
-    if (allocated (str)) call abort ()
+    if (allocated (str)) stop 1
     str = "ABCDEF"
   end if
-  if (.not. allocated (str)) call abort ()
-  if (len (str) /= 6) call abort ()
-  if (str(1:6) /= "ABCDEF") call abort ()
+  if (.not. allocated (str)) stop 1
+  if (len (str) /= 6) stop 1
+  if (str(1:6) /= "ABCDEF") stop 1
 end subroutine bar
 
 ! Deferred-length string array
@@ -37,12 +37,12 @@ subroutine bar_array()
   character(len=:), allocatable :: str
   if (first) then
     first = .false.
-    if (allocated (str)) call abort ()
+    if (allocated (str)) stop 1
     str = "ABCDEF"
   end if
-  if (.not. allocated (str)) call abort ()
-  if (len (str) /= 6) call abort ()
-  if (str(1:6) /= "ABCDEF") call abort ()
+  if (.not. allocated (str)) stop 1
+  if (len (str) /= 6) stop 1
+  if (str(1:6) /= "ABCDEF") stop 1
 end subroutine bar_array
 
 call foo(1)

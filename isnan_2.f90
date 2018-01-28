@@ -8,11 +8,11 @@
   implicit none
   character(len=1) :: s
   write(s,'(L1)') isnan(0.)
-  if (s /= 'F') call abort
+  if (s /= 'F') stop 1
 
   write(s,'(L1)') isnan(exp(huge(0.)))
-  if (s /= 'F') call abort
+  if (s /= 'F') stop 1
 
   write(s,'(L1)') isnan(0./0.)
-  if (s /= 'T') call abort
+  if (s /= 'T') stop 1
 end

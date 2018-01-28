@@ -33,7 +33,7 @@ contains
     type (rational_t) :: return_type
 
 !    print *, trim (message_)
-    if (my_test_cnt /= 1) call abort()
+    if (my_test_cnt /= 1) stop 1
     my_test_cnt = my_test_cnt + 1
     call return_type % Rational_t_init
 
@@ -44,11 +44,11 @@ contains
 
 !    print *, "n, id", this_% n, this_% id
     if (my_test_cnt == 0) then
-      if (this_% n /= 0 .or. this_% id /= 1) call abort ()
+      if (this_% n /= 0 .or. this_% id /= 1) stop 1
     else if (my_test_cnt == 2) then
-      if (this_% n /= 10 .or. this_% id /= 0) call abort ()
+      if (this_% n /= 10 .or. this_% id /= 0) stop 1
     else
-      call abort ()
+      stop 1
     end if
     my_test_cnt = my_test_cnt + 1
   end subroutine Print_rational_t
@@ -90,7 +90,7 @@ contains
     type (temp_node_t) :: return_type
 
     !print *, trim (message_)
-    if (my_test_cnt /= 4) call abort()
+    if (my_test_cnt /= 4) stop 1
     my_test_cnt = my_test_cnt + 1
     call return_type % Temp_node_t_init
 
@@ -101,11 +101,11 @@ contains
 
 !    print *, "temp, id", this_% temperature, this_% id
     if (my_test_cnt == 3) then
-      if (this_% temperature /= 20 .or. this_% id /= 1) call abort ()
+      if (this_% temperature /= 20 .or. this_% id /= 1) stop 1
     else if (my_test_cnt == 5) then
-      if (this_% temperature /= 10 .or. this_% id /= 0) call abort ()
+      if (this_% temperature /= 10 .or. this_% id /= 0) stop 1
     else
-      call abort ()
+      stop 1
     end if
     my_test_cnt = my_test_cnt + 1
   end subroutine Print_temp_node_t
@@ -135,19 +135,19 @@ program Struct_over
 !  print *, ""
 !
 !  print *, "after declaration"
-  if (my_test_cnt /= 0) call abort()
+  if (my_test_cnt /= 0) stop 1
   call sample_rational_t % print
 
-  if (my_test_cnt /= 1) call abort()
+  if (my_test_cnt /= 1) stop 1
 
   sample_rational_t = sample_rational_t % rational_t ("using override")
-  if (my_test_cnt /= 2) call abort()
+  if (my_test_cnt /= 2) stop 1
 !  print *, "after override"
   !  call print (sample_rational_t)
   !  call sample_rational_t % print ()
   call sample_rational_t % print
 
-  if (my_test_cnt /= 3) call abort()
+  if (my_test_cnt /= 3) stop 1
 
 !  print *, "sample_t"
 !  print *, "--------"
@@ -156,14 +156,14 @@ program Struct_over
 !  print *, "after declaration"
   call sample_temp_node_t % print
 
-  if (my_test_cnt /= 4) call abort()
+  if (my_test_cnt /= 4) stop 1
 
   sample_temp_node_t = temp_node_t ("using override")
-  if (my_test_cnt /= 5) call abort()
+  if (my_test_cnt /= 5) stop 1
 !  print *, "after override"
   !  call print (sample_rational_t)
   !  call sample_rational_t % print ()
   call sample_temp_node_t % print
-  if (my_test_cnt /= 6) call abort()
+  if (my_test_cnt /= 6) stop 1
 
 end program Struct_over

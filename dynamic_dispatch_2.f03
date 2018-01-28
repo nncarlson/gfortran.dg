@@ -72,25 +72,25 @@ end module m
 
   a => b                                   ! declared type
   call a%real(r)
-  if (r .ne. real (42)) call abort
+  if (r .ne. real (42)) stop 1
   call a%prod(i)
-  if (i .ne. 42) call abort
+  if (i .ne. 42) stop 1
   call a%extract (2, i)
-  if (i .ne. 84) call abort
+  if (i .ne. 84) stop 1
 
   a => c                                   ! extension in module
   call a%real(r)
-  if (r .ne. real (99)) call abort
+  if (r .ne. real (99)) stop 1
   call a%prod(i)
-  if (i .ne. 99) call abort
+  if (i .ne. 99) stop 1
   call a%extract (3, i)
-  if (i .ne. 297) call abort
+  if (i .ne. 297) stop 1
 
   a => d                                   ! extension in main
   call a%real(r)
-  if (r .ne. real (42)) call abort
+  if (r .ne. real (42)) stop 1
   call a%prod(i)
-  if (i .ne. 42) call abort
+  if (i .ne. 42) stop 1
   call a%extract (4, i)
-  if (i .ne. 168) call abort
+  if (i .ne. 168) stop 1
 end

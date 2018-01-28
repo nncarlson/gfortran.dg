@@ -15,13 +15,13 @@ contains
     b => a
 ! Even though b is zero length, associated returns true because
 ! the target argument is not present (case (i))
-    if (.not. associated (b)) call abort ()
+    if (.not. associated (b)) stop 1
     deallocate (a)
     nullify(a)
-    if(associated(a,a)) call abort()
+    if(associated(a,a)) stop 1
     allocate (a(2,1,2))
     b => a
-    if (.not.associated (b)) call abort ()
+    if (.not.associated (b)) stop 1
     deallocate (a)
   end subroutine test1
   subroutine test2 ()
@@ -29,11 +29,11 @@ contains
     allocate (a(2,0,2))
     b => a
 ! Associated returns false because target is present (case(iii)).
-    if (associated (b, a)) call abort ()
+    if (associated (b, a)) stop 1
     deallocate (a)
     allocate (a(2,1,2))
     b => a
-    if (.not.associated (b, a)) call abort ()
+    if (.not.associated (b, a)) stop 1
     deallocate (a)
   end subroutine test2
   subroutine test3 (n)
@@ -43,9 +43,9 @@ contains
     b => a
 ! Again, with zero character length associated returns false
 ! if target is present.
-    if (associated (b, a) .and. (n .eq. 0)) call abort ()
+    if (associated (b, a) .and. (n .eq. 0)) stop 1
 !
-    if ((.not.associated (b, a))  .and. (n .ne. 0)) call abort ()
+    if ((.not.associated (b, a))  .and. (n .ne. 0)) stop 1
     deallocate (a)
   end subroutine test3
 end

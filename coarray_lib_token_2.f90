@@ -43,10 +43,10 @@ program main
   caf_dt = t (1,2)
   call sub (caf, caf_dt%b)
   print *,caf, caf_dt%b
-  if (caf /= -99 .or. caf_dt%b /= -101) call abort ()
+  if (caf /= -99 .or. caf_dt%b /= -101) stop 1
   call sub_opt ()
   call sub_opt (caf)
-  if (caf /= 124) call abort ()
+  if (caf /= 124) stop 1
 contains
 
   subroutine sub (x1, x2)
@@ -58,7 +58,7 @@ contains
     integer :: y1[*], y2[*]
 
     print *, y1, y2
-    if (y1 /= 42 .or. y2 /= 2) call abort ()
+    if (y1 /= 42 .or. y2 /= 2) stop 1
     y1 = -99
     y2 = -101
   end subroutine sub2
@@ -66,7 +66,7 @@ contains
   subroutine sub_opt (z)
     integer, optional :: z[*]
     if (present (z)) then
-      if (z /= -99) call abort ()
+      if (z /= -99) stop 1
       z = 124
     end if
   end subroutine sub_opt

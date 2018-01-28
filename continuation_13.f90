@@ -23,22 +23,22 @@ character(25) :: astring
 900 format('This is actually ok.' & !comment
    ' end'  )
 write(astring,100)
-if (astring.ne."This format is OK.") call abort
+if (astring.ne."This format is OK.") stop 1
 write(astring,200)
-if (astring.ne."This format now works.") call abort
+if (astring.ne."This format now works.") stop 1
 write(astring,300)
-if (astring.ne."This format now works.") call abort
+if (astring.ne."This format now works.") stop 1
 write(astring,400)
-if (astring.ne."This format is OK.") call abort
+if (astring.ne."This format is OK.") stop 1
 write(astring,500)
-if (astring.ne."This format is OK.") call abort
+if (astring.ne."This format is OK.") stop 1
 write(astring,600)
-if (astring.ne."This format now works.'") call abort
+if (astring.ne."This format now works.'") stop 1
 write(astring,700)
-if (astring.ne."This format now works.'") call abort
+if (astring.ne."This format now works.'") stop 1
 write(astring,800)
-if (astring.ne."This is actually ok.' end") call abort
+if (astring.ne."This is actually ok.' end") stop 1
 write(astring,900)
-if (astring.ne."This is actually ok. end") call abort
+if (astring.ne."This is actually ok. end") stop 1
 
 end

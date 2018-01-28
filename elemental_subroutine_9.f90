@@ -19,14 +19,14 @@ contains
     str_aux = str
 
     ! Compiled but did not give correct result
-    if (any (str_cmp((/'aaa','bbb'/), str) .neqv. [.FALSE.,.TRUE.])) call abort
+    if (any (str_cmp((/'aaa','bbb'/), str) .neqv. [.FALSE.,.TRUE.])) stop 1
 
     ! Did not compile
-    if (any (str_cmp((/'bbb', 'aaa'/), str_aux) .neqv. [.TRUE.,.FALSE.])) call abort
+    if (any (str_cmp((/'bbb', 'aaa'/), str_aux) .neqv. [.TRUE.,.FALSE.])) stop 1
 
     ! Verify patch
-    if (any (str_cmp((/'bbb', 'aaa'/), str3) .neqv. [.FALSE.,.FALSE.])) call abort
-    if (any (str_cmp((/'bbb', 'aaa'/), 'aaa') .neqv. [.FALSE.,.TRUE.])) call abort
+    if (any (str_cmp((/'bbb', 'aaa'/), str3) .neqv. [.FALSE.,.FALSE.])) stop 1
+    if (any (str_cmp((/'bbb', 'aaa'/), 'aaa') .neqv. [.FALSE.,.TRUE.])) stop 1
 
   end subroutine y
 

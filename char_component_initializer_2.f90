@@ -12,5 +12,5 @@ program gfcbug62
   integer     :: i,k
   i = 1
   k = 1
-  if (tdefi(1) .ne. ctl%tdefi(1)) call abort ()
+  if (tdefi(1) .ne. ctl%tdefi(1)) stop 1
 end program gfcbug62

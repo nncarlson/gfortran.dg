@@ -22,7 +22,7 @@ contains
     class(*) :: arg
     select type (arg)
       type is (mytype)
-        if (arg%i .ne. 99_8) call abort
+        if (arg%i .ne. 99_8) stop 1
     end select
   end subroutine
 
@@ -30,7 +30,7 @@ contains
     class(mytype) :: arg
     select type (arg)
       type is (mytype)
-        if (arg%i .ne. 99_8) call abort
+        if (arg%i .ne. 99_8) stop 1
     end select
   end subroutine
 

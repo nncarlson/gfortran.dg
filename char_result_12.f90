@@ -14,13 +14,13 @@
  temper(1) = 'doncaster'
  temper(2) = 'uxbridge'
  ctemp     = temper
- if (any (ctemp /= ["donc", "uxbr"])) call abort ()
+ if (any (ctemp /= ["donc", "uxbr"])) stop 1
  !
  !------------------------
  !'This went a bit wrong.'
  !------------------------
  ctemp = jetter(1,2)
- if (any (ctemp /= ["donc", "uxbr"])) call abort ()
+ if (any (ctemp /= ["donc", "uxbr"])) stop 1
 
  contains
    function jetter(id1,id2)

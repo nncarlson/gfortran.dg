@@ -19,5 +19,5 @@ program rte1
   root%child%id=2
   print *,root%child%id," is child of ",root%id,":"
   print *,root%child%parent%id,root%id
-  if (.not. associated(root%child%parent,root)) call abort()
+  if (.not. associated(root%child%parent,root)) stop 1
 end program rte1

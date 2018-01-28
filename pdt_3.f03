@@ -40,18 +40,18 @@ end module
   w%d = reshape ([(real(i), i = 1, d_dim*d_dim)],[d_dim,d_dim])
 
 ! Make sure that the type extension is ordering the parameters correctly.
-  if (w%a .ne. ftype) call abort
-  if (w%b .ne. 4) call abort
-  if (w%h .ne. 4) call abort
-  if (size (w%d) .ne. 16) call abort
-  if (int (w%d(2,4)) .ne. 14) call abort
-  if (kind (w%j) .ne. w%h) call abort
+  if (w%a .ne. ftype) stop 1
+  if (w%b .ne. 4) stop 1
+  if (w%h .ne. 4) stop 1
+  if (size (w%d) .ne. 16) stop 1
+  if (int (w%d(2,4)) .ne. 14) stop 1
+  if (kind (w%j) .ne. w%h) stop 1
 
 ! As a side issue, ensure PDT components are OK
-  if (q%mat1%b .ne. q%s) call abort
-  if (q%mat2%b .ne. q%s*2) call abort
-  if (size (q%mat1%d) .ne. mat_dim**2) call abort
-  if (size (q%mat2%d) .ne. 4*mat_dim**2) call abort
+  if (q%mat1%b .ne. q%s) stop 1
+  if (q%mat2%b .ne. q%s*2) stop 1
+  if (size (q%mat1%d) .ne. mat_dim**2) stop 1
+  if (size (q%mat2%d) .ne. 4*mat_dim**2) stop 1
 
 ! Now check some basic OOP with PDTs
   matrix = w%d
@@ -60,9 +60,9 @@ end module
   allocate (cz, source = mytype(ftype, d_dim, 0, matrix))
   select type (cz)
     type is (mytype(ftype, *))
-      if (int (sum (cz%d)) .ne. 136) call abort
+      if (int (sum (cz%d)) .ne. 136) stop 1
     type is (thytype(ftype, *, 8))
-      call abort
+      stop 1
   end select
   deallocate (cz)
 
@@ -70,9 +70,9 @@ end module
   cz%d = reshape ([(i*10, i = 1, cz%b**2)], [cz%b,cz%b])
   select type (cz)
     type is (mytype(ftype, *))
-      call abort
+      stop 1
     type is (thytype(ftype, *, 8))
-      if (int (sum (cz%d)) .ne. 20800) call abort
+      if (int (sum (cz%d)) .ne. 20800) stop 1
   end select
 
   deallocate (cz)

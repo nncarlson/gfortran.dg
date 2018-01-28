@@ -26,9 +26,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str2a /= 1_"abc    ") call abort()
+    if (str2a /= 1_"abc    ") stop 1
   else
-    if (str2a /= 1_"XXXXXXX") call abort()
+    if (str2a /= 1_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 4 - with padding
@@ -42,9 +42,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr2a /= 4_"abc    ") call abort()
+    if (ustr2a /= 4_"abc    ") stop 1
   else
-    if (ustr2a /= 4_"XXXXXXX") call abort()
+    if (ustr2a /= 4_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 1 - with trimming
@@ -58,9 +58,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str1a /= 1_"abc") call abort()
+    if (str1a /= 1_"abc") stop 1
   else
-    if (str1a /= 1_"XXX") call abort()
+    if (str1a /= 1_"XXX") stop 1
   end if
 
   ! SCALAR - kind 4 - with trimming
@@ -74,9 +74,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr1a /= 4_"abc") call abort()
+    if (ustr1a /= 4_"abc") stop 1
   else
-    if (ustr1a /= 4_"XXX") call abort()
+    if (ustr1a /= 4_"XXX") stop 1
   end if
 
   ! - - - - - array = array
@@ -97,10 +97,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"def    " &
-        .or. str2b(3) /= 1_"gjh    ") call abort()
+        .or. str2b(3) /= 1_"gjh    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with padding
@@ -119,10 +119,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"def    " &
-        .or. ustr2b(3) /= 4_"gjh    ") call abort()
+        .or. ustr2b(3) /= 4_"gjh    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 - with trimming
@@ -141,10 +141,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"hij" &
-        .or. str1b(3) /= 1_"opq") call abort()
+        .or. str1b(3) /= 1_"opq") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with trimming
@@ -163,10 +163,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"hij" &
-        .or. ustr1b(3) /= 4_"opq") call abort()
+        .or. ustr1b(3) /= 4_"opq") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! - - - - - array = scalar
@@ -185,10 +185,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"abc    " &
-        .or. str2b(3) /= 1_"abc    ") call abort()
+        .or. str2b(3) /= 1_"abc    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with padding
@@ -205,10 +205,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"abc    " &
-        .or. ustr2b(3) /= 4_"abc    ") call abort()
+        .or. ustr2b(3) /= 4_"abc    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 - with trimming
@@ -225,10 +225,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"abc" &
-        .or. str1b(3) /= 1_"abc") call abort()
+        .or. str1b(3) /= 1_"abc") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with trimming
@@ -245,10 +245,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"abc" &
-        .or. ustr1b(3) /= 4_"abc") call abort()
+        .or. ustr1b(3) /= 4_"abc") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! ---------- Take from a coindexed variable -------------
@@ -266,9 +266,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (str2a /= 1_"abc    ") call abort()
+    if (str2a /= 1_"abc    ") stop 1
   else
-    if (str2a /= 1_"XXXXXXX") call abort()
+    if (str2a /= 1_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 4 - with padding
@@ -282,9 +282,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (ustr2a /= 4_"abc    ") call abort()
+    if (ustr2a /= 4_"abc    ") stop 1
   else
-    if (ustr2a /= 4_"XXXXXXX") call abort()
+    if (ustr2a /= 4_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 1 - with trimming
@@ -298,9 +298,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (str1a /= 1_"abc") call abort()
+    if (str1a /= 1_"abc") stop 1
   else
-    if (str1a /= 1_"XXX") call abort()
+    if (str1a /= 1_"XXX") stop 1
   end if
 
   ! SCALAR - kind 4 - with trimming
@@ -314,9 +314,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (ustr1a /= 4_"abc") call abort()
+    if (ustr1a /= 4_"abc") stop 1
   else
-    if (ustr1a /= 4_"XXX") call abort()
+    if (ustr1a /= 4_"XXX") stop 1
   end if
 
   ! - - - - - array = array
@@ -337,10 +337,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"def    " &
-        .or. str2b(3) /= 1_"gjh    ") call abort()
+        .or. str2b(3) /= 1_"gjh    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with padding
@@ -359,10 +359,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"def    " &
-        .or. ustr2b(3) /= 4_"gjh    ") call abort()
+        .or. ustr2b(3) /= 4_"gjh    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 - with trimming
@@ -381,10 +381,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"hij" &
-        .or. str1b(3) /= 1_"opq") call abort()
+        .or. str1b(3) /= 1_"opq") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with trimming
@@ -403,10 +403,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"hij" &
-        .or. ustr1b(3) /= 4_"opq") call abort()
+        .or. ustr1b(3) /= 4_"opq") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! - - - - - array = scalar
@@ -425,10 +425,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"abc    " &
-        .or. str2b(3) /= 1_"abc    ") call abort()
+        .or. str2b(3) /= 1_"abc    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with padding
@@ -445,10 +445,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"abc    " &
-        .or. ustr2b(3) /= 4_"abc    ") call abort()
+        .or. ustr2b(3) /= 4_"abc    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 - with trimming
@@ -465,10 +465,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"abc" &
-        .or. str1b(3) /= 1_"abc") call abort()
+        .or. str1b(3) /= 1_"abc") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with trimming
@@ -485,10 +485,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"abc" &
-        .or. ustr1b(3) /= 4_"abc") call abort()
+        .or. ustr1b(3) /= 4_"abc") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
 
@@ -507,9 +507,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str2a /= 1_"abc    ") call abort()
+    if (str2a /= 1_"abc    ") stop 1
   else
-    if (str2a /= 1_"XXXXXXX") call abort()
+    if (str2a /= 1_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 4 - with padding
@@ -523,9 +523,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr2a /= 4_"abc    ") call abort()
+    if (ustr2a /= 4_"abc    ") stop 1
   else
-    if (ustr2a /= 4_"XXXXXXX") call abort()
+    if (ustr2a /= 4_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 1 - with trimming
@@ -539,9 +539,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str1a /= 1_"abc") call abort()
+    if (str1a /= 1_"abc") stop 1
   else
-    if (str1a /= 1_"XXX") call abort()
+    if (str1a /= 1_"XXX") stop 1
   end if
 
   ! SCALAR - kind 4 - with trimming
@@ -555,9 +555,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr1a /= 4_"abc") call abort()
+    if (ustr1a /= 4_"abc") stop 1
   else
-    if (ustr1a /= 4_"XXX") call abort()
+    if (ustr1a /= 4_"XXX") stop 1
   end if
 
   ! - - - - - array = array
@@ -578,10 +578,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"def    " &
-        .or. str2b(3) /= 1_"gjh    ") call abort()
+        .or. str2b(3) /= 1_"gjh    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with padding
@@ -600,10 +600,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"def    " &
-        .or. ustr2b(3) /= 4_"gjh    ") call abort()
+        .or. ustr2b(3) /= 4_"gjh    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 - with trimming
@@ -622,10 +622,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"hij" &
-        .or. str1b(3) /= 1_"opq") call abort()
+        .or. str1b(3) /= 1_"opq") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with trimming
@@ -644,10 +644,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"hij" &
-        .or. ustr1b(3) /= 4_"opq") call abort()
+        .or. ustr1b(3) /= 4_"opq") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! - - - - - array = scalar
@@ -666,10 +666,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"abc    " &
-        .or. str2b(3) /= 1_"abc    ") call abort()
+        .or. str2b(3) /= 1_"abc    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with padding
@@ -686,10 +686,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"abc    " &
-        .or. ustr2b(3) /= 4_"abc    ") call abort()
+        .or. ustr2b(3) /= 4_"abc    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 - with trimming
@@ -706,10 +706,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"abc" &
-        .or. str1b(3) /= 1_"abc") call abort()
+        .or. str1b(3) /= 1_"abc") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 - with trimming
@@ -726,10 +726,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"abc" &
-        .or. ustr1b(3) /= 4_"abc") call abort()
+        .or. ustr1b(3) /= 4_"abc") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! ============== char1 <-> char4 =====================
@@ -749,9 +749,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str2a /= 1_"abc    ") call abort()
+    if (str2a /= 1_"abc    ") stop 1
   else
-    if (str2a /= 1_"XXXXXXX") call abort()
+    if (str2a /= 1_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 4 <- 1 - with padding
@@ -765,9 +765,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr2a /= 4_"abc    ") call abort()
+    if (ustr2a /= 4_"abc    ") stop 1
   else
-    if (ustr2a /= 4_"XXXXXXX") call abort()
+    if (ustr2a /= 4_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 1 <- 4 - with trimming
@@ -781,9 +781,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str1a /= 1_"abc") call abort()
+    if (str1a /= 1_"abc") stop 1
   else
-    if (str1a /= 1_"XXX") call abort()
+    if (str1a /= 1_"XXX") stop 1
   end if
 
   ! SCALAR - kind 4 <- 1 - with trimming
@@ -797,9 +797,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr1a /= 4_"abc") call abort()
+    if (ustr1a /= 4_"abc") stop 1
   else
-    if (ustr1a /= 4_"XXX") call abort()
+    if (ustr1a /= 4_"XXX") stop 1
   end if
 
   ! - - - - - array = array
@@ -820,10 +820,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"def    " &
-        .or. str2b(3) /= 1_"gjh    ") call abort()
+        .or. str2b(3) /= 1_"gjh    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with padding
@@ -842,10 +842,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"def    " &
-        .or. ustr2b(3) /= 4_"gjh    ") call abort()
+        .or. ustr2b(3) /= 4_"gjh    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 <- 4 - with trimming
@@ -864,10 +864,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"hij" &
-        .or. str1b(3) /= 1_"opq") call abort()
+        .or. str1b(3) /= 1_"opq") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with trimming
@@ -886,10 +886,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"hij" &
-        .or. ustr1b(3) /= 4_"opq") call abort()
+        .or. ustr1b(3) /= 4_"opq") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! - - - - - array = scalar
@@ -908,10 +908,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"abc    " &
-        .or. str2b(3) /= 1_"abc    ") call abort()
+        .or. str2b(3) /= 1_"abc    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with padding
@@ -928,10 +928,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"abc    " &
-        .or. ustr2b(3) /= 4_"abc    ") call abort()
+        .or. ustr2b(3) /= 4_"abc    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 <- 4 - with trimming
@@ -948,10 +948,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"abc" &
-        .or. str1b(3) /= 1_"abc") call abort()
+        .or. str1b(3) /= 1_"abc") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with trimming
@@ -968,10 +968,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"abc" &
-        .or. ustr1b(3) /= 4_"abc") call abort()
+        .or. ustr1b(3) /= 4_"abc") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! ---------- Take from a coindexed variable -------------
@@ -989,9 +989,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (str2a /= 1_"abc    ") call abort()
+    if (str2a /= 1_"abc    ") stop 1
   else
-    if (str2a /= 1_"XXXXXXX") call abort()
+    if (str2a /= 1_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 4 <- 1 - with padding
@@ -1005,9 +1005,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (ustr2a /= 4_"abc    ") call abort()
+    if (ustr2a /= 4_"abc    ") stop 1
   else
-    if (ustr2a /= 4_"XXXXXXX") call abort()
+    if (ustr2a /= 4_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 1 <- 4 - with trimming
@@ -1021,9 +1021,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (str1a /= 1_"abc") call abort()
+    if (str1a /= 1_"abc") stop 1
   else
-    if (str1a /= 1_"XXX") call abort()
+    if (str1a /= 1_"XXX") stop 1
   end if
 
   ! SCALAR - kind 4 <- 1 - with trimming
@@ -1037,9 +1037,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == num_images()) then
-    if (ustr1a /= 4_"abc") call abort()
+    if (ustr1a /= 4_"abc") stop 1
   else
-    if (ustr1a /= 4_"XXX") call abort()
+    if (ustr1a /= 4_"XXX") stop 1
   end if
 
   ! - - - - - array = array
@@ -1060,10 +1060,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"def    " &
-        .or. str2b(3) /= 1_"gjh    ") call abort()
+        .or. str2b(3) /= 1_"gjh    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with padding
@@ -1082,10 +1082,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"def    " &
-        .or. ustr2b(3) /= 4_"gjh    ") call abort()
+        .or. ustr2b(3) /= 4_"gjh    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 <- 4 - with trimming
@@ -1104,10 +1104,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"hij" &
-        .or. str1b(3) /= 1_"opq") call abort()
+        .or. str1b(3) /= 1_"opq") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with trimming
@@ -1126,10 +1126,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"hij" &
-        .or. ustr1b(3) /= 4_"opq") call abort()
+        .or. ustr1b(3) /= 4_"opq") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! - - - - - array = scalar
@@ -1148,10 +1148,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"abc    " &
-        .or. str2b(3) /= 1_"abc    ") call abort()
+        .or. str2b(3) /= 1_"abc    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with padding
@@ -1168,10 +1168,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"abc    " &
-        .or. ustr2b(3) /= 4_"abc    ") call abort()
+        .or. ustr2b(3) /= 4_"abc    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 <- 4 - with trimming
@@ -1188,10 +1188,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"abc" &
-        .or. str1b(3) /= 1_"abc") call abort()
+        .or. str1b(3) /= 1_"abc") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with trimming
@@ -1208,10 +1208,10 @@ subroutine char_test()
   sync all
   if (this_image() == num_images()) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"abc" &
-        .or. ustr1b(3) /= 4_"abc") call abort()
+        .or. ustr1b(3) /= 4_"abc") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
 
@@ -1230,9 +1230,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str2a /= 1_"abc    ") call abort()
+    if (str2a /= 1_"abc    ") stop 1
   else
-    if (str2a /= 1_"XXXXXXX") call abort()
+    if (str2a /= 1_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 4 <- 1 - with padding
@@ -1246,9 +1246,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr2a /= 4_"abc    ") call abort()
+    if (ustr2a /= 4_"abc    ") stop 1
   else
-    if (ustr2a /= 4_"XXXXXXX") call abort()
+    if (ustr2a /= 4_"XXXXXXX") stop 1
   end if
 
   ! SCALAR - kind 1 <- 4 - with trimming
@@ -1262,9 +1262,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (str1a /= 1_"abc") call abort()
+    if (str1a /= 1_"abc") stop 1
   else
-    if (str1a /= 1_"XXX") call abort()
+    if (str1a /= 1_"XXX") stop 1
   end if
 
   ! SCALAR - kind 4 <- 1 - with trimming
@@ -1278,9 +1278,9 @@ subroutine char_test()
   end if
   sync all
   if (this_image() == 1) then
-    if (ustr1a /= 4_"abc") call abort()
+    if (ustr1a /= 4_"abc") stop 1
   else
-    if (ustr1a /= 4_"XXX") call abort()
+    if (ustr1a /= 4_"XXX") stop 1
   end if
 
   ! - - - - - array = array
@@ -1301,10 +1301,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"def    " &
-        .or. str2b(3) /= 1_"gjh    ") call abort()
+        .or. str2b(3) /= 1_"gjh    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with padding
@@ -1323,10 +1323,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"def    " &
-        .or. ustr2b(3) /= 4_"gjh    ") call abort()
+        .or. ustr2b(3) /= 4_"gjh    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 <- 4 - with trimming
@@ -1345,10 +1345,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"hij" &
-        .or. str1b(3) /= 1_"opq") call abort()
+        .or. str1b(3) /= 1_"opq") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with trimming
@@ -1367,10 +1367,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"hij" &
-        .or. ustr1b(3) /= 4_"opq") call abort()
+        .or. ustr1b(3) /= 4_"opq") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
   ! - - - - - array = scalar
@@ -1389,10 +1389,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str2b(1) /= 1_"abc    " .or. str2b(2) /= 1_"abc    " &
-        .or. str2b(3) /= 1_"abc    ") call abort()
+        .or. str2b(3) /= 1_"abc    ") stop 1
   else
     if (str2b(1) /= 1_"XXXXXXX" .or. str2b(2) /= 1_"YYYYYYY" &
-        .or. str2b(3) /= 1_"ZZZZZZZ") call abort()
+        .or. str2b(3) /= 1_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with padding
@@ -1409,10 +1409,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr2b(1) /= 4_"abc    " .or. ustr2b(2) /= 4_"abc    " &
-        .or. ustr2b(3) /= 4_"abc    ") call abort()
+        .or. ustr2b(3) /= 4_"abc    ") stop 1
   else
     if (ustr2b(1) /= 4_"XXXXXXX" .or. ustr2b(2) /= 4_"YYYYYYY" &
-        .or. ustr2b(3) /= 4_"ZZZZZZZ") call abort()
+        .or. ustr2b(3) /= 4_"ZZZZZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 1 <- 4 - with trimming
@@ -1429,10 +1429,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (str1b(1) /= 1_"abc" .or. str1b(2) /= 1_"abc" &
-        .or. str1b(3) /= 1_"abc") call abort()
+        .or. str1b(3) /= 1_"abc") stop 1
   else
     if (str1b(1) /= 1_"XXX" .or. str1b(2) /= 1_"YYY" &
-        .or. str1b(3) /= 1_"ZZZ") call abort()
+        .or. str1b(3) /= 1_"ZZZ") stop 1
   end if
 
   ! contiguous ARRAY - kind 4 <- 1 - with trimming
@@ -1449,10 +1449,10 @@ subroutine char_test()
   sync all
   if (this_image() == 1) then
     if (ustr1b(1) /= 4_"abc" .or. ustr1b(2) /= 4_"abc" &
-        .or. ustr1b(3) /= 4_"abc") call abort()
+        .or. ustr1b(3) /= 4_"abc") stop 1
   else
     if (ustr1b(1) /= 4_"XXX" .or. ustr1b(2) /= 4_"YYY" &
-        .or. ustr1b(3) /= 4_"ZZZ") call abort()
+        .or. ustr1b(3) /= 4_"ZZZ") stop 1
   end if
 
 end subroutine char_test

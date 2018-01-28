@@ -11,10 +11,10 @@ C PR libfortran/31618 - backspace after an error didn't work.
       rewind (21)
       read (21) i,j
       read (21,err=100,end=100) i,j,k
-      call abort
+      stop 1
  100  continue
       backspace 21
       read (21) i,j
-      if (i .ne. 4711 .or. j .ne. 4712) call abort
+      if (i .ne. 4711 .or. j .ne. 4712) stop 1
       close (21,status="delete")
       end

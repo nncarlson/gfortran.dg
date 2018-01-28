@@ -24,18 +24,18 @@
   call ieee_set_status(s1)
 
   call ieee_get_flag(ieee_all, flags)
-  if (any(flags)) call abort
+  if (any(flags)) stop 1
   call ieee_get_rounding_mode(mode)
-  if (mode /= ieee_down) call abort
+  if (mode /= ieee_down) stop 1
   call ieee_get_halting_mode(ieee_all, halt)
-  if (any(halt)) call abort
+  if (any(halt)) stop 1
 
   call ieee_set_rounding_mode(ieee_to_zero)
   call ieee_set_flag(ieee_underflow, .true.)
   call ieee_set_halting_mode(ieee_overflow, .true.)
   x = -1
   x = sqrt(x)
-  if (.not. ieee_is_nan(x)) call abort
+  if (.not. ieee_is_nan(x)) stop 1
 
   call ieee_get_status(s2)
 
@@ -43,11 +43,11 @@
   if (.not. (all(flags .eqv. [.false.,.false.,.true.,.true.,.false.]) &
              .or. all(flags .eqv. [.false.,.false.,.true.,.true.,.true.]) &
              .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.false.]) &
-             .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.true.]))) call abort
+             .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.true.]))) stop 1
   call ieee_get_rounding_mode(mode)
-  if (mode /= ieee_to_zero) call abort
+  if (mode /= ieee_to_zero) stop 1
   call ieee_get_halting_mode(ieee_all, halt)
-  if ((haltworks .and. .not. halt(1)) .or. any(halt(2:))) call abort
+  if ((haltworks .and. .not. halt(1)) .or. any(halt(2:))) stop 1
 
   call ieee_set_status(s2)
 
@@ -55,20 +55,20 @@
   if (.not. (all(flags .eqv. [.false.,.false.,.true.,.true.,.false.]) &
              .or. all(flags .eqv. [.false.,.false.,.true.,.true.,.true.]) &
              .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.false.]) &
-             .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.true.]))) call abort
+             .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.true.]))) stop 1
   call ieee_get_rounding_mode(mode)
-  if (mode /= ieee_to_zero) call abort
+  if (mode /= ieee_to_zero) stop 1
   call ieee_get_halting_mode(ieee_all, halt)
-  if ((haltworks .and. .not. halt(1)) .or. any(halt(2:))) call abort
+  if ((haltworks .and. .not. halt(1)) .or. any(halt(2:))) stop 1
 
   call ieee_set_status(s1)
 
   call ieee_get_flag(ieee_all, flags)
-  if (any(flags)) call abort
+  if (any(flags)) stop 1
   call ieee_get_rounding_mode(mode)
-  if (mode /= ieee_down) call abort
+  if (mode /= ieee_down) stop 1
   call ieee_get_halting_mode(ieee_all, halt)
-  if (any(halt)) call abort
+  if (any(halt)) stop 1
 
   call ieee_set_status(s2)
 
@@ -76,10 +76,10 @@
   if (.not. (all(flags .eqv. [.false.,.false.,.true.,.true.,.false.]) &
              .or. all(flags .eqv. [.false.,.false.,.true.,.true.,.true.]) &
              .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.false.]) &
-             .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.true.]))) call abort
+             .or. all(flags .eqv. [.false.,.false.,.true.,.false.,.true.]))) stop 1
   call ieee_get_rounding_mode(mode)
-  if (mode /= ieee_to_zero) call abort
+  if (mode /= ieee_to_zero) stop 1
   call ieee_get_halting_mode(ieee_all, halt)
-  if ((haltworks .and. .not. halt(1)) .or. any(halt(2:))) call abort
+  if ((haltworks .and. .not. halt(1)) .or. any(halt(2:))) stop 1
 
 end

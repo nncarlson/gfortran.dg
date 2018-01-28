@@ -21,15 +21,15 @@ contains
     real :: var1, var2 ! Should get NaN initialized
 
     ! Should be the default value
-    if (e%rmult /= 1.0) call abort ()
+    if (e%rmult /= 1.0) stop 1
 
     ! Check that NaN initialization is really turned on
-    if (var1 == var1) call abort () 
-    if (var2 == var2) call abort () 
+    if (var1 == var1) stop 1 
+    if (var2 == var2) stop 1 
 
     ! The following was failing:
     associate (rmult=>e%rmult)
-      if (e%rmult /= 1.0) call abort ()
+      if (e%rmult /= 1.0) stop 1
     end associate
   end subroutine test
 end module testa2

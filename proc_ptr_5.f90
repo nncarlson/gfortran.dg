@@ -21,12 +21,12 @@ subroutine test(first)
  procedure(integer), pointer :: x => null()
 
  if(first) then
-  if(associated(x)) call abort()
+  if(associated(x)) stop 1
   x => hello
  else
-  if(.not. associated(x)) call abort()
+  if(.not. associated(x)) stop 1
   i = x()
-  if(i /= 42) call abort()
+  if(i /= 42) stop 1
  end if
  end subroutine test
 

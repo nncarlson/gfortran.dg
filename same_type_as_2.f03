@@ -23,29 +23,29 @@
 
  l = SAME_TYPE_AS (x1,x1)
  print *,l
- if (.not.l) call abort()
+ if (.not.l) stop 1
  l = SAME_TYPE_AS (x1,x2)
  print *,l
- if (l) call abort()
+ if (l) stop 1
 
  c1 => x1
  l = SAME_TYPE_AS (c1,x1)
  print *,l
- if (.not.l) call abort()
+ if (.not.l) stop 1
  l = SAME_TYPE_AS (c1,x2)
  print *,l
- if (l) call abort()
+ if (l) stop 1
 
  c1 => x2
  c2 => x2
  l = SAME_TYPE_AS (c1,c2)
  print *,l
- if (.not.l) call abort()
+ if (.not.l) stop 1
 
  c1 => x1
  c2 => x2
  l = SAME_TYPE_AS (c1,c2)
  print *,l
- if (l) call abort()
+ if (l) stop 1
 
 end

@@ -9,22 +9,22 @@ c { dg-do run }
       n = 5
 
       t = (n > foo)
-      if (t .neqv. .true.) call abort
+      if (t .neqv. .true.) stop 1
       t = (n >= foo)
-      if (t .neqv. .true.) call abort
+      if (t .neqv. .true.) stop 1
       t = (n < foo)
-      if (t .neqv. .false.) call abort
+      if (t .neqv. .false.) stop 1
       t = (n <= 5)
-      if (t .neqv. .true.) call abort
+      if (t .neqv. .true.) stop 1
       t = (n >= 5 )
-      if (t .neqv. .true.) call abort
+      if (t .neqv. .true.) stop 1
       t = (n == 5)
-      if (t .neqv. .true.) call abort
+      if (t .neqv. .true.) stop 1
       t = (n /= 5)
-      if (t .neqv. .false.) call abort
+      if (t .neqv. .false.) stop 1
       t = (n /= foo)
-      if (t .neqv. .true.) call abort
+      if (t .neqv. .true.) stop 1
       t = (n == foo)
-      if (t .neqv. .false.) call abort
+      if (t .neqv. .false.) stop 1
 
       end

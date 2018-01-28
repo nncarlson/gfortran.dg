@@ -203,87 +203,87 @@ program finalize_29
 
   call ten_init(x_ten(::2, ::3))
 
-  if (ten_fin_counts /= 6) call abort()
+  if (ten_fin_counts /= 6) stop 1
   if (tee_fin_counts + tne_fin_counts + tnn_fin_counts + tae_fin_counts + &
         tan_fin_counts + tge_scalar_fin_counts + tge_array_fin_counts + &
-        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) call abort()
+        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) stop 1
   ten_fin_counts = 0
 
   call tee_init(x_tee(::2, ::3))
 
-  if (tee_fin_counts /= 6) call abort()
+  if (tee_fin_counts /= 6) stop 1
   if (ten_fin_counts + tne_fin_counts + tnn_fin_counts + tae_fin_counts + &
         tan_fin_counts + tge_scalar_fin_counts + tge_array_fin_counts + &
-        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) call abort()
+        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) stop 1
   tee_fin_counts = 0
 
   call tne_init(x_tne(::2, ::3))
 
-  if (tne_fin_counts /= 6) call abort()
+  if (tne_fin_counts /= 6) stop 1
   if (ten_fin_counts + tee_fin_counts + tnn_fin_counts + tae_fin_counts + &
         tan_fin_counts + tge_scalar_fin_counts + tge_array_fin_counts + &
-        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) call abort()
+        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) stop 1
   tne_fin_counts = 0
 
   call tnn_init(x_tnn(::2, ::3))
 
-  if (tnn_fin_counts /= 0) call abort()
+  if (tnn_fin_counts /= 0) stop 1
   if (ten_fin_counts + tee_fin_counts + tne_fin_counts + tae_fin_counts + &
         tan_fin_counts + tge_scalar_fin_counts + tge_array_fin_counts + &
-        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) call abort()
+        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) stop 1
 
   call tae_init(x_tae(::2, ::3))
 
-  if (tae_fin_counts /= 0) call abort()
+  if (tae_fin_counts /= 0) stop 1
   if (ten_fin_counts + tee_fin_counts + tne_fin_counts + tnn_fin_counts + &
         tan_fin_counts + tge_scalar_fin_counts + tge_array_fin_counts + &
-        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) call abort()
+        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) stop 1
 
   call tan_init(x_tan(::2, ::3))
 
-  if (tan_fin_counts /= 1) call abort()
+  if (tan_fin_counts /= 1) stop 1
   if (ten_fin_counts + tee_fin_counts + tne_fin_counts + tnn_fin_counts + &
         tae_fin_counts + tge_scalar_fin_counts + tge_array_fin_counts + &
-        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) call abort()
+        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) stop 1
   tan_fin_counts = 0
 
   call tge_init(x_tge(::2, ::3))
 
-  if (tge_scalar_fin_counts /= 6) call abort()
+  if (tge_scalar_fin_counts /= 6) stop 1
   if (ten_fin_counts + tee_fin_counts + tne_fin_counts + tnn_fin_counts + &
         tae_fin_counts + tan_fin_counts + tgn_array_fin_counts + &
-        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) call abort()
+        tgn_scalar_fin_counts + tgn_array_fin_counts /= 0) stop 1
   tge_scalar_fin_counts = 0
 
   call tgn_init(x_tgn(::2, ::3))
 
-  if (tgn_array_fin_counts /= 1) call abort()
+  if (tgn_array_fin_counts /= 1) stop 1
   if (ten_fin_counts + tee_fin_counts + tne_fin_counts + tnn_fin_counts + &
         tae_fin_counts + tan_fin_counts + tge_scalar_fin_counts + &
-        tge_array_fin_counts + tgn_scalar_fin_counts /= 0) call abort()
+        tge_array_fin_counts + tgn_scalar_fin_counts /= 0) stop 1
   tgn_array_fin_counts = 0
 
   if (any (reshape (x_ten%i, [25]) /= [[40, 1, 40, 1, 40], [1, 1, 1, 1, 1],&
-        [1, 1, 1, 1, 1], [40, 1, 40, 1, 40], [1, 1, 1, 1, 1]])) call abort()
+        [1, 1, 1, 1, 1], [40, 1, 40, 1, 40], [1, 1, 1, 1, 1]])) stop 1
 
   if (any (reshape (x_tee%i, [25]) /= [[41, 2, 41, 2, 41], [2, 2, 2, 2, 2],&
-        [2, 2, 2, 2, 2], [41, 2, 41, 2, 41], [2, 2, 2, 2, 2]])) call abort()
+        [2, 2, 2, 2, 2], [41, 2, 41, 2, 41], [2, 2, 2, 2, 2]])) stop 1
 
   if (any (reshape (x_tne%i, [25]) /= [[42, 3, 42, 3, 42], [3, 3, 3, 3, 3],&
-        [3, 3, 3, 3, 3], [42, 3, 42, 3, 42], [3, 3, 3, 3, 3]])) call abort()
+        [3, 3, 3, 3, 3], [42, 3, 42, 3, 42], [3, 3, 3, 3, 3]])) stop 1
 
   if (any (reshape (x_tnn%i, [25]) /= [[43, 4, 43, 4, 43], [4, 4, 4, 4, 4],&
-        [4, 4, 4, 4, 4], [43, 4, 43, 4, 43], [4, 4, 4, 4, 4]])) call abort()
+        [4, 4, 4, 4, 4], [43, 4, 43, 4, 43], [4, 4, 4, 4, 4]])) stop 1
 
   if (any (reshape (x_tae%i, [25]) /= [[44, 5, 44, 5, 44], [5, 5, 5, 5, 5],&
-        [5, 5, 5, 5, 5], [44, 5, 44, 5, 44], [5, 5, 5, 5, 5]])) call abort()
+        [5, 5, 5, 5, 5], [44, 5, 44, 5, 44], [5, 5, 5, 5, 5]])) stop 1
 
   if (any (reshape (x_tan%i, [25]) /= [[45, 6, 45, 6, 45], [6, 6, 6, 6, 6],&
-        [6, 6, 6, 6, 6], [45, 6, 45, 6, 45], [6, 6, 6, 6, 6]])) call abort()
+        [6, 6, 6, 6, 6], [45, 6, 45, 6, 45], [6, 6, 6, 6, 6]])) stop 1
 
   if (any (reshape (x_tge%i, [25]) /= [[46, 7, 46, 7, 46], [7, 7, 7, 7, 7],&
-        [7, 7, 7, 7, 7], [46, 7, 46, 7, 46], [7, 7, 7, 7, 7]])) call abort()
+        [7, 7, 7, 7, 7], [46, 7, 46, 7, 46], [7, 7, 7, 7, 7]])) stop 1
 
   if (any (reshape (x_tgn%i, [25]) /= [[47, 8, 47, 8, 47], [8, 8, 8, 8, 8],&
-        [8, 8, 8, 8, 8], [47, 8, 47, 8, 47], [8, 8, 8, 8, 8]])) call abort()
+        [8, 8, 8, 8, 8], [47, 8, 47, 8, 47], [8, 8, 8, 8, 8]])) stop 1
 end program finalize_29

@@ -12,11 +12,11 @@ include "default_format_2.inc"
 program main
   use test_default_format
 
-  if (test (1.0_kl, 0) /= 0) call abort
-  if (test (0.0_kl, 0) /= 0) call abort
-  if (test (tiny(0.0_kl), 1) /= 0) call abort
-  if (test (-tiny(0.0_kl), -1) /= 0) call abort
-  if (test (huge(0.0_kl), -1) /= 0) call abort
-  if (test (-huge(0.0_kl), 1) /= 0) call abort
+  if (test (1.0_kl, 0) /= 0) stop 1
+  if (test (0.0_kl, 0) /= 0) stop 1
+  if (test (tiny(0.0_kl), 1) /= 0) stop 1
+  if (test (-tiny(0.0_kl), -1) /= 0) stop 1
+  if (test (huge(0.0_kl), -1) /= 0) stop 1
+  if (test (-huge(0.0_kl), 1) /= 0) stop 1
 end program main
 !

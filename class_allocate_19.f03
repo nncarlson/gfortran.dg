@@ -8,12 +8,12 @@ real, target :: e
 class(*), allocatable, target :: a(:)
 e = 1.0
 call add_element_poly(a,e)
-if (size(a) /= 1) call abort()
+if (size(a) /= 1) stop 1
 call add_element_poly(a,e)
-if (size(a) /= 2) call abort()
+if (size(a) /= 2) stop 1
 select type (a)
   type is (real)
-    if (any (a /= [ 1, 1])) call abort()
+    if (any (a /= [ 1, 1])) stop 1
 end select
 contains
     subroutine add_element_poly(a,e)

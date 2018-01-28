@@ -60,7 +60,7 @@ program test_type_extension
   rewind(10)
   
   read(10,NML=test_NML)
-  if (tke%x - 3.14000010 > .00001) call abort
-  if (tke%string /= "kf7rcc") call abort
-  if (answer /= 42) call abort ! hitchkikers guide to the galaxy
+  if (tke%x - 3.14000010 > .00001) stop 1
+  if (tke%string /= "kf7rcc") stop 1
+  if (answer /= 42) stop 1 ! hitchkikers guide to the galaxy
 end program test_type_extension

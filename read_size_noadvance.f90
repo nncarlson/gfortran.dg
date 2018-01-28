@@ -10,14 +10,14 @@
   write (10, '(a)') trim(line)
   rewind (10)
   read (10, '(a)', advance = 'no', size = nchars, eor = 998) buffer
-  call abort()
-998 if (nchars.ne.44) call abort()
+  stop 1
+998 if (nchars.ne.44) stop 1
   rewind (10)
   buffer = "how about some random text here just to be sure on this one."
   nchars = 80
   read (10, '(a)', advance = 'no', size = nchars, eor = 999) buffer(:nchars)
-999 if (nchars.ne.44) call abort()
-  if (buffer.ne.line) call abort()
+999 if (nchars.ne.44) stop 1
+  if (buffer.ne.line) stop 1
   close (10)
 end
 

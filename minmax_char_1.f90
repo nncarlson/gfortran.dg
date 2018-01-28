@@ -15,38 +15,38 @@ program test
   v = "da"
   w = "flunch"
 
-  if (.not. equal(min("foo", "bar"), "bar")) call abort
-  if (.not. equal(max("foo", "bar"), "foo")) call abort
-  if (.not. equal(min("bar", "foo"), "bar")) call abort
-  if (.not. equal(max("bar", "foo"), "foo")) call abort
+  if (.not. equal(min("foo", "bar"), "bar")) stop 1
+  if (.not. equal(max("foo", "bar"), "foo")) stop 1
+  if (.not. equal(min("bar", "foo"), "bar")) stop 1
+  if (.not. equal(max("bar", "foo"), "foo")) stop 1
 
-  if (.not. equal(min("bar", "foo", sp), "bar")) call abort
-  if (.not. equal(max("bar", "foo", sp), "gee")) call abort
-  if (.not. equal(min("bar", sp, "foo"), "bar")) call abort
-  if (.not. equal(max("bar", sp, "foo"), "gee")) call abort
-  if (.not. equal(min(sp, "bar", "foo"), "bar")) call abort
-  if (.not. equal(max(sp, "bar", "foo"), "gee")) call abort
+  if (.not. equal(min("bar", "foo", sp), "bar")) stop 1
+  if (.not. equal(max("bar", "foo", sp), "gee")) stop 1
+  if (.not. equal(min("bar", sp, "foo"), "bar")) stop 1
+  if (.not. equal(max("bar", sp, "foo"), "gee")) stop 1
+  if (.not. equal(min(sp, "bar", "foo"), "bar")) stop 1
+  if (.not. equal(max(sp, "bar", "foo"), "gee")) stop 1
 
-  if (.not. equal(min("foo", "bar", s), "bar")) call abort
-  if (.not. equal(max("foo", "bar", s), "gee")) call abort
-  if (.not. equal(min("foo", s, "bar"), "bar")) call abort
-  if (.not. equal(max("foo", s, "bar"), "gee")) call abort
-  if (.not. equal(min(s, "foo", "bar"), "bar")) call abort
-  if (.not. equal(max(s, "foo", "bar"), "gee")) call abort
+  if (.not. equal(min("foo", "bar", s), "bar")) stop 1
+  if (.not. equal(max("foo", "bar", s), "gee")) stop 1
+  if (.not. equal(min("foo", s, "bar"), "bar")) stop 1
+  if (.not. equal(max("foo", s, "bar"), "gee")) stop 1
+  if (.not. equal(min(s, "foo", "bar"), "bar")) stop 1
+  if (.not. equal(max(s, "foo", "bar"), "gee")) stop 1
 
-  if (.not. equal(min("", ""), "")) call abort
-  if (.not. equal(max("", ""), "")) call abort
-  if (.not. equal(min("", " "), " ")) call abort
-  if (.not. equal(max("", " "), " ")) call abort
+  if (.not. equal(min("", ""), "")) stop 1
+  if (.not. equal(max("", ""), "")) stop 1
+  if (.not. equal(min("", " "), " ")) stop 1
+  if (.not. equal(max("", " "), " ")) stop 1
 
-  if (.not. equal(min(u,v,w), "az    ")) call abort
-  if (.not. equal(max(u,v,w), "flunch")) call abort
-  if (.not. equal(min(u,vp,w), "az    ")) call abort
-  if (.not. equal(max(u,vp,w), "flunch")) call abort
-  if (.not. equal(min(u,v,wp), "az    ")) call abort
-  if (.not. equal(max(u,v,wp), "flunch")) call abort
-  if (.not. equal(min(up,v,w), "az    ")) call abort
-  if (.not. equal(max(up,v,w), "flunch")) call abort
+  if (.not. equal(min(u,v,w), "az    ")) stop 1
+  if (.not. equal(max(u,v,w), "flunch")) stop 1
+  if (.not. equal(min(u,vp,w), "az    ")) stop 1
+  if (.not. equal(max(u,vp,w), "flunch")) stop 1
+  if (.not. equal(min(u,v,wp), "az    ")) stop 1
+  if (.not. equal(max(u,v,wp), "flunch")) stop 1
+  if (.not. equal(min(up,v,w), "az    ")) stop 1
+  if (.not. equal(max(up,v,w), "flunch")) stop 1
 
   call foo("gee   ","az    ",s,t,u,v)
   call foo("gee   ","az    ",s,t,u,v)
@@ -59,8 +59,8 @@ contains
     character(len=*) :: res_min, res_max
     character(len=*), optional :: a, b, c, d
 
-    if (.not. equal(min(a,b,c,d), res_min)) call abort
-    if (.not. equal(max(a,b,c,d), res_max)) call abort
+    if (.not. equal(min(a,b,c,d), res_min)) stop 1
+    if (.not. equal(max(a,b,c,d), res_max)) stop 1
   end subroutine foo
 
   pure function equal(a,b)

@@ -8,7 +8,7 @@ subroutine test(x)
     integer :: i
   end type myType3
   type(myType3) :: x
-  if(x%i /= 7) call abort()
+  if(x%i /= 7) stop 1
   x%i = 1
 end subroutine test
 
@@ -20,8 +20,8 @@ subroutine bar(x,y)
   end type myType
   type(myType) :: x
   integer(8) :: y
-  if(y /= 8) call abort()
-  if(x%i /= 2) call abort()
+  if(y /= 8) stop 1
+  if(x%i /= 2) stop 1
   x%i = 5
   y = 42
 end subroutine bar
@@ -70,8 +70,8 @@ program foo
   y%i = 2
   i8 = 8
   call bar(y,i8)
-  if(y%i /= 5 .or. i8/= 42) call abort()
+  if(y%i /= 5 .or. i8/= 42) stop 1
   z%i = 7
   call test(z)
-  if(z%i /= 1) call abort()
+  if(z%i /= 1) stop 1
 end program foo

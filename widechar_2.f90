@@ -41,11 +41,11 @@ contains
     character(kind=1,len=20) :: s1, t1
     character(kind=4,len=20) :: s4
     t1 = s4
-    if (t1 /= s1) call abort
-    if (len(s1) /= len(t1)) call abort
-    if (len(s1) /= len(s4)) call abort
-    if (len_trim(s1) /= len_trim(t1)) call abort
-    if (len_trim(s1) /= len_trim(s4)) call abort
+    if (t1 /= s1) stop 1
+    if (len(s1) /= len(t1)) stop 1
+    if (len(s1) /= len(s4)) stop 1
+    if (len_trim(s1) /= len_trim(t1)) stop 1
+    if (len_trim(s1) /= len_trim(s4)) stop 1
   end subroutine check
 
   subroutine check2(s1,s4)
@@ -56,14 +56,14 @@ contains
 
     t1 = s4
     t4 = s1
-    if (t1 /= s1) call abort
-    if (t4 /= s4) call abort
-    if (len(s1) /= len(t1)) call abort
-    if (len(s1) /= len(s4)) call abort
-    if (len(s1) /= len(t4)) call abort
-    if (len_trim(s1) /= len_trim(t1)) call abort
-    if (len_trim(s1) /= len_trim(s4)) call abort
-    if (len_trim(s1) /= len_trim(t4)) call abort
+    if (t1 /= s1) stop 1
+    if (t4 /= s4) stop 1
+    if (len(s1) /= len(t1)) stop 1
+    if (len(s1) /= len(s4)) stop 1
+    if (len(s1) /= len(t4)) stop 1
+    if (len_trim(s1) /= len_trim(t1)) stop 1
+    if (len_trim(s1) /= len_trim(s4)) stop 1
+    if (len_trim(s1) /= len_trim(t4)) stop 1
   end subroutine check2
 
 end

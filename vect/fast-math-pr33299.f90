@@ -4,7 +4,7 @@ PROGRAM test
   REAL(8) :: f,dist(2)
   dist = [1.0_8, 0.5_8]
   if( f(1.0_8, dist) /= MINVAL(dist)) then
-    call abort ()
+    stop 1
   endif
 END PROGRAM test
 

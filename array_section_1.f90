@@ -13,23 +13,23 @@
 ! Check the lhs references
     cnt = 0
     a(bar(1):3) = b
-    if (cnt /= 1) call abort ()
+    if (cnt /= 1) stop 1
     cnt = 0
     a(1:bar(3)) = b
-    if (cnt /= 1) call abort ()
+    if (cnt /= 1) stop 1
     cnt = 0
     a(1:3:bar(1)) = b
-    if (cnt /= 1) call abort ()
+    if (cnt /= 1) stop 1
 ! Check the rhs references
     cnt = 0
     a(1:3) = b(bar(1):3)
-    if (cnt /= 1) call abort ()
+    if (cnt /= 1) stop 1
     cnt = 0
     a(1:3) = b(1:bar(3))
-    if (cnt /= 1) call abort ()
+    if (cnt /= 1) stop 1
     cnt = 0
     a(1:3) = b(1:3:bar(1))
-    if (cnt /= 1) call abort ()
+    if (cnt /= 1) stop 1
 contains
     integer function bar(n)
         integer, intent(in) :: n

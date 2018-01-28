@@ -37,7 +37,7 @@ contains
       class default
         i = 2
     end select
-    if (i .ne. 1) call abort
+    if (i .ne. 1) stop 1
   end subroutine
 end module UnstructuredGridImages
 

@@ -20,13 +20,13 @@ program main
 
   allocate(outbox%v(1), source=particles(this_image()))
 
-  if (any( outbox[1]%v(1)%x(1:2) /= [ 1.0, 1.0] )) call abort()
-  if (any( outbox[1]%v(1)%x(:) /= [ 1.0, 1.0] )) call abort()
-  if (any( outbox[1]%v(1)%x /= [ 1.0, 1.0] )) call abort()
+  if (any( outbox[1]%v(1)%x(1:2) /= [ 1.0, 1.0] )) stop 1
+  if (any( outbox[1]%v(1)%x(:) /= [ 1.0, 1.0] )) stop 1
+  if (any( outbox[1]%v(1)%x /= [ 1.0, 1.0] )) stop 1
 
   allocate(object(1)[*], source=particles(this_image()))
 
-  if (any( object(1)[1]%x(1:2) /= [ 1.0, 1.0] )) call abort()
-  if (any( object(1)[1]%x(:) /= [ 1.0, 1.0] )) call abort()
-  if (any( object(1)[1]%x /= [ 1.0, 1.0] )) call abort()
+  if (any( object(1)[1]%x(1:2) /= [ 1.0, 1.0] )) stop 1
+  if (any( object(1)[1]%x(:) /= [ 1.0, 1.0] )) stop 1
+  if (any( object(1)[1]%x /= [ 1.0, 1.0] )) stop 1
 end program

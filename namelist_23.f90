@@ -19,8 +19,8 @@ program read_logical
    write(10,*) "/"
    rewind(10)
    read (10, nml=mynml, err = 1000)
-   if (.not.all(truely(1:3))) call abort()
-   if (.not.all(truely_a_very_long_variable_name(1:3).eq.4)) call abort()
+   if (.not.all(truely(1:3))) stop 1
+   if (.not.all(truely_a_very_long_variable_name(1:3).eq.4)) stop 1
    
    truely = .false.
    truely_a_very_long_variable_name = 0
@@ -32,8 +32,8 @@ program read_logical
    write(10,*) "/"
    rewind(10)
    read (10, nml=mynml, err = 1000)
-   if (.not.all(truely(1:2))) call abort()
-   if (.not.all(truely_a_very_long_variable_name(1:3).eq.4)) call abort()
+   if (.not.all(truely(1:2))) stop 1
+   if (.not.all(truely_a_very_long_variable_name(1:3).eq.4)) stop 1
 
    truely = .true.
    truely_a_very_long_variable_name = 0
@@ -45,9 +45,9 @@ program read_logical
    write(10,*) "/"
    rewind(10)
    read (10, nml=mynml, err = 1000)
-   if (all(truely(1:2))) call abort()
-   if (.not.all(truely_a_very_long_variable_name(1:3).eq.4)) call abort()
+   if (all(truely(1:2))) stop 1
+   if (.not.all(truely_a_very_long_variable_name(1:3).eq.4)) stop 1
    close(10)
    stop
-1000 call abort()
+1000 stop 1
 end program read_logical

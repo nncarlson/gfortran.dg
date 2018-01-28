@@ -35,23 +35,23 @@ subroutine test() bind(c)
   d = 'uuuuu'
 
   a = bar('x')
-  if (a /= 'A') call abort()
+  if (a /= 'A') stop 1
   b = bar('y')
-  if (b /= 'A' .or. iachar(b(2:2))/=32 .or. iachar(b(3:3))/=32) call abort()
+  if (b /= 'A' .or. iachar(b(2:2))/=32 .or. iachar(b(3:3))/=32) stop 1
   c = bar('x')
-  if (any(c /= 'A')) call abort()
+  if (any(c /= 'A')) stop 1
   d = bar('y')
-  if (any(d /= 'A')) call abort()
+  if (any(d /= 'A')) stop 1
 
   a = foo()
-  if (a /= 'B') call abort()
+  if (a /= 'B') stop 1
   b = foo()
-  if (b /= 'B') call abort()
+  if (b /= 'B') stop 1
   c = foo()
-  if (any(c /= 'B')) call abort()
+  if (any(c /= 'B')) stop 1
   d = foo()
-  if (any(d /= 'B')) call abort()
+  if (any(d /= 'B')) stop 1
   do i = 1,3
-    if(iachar(d(i)(2:2)) /=32 .or. iachar(d(i)(3:3)) /= 32) call abort()
+    if(iachar(d(i)(2:2)) /=32 .or. iachar(d(i)(3:3)) /= 32) stop 1
   end do
 end subroutine

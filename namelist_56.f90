@@ -16,7 +16,7 @@
   j = -54
   str = 'XXXX'
   read(99,nml)
-  if (j.ne.5) call abort
-  if (any(str.ne.["a    ","b    ","cde  ","     "])) call abort
+  if (j.ne.5) stop 1
+  if (any(str.ne.["a    ","b    ","cde  ","     "])) stop 1
   close(99)
 end

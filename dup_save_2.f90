@@ -6,16 +6,16 @@ program save_2
   integer foo1, foo2, foo3, foo4
   do i=1,10
      if (foo1().ne.i) then
-        call abort
+        stop 1
      end if
      if (foo2().ne.i) then
-        call abort
+        stop 1
      end if
      if (foo3().ne.i) then
-        call abort
+        stop 1
      end if
      if (foo4().ne.i) then
-        call abort
+        stop 1
      end if
   end do
 end program save_2

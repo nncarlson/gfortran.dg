@@ -10,7 +10,7 @@ program foo
 
    i = c_sizeof(str2(1:3)) ! { dg-error "must be an interoperable data" }
 
-   if (i /= 3) call abort()
+   if (i /= 3) stop 1
 
 end program foo
 

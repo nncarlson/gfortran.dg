@@ -8,23 +8,23 @@ implicit none
 character(len=5), allocatable :: str
 allocate(str)
 str = '1bcde'
-if(str /= '1bcde') call abort()
+if(str /= '1bcde') stop 1
 call sub(str,len(str))
-if(str /= '1bcde') call abort()
+if(str /= '1bcde') stop 1
 call subOUT(str,len(str))
-if (len(str) /= 5) call abort()
-if(allocated(str)) call abort()
+if (len(str) /= 5) stop 1
+if(allocated(str)) stop 1
 contains
   subroutine sub(x,n)
      integer :: n
      character(len=n), allocatable :: x
-     if(len(x) /= 5) call abort()
-     if(x /= '1bcde') call abort()
+     if(len(x) /= 5) stop 1
+     if(x /= '1bcde') stop 1
   end subroutine sub
   subroutine subOUT(x,n)
      integer :: n
      character(len=n), allocatable,intent(out) :: x
-     if(allocated(x)) call abort()
-     if(len(x) /= 5) call abort()
+     if(allocated(x)) stop 1
+     if(len(x) /= 5) stop 1
   end subroutine subOUT
 end

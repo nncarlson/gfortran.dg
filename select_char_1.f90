@@ -47,31 +47,31 @@ program test
     end function char_select2
   end interface
 
-  if (char_select("foo") /= 1) call abort
-  if (char_select("foo ") /= 1) call abort
-  if (char_select("foo2 ") /= -1) call abort
-  if (char_select("bar") /= 2) call abort
-  if (char_select("gee") /= 2) call abort
-  if (char_select("000") /= -1) call abort
-  if (char_select("101") /= -1) call abort
-  if (char_select("109") /= -1) call abort
-  if (char_select("111") /= 3) call abort
-  if (char_select("254") /= -1) call abort
-  if (char_select("999") /= 3) call abort
-  if (char_select("9989") /= -1) call abort
-  if (char_select("1882") /= -1) call abort
+  if (char_select("foo") /= 1) stop 1
+  if (char_select("foo ") /= 1) stop 1
+  if (char_select("foo2 ") /= -1) stop 1
+  if (char_select("bar") /= 2) stop 1
+  if (char_select("gee") /= 2) stop 1
+  if (char_select("000") /= -1) stop 1
+  if (char_select("101") /= -1) stop 1
+  if (char_select("109") /= -1) stop 1
+  if (char_select("111") /= 3) stop 1
+  if (char_select("254") /= -1) stop 1
+  if (char_select("999") /= 3) stop 1
+  if (char_select("9989") /= -1) stop 1
+  if (char_select("1882") /= -1) stop 1
 
-  if (char_select2("foo") /= 1) call abort
-  if (char_select2("foo ") /= 1) call abort
-  if (char_select2("foo2 ") /= -1) call abort
-  if (char_select2("bar") /= 2) call abort
-  if (char_select2("gee") /= 2) call abort
-  if (char_select2("000") /= -1) call abort
-  if (char_select2("101") /= -1) call abort
-  if (char_select2("109") /= -1) call abort
-  if (char_select2("111") /= 3) call abort
-  if (char_select2("254") /= -1) call abort
-  if (char_select2("999") /= 3) call abort
-  if (char_select2("9989") /= -1) call abort
-  if (char_select2("1882") /= -1) call abort
+  if (char_select2("foo") /= 1) stop 1
+  if (char_select2("foo ") /= 1) stop 1
+  if (char_select2("foo2 ") /= -1) stop 1
+  if (char_select2("bar") /= 2) stop 1
+  if (char_select2("gee") /= 2) stop 1
+  if (char_select2("000") /= -1) stop 1
+  if (char_select2("101") /= -1) stop 1
+  if (char_select2("109") /= -1) stop 1
+  if (char_select2("111") /= 3) stop 1
+  if (char_select2("254") /= -1) stop 1
+  if (char_select2("999") /= 3) stop 1
+  if (char_select2("9989") /= -1) stop 1
+  if (char_select2("1882") /= -1) stop 1
 end program test

@@ -11,5 +11,5 @@ write(str,'(a)') 'Print rather a lot of ampersands &&&&&
    &&&&&'
 if (len(trim(str)) /= 44 &
     .or. str /= 'Print rather a lot of ampersands &&&&&&&&&&&') &
-    call abort()
+    stop 1
 end

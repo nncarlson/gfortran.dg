@@ -7,8 +7,8 @@ program main
   b = 'abcd'
   a = trim(b)
   c = trim(trim(a))
-  if (a /= 'abc') call abort
-  if (c /= 'abc') call abort
+  if (a /= 'abc') stop 1
+  if (c /= 'abc') stop 1
 end program main
 
 ! { dg-final { scan-tree-dump-times "memmove" 3 "original" } }

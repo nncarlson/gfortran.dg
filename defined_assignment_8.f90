@@ -36,5 +36,5 @@ program main
   print *, right%foo
   left = right
   print *, left%foo
-  if (left%foo%i /= 42) call abort()
+  if (left%foo%i /= 42) stop 1
 end

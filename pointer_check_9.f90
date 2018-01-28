@@ -10,6 +10,6 @@ call foo (ptr)
 contains
   subroutine foo (x)
     integer, optional :: x
-    if (present (x)) call abort ()
+    if (present (x)) stop 1
   end subroutine foo
 end

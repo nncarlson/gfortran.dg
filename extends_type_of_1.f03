@@ -29,20 +29,20 @@
  c2 => y
  z%cc => y
 
- if (.not. extends_type_of (c1, c1)) call abort()
- if (      extends_type_of (c1, c2)) call abort()
- if (.not. extends_type_of (c2, c1)) call abort()
+ if (.not. extends_type_of (c1, c1)) stop 1
+ if (      extends_type_of (c1, c2)) stop 1
+ if (.not. extends_type_of (c2, c1)) stop 1
 
- if (.not. extends_type_of (x, x)) call abort()
- if (      extends_type_of (x, y)) call abort()
- if (.not. extends_type_of (y, x)) call abort()
+ if (.not. extends_type_of (x, x)) stop 1
+ if (      extends_type_of (x, y)) stop 1
+ if (.not. extends_type_of (y, x)) stop 1
 
- if (.not. extends_type_of (c1, x)) call abort()
- if (      extends_type_of (c1, y)) call abort()
- if (.not. extends_type_of (x, c1)) call abort()
- if (.not. extends_type_of (y, c1)) call abort()
+ if (.not. extends_type_of (c1, x)) stop 1
+ if (      extends_type_of (c1, y)) stop 1
+ if (.not. extends_type_of (x, c1)) stop 1
+ if (.not. extends_type_of (y, c1)) stop 1
 
- if (.not. extends_type_of (z,   c1)) call abort()
- if (      extends_type_of (z%cc, z)) call abort()
+ if (.not. extends_type_of (z,   c1)) stop 1
+ if (      extends_type_of (z%cc, z)) stop 1
 
 end

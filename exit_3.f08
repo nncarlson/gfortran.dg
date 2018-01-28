@@ -23,57 +23,57 @@ PROGRAM main
 
   i = 2
   myif: IF (i == 1) THEN
-    CALL abort ()
+    stop 1
     EXIT myif
   ELSE IF (i == 2) THEN
     EXIT myif
-    CALL abort ()
+    stop 1
   ELSE
-    CALL abort ()
+    stop 1
     EXIT myif
   END IF myif
 
   mysel: SELECT CASE (i)
     CASE (1)
-      CALL abort ()
+      stop 1
       EXIT mysel
     CASE (2)
       EXIT mysel
-      CALL abort ()
+      stop 1
     CASE DEFAULT
-      CALL abort ()
+      stop 1
       EXIT mysel
   END SELECT mysel
 
   mycharsel: SELECT CASE ("foobar")
     CASE ("abc")
-      CALL abort ()
+      stop 1
       EXIT mycharsel
     CASE ("xyz")
-      CALL abort ()
+      stop 1
       EXIT mycharsel
     CASE DEFAULT
       EXIT mycharsel
-      CALL abort ()
+      stop 1
   END SELECT mycharsel
 
   myblock: BLOCK
     EXIT myblock
-    CALL abort ()
+    stop 1
   END BLOCK myblock
 
   myassoc: ASSOCIATE (x => 5 + 2)
     EXIT myassoc
-    CALL abort ()
+    stop 1
   END ASSOCIATE myassoc
 
   ALLOCATE (t :: var)
   mytypesel: SELECT TYPE (var)
     TYPE IS (t)
       EXIT mytypesel
-      CALL abort ()
+      stop 1
     CLASS DEFAULT
-      CALL abort ()
+      stop 1
       EXIT mytypesel
   END SELECT mytypesel
 
@@ -81,8 +81,8 @@ PROGRAM main
   outer: BLOCK
     inner: IF (.TRUE.) THEN
       EXIT outer
-      CALL abort ()
+      stop 1
     END IF inner
-    CALL abort ()
+    stop 1
   END BLOCK outer
 END PROGRAM main

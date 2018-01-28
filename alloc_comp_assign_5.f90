@@ -19,7 +19,7 @@ implicit none
 
   x = f()
 
-  if (ctr /= 1) call abort ()
+  if (ctr /= 1) stop 1
 
 contains
 

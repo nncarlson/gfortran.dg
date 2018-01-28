@@ -22,7 +22,7 @@ select type(x)
    x%a = [ (i, i = 1,10) ]
    print '(*(i3))', x%a
  class default
-   call abort()
+   stop 1
 end select
 
 allocate(y, source=x)
@@ -32,15 +32,15 @@ select type(x)
    x%a = [ (i, i = 11,20) ]
    print '(*(i3))', x%a
  class default
-   call abort()
+   stop 1
 end select
 
 select type(y)
  type is (t2)
    print '(*(i3))', y%a
-   if (any (y%a /= [ (i, i = 1,10) ])) call abort()
+   if (any (y%a /= [ (i, i = 1,10) ])) stop 1
  class default
-   call abort()
+   stop 1
 end select
 
 end

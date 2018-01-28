@@ -12,9 +12,9 @@ contains
     a = a           ! This used to ICE.
     a = inp
     a = a           ! This used to ICE too
-    if ((len (a) .ne. 5) .or. (a .ne. "hello")) call abort
+    if ((len (a) .ne. 5) .or. (a .ne. "hello")) stop 1
     a = a(2:3)      ! Make sure that temporary creation is not broken.
-    if ((len (a) .ne. 2) .or. (a .ne. "el")) call abort
+    if ((len (a) .ne. 2) .or. (a .ne. "el")) stop 1
     deallocate (a)
     a = a           ! This would ICE too.
   end subroutine s

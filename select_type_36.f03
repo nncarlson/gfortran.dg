@@ -23,11 +23,11 @@ module types
          integer :: switch
          select type(x)
             type is(CS5SS)
-               if (switch .ne. 1) call abort
+               if (switch .ne. 1) stop 1
             type is(SQS3C)
-               if (switch .ne. 2) call abort
+               if (switch .ne. 2) stop 1
             class default
-               call abort
+               stop 1
          end select
       end subroutine sub
 end module types

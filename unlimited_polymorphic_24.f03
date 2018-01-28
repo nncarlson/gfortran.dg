@@ -202,15 +202,15 @@ program main
     select case (i)
       case (1:10)
         read (output(i), '(i6)') j
-        if (j .ne. i) call abort
+        if (j .ne. i) stop 1
       case (11)
-        if (output(i) .ne. "  1.23") call abort
+        if (output(i) .ne. "  1.23") stop 1
       case (12)
-        if (output(i) .ne. "     A") call abort
+        if (output(i) .ne. "     A") stop 1
       case (13)
-        if (output(i) .ne. "    BC") call abort
+        if (output(i) .ne. "    BC") stop 1
       case (14)
-        if (output(i) .ne. "   DEF") call abort
+        if (output(i) .ne. "   DEF") stop 1
     end select
   end do
 end program main

@@ -14,14 +14,14 @@
   call fstat (10, s3, r3)
   call stat (".", d, rd)
 
-  if (r1 /= 0 .or. r2 /= 0 .or. r3 /= 0 .or. rd /= 0) call abort
-  if (any (s1 /= s2) .or. any (s1 /= s3)) call abort
-  if (s1(5) /= getuid()) call abort
+  if (r1 /= 0 .or. r2 /= 0 .or. r3 /= 0 .or. rd /= 0) stop 1
+  if (any (s1 /= s2) .or. any (s1 /= s3)) stop 1
+  if (s1(5) /= getuid()) stop 1
 ! If the test is run in a directory with the sgid bit set or on a filesystem
 ! mounted with the grpid option, new files are created with the directory's
 ! gid instead of the user's primary gid, so allow for that.
-  if (s1(6) /= getgid() .and. s1(6) /= d(6) .and. getgid() /= 0) call abort
-  if (s1(8) < 3 .or. s1(8) > 5) call abort
+  if (s1(6) /= getgid() .and. s1(6) /= d(6) .and. getgid() /= 0) stop 1
+  if (s1(8) < 3 .or. s1(8) > 5) stop 1
 
   close (10,status="delete")
   end

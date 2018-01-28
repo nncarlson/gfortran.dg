@@ -18,40 +18,40 @@ program sign1
   integer :: i = 1
 
   i1 = huge(0_1) ; j1 = -huge(0_1)
-  if (sign(i1, j1) /= j1) call abort()
-  if (sign(j1, i1) /= i1) call abort()
-  if (sign(i1,one1) /= i1 .or. sign(j1,one1) /= i1) call abort()
-  if (sign(i1,mone1) /= j1 .or. sign(j1,mone1) /= j1) call abort()
+  if (sign(i1, j1) /= j1) stop 1
+  if (sign(j1, i1) /= i1) stop 1
+  if (sign(i1,one1) /= i1 .or. sign(j1,one1) /= i1) stop 1
+  if (sign(i1,mone1) /= j1 .or. sign(j1,mone1) /= j1) stop 1
 
   i2 = huge(0_2) ; j2 = -huge(0_2)
-  if (sign(i2, j2) /= j2) call abort()
-  if (sign(j2, i2) /= i2) call abort()
-  if (sign(i2,one2) /= i2 .or. sign(j2,one2) /= i2) call abort()
-  if (sign(i2,mone2) /= j2 .or. sign(j2,mone2) /= j2) call abort()
+  if (sign(i2, j2) /= j2) stop 1
+  if (sign(j2, i2) /= i2) stop 1
+  if (sign(i2,one2) /= i2 .or. sign(j2,one2) /= i2) stop 1
+  if (sign(i2,mone2) /= j2 .or. sign(j2,mone2) /= j2) stop 1
 
   i4 = huge(0_4) ; j4 = -huge(0_4)
-  if (sign(i4, j4) /= j4) call abort()
-  if (sign(j4, i4) /= i4) call abort()
-  if (sign(i4,one4) /= i4 .or. sign(j4,one4) /= i4) call abort()
-  if (sign(i4,mone4) /= j4 .or. sign(j4,mone4) /= j4) call abort()
+  if (sign(i4, j4) /= j4) stop 1
+  if (sign(j4, i4) /= i4) stop 1
+  if (sign(i4,one4) /= i4 .or. sign(j4,one4) /= i4) stop 1
+  if (sign(i4,mone4) /= j4 .or. sign(j4,mone4) /= j4) stop 1
 
   i8 = huge(0_8) ; j8 = -huge(0_8)
-  if (sign(i8, j8) /= j8) call abort()
-  if (sign(j8, i8) /= i8) call abort()
-  if (sign(i8,one8) /= i8 .or. sign(j8,one8) /= i8) call abort()
-  if (sign(i8,mone8) /= j8 .or. sign(j8,mone8) /= j8) call abort()
+  if (sign(i8, j8) /= j8) stop 1
+  if (sign(j8, i8) /= i8) stop 1
+  if (sign(i8,one8) /= i8 .or. sign(j8,one8) /= i8) stop 1
+  if (sign(i8,mone8) /= j8 .or. sign(j8,mone8) /= j8) stop 1
 
-  if (sign(foo(i), 1) /= 1) call abort
-  if (sign(foo(i), -1) /= -2) call abort
-  if (sign(42, foo(i)) /= 42) call abort
-  if (sign(42, -foo(i)) /= -42) call abort
-  if (i /= 5) call abort
+  if (sign(foo(i), 1) /= 1) stop 1
+  if (sign(foo(i), -1) /= -2) stop 1
+  if (sign(42, foo(i)) /= 42) stop 1
+  if (sign(42, -foo(i)) /= -42) stop 1
+  if (i /= 5) stop 1
 
-  if (sign(bar(), 1) /= 1) call abort
-  if (sign(bar(), -1) /= -2) call abort
-  if (sign(17, bar()) /= 17) call abort
-  if (sign(17, -bar()) /= -17) call abort
-  if (bar() /= 5) call abort
+  if (sign(bar(), 1) /= 1) stop 1
+  if (sign(bar(), -1) /= -2) stop 1
+  if (sign(17, bar()) /= 17) stop 1
+  if (sign(17, -bar()) /= -17) stop 1
+  if (bar() /= 5) stop 1
 
 contains
 

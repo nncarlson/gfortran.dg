@@ -22,31 +22,31 @@ contains
 
    allocate (tmp)
 
-   if (tmp%i /= 2 .or. tmp%j /= 77) call abort()
+   if (tmp%i /= 2 .or. tmp%j /= 77) stop 1
    tmp%i = 5
    tmp%j = 88
 
    select type(a)
      type is(base_type)
-       if (a%i /= -44) call abort()
+       if (a%i /= -44) stop 1
        a%i = -99
      class default
-       call abort ()
+       stop 1
    end select
 
    call move_alloc (from=tmp, to=a)
 
    select type(a)
      type is(extended_type)
-       if (a%i /= 5) call abort()
-       if (a%j /= 88) call abort()
+       if (a%i /= 5) stop 1
+       if (a%j /= 88) stop 1
        a%i = 123
        a%j = 9498
      class default
-       call abort ()
+       stop 1
    end select
 
-   if (allocated (tmp)) call abort()
+   if (allocated (tmp)) stop 1
   end subroutine myallocate
 end module myalloc
 
@@ -59,19 +59,19 @@ program main
 
   select type(a)
     type is(base_type)
-      if (a%i /= 2) call abort()
+      if (a%i /= 2) stop 1
       a%i = -44
     class default
-      call abort ()
+      stop 1
   end select
 
   call myallocate (a)
 
   select type(a)
     type is(extended_type)
-      if (a%i /= 123) call abort()
-      if (a%j /= 9498) call abort()
+      if (a%i /= 123) stop 1
+      if (a%j /= 9498) stop 1
     class default
-      call abort ()
+      stop 1
   end select
 end program main

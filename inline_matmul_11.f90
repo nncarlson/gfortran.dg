@@ -20,13 +20,13 @@ program main
        & (956.,4264.),(9532.,344.)/
 
   c = matmul(a,b)
-  if (any(res1 /= c)) call abort
+  if (any(res1 /= c)) stop 1
   b2 = conjg(b)
   c = matmul(a,conjg(b2))
-  if (any(res1 /= c)) call abort
+  if (any(res1 /= c)) stop 1
   c = matmul(a,conjg(b))
-  if (any(res2 /= c)) call abort
+  if (any(res2 /= c)) stop 1
   c = matmul(conjg(a), b)
-  if (any(conjg(c) /= res2)) call abort
+  if (any(conjg(c) /= res2)) stop 1
 end program main
 ! { dg-final { scan-tree-dump-times "_gfortran_matmul" 0 "optimized" } }

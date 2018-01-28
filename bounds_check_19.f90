@@ -13,12 +13,12 @@
 
     a = b ! Implicit conversion
 
-    if (lbound (a, 1) .ne. lbound(b, 1)) call abort
-    if (ubound (a, 1) .ne. ubound(b, 1)) call abort
+    if (lbound (a, 1) .ne. lbound(b, 1)) stop 1
+    if (ubound (a, 1) .ne. ubound(b, 1)) stop 1
 
     c = sin(real(b(9:11))/100_8) ! Elemental intrinsic
 
-    if ((ubound(c, 1) - lbound(c, 1)) .ne. 2) call abort
-    if (any (nint(asin(c)*100.0) .ne. b(9:11))) call abort
+    if ((ubound(c, 1) - lbound(c, 1)) .ne. 2) stop 1
+    if (any (nint(asin(c)*100.0) .ne. b(9:11))) stop 1
     deallocate (a, b, c)
   end

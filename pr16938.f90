@@ -19,9 +19,9 @@
     ElementTable%Data(2) = Compound(2,"two")
     ElementTable%L_size  = 2 
 
-    if (elementtable%data(1)%count /= 1) call abort
-    if (elementtable%data(2)%count /= 2) call abort
-    if (elementtable%data(1)%name /= "one ") call abort
-    if (elementtable%data(2)%name /= "two ") call abort
-    if (elementtable%l_size /= 2) call abort
+    if (elementtable%data(1)%count /= 1) stop 1
+    if (elementtable%data(2)%count /= 2) stop 1
+    if (elementtable%data(1)%name /= "one ") stop 1
+    if (elementtable%data(2)%name /= "two ") stop 1
+    if (elementtable%l_size /= 2) stop 1
   end program Array_List

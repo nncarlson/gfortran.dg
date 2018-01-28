@@ -12,8 +12,8 @@ program test
     allocate (A(5,5), stat=stat)
 
     ! Expected: Error stat and previous allocation status
-    if (stat == 0) call abort ()
-    if (any (shape (A) /= [20, 20])) call abort ()
-    if (any (A /= 42)) call abort ()
+    if (stat == 0) stop 1
+    if (any (shape (A) /= [20, 20])) stop 1
+    if (any (A /= 42)) stop 1
 end program
 

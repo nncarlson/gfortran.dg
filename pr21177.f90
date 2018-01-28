@@ -40,14 +40,14 @@ program test
   complex(4), pointer :: c4
   complex(8), pointer :: c8
   
-  if (tt(l) /= 0) call abort()
-  if (tt(i) /= 1) call abort()
-  if (tt(r) /= 2) call abort()
-  if (tt(c4) /= 3) call abort()
-  if (tt(c8) /= 4) call abort()
-  if (tt(null(l)) /= 0) call abort()
-  if (tt(null(i)) /= 1) call abort()
-  if (tt(null(r)) /= 2) call abort()
-  if (tt(null(c4)) /= 3) call abort()
-  if (tt(null(c8)) /= 4) call abort()
+  if (tt(l) /= 0) stop 1
+  if (tt(i) /= 1) stop 1
+  if (tt(r) /= 2) stop 1
+  if (tt(c4) /= 3) stop 1
+  if (tt(c8) /= 4) stop 1
+  if (tt(null(l)) /= 0) stop 1
+  if (tt(null(i)) /= 1) stop 1
+  if (tt(null(r)) /= 2) stop 1
+  if (tt(null(c4)) /= 3) stop 1
+  if (tt(null(c8)) /= 4) stop 1
 end program test

@@ -36,7 +36,7 @@ program test
      write(*,*) 'o_matrix OK'
   else
      write(*,*) 'o_matrix FAIL'
-     call abort
+     stop 1
   end if
 
   allocate(fdef(n=12)::o_fdef)
@@ -45,7 +45,7 @@ program test
      write(*,*) 'o_fdef OK'
   else
      write(*,*) 'o_fdef FAIL'
-     call abort
+     stop 1
   end if
 end program test
 

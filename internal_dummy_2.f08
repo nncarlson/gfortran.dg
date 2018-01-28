@@ -43,10 +43,10 @@ PROGRAM main
   INTEGER :: a
 
   a = 42
-  IF (callIt (myA) /= 42) CALL abort ()
+  IF (callIt (myA) /= 42) stop 1
 
   CALL callSub (incA)
-  IF (a /= 43) CALL abort ()
+  IF (a /= 43) stop 1
 
 CONTAINS
 

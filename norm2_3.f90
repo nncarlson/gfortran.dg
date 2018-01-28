@@ -22,41 +22,41 @@ real(qp) :: g(4,1) = RESHAPE ([real(qp) :: 0, 0, 4, -1], [4,1])
 ! Check compile-time version
 
 if (abs (NORM2 ([real(qp) :: 1, 2, huge(3.0_qp)])   - huge(3.0_qp)) &
-    > epsilon(0.0_qp)*huge(3.0_qp)) call abort()
+    > epsilon(0.0_qp)*huge(3.0_qp)) stop 1
 
 if (abs (SNORM2([real(qp) :: 1, 2, huge(3.0_qp)],3) - huge(3.0_qp)) &
-    > epsilon(0.0_qp)*huge(3.0_qp)) call abort()
+    > epsilon(0.0_qp)*huge(3.0_qp)) stop 1
 
 if (abs (SNORM2([real(qp) :: 1, 2, 3],3) - NORM2([real(qp) :: 1, 2, 3])) &
-    > epsilon(0.0_qp)*SNORM2([real(qp) :: 1, 2, 3],3)) call abort()
+    > epsilon(0.0_qp)*SNORM2([real(qp) :: 1, 2, 3],3)) stop 1
 
-if (NORM2([real(qp) :: ]) /= 0.0_qp) call abort()
-if (abs (NORM2([real(qp) :: 0, 0, 3, 0]) - 3.0_qp) > epsilon(0.0_qp)) call abort()
+if (NORM2([real(qp) :: ]) /= 0.0_qp) stop 1
+if (abs (NORM2([real(qp) :: 0, 0, 3, 0]) - 3.0_qp) > epsilon(0.0_qp)) stop 1
 
 ! Check TREE version
 
 if (abs (NORM2 (a)   - huge(3.0_qp)) &
-    > epsilon(0.0_qp)*huge(3.0_qp)) call abort()
+    > epsilon(0.0_qp)*huge(3.0_qp)) stop 1
 
 if (abs (SNORM2(b,3) - NORM2(b)) &
-    > epsilon(0.0_qp)*SNORM2(b,3)) call abort()
+    > epsilon(0.0_qp)*SNORM2(b,3)) stop 1
 
 if (abs (SNORM2(c,4) - NORM2(c)) &
-    > epsilon(0.0_qp)*SNORM2(c,4)) call abort()
+    > epsilon(0.0_qp)*SNORM2(c,4)) stop 1
 
 if (ANY (abs (abs(d(:,1)) - NORM2(d, 2)) &
-    > epsilon(0.0_qp))) call abort()
+    > epsilon(0.0_qp))) stop 1
 
 ! Check libgfortran version
 
 if (ANY (abs (SNORM2(d,4) - NORM2(d, 1)) &
-    > epsilon(0.0_qp)*SNORM2(d,4))) call abort()
+    > epsilon(0.0_qp)*SNORM2(d,4))) stop 1
 
 if (abs (SNORM2(f,4) - NORM2(f, 1)) &
-    > epsilon(0.0_qp)*SNORM2(d,4)) call abort()
+    > epsilon(0.0_qp)*SNORM2(d,4)) stop 1
 
 if (ANY (abs (abs(g(:,1)) - NORM2(g, 2)) &
-    > epsilon(0.0_qp))) call abort()
+    > epsilon(0.0_qp))) stop 1
 
 contains
    ! NORM2 algorithm based on BLAS, cf.

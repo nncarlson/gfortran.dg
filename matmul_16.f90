@@ -8,6 +8,6 @@ program bogus_matmul
   w = 7
   w = matmul(M,v)
   if( any(w .ne. 0) ) then
-    call abort
+    stop 1
   end if
 end program bogus_matmul

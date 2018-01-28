@@ -4,8 +4,8 @@
 subroutine foo(i)
   integer :: i
   character(len=i) :: s(2)
-  if (len(s) < 0) call abort
-  if (len(s) /= max(i,0)) call abort
+  if (len(s) < 0) stop 1
+  if (len(s) /= max(i,0)) stop 1
 end
 
 function gee(i)
@@ -17,7 +17,7 @@ end function gee
 
 subroutine s1(i,j)
   character(len=i-j) :: a
-  if (len(a) < 0) call abort()
+  if (len(a) < 0) stop 1
 end subroutine
 
 program test
@@ -34,20 +34,20 @@ program test
   call s1(-1,-8)
   call s1(-8,-1)
 
-  if (len(gee(2)) /= 2) call abort
-  if (len(gee(-5)) /= 0) call abort
-  if (len(gee(intfunc(3))) /= max(intfunc(3),0)) call abort
-  if (len(gee(intfunc(2))) /= max(intfunc(2),0)) call abort
+  if (len(gee(2)) /= 2) stop 1
+  if (len(gee(-5)) /= 0) stop 1
+  if (len(gee(intfunc(3))) /= max(intfunc(3),0)) stop 1
+  if (len(gee(intfunc(2))) /= max(intfunc(2),0)) stop 1
 
-  if (len(bar(2)) /= 2) call abort
-  if (len(bar(-5)) /= 0) call abort
-  if (len(bar(intfunc(3))) /= max(intfunc(3),0)) call abort
-  if (len(bar(intfunc(2))) /= max(intfunc(2),0)) call abort
+  if (len(bar(2)) /= 2) stop 1
+  if (len(bar(-5)) /= 0) stop 1
+  if (len(bar(intfunc(3))) /= max(intfunc(3),0)) stop 1
+  if (len(bar(intfunc(2))) /= max(intfunc(2),0)) stop 1
 
-  if (cow(bar(2)) /= 2) call abort
-  if (cow(bar(-5)) /= 0) call abort
-  if (cow(bar(intfunc(3))) /= max(intfunc(3),0)) call abort
-  if (cow(bar(intfunc(2))) /= max(intfunc(2),0)) call abort
+  if (cow(bar(2)) /= 2) stop 1
+  if (cow(bar(-5)) /= 0) stop 1
+  if (cow(bar(intfunc(3))) /= max(intfunc(3),0)) stop 1
+  if (cow(bar(intfunc(2))) /= max(intfunc(2),0)) stop 1
 
 contains
 

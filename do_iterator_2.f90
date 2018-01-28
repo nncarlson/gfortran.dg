@@ -18,8 +18,8 @@ subroutine something
   i = 1
   n = 5
   line = 'PZ0R1'
-  if (internal (1)) call abort ()
-  if (m .ne. 4) call abort ()
+  if (internal (1)) stop 1
+  if (m .ne. 4) stop 1
 contains
   logical function internal (j)
     intent(in) j

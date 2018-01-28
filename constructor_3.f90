@@ -38,8 +38,8 @@ type(cons) :: x
 integer :: k
 x = cons(3)
 k = cons()
-if (x%j /= 9) call abort ()
-if (k /= 42) call abort ()
+if (x%j /= 9) stop 1
+if (k /= 42) stop 1
 !print *, x%j
 !print *, k
 end

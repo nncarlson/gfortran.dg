@@ -4,19 +4,19 @@
   character(*), parameter  :: expr = '-+.0123456789eEdD'
   integer :: i
 
-  if (index(chrs(:), expr) /= 1) call abort
-  if (index(chrs(14:), expr) /= 0) call abort
-  if (index(chrs(:12), expr) /= 0) call abort
-  if (index(chrs, expr(:)) /= 1) call abort
-  if (index(chrs, expr(1:)) /= 1) call abort
-  if (index(chrs, expr(:1)) /= 1) call abort
+  if (index(chrs(:), expr) /= 1) stop 1
+  if (index(chrs(14:), expr) /= 0) stop 1
+  if (index(chrs(:12), expr) /= 0) stop 1
+  if (index(chrs, expr(:)) /= 1) stop 1
+  if (index(chrs, expr(1:)) /= 1) stop 1
+  if (index(chrs, expr(:1)) /= 1) stop 1
 
-  if (foo(expr) /= 1) call abort
-  if (foo(expr) /= 1) call abort
-  if (foo(expr) /= 1) call abort
-  if (foo(expr(:)) /= 1) call abort
-  if (foo(expr(1:)) /= 1) call abort
-  if (foo(expr(:1)) /= 1) call abort
+  if (foo(expr) /= 1) stop 1
+  if (foo(expr) /= 1) stop 1
+  if (foo(expr) /= 1) stop 1
+  if (foo(expr(:)) /= 1) stop 1
+  if (foo(expr(1:)) /= 1) stop 1
+  if (foo(expr(:1)) /= 1) stop 1
 
   call bar(expr)
 
@@ -26,12 +26,12 @@ contains
     character(*), parameter  :: chrs = '-+.0123456789eEdD'
     integer :: foo
 
-    if (index(chrs(:), expr) /= 1) call abort
-    if (index(chrs(14:), expr) /= 0) call abort
-    if (index(chrs(:12), expr) /= 0) call abort
-    if (index(chrs, expr(:)) /= 1) call abort
-    if (index(chrs, expr(1:)) /= 1) call abort
-    if (index(chrs, expr(:1)) /= 1) call abort
+    if (index(chrs(:), expr) /= 1) stop 1
+    if (index(chrs(14:), expr) /= 0) stop 1
+    if (index(chrs(:12), expr) /= 0) stop 1
+    if (index(chrs, expr(:)) /= 1) stop 1
+    if (index(chrs, expr(1:)) /= 1) stop 1
+    if (index(chrs, expr(:1)) /= 1) stop 1
   end subroutine bar
 
   integer function foo(expr)

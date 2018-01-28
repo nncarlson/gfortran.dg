@@ -11,7 +11,7 @@ subroutine one()
   common /com/ p1,p2,a,b
   procedure(real), pointer :: p1,p2
   integer :: a,b
-  if (a/=5 .or. b/=-9 .or. p1(0.0)/=1.0 .or. p2(0.0)/=0.0) call abort()
+  if (a/=5 .or. b/=-9 .or. p1(0.0)/=1.0 .or. p2(0.0)/=0.0) stop 1
 end subroutine one
 
 program main

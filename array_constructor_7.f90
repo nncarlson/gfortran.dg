@@ -16,10 +16,10 @@ contains
     integer, dimension (:) :: values
     integer :: order, i, j
 
-    if (size (values, dim = 1) .ne. order * (order + 1) / 2) call abort
+    if (size (values, dim = 1) .ne. order * (order + 1) / 2) stop 1
     do i = 1, order
       do j = 1, i
-        if (values (i * (i - 1) / 2 + j) .ne. (j + 100) * i) call abort
+        if (values (i * (i - 1) / 2 + j) .ne. (j + 100) * i) stop 1
       end do
     end do
   end subroutine test

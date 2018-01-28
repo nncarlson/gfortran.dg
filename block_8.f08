@@ -11,7 +11,7 @@ PROGRAM main
     BLOCK
       INTEGER, SAVE :: summed = 0
       summed = summed + i
-      IF (i == 100 .AND. summed /= 5050) CALL abort ()
+      IF (i == 100 .AND. summed /= 5050) stop 1
     END BLOCK
   END DO
 END PROGRAM main

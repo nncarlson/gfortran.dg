@@ -19,245 +19,245 @@
 
   ! Test IEEE_COPY_SIGN
   sx1 = 1.3
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -sx1) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -sx1) stop 1
   sx1 = huge(sx1)
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -sx1) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -sx1) stop 1
   sx1 = ieee_value(sx1, ieee_positive_inf)
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -sx1) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -sx1) stop 1
   sx1 = tiny(sx1)
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -sx1) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -sx1) stop 1
   sx1 = tiny(sx1)
   sx1 = sx1 / 101
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -sx1) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -sx1) stop 1
 
   sx1 = -1.3
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) stop 1
   sx1 = -huge(sx1)
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) stop 1
   sx1 = ieee_value(sx1, ieee_negative_inf)
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) stop 1
   sx1 = -tiny(sx1)
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) stop 1
   sx1 = -tiny(sx1)
   sx1 = sx1 / 101
-  if (ieee_copy_sign(sx1, sx1) /= sx1) call abort
-  if (ieee_copy_sign(sx1, -sx1) /= -sx1) call abort
-  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) call abort
-  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) call abort
+  if (ieee_copy_sign(sx1, sx1) /= sx1) stop 1
+  if (ieee_copy_sign(sx1, -sx1) /= -sx1) stop 1
+  if (ieee_copy_sign(sx1, 1.) /= abs(sx1)) stop 1
+  if (ieee_copy_sign(sx1, -1.) /= -abs(sx1)) stop 1
 
-  if (ieee_class(ieee_copy_sign(0., -1.)) /= ieee_negative_zero) call abort
-  if (ieee_class(ieee_copy_sign(-0., -1.)) /= ieee_negative_zero) call abort
-  if (ieee_class(ieee_copy_sign(0., 1.)) /= ieee_positive_zero) call abort
-  if (ieee_class(ieee_copy_sign(-0., 1.)) /= ieee_positive_zero) call abort
+  if (ieee_class(ieee_copy_sign(0., -1.)) /= ieee_negative_zero) stop 1
+  if (ieee_class(ieee_copy_sign(-0., -1.)) /= ieee_negative_zero) stop 1
+  if (ieee_class(ieee_copy_sign(0., 1.)) /= ieee_positive_zero) stop 1
+  if (ieee_class(ieee_copy_sign(-0., 1.)) /= ieee_positive_zero) stop 1
 
   sx1 = ieee_value(0., ieee_quiet_nan)
-  if (ieee_class(ieee_copy_sign(sx1, 1.)) /= ieee_quiet_nan) call abort
-  if (ieee_class(ieee_copy_sign(sx1, -1.)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_copy_sign(sx1, 1.)) /= ieee_quiet_nan) stop 1
+  if (ieee_class(ieee_copy_sign(sx1, -1.)) /= ieee_quiet_nan) stop 1
 
   dx1 = 1.3
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -1.d0) /= -dx1) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -1.d0) /= -dx1) stop 1
   dx1 = huge(dx1)
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.d0) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -1.) /= -dx1) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.d0) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -1.) /= -dx1) stop 1
   dx1 = ieee_value(dx1, ieee_positive_inf)
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -1.d0) /= -dx1) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -1.d0) /= -dx1) stop 1
   dx1 = tiny(dx1)
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.d0) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -1.) /= -dx1) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.d0) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -1.) /= -dx1) stop 1
   dx1 = tiny(dx1)
   dx1 = dx1 / 101
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -1.d0) /= -dx1) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -1.d0) /= -dx1) stop 1
 
   dx1 = -1.3d0
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.d0) /= abs(dx1)) call abort
-  if (ieee_copy_sign(dx1, -1.) /= -abs(dx1)) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.d0) /= abs(dx1)) stop 1
+  if (ieee_copy_sign(dx1, -1.) /= -abs(dx1)) stop 1
   dx1 = -huge(dx1)
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.) /= abs(dx1)) call abort
-  if (ieee_copy_sign(dx1, -1.d0) /= -abs(dx1)) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.) /= abs(dx1)) stop 1
+  if (ieee_copy_sign(dx1, -1.d0) /= -abs(dx1)) stop 1
   dx1 = ieee_value(dx1, ieee_negative_inf)
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.d0) /= abs(dx1)) call abort
-  if (ieee_copy_sign(dx1, -1.) /= -abs(dx1)) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.d0) /= abs(dx1)) stop 1
+  if (ieee_copy_sign(dx1, -1.) /= -abs(dx1)) stop 1
   dx1 = -tiny(dx1)
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.) /= abs(dx1)) call abort
-  if (ieee_copy_sign(dx1, -1.d0) /= -abs(dx1)) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.) /= abs(dx1)) stop 1
+  if (ieee_copy_sign(dx1, -1.d0) /= -abs(dx1)) stop 1
   dx1 = -tiny(dx1)
   dx1 = dx1 / 101
-  if (ieee_copy_sign(dx1, dx1) /= dx1) call abort
-  if (ieee_copy_sign(dx1, -dx1) /= -dx1) call abort
-  if (ieee_copy_sign(dx1, 1.d0) /= abs(dx1)) call abort
-  if (ieee_copy_sign(dx1, -1.) /= -abs(dx1)) call abort
+  if (ieee_copy_sign(dx1, dx1) /= dx1) stop 1
+  if (ieee_copy_sign(dx1, -dx1) /= -dx1) stop 1
+  if (ieee_copy_sign(dx1, 1.d0) /= abs(dx1)) stop 1
+  if (ieee_copy_sign(dx1, -1.) /= -abs(dx1)) stop 1
 
-  if (ieee_class(ieee_copy_sign(0.d0, -1.)) /= ieee_negative_zero) call abort
-  if (ieee_class(ieee_copy_sign(-0.d0, -1.)) /= ieee_negative_zero) call abort
-  if (ieee_class(ieee_copy_sign(0.d0, 1.)) /= ieee_positive_zero) call abort
-  if (ieee_class(ieee_copy_sign(-0.d0, 1.)) /= ieee_positive_zero) call abort
+  if (ieee_class(ieee_copy_sign(0.d0, -1.)) /= ieee_negative_zero) stop 1
+  if (ieee_class(ieee_copy_sign(-0.d0, -1.)) /= ieee_negative_zero) stop 1
+  if (ieee_class(ieee_copy_sign(0.d0, 1.)) /= ieee_positive_zero) stop 1
+  if (ieee_class(ieee_copy_sign(-0.d0, 1.)) /= ieee_positive_zero) stop 1
 
   dx1 = ieee_value(0.d0, ieee_quiet_nan)
-  if (ieee_class(ieee_copy_sign(dx1, 1.d0)) /= ieee_quiet_nan) call abort
-  if (ieee_class(ieee_copy_sign(dx1, -1.)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_copy_sign(dx1, 1.d0)) /= ieee_quiet_nan) stop 1
+  if (ieee_class(ieee_copy_sign(dx1, -1.)) /= ieee_quiet_nan) stop 1
 
   ! Test IEEE_LOGB
 
-  if (ieee_logb(1.17) /= exponent(1.17) - 1) call abort
-  if (ieee_logb(-1.17) /= exponent(-1.17) - 1) call abort
-  if (ieee_logb(huge(sx1)) /= exponent(huge(sx1)) - 1) call abort
-  if (ieee_logb(-huge(sx1)) /= exponent(-huge(sx1)) - 1) call abort
-  if (ieee_logb(tiny(sx1)) /= exponent(tiny(sx1)) - 1) call abort
-  if (ieee_logb(-tiny(sx1)) /= exponent(-tiny(sx1)) - 1) call abort
+  if (ieee_logb(1.17) /= exponent(1.17) - 1) stop 1
+  if (ieee_logb(-1.17) /= exponent(-1.17) - 1) stop 1
+  if (ieee_logb(huge(sx1)) /= exponent(huge(sx1)) - 1) stop 1
+  if (ieee_logb(-huge(sx1)) /= exponent(-huge(sx1)) - 1) stop 1
+  if (ieee_logb(tiny(sx1)) /= exponent(tiny(sx1)) - 1) stop 1
+  if (ieee_logb(-tiny(sx1)) /= exponent(-tiny(sx1)) - 1) stop 1
 
-  if (ieee_class(ieee_logb(0.)) /= ieee_negative_inf) call abort
-  if (ieee_class(ieee_logb(-0.)) /= ieee_negative_inf) call abort
+  if (ieee_class(ieee_logb(0.)) /= ieee_negative_inf) stop 1
+  if (ieee_class(ieee_logb(-0.)) /= ieee_negative_inf) stop 1
 
   sx1 = ieee_value(sx1, ieee_positive_inf)
-  if (ieee_class(ieee_logb(sx1)) /= ieee_positive_inf) call abort
-  if (ieee_class(ieee_logb(-sx1)) /= ieee_positive_inf) call abort
+  if (ieee_class(ieee_logb(sx1)) /= ieee_positive_inf) stop 1
+  if (ieee_class(ieee_logb(-sx1)) /= ieee_positive_inf) stop 1
 
   sx1 = ieee_value(sx1, ieee_quiet_nan)
-  if (ieee_class(ieee_logb(sx1)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_logb(sx1)) /= ieee_quiet_nan) stop 1
 
-  if (ieee_logb(1.17d0) /= exponent(1.17d0) - 1) call abort
-  if (ieee_logb(-1.17d0) /= exponent(-1.17d0) - 1) call abort
-  if (ieee_logb(huge(dx1)) /= exponent(huge(dx1)) - 1) call abort
-  if (ieee_logb(-huge(dx1)) /= exponent(-huge(dx1)) - 1) call abort
-  if (ieee_logb(tiny(dx1)) /= exponent(tiny(dx1)) - 1) call abort
-  if (ieee_logb(-tiny(dx1)) /= exponent(-tiny(dx1)) - 1) call abort
+  if (ieee_logb(1.17d0) /= exponent(1.17d0) - 1) stop 1
+  if (ieee_logb(-1.17d0) /= exponent(-1.17d0) - 1) stop 1
+  if (ieee_logb(huge(dx1)) /= exponent(huge(dx1)) - 1) stop 1
+  if (ieee_logb(-huge(dx1)) /= exponent(-huge(dx1)) - 1) stop 1
+  if (ieee_logb(tiny(dx1)) /= exponent(tiny(dx1)) - 1) stop 1
+  if (ieee_logb(-tiny(dx1)) /= exponent(-tiny(dx1)) - 1) stop 1
 
-  if (ieee_class(ieee_logb(0.d0)) /= ieee_negative_inf) call abort
-  if (ieee_class(ieee_logb(-0.d0)) /= ieee_negative_inf) call abort
+  if (ieee_class(ieee_logb(0.d0)) /= ieee_negative_inf) stop 1
+  if (ieee_class(ieee_logb(-0.d0)) /= ieee_negative_inf) stop 1
 
   dx1 = ieee_value(dx1, ieee_positive_inf)
-  if (ieee_class(ieee_logb(dx1)) /= ieee_positive_inf) call abort
-  if (ieee_class(ieee_logb(-dx1)) /= ieee_positive_inf) call abort
+  if (ieee_class(ieee_logb(dx1)) /= ieee_positive_inf) stop 1
+  if (ieee_class(ieee_logb(-dx1)) /= ieee_positive_inf) stop 1
 
   dx1 = ieee_value(dx1, ieee_quiet_nan)
-  if (ieee_class(ieee_logb(dx1)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_logb(dx1)) /= ieee_quiet_nan) stop 1
 
   ! Test IEEE_NEXT_AFTER
 
-  if (ieee_next_after(0.12, 1.0) /= nearest(0.12, 1.0)) call abort
-  if (ieee_next_after(0.12, -1.0) /= nearest(0.12, -1.0)) call abort
+  if (ieee_next_after(0.12, 1.0) /= nearest(0.12, 1.0)) stop 1
+  if (ieee_next_after(0.12, -1.0) /= nearest(0.12, -1.0)) stop 1
 
   sx1 = 0.12
-  if (ieee_next_after(sx1, sx1) /= sx1) call abort
+  if (ieee_next_after(sx1, sx1) /= sx1) stop 1
   sx1 = -0.12
-  if (ieee_next_after(sx1, sx1) /= sx1) call abort
+  if (ieee_next_after(sx1, sx1) /= sx1) stop 1
   sx1 = huge(sx1)
-  if (ieee_next_after(sx1, sx1) /= sx1) call abort
+  if (ieee_next_after(sx1, sx1) /= sx1) stop 1
   sx1 = tiny(sx1)
-  if (ieee_next_after(sx1, sx1) /= sx1) call abort
+  if (ieee_next_after(sx1, sx1) /= sx1) stop 1
   sx1 = 0
-  if (ieee_next_after(sx1, sx1) /= sx1) call abort
+  if (ieee_next_after(sx1, sx1) /= sx1) stop 1
   sx1 = ieee_value(sx1, ieee_negative_inf)
-  if (ieee_next_after(sx1, sx1) /= sx1) call abort
+  if (ieee_next_after(sx1, sx1) /= sx1) stop 1
   sx1 = ieee_value(sx1, ieee_quiet_nan)
-  if (ieee_class(ieee_next_after(sx1, sx1)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_next_after(sx1, sx1)) /= ieee_quiet_nan) stop 1
 
-  if (ieee_next_after(0., 1.0) <= 0) call abort
-  if (ieee_next_after(0., -1.0) >= 0) call abort
+  if (ieee_next_after(0., 1.0) <= 0) stop 1
+  if (ieee_next_after(0., -1.0) >= 0) stop 1
   sx1 = ieee_next_after(huge(sx1), ieee_value(sx1, ieee_negative_inf))
-  if (.not. sx1 < huge(sx1)) call abort
+  if (.not. sx1 < huge(sx1)) stop 1
   sx1 = ieee_next_after(huge(sx1), ieee_value(sx1, ieee_positive_inf))
-  if (ieee_class(sx1) /= ieee_positive_inf) call abort
+  if (ieee_class(sx1) /= ieee_positive_inf) stop 1
   sx1 = ieee_next_after(-tiny(sx1), 1.0)
-  if (ieee_class(sx1) /= ieee_negative_denormal) call abort
+  if (ieee_class(sx1) /= ieee_negative_denormal) stop 1
 
-  if (ieee_next_after(0.12d0, 1.0d0) /= nearest(0.12d0, 1.0)) call abort
-  if (ieee_next_after(0.12d0, -1.0) /= nearest(0.12d0, -1.0)) call abort
+  if (ieee_next_after(0.12d0, 1.0d0) /= nearest(0.12d0, 1.0)) stop 1
+  if (ieee_next_after(0.12d0, -1.0) /= nearest(0.12d0, -1.0)) stop 1
 
   dx1 = 0.12
-  if (ieee_next_after(dx1, dx1) /= dx1) call abort
+  if (ieee_next_after(dx1, dx1) /= dx1) stop 1
   dx1 = -0.12
-  if (ieee_next_after(dx1, dx1) /= dx1) call abort
+  if (ieee_next_after(dx1, dx1) /= dx1) stop 1
   dx1 = huge(dx1)
-  if (ieee_next_after(dx1, dx1) /= dx1) call abort
+  if (ieee_next_after(dx1, dx1) /= dx1) stop 1
   dx1 = tiny(dx1)
-  if (ieee_next_after(dx1, dx1) /= dx1) call abort
+  if (ieee_next_after(dx1, dx1) /= dx1) stop 1
   dx1 = 0
-  if (ieee_next_after(dx1, dx1) /= dx1) call abort
+  if (ieee_next_after(dx1, dx1) /= dx1) stop 1
   dx1 = ieee_value(dx1, ieee_negative_inf)
-  if (ieee_next_after(dx1, dx1) /= dx1) call abort
+  if (ieee_next_after(dx1, dx1) /= dx1) stop 1
   dx1 = ieee_value(dx1, ieee_quiet_nan)
-  if (ieee_class(ieee_next_after(dx1, dx1)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_next_after(dx1, dx1)) /= ieee_quiet_nan) stop 1
 
-  if (ieee_next_after(0.d0, 1.0) <= 0) call abort
-  if (ieee_next_after(0.d0, -1.0d0) >= 0) call abort
+  if (ieee_next_after(0.d0, 1.0) <= 0) stop 1
+  if (ieee_next_after(0.d0, -1.0d0) >= 0) stop 1
   dx1 = ieee_next_after(huge(dx1), ieee_value(dx1, ieee_negative_inf))
-  if (.not. dx1 < huge(dx1)) call abort
+  if (.not. dx1 < huge(dx1)) stop 1
   dx1 = ieee_next_after(huge(dx1), ieee_value(dx1, ieee_positive_inf))
-  if (ieee_class(dx1) /= ieee_positive_inf) call abort
+  if (ieee_class(dx1) /= ieee_positive_inf) stop 1
   dx1 = ieee_next_after(-tiny(dx1), 1.0d0)
-  if (ieee_class(dx1) /= ieee_negative_denormal) call abort
+  if (ieee_class(dx1) /= ieee_negative_denormal) stop 1
 
   ! Test IEEE_REM
 
-  if (ieee_rem(4.0, 3.0) /= 1.0) call abort
-  if (ieee_rem(-4.0, 3.0) /= -1.0) call abort
-  if (ieee_rem(2.0, 3.0d0) /= -1.0d0) call abort
-  if (ieee_rem(-2.0, 3.0d0) /= 1.0d0) call abort
-  if (ieee_rem(2.0d0, 3.0d0) /= -1.0d0) call abort
-  if (ieee_rem(-2.0d0, 3.0d0) /= 1.0d0) call abort
+  if (ieee_rem(4.0, 3.0) /= 1.0) stop 1
+  if (ieee_rem(-4.0, 3.0) /= -1.0) stop 1
+  if (ieee_rem(2.0, 3.0d0) /= -1.0d0) stop 1
+  if (ieee_rem(-2.0, 3.0d0) /= 1.0d0) stop 1
+  if (ieee_rem(2.0d0, 3.0d0) /= -1.0d0) stop 1
+  if (ieee_rem(-2.0d0, 3.0d0) /= 1.0d0) stop 1
 
   if (ieee_class(ieee_rem(ieee_value(0., ieee_quiet_nan), 1.0)) &
-      /= ieee_quiet_nan) call abort
+      /= ieee_quiet_nan) stop 1
   if (ieee_class(ieee_rem(1.0, ieee_value(0.d0, ieee_quiet_nan))) &
-      /= ieee_quiet_nan) call abort
+      /= ieee_quiet_nan) stop 1
 
   if (ieee_class(ieee_rem(ieee_value(0., ieee_positive_inf), 1.0)) &
-      /= ieee_quiet_nan) call abort
+      /= ieee_quiet_nan) stop 1
   if (ieee_class(ieee_rem(ieee_value(0.d0, ieee_negative_inf), 1.0)) &
-      /= ieee_quiet_nan) call abort
+      /= ieee_quiet_nan) stop 1
   if (ieee_rem(-1.0, ieee_value(0., ieee_positive_inf)) &
-      /= -1.0) call abort
+      /= -1.0) stop 1
   if (ieee_rem(1.0, ieee_value(0.d0, ieee_negative_inf)) &
-      /= 1.0) call abort
+      /= 1.0) stop 1
 
 
   ! Test IEEE_RINT
@@ -268,7 +268,7 @@
     sx1 = 7 / 3.
     sx1 = ieee_rint (sx1)
     call ieee_set_rounding_mode (mode)
-    if (sx1 /= 2) call abort
+    if (sx1 /= 2) stop 1
   end if
 
   if (ieee_support_rounding (ieee_up, sx1)) then
@@ -277,7 +277,7 @@
     sx1 = 7 / 3.
     sx1 = ieee_rint (sx1)
     call ieee_set_rounding_mode (mode)
-    if (sx1 /= 3) call abort
+    if (sx1 /= 3) stop 1
   end if
 
   if (ieee_support_rounding (ieee_down, sx1)) then
@@ -286,7 +286,7 @@
     sx1 = 7 / 3.
     sx1 = ieee_rint (sx1)
     call ieee_set_rounding_mode (mode)
-    if (sx1 /= 2) call abort
+    if (sx1 /= 2) stop 1
   end if
 
   if (ieee_support_rounding (ieee_to_zero, sx1)) then
@@ -295,11 +295,11 @@
     sx1 = 7 / 3.
     sx1 = ieee_rint (sx1)
     call ieee_set_rounding_mode (mode)
-    if (sx1 /= 2) call abort
+    if (sx1 /= 2) stop 1
   end if
 
-  if (ieee_class(ieee_rint(0.)) /= ieee_positive_zero) call abort
-  if (ieee_class(ieee_rint(-0.)) /= ieee_negative_zero) call abort
+  if (ieee_class(ieee_rint(0.)) /= ieee_positive_zero) stop 1
+  if (ieee_class(ieee_rint(-0.)) /= ieee_negative_zero) stop 1
 
   if (ieee_support_rounding (ieee_nearest, dx1)) then
     call ieee_get_rounding_mode (mode)
@@ -307,7 +307,7 @@
     dx1 = 7 / 3.d0
     dx1 = ieee_rint (dx1)
     call ieee_set_rounding_mode (mode)
-    if (dx1 /= 2) call abort
+    if (dx1 /= 2) stop 1
   end if
 
   if (ieee_support_rounding (ieee_up, dx1)) then
@@ -316,7 +316,7 @@
     dx1 = 7 / 3.d0
     dx1 = ieee_rint (dx1)
     call ieee_set_rounding_mode (mode)
-    if (dx1 /= 3) call abort
+    if (dx1 /= 3) stop 1
   end if
 
   if (ieee_support_rounding (ieee_down, dx1)) then
@@ -325,7 +325,7 @@
     dx1 = 7 / 3.d0
     dx1 = ieee_rint (dx1)
     call ieee_set_rounding_mode (mode)
-    if (dx1 /= 2) call abort
+    if (dx1 /= 2) stop 1
   end if
 
   if (ieee_support_rounding (ieee_to_zero, dx1)) then
@@ -334,47 +334,47 @@
     dx1 = 7 / 3.d0
     dx1 = ieee_rint (dx1)
     call ieee_set_rounding_mode (mode)
-    if (dx1 /= 2) call abort
+    if (dx1 /= 2) stop 1
   end if
 
-  if (ieee_class(ieee_rint(0.d0)) /= ieee_positive_zero) call abort
-  if (ieee_class(ieee_rint(-0.d0)) /= ieee_negative_zero) call abort
+  if (ieee_class(ieee_rint(0.d0)) /= ieee_positive_zero) stop 1
+  if (ieee_class(ieee_rint(-0.d0)) /= ieee_negative_zero) stop 1
 
   ! Test IEEE_SCALB
 
   sx1 = 1
-  if (ieee_scalb(sx1, 2) /= 4.) call abort
-  if (ieee_scalb(-sx1, 2) /= -4.) call abort
-  if (ieee_scalb(sx1, -2) /= 1/4.) call abort
-  if (ieee_scalb(-sx1, -2) /= -1/4.) call abort
-  if (ieee_class(ieee_scalb(sx1, huge(0))) /= ieee_positive_inf) call abort
-  if (ieee_class(ieee_scalb(-sx1, huge(0))) /= ieee_negative_inf) call abort
-  if (ieee_class(ieee_scalb(sx1, -huge(0))) /= ieee_positive_zero) call abort
-  if (ieee_class(ieee_scalb(-sx1, -huge(0))) /= ieee_negative_zero) call abort
+  if (ieee_scalb(sx1, 2) /= 4.) stop 1
+  if (ieee_scalb(-sx1, 2) /= -4.) stop 1
+  if (ieee_scalb(sx1, -2) /= 1/4.) stop 1
+  if (ieee_scalb(-sx1, -2) /= -1/4.) stop 1
+  if (ieee_class(ieee_scalb(sx1, huge(0))) /= ieee_positive_inf) stop 1
+  if (ieee_class(ieee_scalb(-sx1, huge(0))) /= ieee_negative_inf) stop 1
+  if (ieee_class(ieee_scalb(sx1, -huge(0))) /= ieee_positive_zero) stop 1
+  if (ieee_class(ieee_scalb(-sx1, -huge(0))) /= ieee_negative_zero) stop 1
 
   sx1 = ieee_value(sx1, ieee_quiet_nan)
-  if (ieee_class(ieee_scalb(sx1, 1)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_scalb(sx1, 1)) /= ieee_quiet_nan) stop 1
   sx1 = ieee_value(sx1, ieee_positive_inf)
-  if (ieee_class(ieee_scalb(sx1, -42)) /= ieee_positive_inf) call abort
+  if (ieee_class(ieee_scalb(sx1, -42)) /= ieee_positive_inf) stop 1
   sx1 = ieee_value(sx1, ieee_negative_inf)
-  if (ieee_class(ieee_scalb(sx1, -42)) /= ieee_negative_inf) call abort
+  if (ieee_class(ieee_scalb(sx1, -42)) /= ieee_negative_inf) stop 1
 
   dx1 = 1
-  if (ieee_scalb(dx1, 2) /= 4.d0) call abort
-  if (ieee_scalb(-dx1, 2) /= -4.d0) call abort
-  if (ieee_scalb(dx1, -2) /= 1/4.d0) call abort
-  if (ieee_scalb(-dx1, -2) /= -1/4.d0) call abort
-  if (ieee_class(ieee_scalb(dx1, huge(0))) /= ieee_positive_inf) call abort
-  if (ieee_class(ieee_scalb(-dx1, huge(0))) /= ieee_negative_inf) call abort
-  if (ieee_class(ieee_scalb(dx1, -huge(0))) /= ieee_positive_zero) call abort
-  if (ieee_class(ieee_scalb(-dx1, -huge(0))) /= ieee_negative_zero) call abort
+  if (ieee_scalb(dx1, 2) /= 4.d0) stop 1
+  if (ieee_scalb(-dx1, 2) /= -4.d0) stop 1
+  if (ieee_scalb(dx1, -2) /= 1/4.d0) stop 1
+  if (ieee_scalb(-dx1, -2) /= -1/4.d0) stop 1
+  if (ieee_class(ieee_scalb(dx1, huge(0))) /= ieee_positive_inf) stop 1
+  if (ieee_class(ieee_scalb(-dx1, huge(0))) /= ieee_negative_inf) stop 1
+  if (ieee_class(ieee_scalb(dx1, -huge(0))) /= ieee_positive_zero) stop 1
+  if (ieee_class(ieee_scalb(-dx1, -huge(0))) /= ieee_negative_zero) stop 1
 
   dx1 = ieee_value(dx1, ieee_quiet_nan)
-  if (ieee_class(ieee_scalb(dx1, 1)) /= ieee_quiet_nan) call abort
+  if (ieee_class(ieee_scalb(dx1, 1)) /= ieee_quiet_nan) stop 1
   dx1 = ieee_value(dx1, ieee_positive_inf)
-  if (ieee_class(ieee_scalb(dx1, -42)) /= ieee_positive_inf) call abort
+  if (ieee_class(ieee_scalb(dx1, -42)) /= ieee_positive_inf) stop 1
   dx1 = ieee_value(dx1, ieee_negative_inf)
-  if (ieee_class(ieee_scalb(dx1, -42)) /= ieee_negative_inf) call abort
+  if (ieee_class(ieee_scalb(dx1, -42)) /= ieee_negative_inf) stop 1
 
 contains
 
@@ -382,7 +382,7 @@ contains
     real, intent(in) :: x, y
     if (x /= y) then
       print *, x, y
-      call abort
+      stop 1
     end if
   end subroutine
 
@@ -390,7 +390,7 @@ contains
     double precision, intent(in) :: x, y
     if (x /= y) then
       print *, x, y
-      call abort
+      stop 1
     end if
   end subroutine
 
@@ -398,7 +398,7 @@ contains
     real, intent(in) :: x, y
     if (x == y) then
       print *, x, y
-      call abort
+      stop 1
     end if
   end subroutine
 
@@ -406,7 +406,7 @@ contains
     double precision, intent(in) :: x, y
     if (x == y) then
       print *, x, y
-      call abort
+      stop 1
     end if
   end subroutine
 

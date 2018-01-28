@@ -25,5 +25,5 @@ contains
 end module bar
   use bar
   call xmain
-  if (c(1) .ne. "ab") call abort
+  if (c(1) .ne. "ab") stop 1
 end

@@ -6,6 +6,6 @@
     character(25) :: string = "(g0,g0,g0)" 
     character(33) :: buffer
     write(buffer, string) ':',0,':'
-    if (buffer.ne.":0:") call abort
+    if (buffer.ne.":0:") stop 1
 end
 ! { dg-output "Fortran runtime error: Zero width in format descriptor(\n|\r\n|\r)" }

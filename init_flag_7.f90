@@ -17,13 +17,13 @@ subroutine save_test1 (first)
   integer i3
   save i2
   if (first) then
-     if (i1 .ne. -100) call abort
-     if (i2 .ne. 101) call abort
-     if (i3 .ne. 101) call abort
+     if (i1 .ne. -100) stop 1
+     if (i2 .ne. 101) stop 1
+     if (i3 .ne. 101) stop 1
   else
-     if (i1 .ne. 1001) call abort
-     if (i2 .ne. 1002) call abort
-     if (i3 .ne. 101) call abort
+     if (i1 .ne. 1001) stop 1
+     if (i2 .ne. 1002) stop 1
+     if (i3 .ne. 101) stop 1
   end if
   i1 = 1001
   i2 = 1002
@@ -36,11 +36,11 @@ subroutine save_test2 (first)
   integer i2
   save
   if (first) then
-     if (i1 .ne. -100) call abort
-     if (i2 .ne. 101) call abort
+     if (i1 .ne. -100) stop 1
+     if (i2 .ne. 101) stop 1
   else
-     if (i1 .ne. 1001) call abort
-     if (i2 .ne. 1002) call abort
+     if (i1 .ne. 1001) stop 1
+     if (i2 .ne. 1002) stop 1
   end if
   i1 = 1001
   i2 = 1002

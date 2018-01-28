@@ -26,28 +26,28 @@ subroutine test (s1, s4, i, i1, i2, i3, i4)
   character(kind=4,len=1) :: s4
   integer :: i, i1, i2, i3, i4
 
-  if (i /= i1) call abort
-  if (i /= i2) call abort
-  if (i /= i3) call abort
-  if (i /= i4) call abort
+  if (i /= i1) stop 1
+  if (i /= i2) stop 1
+  if (i /= i3) stop 1
+  if (i /= i4) stop 1
 
-  if (iachar (s1) /= i) call abort
-  if (iachar (s4) /= i) call abort
+  if (iachar (s1) /= i) stop 1
+  if (iachar (s4) /= i) stop 1
   
-  if (ichar (s1) /= i) call abort
-  if (ichar (s4) /= i) call abort
+  if (ichar (s1) /= i) stop 1
+  if (ichar (s4) /= i) stop 1
   
-  if (achar(i, kind=1) /= s1) call abort
-  if (achar(i, kind=4) /= s4) call abort
+  if (achar(i, kind=1) /= s1) stop 1
+  if (achar(i, kind=4) /= s4) stop 1
 
-  if (char(i, kind=1) /= s1) call abort
-  if (char(i, kind=4) /= s4) call abort
+  if (char(i, kind=1) /= s1) stop 1
+  if (char(i, kind=4) /= s4) stop 1
 
-  if (iachar(achar(i, kind=1)) /= i) call abort
-  if (iachar(achar(i, kind=4)) /= i) call abort
+  if (iachar(achar(i, kind=1)) /= i) stop 1
+  if (iachar(achar(i, kind=4)) /= i) stop 1
 
-  if (ichar(char(i, kind=1)) /= i) call abort
-  if (ichar(char(i, kind=4)) /= i) call abort
+  if (ichar(char(i, kind=1)) /= i) stop 1
+  if (ichar(char(i, kind=4)) /= i) stop 1
 
 end subroutine test
 
@@ -55,15 +55,15 @@ subroutine test_bis (s4, i, i2, i4)
   character(kind=4,len=1) :: s4
   integer :: i, i2, i4
 
-  if (i /= i2) call abort
-  if (i /= i4) call abort
+  if (i /= i2) stop 1
+  if (i /= i4) stop 1
 
-  if (iachar (s4) /= i) call abort
-  if (ichar (s4) /= i) call abort
-  if (achar(i, kind=4) /= s4) call abort
-  if (char(i, kind=4) /= s4) call abort
-  if (iachar(achar(i, kind=4)) /= i) call abort
-  if (ichar(char(i, kind=4)) /= i) call abort
+  if (iachar (s4) /= i) stop 1
+  if (ichar (s4) /= i) stop 1
+  if (achar(i, kind=4) /= s4) stop 1
+  if (char(i, kind=4) /= s4) stop 1
+  if (iachar(achar(i, kind=4)) /= i) stop 1
+  if (ichar(char(i, kind=4)) /= i) stop 1
 
 end subroutine test_bis
 

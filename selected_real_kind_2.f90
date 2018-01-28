@@ -16,17 +16,17 @@ if (selected_real_kind(precision(0.0d0),range(0.0d0),radix(0.0d0)) /= kind(0.0d0
 ! Run-time version
 
 rdx = 2
-if (selected_real_kind(radix=rdx) /= 4) call abort()
+if (selected_real_kind(radix=rdx) /= 4) stop 1
 rdx = 4
-if (selected_real_kind(radix=rdx) /= -5) call abort()
+if (selected_real_kind(radix=rdx) /= -5) stop 1
 
 rdx = radix(0.0)
 p = precision(0.0)
 r = range(0.0)
-if (selected_real_kind(p,r,rdx) /= kind(0.0)) call abort()
+if (selected_real_kind(p,r,rdx) /= kind(0.0)) stop 1
 
 rdx = radix(0.0d0)
 p = precision(0.0d0)
 r = range(0.0d0)
-if (selected_real_kind(p,r,rdx) /= kind(0.0d0)) call abort()
+if (selected_real_kind(p,r,rdx) /= kind(0.0d0)) stop 1
 end

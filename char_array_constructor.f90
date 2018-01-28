@@ -7,8 +7,8 @@ end module
 
 program y
   use z
-  if (a(1) /= 'main  ') call abort
-  if (a(2) /= 'main  ') call abort
-  if (b(1) /= 'abcd  ') call abort
-  if (b(2) /= 'efghij') call abort
+  if (a(1) /= 'main  ') stop 1
+  if (a(2) /= 'main  ') stop 1
+  if (b(1) /= 'abcd  ') stop 1
+  if (b(2) /= 'efghij') stop 1
 end program y

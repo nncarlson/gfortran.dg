@@ -15,7 +15,7 @@ module good
 end module good
 
 use good
-if (t%x /= 42) call abort()
+if (t%x /= 42) stop 1
 t%x = 0
-if (t%x /= 0) call abort()
+if (t%x /= 0) stop 1
 end

@@ -15,16 +15,16 @@ program chk_alloc_string
 
     strings = [ "A   ", "C   ", "ABCD", "V   " ]
 
-    if (len(strings) .ne. 4) call abort
-    if (size(strings, 1) .ne. 4) call abort
-    if (any (strings .ne. [character(len=4) :: "A", "C", "ABCD", "V"])) call abort
+    if (len(strings) .ne. 4) stop 1
+    if (size(strings, 1) .ne. 4) stop 1
+    if (any (strings .ne. [character(len=4) :: "A", "C", "ABCD", "V"])) stop 1
 
     strings = [character(len=4) :: "A", "C", "ABCDE", "V", "zzzz"]
 
-    if (len(strings) .ne. 4) call abort
-    if (size(strings, 1) .ne. 5) call abort
-    if (any (strings .ne. [character(len=4) :: "A", "C", "ABCD", "V", "zzzz"])) call abort
+    if (len(strings) .ne. 4) stop 1
+    if (size(strings, 1) .ne. 5) stop 1
+    if (any (strings .ne. [character(len=4) :: "A", "C", "ABCD", "V", "zzzz"])) stop 1
 
     write (buffer, "(5a4)") strings
-    if (buffer .ne. "A   C   ABCDV   zzzz") call abort
+    if (buffer .ne. "A   C   ABCDV   zzzz") stop 1
 end program chk_alloc_string

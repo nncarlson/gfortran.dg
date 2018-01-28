@@ -23,7 +23,7 @@ contains
 
   subroutine cdall(desc)
     type(desc_type), intent(out)  :: desc
-    if (allocated(desc%indxmap)) call abort()
+    if (allocated(desc%indxmap)) stop 1
   end subroutine cdall
 
 end program

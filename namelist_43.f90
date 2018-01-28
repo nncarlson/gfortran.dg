@@ -40,8 +40,8 @@ PROGRAM TEST
   rewind (10)
   READ (10, NML = nl)
   CLOSE (10)
-  if(infinity /= 1) call abort
+  if(infinity /= 1) stop 1
   if(any(foo(1:3) /= [5.0, 5.0, 5.0]) .or. .not.isnan(foo(4)) &
      .or. (foo(5) <= huge(foo)) .or. any(foo(6:10) /= -1.0)) &
-    call abort
+    stop 1
 END PROGRAM TEST

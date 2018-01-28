@@ -19,13 +19,13 @@ class(t), allocatable :: cp
 
 allocate(t2::cp)
 
-if (sizeof(a)        /=  8) call abort()
-if (storage_size(a)  /= 64) call abort()
+if (sizeof(a)        /=  8) stop 1
+if (storage_size(a)  /= 64) stop 1
 
-if (sizeof(b)        /= 24) call abort()
-if (storage_size(b)  /= 64) call abort()
+if (sizeof(b)        /= 24) stop 1
+if (storage_size(b)  /= 64) stop 1
 
-if (sizeof(cp)       /= 12) call abort()
-if (storage_size(cp) /= 96) call abort()
+if (sizeof(cp)       /= 12) stop 1
+if (storage_size(cp) /= 96) stop 1
 
 end

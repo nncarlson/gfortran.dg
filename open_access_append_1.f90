@@ -12,9 +12,9 @@
 
   open (10,file="foo")
   read (10,*) i
-  if (i /= 42) call abort
+  if (i /= 42) stop 1
   read (10,*) i
-  if (i /= -42) call abort
+  if (i /= -42) stop 1
   close (10,status="delete")
 
   end

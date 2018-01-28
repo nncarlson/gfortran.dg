@@ -28,9 +28,9 @@ function NumOccurances (string, chr, isel) result(n)
   return
 end
 
-  if (NumOccurances("abacadae", "a", 1) .ne. 4) call abort ()
-  if (NumOccurances("abacadae", "a", 2) .ne. 4) call abort ()
-  if (NumOccurances("abacadae", "a", 3) .ne. 4) call abort ()
-  if (NumOccurances("abacadae", "a", 4) .ne. 4) call abort ()
-  if (NumOccurances("abacadae", "a", 5) .ne. 4) call abort ()
+  if (NumOccurances("abacadae", "a", 1) .ne. 4) stop 1
+  if (NumOccurances("abacadae", "a", 2) .ne. 4) stop 1
+  if (NumOccurances("abacadae", "a", 3) .ne. 4) stop 1
+  if (NumOccurances("abacadae", "a", 4) .ne. 4) stop 1
+  if (NumOccurances("abacadae", "a", 5) .ne. 4) stop 1
 end

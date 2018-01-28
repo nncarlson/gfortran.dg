@@ -13,11 +13,11 @@ program main
     ca(2) = "bar"
     ca(3) = "xyzzy"
     write (unit=line, fmt='(3A5)') (ca(i),i=1,3)
-    if (line /= buffer) call abort
+    if (line /= buffer) stop 1
     ca(1) = ""
     ca(2) = ""
     ca(3) = ""
     read (unit=line, fmt='(3A5)') (ca(i),i=1,3)
-    if (line /= buffer) call abort
+    if (line /= buffer) stop 1
 end program
 

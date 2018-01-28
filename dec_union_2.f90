@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  call abort()
+  stop 1
 end subroutine
 
 ! Empty union
@@ -48,13 +48,13 @@ record /s2/ r2
 ! Basic unions
 r1.a = 0
 r1.b = 1.33e7
-if ( r1.a .eq. 0 ) call aborts ("basic union 1")
+if ( r1.a .eq. 0 ) stop 1s ("basic union 1")
 
 ! Endian-agnostic runtime check
 r2.long = z'12345678'
 if (.not. (     (r2.w1 .eq. z'1234' .and. r2.w2 .eq. z'5678') &
            .or. (r2.w1 .eq. z'5678' .and. r2.w2 .eq. z'1234')) ) then
-    call aborts ("basic union 2")
+    stop 1s ("basic union 2")
 endif
 
 end

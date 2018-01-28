@@ -11,19 +11,19 @@ program a
   e1 = 'No error'
   allocate(i(4))
   deallocate(i, stat=n, errmsg=e1)
-  if (trim(e1) /= 'No error') call abort
+  if (trim(e1) /= 'No error') stop 1
 
   e2 = 'No error'
   allocate(i(4))
   deallocate(i, stat=n, errmsg=e2)
-  if (trim(e2) /= 'No error') call abort
+  if (trim(e2) /= 'No error') stop 1
 
   e1 = 'No error'
   deallocate(i, stat=n, errmsg=e1)
-  if (trim(e1) /= 'Attempt to deallocate an unallocated object') call abort
+  if (trim(e1) /= 'Attempt to deallocate an unallocated object') stop 1
 
   e2 = 'No error'
   deallocate(i, stat=n, errmsg=e2)
-  if (trim(e2) /= 'Attempt to deallocate an unall') call abort
+  if (trim(e2) /= 'Attempt to deallocate an unall') stop 1
 
 end program a

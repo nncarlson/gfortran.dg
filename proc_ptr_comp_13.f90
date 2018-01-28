@@ -20,10 +20,10 @@ o%ppc => foo
 
 o2 = o%ppc(o)
 
-if (o%data /= 1) call abort()
-if (o2%data /= 5) call abort()
-if (.not. associated(o%ppc)) call abort()
-if (associated(o2%ppc)) call abort()
+if (o%data /= 1) stop 1
+if (o2%data /= 5) stop 1
+if (.not. associated(o%ppc)) stop 1
+if (associated(o2%ppc)) stop 1
 
 contains
 

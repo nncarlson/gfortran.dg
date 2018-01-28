@@ -6,10 +6,10 @@
   INTEGER, PARAMETER :: odd(4) = COUNT (MOD(m, 2) == 1, dim=1)
   INTEGER, PARAMETER :: even = COUNT (MOD(m, 2) == 0)
 
-  IF (sevens /= 1) CALL abort()
-  IF (ANY(odd /= [ 2,2,2,2 ])) CALL abort()
-  IF (even /= 8) CALL abort()
+  IF (sevens /= 1) stop 1
+  IF (ANY(odd /= [ 2,2,2,2 ])) stop 1
+  IF (even /= 8) stop 1
 
   ! check the kind parameter
-  IF (KIND(COUNT (m == 7, KIND=2)) /= 2) CALL abort()
+  IF (KIND(COUNT (m == 7, KIND=2)) /= 2) stop 1
 END

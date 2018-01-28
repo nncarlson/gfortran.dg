@@ -27,36 +27,36 @@ contains
 
     !print *, lbound(arg)
     !print *, id(lbound(arg))
-    if (any(lbound(arg) /= [1, 1])) call abort
-    if (any(id(lbound(arg)) /= [1, 1])) call abort
+    if (any(lbound(arg) /= [1, 1])) stop 1
+    if (any(id(lbound(arg)) /= [1, 1])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) lbound(arg)
-    if (buffer /= '           1           1') call abort
+    if (buffer /= '           1           1') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(lbound(arg))
-    if (buffer /= '           1           1') call abort
+    if (buffer /= '           1           1') stop 1
 
     !print *, ubound(arg)
     !print *, id(ubound(arg))
-    if (any(ubound(arg) /= [3, 8])) call abort
-    if (any(id(ubound(arg)) /= [3, 8])) call abort
+    if (any(ubound(arg) /= [3, 8])) stop 1
+    if (any(id(ubound(arg)) /= [3, 8])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) ubound(arg)
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(ubound(arg))
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
 
     !print *, shape(arg)
     !print *, id(shape(arg))
-    if (any(shape(arg) /= [3, 8])) call abort
-    if (any(id(shape(arg)) /= [3, 8])) call abort
+    if (any(shape(arg) /= [3, 8])) stop 1
+    if (any(id(shape(arg)) /= [3, 8])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) shape(arg)
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(shape(arg))
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
 
   end subroutine foo
   subroutine bar(arg)
@@ -64,36 +64,36 @@ contains
 
     !print *, lbound(arg)
     !print *, id(lbound(arg))
-    if (any(lbound(arg) /= [2, -2])) call abort
-    if (any(id(lbound(arg)) /= [2, -2])) call abort
+    if (any(lbound(arg) /= [2, -2])) stop 1
+    if (any(id(lbound(arg)) /= [2, -2])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) lbound(arg)
-    if (buffer /= '           2          -2') call abort
+    if (buffer /= '           2          -2') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(lbound(arg))
-    if (buffer /= '           2          -2') call abort
+    if (buffer /= '           2          -2') stop 1
 
     !print *, ubound(arg)
     !print *, id(ubound(arg))
-    if (any(ubound(arg) /= [4, 5])) call abort
-    if (any(id(ubound(arg)) /= [4, 5])) call abort
+    if (any(ubound(arg) /= [4, 5])) stop 1
+    if (any(id(ubound(arg)) /= [4, 5])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) ubound(arg)
-    if (buffer /= '           4           5') call abort
+    if (buffer /= '           4           5') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(ubound(arg))
-    if (buffer /= '           4           5') call abort
+    if (buffer /= '           4           5') stop 1
 
     !print *, shape(arg)
     !print *, id(shape(arg))
-    if (any(shape(arg) /= [3, 8])) call abort
-    if (any(id(shape(arg)) /= [3, 8])) call abort
+    if (any(shape(arg) /= [3, 8])) stop 1
+    if (any(id(shape(arg)) /= [3, 8])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) shape(arg)
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(shape(arg))
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
 
   end subroutine bar
   subroutine baz(arg)
@@ -101,36 +101,36 @@ contains
 
     !print *, lbound(arg)
     !print *, id(lbound(arg))
-    if (any(lbound(arg) /= [2, -2])) call abort
-    if (any(id(lbound(arg)) /= [2, -2])) call abort
+    if (any(lbound(arg) /= [2, -2])) stop 1
+    if (any(id(lbound(arg)) /= [2, -2])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) lbound(arg)
-    if (buffer /= '           2          -2') call abort
+    if (buffer /= '           2          -2') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(lbound(arg))
-    if (buffer /= '           2          -2') call abort
+    if (buffer /= '           2          -2') stop 1
 
     !print *, ubound(arg)
     !print *, id(ubound(arg))
-    if (any(ubound(arg) /= [4, 5])) call abort
-    if (any(id(ubound(arg)) /= [4, 5])) call abort
+    if (any(ubound(arg) /= [4, 5])) stop 1
+    if (any(id(ubound(arg)) /= [4, 5])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) ubound(arg)
-    if (buffer /= '           4           5') call abort
+    if (buffer /= '           4           5') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(ubound(arg))
-    if (buffer /= '           4           5') call abort
+    if (buffer /= '           4           5') stop 1
 
     !print *, shape(arg)
     !print *, id(shape(arg))
-    if (any(shape(arg) /= [3, 8])) call abort
-    if (any(id(shape(arg)) /= [3, 8])) call abort
+    if (any(shape(arg) /= [3, 8])) stop 1
+    if (any(id(shape(arg)) /= [3, 8])) stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) shape(arg)
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
     buffer = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
     write(buffer,*) id(shape(arg))
-    if (buffer /= '           3           8') call abort
+    if (buffer /= '           3           8') stop 1
 
   end subroutine baz
   elemental function id(arg)

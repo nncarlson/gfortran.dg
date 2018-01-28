@@ -21,8 +21,8 @@ contains
       integer, optional :: arg1(:)
       integer :: arg2(:)
 !      print *, fun1 (arg1, arg2)
-      if (size (fun1 (arg1, arg2)) /= 2) call abort() ! { dg-warning "is an array and OPTIONAL" }
-      if (any (fun1 (arg1, arg2) /= [1,2])) call abort() ! { dg-warning "is an array and OPTIONAL" }
+      if (size (fun1 (arg1, arg2)) /= 2) stop 1 ! { dg-warning "is an array and OPTIONAL" }
+      if (any (fun1 (arg1, arg2) /= [1,2])) stop 1 ! { dg-warning "is an array and OPTIONAL" }
    end subroutine
 
    elemental function fun1 (arg1, arg2)
@@ -44,8 +44,8 @@ contains
       integer, optional :: arg1(:)
       integer, optional :: arg2(:)
 !      print *, fun2 (arg1, arg2)
-      if (size (fun2 (arg1, arg2)) /= 2) call abort() ! { dg-warning "is an array and OPTIONAL" }
-      if (any (fun2 (arg1, arg2) /= [1,2])) call abort() ! { dg-warning "is an array and OPTIONAL" }
+      if (size (fun2 (arg1, arg2)) /= 2) stop 1 ! { dg-warning "is an array and OPTIONAL" }
+      if (any (fun2 (arg1, arg2) /= [1,2])) stop 1 ! { dg-warning "is an array and OPTIONAL" }
    end subroutine
 
    elemental function fun2 (arg1,arg2)

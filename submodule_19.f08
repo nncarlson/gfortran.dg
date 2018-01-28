@@ -54,6 +54,6 @@ end submodule
   use foo_interface
   type(foo) :: a = foo (42)
   type(foo) :: b = foo (99)
-  if (a + b .ne. 141) call abort
-  if (a * b .ne. 4158) call abort
+  if (a + b .ne. 141) stop 1
+  if (a * b .ne. 4158) stop 1
 end

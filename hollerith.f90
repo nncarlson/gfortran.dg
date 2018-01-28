@@ -23,31 +23,31 @@ i = 4hHell
 j = 4Ho wo
 r = 4Hrld! 
 write (line, '(3A4)') i, j, r
-if (line .ne. 'Hello world!') call abort
+if (line .ne. 'Hello world!') stop 1
 i = 2Hab
 j = 2Hab
 r = 2Hab
 c = 2Hab
 write (line, '(3A4, 8A)') i, j, r, c
-if (line .ne. 'ab  ab  ab  ab      ') call abort
+if (line .ne. 'ab  ab  ab  ab      ') stop 1
 
 write(line, '(4A8, "!")' ) x
-if (line .ne. 'abcdefghijklmnopqrstuvwxyz012345!') call abort
+if (line .ne. 'abcdefghijklmnopqrstuvwxyz012345!') stop 1
 
 write (line, a) 3
-if (line .ne. '  3') call abort
+if (line .ne. '  3') stop 1
 write (line, a (1,2)) 4
-if (line .ne. '   4') call abort
+if (line .ne. '   4') stop 1
 write (line, z) 5
-if (line .ne. '    5') call abort
+if (line .ne. '    5') stop 1
 write (line, z1) 6
-if (line .ne. '     6') call abort
+if (line .ne. '     6') stop 1
 write (line, z2) 7
-if (line .ne. '      7') call abort
+if (line .ne. '      7') stop 1
 write (line, z2 (1,2)) 8
-if (line .ne. '       8') call abort
+if (line .ne. '       8') stop 1
 write (line, '(16A)') z2
-if (line .ne. '(i7)xxxx(i8)xxxx') call abort
+if (line .ne. '(i7)xxxx(i8)xxxx') stop 1
 call test (8h   hello)
 end
 
@@ -56,7 +56,7 @@ integer(kind=8) h
 character(80) line
 
 write (line, '(8a)') h
-if (line .ne. '   hello') call abort
+if (line .ne. '   hello') stop 1
 end subroutine
 
 ! { dg-warning "Hollerith constant" "const" { target *-*-* } 15 }

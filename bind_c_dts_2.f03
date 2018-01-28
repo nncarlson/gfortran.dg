@@ -30,32 +30,32 @@ contains
     integer(c_int), value :: expected_j
 
     if (my_type%my_nested_type%i .ne. expected_i) then
-       call abort ()
+       stop 1
     end if
 
     if (.not. c_associated(my_type%my_nested_type%nested_c_address, &
          expected_nested_c_address)) then
-       call abort ()
+       stop 1
     end if
 
     if (my_type%my_nested_type%array(1) .ne. expected_array_1) then
-       call abort ()
+       stop 1
     end if
 
     if (my_type%my_nested_type%array(2) .ne. expected_array_2) then
-       call abort ()
+       stop 1
     end if
 
     if (my_type%my_nested_type%array(3) .ne. expected_array_3) then
-       call abort ()
+       stop 1
     end if
 
     if (.not. c_associated(my_type%c_address, expected_c_address)) then
-       call abort ()
+       stop 1
     end if
 
     if (my_type%j .ne. expected_j) then
-       call abort ()
+       stop 1
     end if
   end subroutine sub0
 end module bind_c_dts_2

@@ -10,8 +10,8 @@ contains
     b = 'abcd'
     a = trim(b)
     c = trim(trim(a))
-    if (a /= 'abc') call abort
-    if (c /= 'abc') call abort
+    if (a /= 'abc') stop 1
+    if (c /= 'abc') stop 1
   end subroutine bar
 end module faz
 
@@ -27,8 +27,8 @@ contains
     b = 'abcd'
     a = trim(b)
     c = trim(trim(a))
-    if (a /= 'abc') call abort
-    if (c /= 'abc') call abort
+    if (a /= 'abc') stop 1
+    if (c /= 'abc') stop 1
   end subroutine foo
 end program main
 

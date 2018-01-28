@@ -29,6 +29,6 @@ program namelist
     read(10, nml=nmlst)
     close (10)
 
-    if (der%d(1)%k%j /= 1) call abort
-    if (der%d(2)%k%j /= 2) call abort
+    if (der%d(1)%k%j /= 1) stop 1
+    if (der%d(2)%k%j /= 2) stop 1
 end program namelist

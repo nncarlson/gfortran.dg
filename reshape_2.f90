@@ -16,8 +16,8 @@ end module splitprms
 
 program test
   use splitprms
-  if (nxttab(1, 1) .ne. 6) call abort
-  if (nxttab(1, nplam) .ne. 1) call abort
-  if (nxttab(linem, 1) .ne. 6) call abort
-  if (nxttab(linem, nplam) .ne. 132) call abort
+  if (nxttab(1, 1) .ne. 6) stop 1
+  if (nxttab(1, nplam) .ne. 1) stop 1
+  if (nxttab(linem, 1) .ne. 6) stop 1
+  if (nxttab(linem, nplam) .ne. 132) stop 1
 end program test

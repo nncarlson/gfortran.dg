@@ -14,8 +14,8 @@ program p
    character(3), parameter :: c = 'abc'
    character(:), allocatable :: z
    allocate (z, source=repeat(c(2:1), f()))
-   if (len(z) /= 0) call abort()
-   if (z /= "") call abort()
+   if (len(z) /= 0) stop 1
+   if (z /= "") stop 1
 end
 
 

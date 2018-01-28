@@ -28,7 +28,7 @@ contains
     end type t
     type(t), pointer :: x
     class(*), pointer :: ptr1 => null() ! pointer initialization
-    if (same_type_as (ptr1, x) .neqv. .FALSE.) call abort
+    if (same_type_as (ptr1, x) .neqv. .FALSE.) stop 1
   end subroutine bar
 
 end program main
@@ -47,7 +47,7 @@ subroutine foo(tgt)
   type(s), pointer :: ptr1
   type(t), pointer :: ptr2
   ptr1 => tgt ! bind(c) => unlimited allowed
-  if (ptr1%k .ne. 42) call abort
+  if (ptr1%k .ne. 42) stop 1
   ptr2 => tgt ! sequence type => unlimited allowed
-  if (ptr2%k .ne. 42) call abort
+  if (ptr2%k .ne. 42) stop 1
 end subroutine foo

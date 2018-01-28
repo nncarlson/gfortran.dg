@@ -7,9 +7,9 @@ contains
       integer a(:)
       print *, lbound(a), ubound(a), size(a)
       if ((lbound(a,dim=1) /= 1) .or. (ubound(a,dim=1) /= 3)) &
-        call abort()
+        stop 1
       print *, a
-      if (any(a /= [1,2,3])) call abort()
+      if (any(a /= [1,2,3])) stop 1
   end subroutine one
 end module m
 

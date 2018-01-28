@@ -32,17 +32,17 @@ contains
     integer :: tmp
     call co_max (val(::2))
     if (num_images() > 1) then
-      if (any (val /= [42, this_image(), 101])) call abort()
+      if (any (val /= [42, this_image(), 101])) stop 1
     else
-      if (any (val /= [42, this_image(), -55])) call abort()
+      if (any (val /= [42, this_image(), -55])) stop 1
     endif
 
     val = tmp_val
     call co_max (val(:))
     if (num_images() > 1) then
-      if (any (val /= [42, num_images(), 101])) call abort()
+      if (any (val /= [42, num_images(), 101])) stop 1
     else
-      if (any (val /= [42, num_images(), -55])) call abort()
+      if (any (val /= [42, num_images(), -55])) stop 1
     endif
   end subroutine test_max
 
@@ -51,12 +51,12 @@ contains
     if (this_image() == num_images()) then
       !write(*,*) "Minimal value", val
       if (num_images() > 1) then
-        if (any (val /= [-99, 1, -55])) call abort()
+        if (any (val /= [-99, 1, -55])) stop 1
       else
-        if (any (val /= [42, 1, -55])) call abort()
+        if (any (val /= [42, 1, -55])) stop 1
       endif
     else
-      if (any (val /= tmp_val)) call abort()
+      if (any (val /= tmp_val)) stop 1
     endif
   end subroutine test_min
 
@@ -64,13 +64,13 @@ contains
     integer :: n
     n = 88
     call co_sum (val, result_image=1, stat=n)
-    if (n /= 0) call abort()
+    if (n /= 0) stop 1
     if (this_image() == 1) then
       n = num_images()
       !write(*,*) "The sum is ", val
-      if (any (val /= [42 + (n-1)*(-99), (n**2 + n)/2, -55+(n-1)*101])) call abort()
+      if (any (val /= [42 + (n-1)*(-99), (n**2 + n)/2, -55+(n-1)*101])) stop 1
     else
-      if (any (val /= tmp_val)) call abort()
+      if (any (val /= tmp_val)) stop 1
     end if
   end subroutine test_sum
 end program test

@@ -23,9 +23,9 @@ contains
   subroutine chk (i)
     integer, intent(in) :: i
     if (i .eq. 1) then
-      if (chk_(i)% str .ne. "abcd") call abort ()
+      if (chk_(i)% str .ne. "abcd") stop 1
     else
-      if (chk_(i)% str .ne. "efgh") call abort ()
+      if (chk_(i)% str .ne. "efgh") stop 1
     end if
 
   end subroutine chk

@@ -16,23 +16,23 @@ program main
   data b /17., -23., 29., -31., 37., -39., 41., -47./
   data cres /195., -304.,  384.,  275., -428.,  548.,  347., -540.,  692.,  411., -640.,  816./
   c = matmul(a,b)
-  if (sum(c-cres)>1e-4) call abort
+  if (sum(c-cres)>1e-4) stop 1
 
   calloc = matmul(a,b)
-  if (sum(calloc-cres)>1e-4) call abort
-  if (any([size(calloc,1), size(calloc,2)] /= [3,4])) call abort
+  if (sum(calloc-cres)>1e-4) stop 1
+  if (any([size(calloc,1), size(calloc,2)] /= [3,4])) stop 1
   deallocate(calloc)
 
   allocate(calloc(4,4))
   calloc = matmul(a,b)
-  if (sum(calloc-cres)>1e-4) call abort
-  if (any([size(calloc,1), size(calloc,2)] /= [3,4])) call abort
+  if (sum(calloc-cres)>1e-4) stop 1
+  if (any([size(calloc,1), size(calloc,2)] /= [3,4])) stop 1
   deallocate(calloc)
 
   allocate(calloc(3,3))
   calloc = matmul(a,b)
-  if (sum(calloc-cres)>1e-4) call abort
-  if (any([size(calloc,1), size(calloc,2)] /= [3,4])) call abort
+  if (sum(calloc-cres)>1e-4) stop 1
+  if (any([size(calloc,1), size(calloc,2)] /= [3,4])) stop 1
   deallocate(calloc)
   
   block
@@ -41,23 +41,23 @@ program main
     bb = b
 
     cc = matmul(aa,bb)
-    if (sum(cc-cres)>1e-4) call abort
+    if (sum(cc-cres)>1e-4) stop 1
     calloc = matmul(aa,bb)
-    if (sum(calloc-cres)>1e-4) call abort
-    if (any([size(calloc,1), size(calloc,2)] /= [3,4])) call abort
+    if (sum(calloc-cres)>1e-4) stop 1
+    if (any([size(calloc,1), size(calloc,2)] /= [3,4])) stop 1
     calloc = 42.
     deallocate(calloc)
 
     allocate(calloc(4,4))
     calloc = matmul(aa,bb)
-    if (sum(calloc-cres)>1e-4) call abort
-    if (any([size(calloc,1), size(calloc,2)] /= [3,4])) call abort
+    if (sum(calloc-cres)>1e-4) stop 1
+    if (any([size(calloc,1), size(calloc,2)] /= [3,4])) stop 1
     deallocate(calloc)
 
     allocate(calloc(3,3))
     calloc = matmul(aa,bb)
-    if (sum(calloc-cres)>1e-4) call abort
-    if (any([size(calloc,1), size(calloc,2)] /= [3,4])) call abort
+    if (sum(calloc-cres)>1e-4) stop 1
+    if (any([size(calloc,1), size(calloc,2)] /= [3,4])) stop 1
     deallocate(calloc)
   end block
 

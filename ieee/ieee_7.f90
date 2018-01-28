@@ -19,22 +19,22 @@
   ! Test IEEE_SELECTED_REAL_KIND
 
   if (ieee_support_datatype(0.)) then
-    if (ieee_selected_real_kind() /= kind(0.)) call abort
-    if (ieee_selected_real_kind(0) /= kind(0.)) call abort
-    if (ieee_selected_real_kind(0,0) /= kind(0.)) call abort
-    if (ieee_selected_real_kind(0,0,2) /= kind(0.)) call abort
+    if (ieee_selected_real_kind() /= kind(0.)) stop 1
+    if (ieee_selected_real_kind(0) /= kind(0.)) stop 1
+    if (ieee_selected_real_kind(0,0) /= kind(0.)) stop 1
+    if (ieee_selected_real_kind(0,0,2) /= kind(0.)) stop 1
   end if
 
   if (ieee_support_datatype(0.d0)) then
-    if (ieee_selected_real_kind(precision(0.)+1) /= kind(0.d0)) call abort
-    if (ieee_selected_real_kind(precision(0.),range(0.)+1) /= kind(0.d0)) call abort
-    if (ieee_selected_real_kind(precision(0.)+1,range(0.)+1) /= kind(0.d0)) call abort
-    if (ieee_selected_real_kind(precision(0.)+1,range(0.)+1,2) /= kind(0.d0)) call abort
+    if (ieee_selected_real_kind(precision(0.)+1) /= kind(0.d0)) stop 1
+    if (ieee_selected_real_kind(precision(0.),range(0.)+1) /= kind(0.d0)) stop 1
+    if (ieee_selected_real_kind(precision(0.)+1,range(0.)+1) /= kind(0.d0)) stop 1
+    if (ieee_selected_real_kind(precision(0.)+1,range(0.)+1,2) /= kind(0.d0)) stop 1
   end if
 
-  if (ieee_selected_real_kind(0,0,3) /= -5) call abort
-  if (ieee_selected_real_kind(100*precision(0._maxreal)) /= -1) call abort
-  if (ieee_selected_real_kind(0,100*range(0._maxreal)) /= -2) call abort
-  if (ieee_selected_real_kind(100*precision(0._maxreal),100*range(0._maxreal)) /= -3) call abort
+  if (ieee_selected_real_kind(0,0,3) /= -5) stop 1
+  if (ieee_selected_real_kind(100*precision(0._maxreal)) /= -1) stop 1
+  if (ieee_selected_real_kind(0,100*range(0._maxreal)) /= -2) stop 1
+  if (ieee_selected_real_kind(100*precision(0._maxreal),100*range(0._maxreal)) /= -3) stop 1
 
 end

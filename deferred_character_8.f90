@@ -69,16 +69,16 @@ end module
     end function
   end interface
 
-  if (f () .ne. "ABC") call abort
-  if (any (g (["ab","cd"]) .ne. ["ab","cd","ef","gh"])) call abort
+  if (f () .ne. "ABC") stop 1
+  if (any (g (["ab","cd"]) .ne. ["ab","cd","ef","gh"])) stop 1
   chr = h (["ABC","DEF","GHI"])
-  if (any (chr .ne. ["abc","def","ghi"])) call abort
-  if (any (return_string ("abcdefg") .ne. ["abcdefg","abcdefg"])) call abort
+  if (any (chr .ne. ["abc","def","ghi"])) stop 1
+  if (any (return_string ("abcdefg") .ne. ["abcdefg","abcdefg"])) stop 1
 
 ! Comment #23
   allocate(character(3)::s(2))
   s(1) = 'foo'
   s(2) = 'bar'
   write (buffer, '(2A3)') s
-  if (buffer .ne. 'foobar') call abort
+  if (buffer .ne. 'foobar') stop 1
 end

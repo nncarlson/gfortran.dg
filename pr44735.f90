@@ -1,7 +1,7 @@
 ! { dg-do run }
 
 program main
-  if (bug() /= "abcdefghij") call abort
+  if (bug() /= "abcdefghij") stop 1
 contains
   function bug()
     character(len=10) :: bug

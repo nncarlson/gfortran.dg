@@ -2,12 +2,12 @@
 ! PR33095
 !
 ! { dg-do run }
-  if (m1(3,4) /= 4) call abort
-  if (m1(3) /= 3) call abort
-  if (m1() /= 2) call abort
+  if (m1(3,4) /= 4) stop 1
+  if (m1(3) /= 3) stop 1
+  if (m1() /= 2) stop 1
 
-  if (m1(3,4) /= 4) call abort
-  if (m1(3) /= 3) call abort
+  if (m1(3,4) /= 4) stop 1
+  if (m1(3) /= 3) stop 1
 contains
   integer function m1(a1,a2)
     integer, optional, intent(in) :: a1, a2

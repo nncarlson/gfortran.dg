@@ -32,27 +32,27 @@ program main
 
      ! Test without intermediary function
      prt_in = string_t(["A"])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "A")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "A")) stop 1
      deallocate (prt_in%chars)
 
      ! scalar elemental function
      prt_in = string_t(["B"])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "B")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "B")) stop 1
      tmp = new_prt_spec (prt_in)
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "B")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "B")) stop 1
      deallocate (prt_in%chars)
      deallocate (tmp%chars)
 
      ! array elemental function with array constructor
      prt_in = string_t(["C"])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "C")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "C")) stop 1
      tmpa = new_prt_spec ([(prt_in, i=1,2)])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "C")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "C")) stop 1
      deallocate (prt_in%chars)
      do j=1,n
         deallocate (tmpa(j)%chars)
@@ -60,21 +60,21 @@ program main
 
      ! scalar elemental function with structure constructor
      prt_in = string_t(["D"])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "D")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "D")) stop 1
      tmpc = new_prt_spec2 (string_container_t(prt_in))
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "D")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "D")) stop 1
      deallocate (prt_in%chars)
      deallocate(tmpc%comp%chars)
 
      ! array elemental function of an array constructor of structure constructors
      prt_in = string_t(["E"])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "E")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "E")) stop 1
      tmpca = new_prt_spec2 ([ (string_container_t(prt_in), i=1,2) ])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "E")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "E")) stop 1
      deallocate (prt_in%chars)
      do j=1,n
         deallocate (tmpca(j)%comp%chars)
@@ -82,11 +82,11 @@ program main
 
      ! scalar elemental function with a structure constructor and a nested array constructor
      prt_in = string_t(["F"])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "F")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "F")) stop 1
      tmpac = new_prt_spec3 (string_array_container_t([ (prt_in, i=1,2) ]))
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "F")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "F")) stop 1
      deallocate (prt_in%chars)
      do j=1,n
         deallocate (tmpac%comp(j)%chars)
@@ -95,11 +95,11 @@ program main
      ! array elemental function with an array constructor nested inside
      ! a structure constructor nested inside  an array constructor
      prt_in = string_t(["G"])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "G")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "G")) stop 1
      tmpaca = new_prt_spec3 ([ (string_array_container_t([ (prt_in, i=1,2) ]), j=1,2) ])
-     if (.not. allocated(prt_in%chars)) call abort
-     if (any(prt_in%chars .ne. "G")) call abort
+     if (.not. allocated(prt_in%chars)) stop 1
+     if (any(prt_in%chars .ne. "G")) stop 1
      deallocate (prt_in%chars)
      do j=1,n
         do k=1,n

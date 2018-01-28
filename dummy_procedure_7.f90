@@ -19,7 +19,7 @@ subroutine  sol(cost)
         end function cost
    end interface
 
-   if (any (cost([1d0,2d0]) /= [2.d0, 4.d0])) call abort ()
+   if (any (cost([1d0,2d0]) /= [2.d0, 4.d0])) stop 1
    icheck = icheck + 1
 end subroutine
 
@@ -56,8 +56,8 @@ program test
         implicit none
 
         call init()
-        if (any (cost([3.d0,7.d0]) /= [6.d0, 14.d0])) call abort ()
-        if (icheck /= 0) call abort ()
+        if (any (cost([3.d0,7.d0]) /= [6.d0, 14.d0])) stop 1
+        if (icheck /= 0) stop 1
         call sol(cost)
-        if (icheck /= 1) call abort ()
+        if (icheck /= 1) stop 1
 end program test

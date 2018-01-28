@@ -16,7 +16,7 @@ PROGRAM test_prog
 
   CALL set_ptr(forig,fset)
 
-  if (forig(1,2) /= fset(1,2)) call abort()
+  if (forig(1,2) /= fset(1,2)) stop 1
 
 CONTAINS
 

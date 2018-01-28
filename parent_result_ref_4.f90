@@ -18,5 +18,5 @@ contains
 end module m
 
   use m
-  if (f ().ne.2) call abort ()
+  if (f ().ne.2) stop 1
 end

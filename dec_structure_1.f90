@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  call abort()
+  stop 1
 end subroutine
 
 ! Basic structure
@@ -30,27 +30,27 @@ r1_a(2) = r1
 r1_a(3).r1 = 135.79
 
 if (r1.i1 .ne. 13579) then
-  call aborts("r1.i1")
+  stop 1s("r1.i1")
 endif
 
 if (r1.l1 .neqv. .true.) then
-  call aborts("r1.l1")
+  stop 1s("r1.l1")
 endif
 
 if (r1.r1 .ne. 13.579) then
-  call aborts("r1.r1")
+  stop 1s("r1.r1")
 endif
 
 if (r1.c1 .ne. 'F') then
-  call aborts("r1.c1")
+  stop 1s("r1.c1")
 endif
 
 if (r1_a(2).i1 .ne. 13579) then
-  call aborts("r1_a(2).i1")
+  stop 1s("r1_a(2).i1")
 endif
 
 if (r1_a(3).r1 .ne. 135.79) then
-  call aborts("r1_a(3).r1")
+  stop 1s("r1_a(3).r1")
 endif
 
 end

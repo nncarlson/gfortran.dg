@@ -201,21 +201,21 @@ program adj3
 
 ! Check constructor of PDT and instrinsic assignment
   adj = adj_matrix(INT(8,8),2,4)
-  if (adj%k .ne. 8) call abort
-  if (adj%c .ne. 2) call abort
-  if (adj%r .ne. 4) call abort
+  if (adj%k .ne. 8) stop 1
+  if (adj%c .ne. 2) stop 1
+  if (adj%r .ne. 4) stop 1
   a = reshape ([(i, i = 1, 6)], [2,3])
   adj = a
   b = adj
-  if (any (b .ne. a)) call abort
+  if (any (b .ne. a)) stop 1
 
 ! Check allocation with MOLD of PDT. Note that only KIND parameters set.
   allocate (adj_4, mold = adj_matrix(4,3,2))           ! Added check of KIND = 4
-  if (adj_4%k .ne. 4) call abort
+  if (adj_4%k .ne. 4) stop 1
   a_4 = reshape (a, [3,2])
   adj_4 = a_4
   b_4 = adj_4
-  if (any (b_4 .ne. a_4)) call abort
+  if (any (b_4 .ne. a_4)) stop 1
 
 end program adj3
 

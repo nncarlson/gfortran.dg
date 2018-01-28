@@ -25,12 +25,12 @@
   actual%boog => boogImplementation
 
   res = actual%boog ()                       ! Failed on bug in expr.c:3933
-  if (res%scalar .ne. onenineeight) call abort
+  if (res%scalar .ne. onenineeight) stop 1
 
 ! Make sure that the procedure pointer is assigned correctly
-  if (actual%scalar .ne. ninetynine) call abort
+  if (actual%scalar .ne. ninetynine) stop 1
   actual = res%boog ()
-  if (actual%scalar .ne. onenineeight) call abort
+  if (actual%scalar .ne. onenineeight) stop 1
 
 ! Deallocate so that we can use valgrind to check for memory leaks
   deallocate (res%scalar, actual%scalar)
@@ -44,7 +44,7 @@ contains
           C = A
           C%scalar = onenineeight
         class default
-          call abort
+          stop 1
       end select
     end function
 end

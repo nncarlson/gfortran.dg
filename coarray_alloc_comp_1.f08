@@ -44,52 +44,52 @@ object%matrix = reshape([(i, i=1, 70)], [10, 7])
 object%dynvol = vol_static
 sync all
 neighbor = merge(1,neighbor,me==num_images())
-if (object[neighbor]%scalar /= 42) call abort()
-if (object[neighbor]%indices(4) /= 4) call abort()
-if (object[neighbor]%matrix(3,6) /= 53) call abort()
-if (any( object[neighbor]%indices(:) /= [1,2,3,4,5] )) call abort()
-if (any( object[neighbor]%matrix(:,:) /= reshape([(i, i=1, 70)], [10, 7]))) call abort()
-if (any( object[neighbor]%matrix(3,:) /= [(i * 10 + 3, i=0, 6)])) call abort()
-if (any( object[neighbor]%matrix(:,2) /= [(i + 10, i=1, 10)])) call abort()
-if (any( object[neighbor]%matrix(idx,2) /= [11, 12, 11, 17, 15])) call abort()
-if (any( object[neighbor]%matrix(3,idx) /= [3, 13, 3, 63, 43])) call abort()
-if (any( object[neighbor]%matrix(2:8:4, 5:1:-1) /= reshape([42, 46, 32, 36, 22, 26, 12, 16, 2, 6], [2,5]))) call abort()
-if (any( object[neighbor]%matrix(:8:4, 2::2) /= reshape([11, 15, 31, 35, 51, 55], [2,3]))) call abort()
-if (any( object[neighbor]%volume /= vol_static)) call abort()
-if (any( object[neighbor]%dynvol /= vol_static)) call abort()
-if (any( object[neighbor]%volume(:, 2:4, :) /= vol_static(:, 2:4, :))) call abort()
-if (any( object[neighbor]%dynvol(:, 2:4, :) /= vol_static(:, 2:4, :))) call abort()
+if (object[neighbor]%scalar /= 42) stop 1
+if (object[neighbor]%indices(4) /= 4) stop 1
+if (object[neighbor]%matrix(3,6) /= 53) stop 1
+if (any( object[neighbor]%indices(:) /= [1,2,3,4,5] )) stop 1
+if (any( object[neighbor]%matrix(:,:) /= reshape([(i, i=1, 70)], [10, 7]))) stop 1
+if (any( object[neighbor]%matrix(3,:) /= [(i * 10 + 3, i=0, 6)])) stop 1
+if (any( object[neighbor]%matrix(:,2) /= [(i + 10, i=1, 10)])) stop 1
+if (any( object[neighbor]%matrix(idx,2) /= [11, 12, 11, 17, 15])) stop 1
+if (any( object[neighbor]%matrix(3,idx) /= [3, 13, 3, 63, 43])) stop 1
+if (any( object[neighbor]%matrix(2:8:4, 5:1:-1) /= reshape([42, 46, 32, 36, 22, 26, 12, 16, 2, 6], [2,5]))) stop 1
+if (any( object[neighbor]%matrix(:8:4, 2::2) /= reshape([11, 15, 31, 35, 51, 55], [2,3]))) stop 1
+if (any( object[neighbor]%volume /= vol_static)) stop 1
+if (any( object[neighbor]%dynvol /= vol_static)) stop 1
+if (any( object[neighbor]%volume(:, 2:4, :) /= vol_static(:, 2:4, :))) stop 1
+if (any( object[neighbor]%dynvol(:, 2:4, :) /= vol_static(:, 2:4, :))) stop 1
 
 vol2 = vol_static(:, ::2, :)
-if (any( object[neighbor]%volume(:, ::2, :) /= vol2)) call abort()
-if (any( object[neighbor]%dynvol(:, ::2, :) /= vol2)) call abort()
+if (any( object[neighbor]%volume(:, ::2, :) /= vol2)) stop 1
+if (any( object[neighbor]%dynvol(:, ::2, :) /= vol2)) stop 1
 
 allocate(bar%vec(-2:2))
 
 bar%vec(1)%volume = vol_static
-if (any(bar[neighbor]%vec(1)%volume /= vol_static)) call abort()
+if (any(bar[neighbor]%vec(1)%volume /= vol_static)) stop 1
 
 i = 15
 bar%vec(1)%scalar = i
-if (.not. allocated(bar%vec(1)%scalar)) call abort()
-if (bar[neighbor]%vec(1)%scalar /= 15) call abort()
+if (.not. allocated(bar%vec(1)%scalar)) stop 1
+if (bar[neighbor]%vec(1)%scalar /= 15) stop 1
 
 bar%vec(0)%scalar = 27
-if (.not. allocated(bar%vec(0)%scalar)) call abort()
-if (bar[neighbor]%vec(0)%scalar /= 27) call abort()
+if (.not. allocated(bar%vec(0)%scalar)) stop 1
+if (bar[neighbor]%vec(0)%scalar /= 27) stop 1
 
 bar%vec(1)%indices = [ 3, 4, 15 ]
 allocate(bar%vec(2)%indices(5))
 bar%vec(2)%indices = 89
 
-if (.not. allocated(bar%vec(1)%indices)) call abort()
-if (allocated(bar%vec(-2)%indices)) call abort()
-if (allocated(bar%vec(-1)%indices)) call abort()
-if (allocated(bar%vec( 0)%indices)) call abort()
-if (.not. allocated(bar%vec( 2)%indices)) call abort()
-if (any(bar[me]%vec(2)%indices /= 89)) call abort()
+if (.not. allocated(bar%vec(1)%indices)) stop 1
+if (allocated(bar%vec(-2)%indices)) stop 1
+if (allocated(bar%vec(-1)%indices)) stop 1
+if (allocated(bar%vec( 0)%indices)) stop 1
+if (.not. allocated(bar%vec( 2)%indices)) stop 1
+if (any(bar[me]%vec(2)%indices /= 89)) stop 1
 
-if (any (bar[neighbor]%vec(1)%indices /= [ 3,4,15])) call abort()
+if (any (bar[neighbor]%vec(1)%indices /= [ 3,4,15])) stop 1
 
 deallocate(bar%vec(2)%indices, object%scalar, object%matrix)
 deallocate(bar%vec)

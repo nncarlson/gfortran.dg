@@ -46,6 +46,6 @@ program test_dollar
 
    type (dollar_type), parameter :: wage = dollar_type(15.10)
    write (unit=*, fmt="(DT)", iostat=ios, iomsg=errormsg) wage
-   if (ios.ne.5006) call abort
-   if (errormsg(1:22).ne."Missing DTIO procedure") call abort
+   if (ios.ne.5006) stop 1
+   if (errormsg(1:22).ne."Missing DTIO procedure") stop 1
 end program test_dollar

@@ -37,9 +37,9 @@
 
       B = RESHAPE(A, [n1,n2,n3])
 
-      if (any (shape (B)  /= [n1,n2,n3])) call abort ()
-      if (any (ubound (B) /= [n1,n2,n3])) call abort ()
-      if (any (lbound (B) /= [1,1,1])) call abort ()
+      if (any (shape (B)  /= [n1,n2,n3])) stop 1
+      if (any (ubound (B) /= [n1,n2,n3])) stop 1
+      if (any (lbound (B) /= [1,1,1])) stop 1
 
       lc = 0
       DO m3=1,n3
@@ -47,7 +47,7 @@
             lc = lc+1
             DO m1=1,n1
 !               PRINT *,'A(',m1,',',lc,') = ',A(m1,lc),' B = ',B(m1,m2,m3)
-               if (A(m1,lc) /= B(m1,m2,m3)) call abort ()
+               if (A(m1,lc) /= B(m1,m2,m3)) stop 1
             END DO
          END DO
       END DO
@@ -77,9 +77,9 @@
 
       B = RESHAPE(A, [n1,n2,n3])
 
-      if (any (shape (B)  /= [n1,n2,n3])) call abort ()
-      if (any (ubound (B) /= [n1,n2,n3])) call abort ()
-      if (any (lbound (B) /= [1,1,1])) call abort ()
+      if (any (shape (B)  /= [n1,n2,n3])) stop 1
+      if (any (ubound (B) /= [n1,n2,n3])) stop 1
+      if (any (lbound (B) /= [1,1,1])) stop 1
 
       lc = 0
       DO m3=1,n3
@@ -87,7 +87,7 @@
             lc = lc+1
             DO m1=1,n1
 !               PRINT *,'A(',m1,',',lc,') = ',A(m1,lc),' B = ',B(m1,m2,m3)
-               if (A(m1,lc) /= B(m1,m2,m3)) call abort ()
+               if (A(m1,lc) /= B(m1,m2,m3)) stop 1
             END DO
          END DO
       END DO

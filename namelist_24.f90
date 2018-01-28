@@ -23,20 +23,20 @@
       write (20, '(a)') "/"
       rewind(20)
       read(20,nml=mynml, iostat=ier)
-      if (ier.ne.0) call abort()
-      if (any(names(:,3:5).ne."0")) call abort()
-      if (names(2,2).ne."frogger") call abort()
-      if (names(1,1).ne."E123") call abort()
-      if (names(2,1).ne."E456") call abort()
-      if (names(3,1).ne."D789") call abort()
-      if (names(4,1).ne."P135") call abort()
-      if (names(5,1).ne."P246") call abort()
-      if (any(names2(:,1).ne."0")) call abort()
-      if (any(names2(:,3:5).ne."0")) call abort()
-      if (names2(1,2).ne."abcde") call abort()
-      if (names2(2,2).ne."0") call abort()
-      if (names2(3,2).ne."fghij") call abort()
-      if (names2(4,2).ne."0") call abort()
-      if (names2(5,2).ne."klmno") call abort()
-      if (any(names3.ne.names)) call abort()
+      if (ier.ne.0) stop 1
+      if (any(names(:,3:5).ne."0")) stop 1
+      if (names(2,2).ne."frogger") stop 1
+      if (names(1,1).ne."E123") stop 1
+      if (names(2,1).ne."E456") stop 1
+      if (names(3,1).ne."D789") stop 1
+      if (names(4,1).ne."P135") stop 1
+      if (names(5,1).ne."P246") stop 1
+      if (any(names2(:,1).ne."0")) stop 1
+      if (any(names2(:,3:5).ne."0")) stop 1
+      if (names2(1,2).ne."abcde") stop 1
+      if (names2(2,2).ne."0") stop 1
+      if (names2(3,2).ne."fghij") stop 1
+      if (names2(4,2).ne."0") stop 1
+      if (names2(5,2).ne."klmno") stop 1
+      if (any(names3.ne.names)) stop 1
       end

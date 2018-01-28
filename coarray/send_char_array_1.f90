@@ -26,28 +26,28 @@ program send_convert_char_array
 
   ! First check send/copy to self
   co_str_k1_scal[1] = str_k1_scal
-  if (co_str_k1_scal /= str_k1_scal // '          ') call abort()
+  if (co_str_k1_scal /= str_k1_scal // '          ') stop 1
 
   co_str_k4_scal[1] = str_k4_scal
-  if (co_str_k4_scal /= str_k4_scal // 4_'          ') call abort()
+  if (co_str_k4_scal /= str_k4_scal // 4_'          ') stop 1
 
   co_str_k4_scal[1] = str_k1_scal
-  if (co_str_k4_scal /= str_k4_scal // 4_'          ') call abort()
+  if (co_str_k4_scal /= str_k4_scal // 4_'          ') stop 1
 
   co_str_k1_scal[1] = str_k4_scal
-  if (co_str_k1_scal /= str_k1_scal // '          ') call abort()
+  if (co_str_k1_scal /= str_k1_scal // '          ') stop 1
 
   co_str_k1_arr(:)[1] = str_k1_arr
-  if (any(co_str_k1_arr /= ['abc  ', 'EFG  ', 'klm  ', 'NOP  '])) call abort()
+  if (any(co_str_k1_arr /= ['abc  ', 'EFG  ', 'klm  ', 'NOP  '])) stop 1
  
   co_str_k4_arr(:)[1] = [4_'abc', 4_'EFG', 4_'klm', 4_'NOP']! str_k4_arr
-  if (any(co_str_k4_arr /= [4_'abc  ', 4_'EFG  ', 4_'klm  ', 4_'NOP  '])) call abort()
+  if (any(co_str_k4_arr /= [4_'abc  ', 4_'EFG  ', 4_'klm  ', 4_'NOP  '])) stop 1
 
   co_str_k4_arr(:)[1] = str_k1_arr
-  if (any(co_str_k4_arr /= [ 4_'abc  ', 4_'EFG  ', 4_'klm  ', 4_'NOP  '])) call abort()
+  if (any(co_str_k4_arr /= [ 4_'abc  ', 4_'EFG  ', 4_'klm  ', 4_'NOP  '])) stop 1
 
   co_str_k1_arr(:)[1] = str_k4_arr
-  if (any(co_str_k1_arr /= ['abc  ', 'EFG  ', 'klm  ', 'NOP  '])) call abort()
+  if (any(co_str_k1_arr /= ['abc  ', 'EFG  ', 'klm  ', 'NOP  '])) stop 1
 
 end program send_convert_char_array
 

@@ -51,12 +51,12 @@ contains
   end subroutine
   subroutine bar (arg)
     type(mytype(b=4)) :: arg(:)
-    if (int (sum (arg(1)%d)) .ne. 136) call abort
-    if (trim (arg(2)%chr) .ne. "goodbye pdt") call abort
+    if (int (sum (arg(1)%d)) .ne. 136) stop 1
+    if (trim (arg(2)%chr) .ne. "goodbye pdt") stop 1
   end subroutine
   subroutine foobar (arg)
     type(mytype(ftype, pdt_len)) :: arg
-    if (int (sum (arg%d)) .ne. 1344) call abort
-    if (trim (arg%chr) .ne. "scalar pdt") call abort
+    if (int (sum (arg%d)) .ne. 1344) stop 1
+    if (trim (arg%chr) .ne. "scalar pdt") stop 1
   end subroutine
 end

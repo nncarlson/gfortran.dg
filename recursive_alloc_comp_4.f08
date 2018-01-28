@@ -34,11 +34,11 @@ end module
   b1%ia = 5
   call move_alloc (d, a%c(2)%c)
 
-  if (a%ia .ne. 1) call abort
-  if (a%c(1)%ia .ne. 2) call abort
-  if (a%c(2)%c(1)%ia .ne. 3) call abort
-  if (a%c(2)%c(2)%ia .ne. 4) call abort
-  if (a%c(2)%c(2)%c(1)%ia .ne. 5) call abort
+  if (a%ia .ne. 1) stop 1
+  if (a%c(1)%ia .ne. 2) stop 1
+  if (a%c(2)%c(1)%ia .ne. 3) stop 1
+  if (a%c(2)%c(2)%ia .ne. 4) stop 1
+  if (a%c(2)%c(2)%c(1)%ia .ne. 5) stop 1
 
   if (allocated (a)) deallocate (a)
   if (allocated (d)) deallocate (d)

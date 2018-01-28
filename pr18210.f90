@@ -15,9 +15,9 @@ program pr18210
   write (10,foo)
   rewind (10)
   read (10, '(a)') buffer
-  if (buffer(2:4) /= "FOO") call abort ()
+  if (buffer(2:4) /= "FOO") stop 1
   read (10, '(a)') buffer
-  if (buffer(1:2) /= " A") call abort ()
+  if (buffer(1:2) /= " A") stop 1
   close (10)
 
 end program pr18210

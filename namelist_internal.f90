@@ -17,5 +17,5 @@ program nml_internal
   j = 10
   r = sin(1.0)
   read(str,nml=nam)
-  if(i /= 42 .or. j /= -718 .or. abs(r-exp(1.0)) > 1e-5) call abort()
+  if(i /= 42 .or. j /= -718 .or. abs(r-exp(1.0)) > 1e-5) stop 1
 end program nml_internal

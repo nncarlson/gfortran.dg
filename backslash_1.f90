@@ -4,5 +4,5 @@
       write (10,'(A)') '1\n2'
       rewind (10)
       read (10,'(A)') a
-      if (a /= '1\n2') call abort
+      if (a /= '1\n2') stop 1
       end

@@ -13,6 +13,6 @@
   end type
 
   type(desc_type)  :: desc
-  if (allocated(desc%indxmap)) call abort()
+  if (allocated(desc%indxmap)) stop 1
 
 end

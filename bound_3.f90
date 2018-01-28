@@ -12,9 +12,9 @@ contains
     implicit none
     integer n, m
     real x(10)
-    if (any (lbound(x(5:n)) /= 1)) call abort
-    if (lbound(x(5:n),1) /= 1) call abort
-    if (any (ubound(x(5:n)) /= m)) call abort
-    if (ubound(x(5:n),1) /= m) call abort
+    if (any (lbound(x(5:n)) /= 1)) stop 1
+    if (lbound(x(5:n),1) /= 1) stop 1
+    if (any (ubound(x(5:n)) /= m)) stop 1
+    if (ubound(x(5:n),1) /= m) stop 1
   end subroutine
 end program

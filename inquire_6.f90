@@ -10,24 +10,24 @@
 !  not connected 
       inquire(7,pad=chr)
 !     if (debug) print*,chr
-      if (chr.ne.'UNDEFINED') call abort
+      if (chr.ne.'UNDEFINED') stop 1
       chr=''
 !  not a formatted file
       open(7,FORM='UNFORMATTED',STATUS='SCRATCH')
       inquire(7,pad=chr)
 !     if (debug) print*,chr
-      if (chr.ne.'UNDEFINED') call abort
+      if (chr.ne.'UNDEFINED') stop 1
       chr=''
 ! yes
       open(8,STATUS='SCRATCH',PAD='YES')
       inquire(8,pad=chr)
 !     if (debug) print*,chr
-      if (chr.ne.'YES') call abort
+      if (chr.ne.'YES') stop 1
       chr=''
 ! no
       open(9,STATUS='SCRATCH',PAD='NO')
       inquire(9,pad=chr)
 !     if (debug) print*,chr
-      if (chr.ne.'NO') call abort
+      if (chr.ne.'NO') stop 1
       chr=''
       end

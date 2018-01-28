@@ -74,40 +74,40 @@ program main
 
   round = 'up'
   call t()
-  if (rnd4  .and. (r4p  /= ref4u  .or. r4m  /= -ref4d))  call abort()
-  if (rnd8  .and. (r8p  /= ref8u  .or. r8m  /= -ref8d))  call abort()
-  if (rnd10 .and. (r10p /= ref10u .or. r10m /= -ref10d)) call abort()
-  if (rnd16 .and. (r16p /= ref16u .or. r16m /= -ref16d)) call abort()
+  if (rnd4  .and. (r4p  /= ref4u  .or. r4m  /= -ref4d))  stop 1
+  if (rnd8  .and. (r8p  /= ref8u  .or. r8m  /= -ref8d))  stop 1
+  if (rnd10 .and. (r10p /= ref10u .or. r10m /= -ref10d)) stop 1
+  if (rnd16 .and. (r16p /= ref16u .or. r16m /= -ref16d)) stop 1
 
   round = 'down'
   call t()
-  if (rnd4  .and. (r4p  /= ref4d  .or. r4m  /= -ref4u))  call abort()
-  if (rnd8  .and. (r8p  /= ref8d  .or. r8m  /= -ref8u))  call abort()
-  if (rnd10 .and. (r10p /= ref10d .or. r10m /= -ref10u)) call abort()
-  if (rnd16 .and. (r16p /= ref16d .or. r16m /= -ref16u)) call abort()
+  if (rnd4  .and. (r4p  /= ref4d  .or. r4m  /= -ref4u))  stop 1
+  if (rnd8  .and. (r8p  /= ref8d  .or. r8m  /= -ref8u))  stop 1
+  if (rnd10 .and. (r10p /= ref10d .or. r10m /= -ref10u)) stop 1
+  if (rnd16 .and. (r16p /= ref16d .or. r16m /= -ref16u)) stop 1
 
   round = 'zero'
   call t()
-  if (rnd4  .and. (r4p  /= ref4d  .or. r4m  /= -ref4d))  call abort()
-  if (rnd8  .and. (r8p  /= ref8d  .or. r8m  /= -ref8d))  call abort()
-  if (rnd10 .and. (r10p /= ref10d .or. r10m /= -ref10d)) call abort()
-  if (rnd16 .and. (r16p /= ref16d .or. r16m /= -ref16d)) call abort()
+  if (rnd4  .and. (r4p  /= ref4d  .or. r4m  /= -ref4d))  stop 1
+  if (rnd8  .and. (r8p  /= ref8d  .or. r8m  /= -ref8d))  stop 1
+  if (rnd10 .and. (r10p /= ref10d .or. r10m /= -ref10d)) stop 1
+  if (rnd16 .and. (r16p /= ref16d .or. r16m /= -ref16d)) stop 1
 
   round = 'nearest'
   call t()
-  if (rnd4  .and. (r4p  /= ref4u  .or. r4m  /= -ref4u))  call abort()
-  if (rnd8  .and. (r8p  /= ref8u  .or. r8m  /= -ref8u))  call abort()
-  if (rnd10 .and. (r10p /= ref10u .or. r10m /= -ref10u)) call abort()
-  if (rnd16 .and. (r16p /= ref16u .or. r16m /= -ref16u)) call abort()
+  if (rnd4  .and. (r4p  /= ref4u  .or. r4m  /= -ref4u))  stop 1
+  if (rnd8  .and. (r8p  /= ref8u  .or. r8m  /= -ref8u))  stop 1
+  if (rnd10 .and. (r10p /= ref10u .or. r10m /= -ref10u)) stop 1
+  if (rnd16 .and. (r16p /= ref16u .or. r16m /= -ref16u)) stop 1
 
 ! Same as nearest (but rounding towards zero if there is a tie
 ! [does not apply here])
   round = 'compatible'
   call t()
-  if (rnd4  .and. (r4p  /= ref4u  .or. r4m  /= -ref4u))  call abort()
-  if (rnd8  .and. (r8p  /= ref8u  .or. r8m  /= -ref8u))  call abort()
-  if (rnd10 .and. (r10p /= ref10u .or. r10m /= -ref10u)) call abort()
-  if (rnd16 .and. (r16p /= ref16u .or. r16m /= -ref16u)) call abort()
+  if (rnd4  .and. (r4p  /= ref4u  .or. r4m  /= -ref4u))  stop 1
+  if (rnd8  .and. (r8p  /= ref8u  .or. r8m  /= -ref8u))  stop 1
+  if (rnd10 .and. (r10p /= ref10u .or. r10m /= -ref10u)) stop 1
+  if (rnd16 .and. (r16p /= ref16u .or. r16m /= -ref16u)) stop 1
 contains
   subroutine t()
 !    print *, round

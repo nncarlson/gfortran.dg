@@ -10,8 +10,8 @@ program main
   read(unit=c,fmt='(A)') i
   select case(i)
      case(1)
-        call abort
-        call abort_should_be_noreturn
+        stop 1
+        stop 1_should_be_noreturn
      case(2)
         stop 65
         call stop_numeric_should_be_noreturn

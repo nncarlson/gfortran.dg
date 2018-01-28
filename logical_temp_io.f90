@@ -8,6 +8,6 @@ program pr82869
   character(len=4) :: s
   write (s, *) c_associated(p), c_associated(c_null_ptr)
   if (s /= ' F F') then
-     call abort()
+     stop 1
   end if
 end program pr82869

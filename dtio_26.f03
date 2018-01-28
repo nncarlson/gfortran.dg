@@ -55,13 +55,13 @@ program p
   write(10,'(a)') 'hello'
   rewind(10)
   read(unit=10, fmt='(dt)', iostat=istat, iomsg=imsg) foo
-  if (imsg.ne."End of record") call abort
+  if (imsg.ne."End of record") stop 1
   rewind(10)
   read(unit=10, fmt=*, iostat=istat, iomsg=imsg) foo
-  if (imsg.ne."End of record") call abort
+  if (imsg.ne."End of record") stop 1
   s = "hello"
   read( unit=s, fmt='(dt)', iostat=istat, iomsg=imsg) foo
-  if (imsg.ne."End of record") call abort
+  if (imsg.ne."End of record") stop 1
   read( unit=s, fmt=*, iostat=istat, iomsg=imsg) foo
-  if (imsg.ne."End of record") call abort
+  if (imsg.ne."End of record") stop 1
 end program p

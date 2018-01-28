@@ -8,6 +8,6 @@
       parameter (a="12")
       parameter (b = a)
       write (c,'("#",A,"#")') b
-      if (c .ne. '#12  #') call abort
+      if (c .ne. '#12  #') stop 1
       end
 

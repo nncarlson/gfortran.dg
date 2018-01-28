@@ -34,14 +34,14 @@ program test
   str1 = 4_"candy"
   str2 = 4_"peppermint"
   read(15,*,iostat=ios) i, j
-  if (ios.ne.5010) call abort
+  if (ios.ne.5010) stop 1
   read(15,*,iostat=ios) r, s
-  if (ios.ne.5010) call abort
+  if (ios.ne.5010) stop 1
   read(15,*,iostat=ios) c, d
-  if (ios.ne.5010) call abort
+  if (ios.ne.5010) stop 1
   read(15,*,iostat=ios) str1, str2
-  if (ios.ne.0) call abort
-  if (str1.ne.4_"abcdefgh!") call abort
-  if (str2.ne.str3) call abort
+  if (ios.ne.0) stop 1
+  if (str1.ne.4_"abcdefgh!") stop 1
+  if (str2.ne.str3) stop 1
   close(15)
 end program

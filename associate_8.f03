@@ -19,19 +19,19 @@ allocate( t2 :: b)
 associate ( one => a, two => b)
   select type(two)
     type is (t)
-      call abort ()
+      stop 1
     type is (t2)
       print *, 'OK', two
     class default
-      call abort ()
+      stop 1
   end select
   select type(one)
     type is (t2)
-      call abort ()
+      stop 1
     type is (t)
       print *, 'OK', one
     class default
-      call abort ()
+      stop 1
   end select
 end associate
 end

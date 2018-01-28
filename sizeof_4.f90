@@ -41,55 +41,55 @@ contains
 subroutine dim0(x, expected_size)
   integer :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
-  if (storage_size(x)/8 /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
+  if (storage_size(x)/8 /= expected_size) stop 1
 end
 
 subroutine dim1(x, expected_size)
   integer, dimension(:) :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
-  if (storage_size(x)/8*size(x) /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
+  if (storage_size(x)/8*size(x) /= expected_size) stop 1
 end
 
 subroutine dimd(x, expected_size)
   integer, dimension(..) :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
-  if (storage_size(x)/8*size(x) /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
+  if (storage_size(x)/8*size(x) /= expected_size) stop 1
 end
 
 subroutine cdim0(x, expected_size)
   class(*) :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
-  if (storage_size(x)/8 /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
+  if (storage_size(x)/8 /= expected_size) stop 1
 end
 
 subroutine cdim1(x, expected_size)
   class(*), dimension(:) :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
-  if (storage_size(x)/8*size(x) /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
+  if (storage_size(x)/8*size(x) /= expected_size) stop 1
 end
 
 subroutine cdimd(x, expected_size)
   class(*), dimension(..) :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
-  if (storage_size(x)/8*size(x) /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
+  if (storage_size(x)/8*size(x) /= expected_size) stop 1
 end
 
 subroutine tdim1(x, expected_size)
   type(*), dimension(:) :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
 end
 
 subroutine tdimd(x, expected_size)
   type(*), dimension(..) :: x
   integer, value :: expected_size
-  if (sizeof(x) /= expected_size) call abort()
+  if (sizeof(x) /= expected_size) stop 1
 end
 
 end

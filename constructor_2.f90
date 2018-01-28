@@ -18,9 +18,9 @@ contains
   subroutine test_foo()
     type(foo) :: f
     f = foo()
-    if (f%bar /= 1) call abort ()
+    if (f%bar /= 1) stop 1
     f = foo(2)
-    if (f%bar /= 2) call abort ()
+    if (f%bar /= 2) stop 1
   end subroutine test_foo
 end module foo_module
 
@@ -43,9 +43,9 @@ contains
   subroutine test_bar()
     type(bar) :: f
     f = bar()
-    if (f%bar /= 3) call abort ()
+    if (f%bar /= 3) stop 1
     f = bar(4)
-    if (f%bar /= 4) call abort ()
+    if (f%bar /= 4) stop 1
   end subroutine test_bar
 end module bar_module
 
@@ -59,14 +59,14 @@ program main
 
   call test_foo()
   f = foo()
-  if (f%bar /= 1) call abort ()
+  if (f%bar /= 1) stop 1
   f = foo(2)
-  if (f%bar /= 2) call abort ()
+  if (f%bar /= 2) stop 1
 
   call test_bar()
   b = bar()
-  if (b%bar /= 3) call abort ()
+  if (b%bar /= 3) stop 1
   b = bar(4)
-  if (b%bar /= 4) call abort ()
+  if (b%bar /= 4) stop 1
 end program main
 

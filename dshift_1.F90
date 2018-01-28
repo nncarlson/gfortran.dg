@@ -24,10 +24,10 @@
   IOR(SHIFTL(I,BIT_SIZE(I)-SHIFT),SHIFTR(J,SHIFT))
 
 #define CHECK(I,J,SHIFT) \
-  if (dshiftl(I,J,SHIFT) /= RESL(I,J,SHIFT)) call abort ; \
-  if (dshiftr(I,J,SHIFT) /= RESR(I,J,SHIFT)) call abort ; \
-  if (run_dshiftl(I,J,SHIFT) /= RESL(I,J,SHIFT)) call abort ; \
-  if (run_dshiftr(I,J,SHIFT) /= RESR(I,J,SHIFT)) call abort
+  if (dshiftl(I,J,SHIFT) /= RESL(I,J,SHIFT)) stop 1 ; \
+  if (dshiftr(I,J,SHIFT) /= RESR(I,J,SHIFT)) stop 1 ; \
+  if (run_dshiftl(I,J,SHIFT) /= RESL(I,J,SHIFT)) stop 1 ; \
+  if (run_dshiftr(I,J,SHIFT) /= RESR(I,J,SHIFT)) stop 1
 
   CHECK(0_1,0_1,0)
   CHECK(0_1,0_1,1)

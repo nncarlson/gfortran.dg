@@ -10,6 +10,6 @@
   integer(8) :: a, b
 
   i = 0; j = 1; a = i; b = j
-  if (i ** j /= a ** b) call abort
+  if (i ** j /= a ** b) stop 1
 
 end

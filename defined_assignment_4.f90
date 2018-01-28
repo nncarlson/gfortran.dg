@@ -31,5 +31,5 @@ program assign
   type(b) :: tt
   type(b) :: tb1
   tt = tb1
-  if (tt%tc%ta%i .ne. 198) call abort
+  if (tt%tc%ta%i .ne. 198) stop 1
 end program assign

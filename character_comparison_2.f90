@@ -19,13 +19,13 @@ program main
   n = n + 1 ; if (c(k2:) .eq. c(k2:4)) call yes
   n = n + 1 ; if (c(:) .ge. c) call yes
   n = n + 1 ; if (c .le. c) call yes
-  if (c(1:2) /= c(1:2)) call abort
-  if (c(k1:k2) > c(k1:k2)) call abort
-  if (c(:2) < c(1:2)) call abort
-  if (c(:) .ne. c) call abort
-  if (c(:2) .gt. c(1:2)) call abort
-  if (c(1:2) .lt. c(:2)) call abort
-  if (n /= i) call abort
+  if (c(1:2) /= c(1:2)) stop 1
+  if (c(k1:k2) > c(k1:k2)) stop 1
+  if (c(:2) < c(1:2)) stop 1
+  if (c(:) .ne. c) stop 1
+  if (c(:2) .gt. c(1:2)) stop 1
+  if (c(1:2) .lt. c(:2)) stop 1
+  if (n /= i) stop 1
 end program main
 
 subroutine yes

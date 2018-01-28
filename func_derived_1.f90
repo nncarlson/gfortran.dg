@@ -21,11 +21,11 @@ do i=1,25
    arr = reshape (vect, shape(arr))
    r = f(i,real(i),"HALLO",arr)
 
-   if (r%i .ne. i) call abort()
-   if (r%x .ne. real(i)) call abort()
-   if (r%c .ne. "HALLO") call abort()
+   if (r%i .ne. i) stop 1
+   if (r%x .ne. real(i)) stop 1
+   if (r%c .ne. "HALLO") stop 1
    vect2 = reshape (r%arr, shape(vect2))
-   if (any(vect2.ne.vect)) call abort()
+   if (any(vect2.ne.vect)) stop 1
 end do
 contains
 

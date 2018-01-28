@@ -8,13 +8,13 @@ character(20) :: astring
 300 format ("&!")
 
 write(astring,100)
-if (astring.ne."& notblank !") call abort
+if (astring.ne."& notblank !") stop 1
 !print *, astring
 write(astring,200)
-if (astring.ne."&          !") call abort
+if (astring.ne."&          !") stop 1
 !print *, astring
 write(astring,300)
-if (astring.ne."&!") call abort
+if (astring.ne."&!") stop 1
 !print *, astring
 
 end

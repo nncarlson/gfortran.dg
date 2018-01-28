@@ -15,7 +15,7 @@ PROGRAM main
     BLOCK
       EXIT
     END BLOCK
-    CALL abort ()
+    stop 1
   END DO
 
   ! Cycle without loop name.
@@ -23,7 +23,7 @@ PROGRAM main
     BLOCK
       CYCLE
     END BLOCK
-    CALL abort ()
+    stop 1
   END DO
 
   ! Exit loop by name from within a BLOCK.
@@ -32,9 +32,9 @@ PROGRAM main
       BLOCK
         EXIT loop1
       END BLOCK
-      CALL abort ()
+      stop 1
     END DO
-    CALL abort ()
+    stop 1
   END DO loop1
 
   ! Cycle loop by name from within a BLOCK.
@@ -43,8 +43,8 @@ PROGRAM main
       BLOCK
         CYCLE loop2
       END BLOCK
-      CALL abort ()
+      stop 1
     END DO loop3
-    CALL abort ()
+    stop 1
   END DO loop2
 END PROGRAM main

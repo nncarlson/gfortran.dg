@@ -41,36 +41,36 @@ contains
     character(c_char), value :: my_char
     logical(c_bool), value :: my_bool
 
-    if(my_short     /= 1_c_short)     call abort()
-    if(my_int       /= 2_c_int)       call abort()
-    if(my_long      /= 3_c_long)      call abort()
-    if(my_long_long /= 4_c_long_long) call abort()
+    if(my_short     /= 1_c_short)     stop 1
+    if(my_int       /= 2_c_int)       stop 1
+    if(my_long      /= 3_c_long)      stop 1
+    if(my_long_long /= 4_c_long_long) stop 1
 
-    if(my_int8_t      /= 1_c_int8_t)        call abort()
-    if(my_int_least8_t  /= 2_c_int_least8_t ) call abort()
-    if(my_int_fast8_t  /= 3_c_int_fast8_t ) call abort()
+    if(my_int8_t      /= 1_c_int8_t)        stop 1
+    if(my_int_least8_t  /= 2_c_int_least8_t ) stop 1
+    if(my_int_fast8_t  /= 3_c_int_fast8_t ) stop 1
 
-    if(my_int16_t     /= 1_c_int16_t)       call abort()
-    if(my_int_least16_t /= 2_c_int_least16_t) call abort()
-    if(my_int_fast16_t  /= 3_c_int_fast16_t ) call abort()
+    if(my_int16_t     /= 1_c_int16_t)       stop 1
+    if(my_int_least16_t /= 2_c_int_least16_t) stop 1
+    if(my_int_fast16_t  /= 3_c_int_fast16_t ) stop 1
 
-    if(my_int32_t     /= 1_c_int32_t)       call abort()
-    if(my_int_least32_t /= 2_c_int_least32_t) call abort()
-    if(my_int_fast32_t  /= 3_c_int_fast32_t ) call abort()
+    if(my_int32_t     /= 1_c_int32_t)       stop 1
+    if(my_int_least32_t /= 2_c_int_least32_t) stop 1
+    if(my_int_fast32_t  /= 3_c_int_fast32_t ) stop 1
 
-    if(my_int64_t     /= 1_c_int64_t)       call abort()
-    if(my_int_least64_t /= 2_c_int_least64_t) call abort()
-    if(my_int_fast64_t  /= 3_c_int_fast64_t ) call abort()
+    if(my_int64_t     /= 1_c_int64_t)       stop 1
+    if(my_int_least64_t /= 2_c_int_least64_t) stop 1
+    if(my_int_fast64_t  /= 3_c_int_fast64_t ) stop 1
 
-    if(my_intmax_t /= 1_c_intmax_t) call abort()
-    if(my_intptr_t /= 0_c_intptr_t) call abort()
+    if(my_intmax_t /= 1_c_intmax_t) stop 1
+    if(my_intptr_t /= 0_c_intptr_t) stop 1
 
-    if(my_float       /= 1.0_c_float) call abort()
-    if(my_double      /= 2.0_c_double) call abort()
-    if(my_long_double /= 3.0_c_long_double) call abort()
+    if(my_float       /= 1.0_c_float) stop 1
+    if(my_double      /= 2.0_c_double) stop 1
+    if(my_long_double /= 3.0_c_long_double) stop 1
 
-    if(my_char        /= c_char_'y') call abort()
-    if(my_bool      .neqv. .true._c_bool) call abort()
+    if(my_char        /= c_char_'y') stop 1
+    if(my_bool      .neqv. .true._c_bool) stop 1
   end subroutine param_test
     
 end module c_kind_params

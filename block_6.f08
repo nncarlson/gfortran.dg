@@ -13,5 +13,5 @@ PROGRAM main
   END BLOCK
 
   ! Here, we should still access the same a that was set above.
-  IF (a /= 42) CALL abort ()
+  IF (a /= 42) stop 1
 END PROGRAM main

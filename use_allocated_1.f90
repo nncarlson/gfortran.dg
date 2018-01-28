@@ -14,5 +14,5 @@ end program main
 
 subroutine init
   use foo
-  if (.not.allocated(bar)) call abort
+  if (.not.allocated(bar)) stop 1
 end subroutine init

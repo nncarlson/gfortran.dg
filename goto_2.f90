@@ -53,7 +53,7 @@
 
   i = 0
   call check_if (i)
-  if (i /= 2) call abort ()
+  if (i /= 2) stop 1
   call check_select (i)
-  if (i /= 2) call abort ()
+  if (i /= 2) stop 1
 end

@@ -34,7 +34,7 @@ program test
      write(*,*) 'OK'
     else
      write(*,*) 'FAIL'
-     call abort
+     stop 1
     end if
   end associate
 

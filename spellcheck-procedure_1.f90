@@ -33,9 +33,9 @@ program spellchekc
 
   j = something_goof(j) ! { dg-error "no IMPLICIT type; did you mean .something_good.\\?" }
   j = myaddd(i, j) ! { dg-error "no IMPLICIT type; did you mean .myadd.\\?" }
-  if (j /= 42) call abort
+  if (j /= 42) stop 1
   j = add_fourtytow(i, j) ! { dg-error "no IMPLICIT type; did you mean .add_fourtytwo.\\?" }
   myval = myadd(i, j) ! { dg-error "no IMPLICIT type; did you mean .myvar.\\?" }
-  if (j /= 42 * 2) call abort
+  if (j /= 42 * 2) stop 1
 
 end program spellchekc

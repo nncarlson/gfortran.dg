@@ -21,12 +21,12 @@ program main
   d2 = 1
   d4 = 1
   d8 = 1
-  if (any(eoshift(r,shift=s1,dim=d1) /= r1)) call abort
-  if (any(eoshift(r,shift=s2,dim=d2) /= r1)) call abort
-  if (any(eoshift(r,shift=s4,dim=d4) /= r1)) call abort
-  if (any(eoshift(r,shift=s8,dim=d8) /= r1)) call abort
-  if (any(cshift(r,shift=s1,dim=d1) /= r2)) call abort
-  if (any(cshift(r,shift=s2,dim=d2) /= r2)) call abort
-  if (any(cshift(r,shift=s4,dim=d4) /= r2)) call abort
-  if (any(cshift(r,shift=s8,dim=d8) /= r2)) call abort
+  if (any(eoshift(r,shift=s1,dim=d1) /= r1)) stop 1
+  if (any(eoshift(r,shift=s2,dim=d2) /= r1)) stop 1
+  if (any(eoshift(r,shift=s4,dim=d4) /= r1)) stop 1
+  if (any(eoshift(r,shift=s8,dim=d8) /= r1)) stop 1
+  if (any(cshift(r,shift=s1,dim=d1) /= r2)) stop 1
+  if (any(cshift(r,shift=s2,dim=d2) /= r2)) stop 1
+  if (any(cshift(r,shift=s4,dim=d4) /= r2)) stop 1
+  if (any(cshift(r,shift=s8,dim=d8) /= r2)) stop 1
 end program main

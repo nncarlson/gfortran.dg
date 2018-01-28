@@ -20,12 +20,12 @@ program p
    type(pdt_t(k = kind (c), l=12)) :: foo_4
 
    foo%s = "Hello World!"
-   if (foo%s .ne. "Hello World!") call abort
-   if (KIND (foo%s) .ne. 1) call abort
-   if (len (foo%s) .ne. 12) call abort
+   if (foo%s .ne. "Hello World!") stop 1
+   if (KIND (foo%s) .ne. 1) stop 1
+   if (len (foo%s) .ne. 12) stop 1
 
    foo_4%s = hello
-   if (foo_4%s .ne. hello) call abort
-   if (KIND (foo_4%s) .ne. 4) call abort
-   if (len (foo_4%s) .ne. 12) call abort
+   if (foo_4%s .ne. hello) stop 1
+   if (KIND (foo_4%s) .ne. 4) stop 1
+   if (len (foo_4%s) .ne. 12) stop 1
 end program

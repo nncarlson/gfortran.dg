@@ -4,7 +4,7 @@
 !
 integer function foo(x)
   integer :: x
-  call abort()
+  stop 1
   foo = 99
 end function foo
 
@@ -17,5 +17,5 @@ program test
     integer function foo() bind(C, name="bar")
     end function foo
   end interface
-  if (foo() /= 42) call abort()  ! Ensure that the binding name is all what counts
+  if (foo() /= 42) stop 1  ! Ensure that the binding name is all what counts
 end program test

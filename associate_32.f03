@@ -18,46 +18,46 @@ program test
 
    s = 'ab'
    associate(ss => s)
-     if (ss .ne. 'ab') call abort ! This is the original bug.
+     if (ss .ne. 'ab') stop 1 ! This is the original bug.
      ss = 'c'
    end associate
-   if (s .ne. 'c ') call abort ! No reallocation within ASSOCIATE block!
+   if (s .ne. 'c ') stop 1 ! No reallocation within ASSOCIATE block!
 
    sf = 'c'
    associate(ss => sf)
-     if (ss .ne. 'c ') call abort ! This the bug in comment #2 of the PR.
+     if (ss .ne. 'c ') stop 1 ! This the bug in comment #2 of the PR.
      ss = 'cd'
    end associate
 
    sd = [s, sf]
    associate(ss => sd)
-     if (any (ss .ne. ['c ','cd'])) call abort
+     if (any (ss .ne. ['c ','cd'])) stop 1
    end associate
 
    sfd = [sd,'ef']
    associate(ss => sfd)
-     if (any (ss .ne. ['c ','cd','ef'])) call abort
+     if (any (ss .ne. ['c ','cd','ef'])) stop 1
      ss = ['gh']
    end associate
-     if (any (sfd .ne. ['gh','cd','ef'])) call abort ! No reallocation!
+     if (any (sfd .ne. ['gh','cd','ef'])) stop 1 ! No reallocation!
 
    string%str = 'xyz'
    associate(ss => string%str)
-     if (ss .ne. 'xyz') call abort
+     if (ss .ne. 'xyz') stop 1
      ss = 'c'
    end associate
-   if (string%str .ne. 'c  ') call abort ! No reallocation!
+   if (string%str .ne. 'c  ') stop 1 ! No reallocation!
 
    str = "foobar"
    call test_char (5 , str)
-   IF (str /= "abcder") call abort
+   IF (str /= "abcder") stop 1
 
    associate(ss => foo())
-     if (ss .ne. 'pqrst') call abort
+     if (ss .ne. 'pqrst') stop 1
    end associate
 
    associate(ss => bar())
-     if (ss(2) .ne. 'uvwxy') call abort
+     if (ss(2) .ne. 'uvwxy') stop 1
    end associate
 
 ! The deallocation is not strictly necessary but it does allow
@@ -73,11 +73,11 @@ contains
     CHARACTER(LEN=n) :: str
 
     ASSOCIATE (my => str)
-      IF (LEN (my) /= n) call abort
-      IF (my /= "fooba") call abort
+      IF (LEN (my) /= n) stop 1
+      IF (my /= "fooba") stop 1
       my = "abcde"
     END ASSOCIATE
-    IF (str /= "abcde") call abort
+    IF (str /= "abcde") stop 1
   END SUBROUTINE test_char
 
    function foo() result(res)

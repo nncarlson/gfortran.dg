@@ -11,7 +11,7 @@ program chkdata
     data a(3:5) / myint(1), myint(3), myint(1) /
     data c / mychar(1), mychar(2), mychar(3), mychar(1), mychar(2) /
     buffer = ""
-    if (any(a.ne.[1,3,4,2,4])) call abort
+    if (any(a.ne.[1,3,4,2,4])) stop 1
     write(buffer,'(5(a))')c
-    if (buffer.ne."abc  def  ghi  abc  def  ") call abort
+    if (buffer.ne."abc  def  ghi  abc  def  ") stop 1
 end program chkdata

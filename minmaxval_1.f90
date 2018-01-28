@@ -24,6 +24,6 @@
 
       EXTERNAL fun4a, fun4b
       integer fun4a, fun4b
-      if (fun4a () .ne. 15) call abort 
-      if (fun4b () .ne. 25) call abort 
+      if (fun4a () .ne. 15) stop 1 
+      if (fun4b () .ne. 25) stop 1 
       end

@@ -18,15 +18,15 @@ program test
     type(s) :: x(2)
 
     allocate(p, q(2,2))
-    if (p%a /= 3) call abort()
-    if (any(q(:,:)%a /= 3)) call abort()
+    if (p%a /= 3) stop 1
+    if (any(q(:,:)%a /= 3)) stop 1
 
     allocate(z%p2, z%p(2:3))
-    if (z%p2%a /= 3) call abort()
-    if (any(z%p(:)%a /= 3)) call abort()
+    if (z%p2%a /= 3) stop 1
+    if (any(z%p(:)%a /= 3)) stop 1
 
     allocate(x(1)%p2, x(1)%p(2))
-    if (x(1)%p2%a /= 3) call abort()
-    if (any(x(1)%p(:)%a /= 3)) call abort()
+    if (x(1)%p2%a /= 3) stop 1
+    if (any(x(1)%p(:)%a /= 3)) stop 1
 end program test
 

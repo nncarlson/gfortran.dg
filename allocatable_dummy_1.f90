@@ -7,19 +7,19 @@ program alloc_dummy
     integer, allocatable :: b(:)
 
     call init(a)
-    if (.NOT.allocated(a)) call abort()
-    if (.NOT.all(a == [ 1, 2, 3 ])) call abort()
+    if (.NOT.allocated(a)) stop 1
+    if (.NOT.all(a == [ 1, 2, 3 ])) stop 1
 
     call useit(a, b)
-    if (.NOT.all(b == [ 1, 2, 3 ])) call abort()
+    if (.NOT.all(b == [ 1, 2, 3 ])) stop 1
 
-    if (.NOT.all(whatever(a) == [ 1, 2, 3 ])) call abort()
+    if (.NOT.all(whatever(a) == [ 1, 2, 3 ])) stop 1
 
     call kill(a)
-    if (allocated(a)) call abort()
+    if (allocated(a)) stop 1
 
     call kill(b)
-    if (allocated(b)) call abort()
+    if (allocated(b)) stop 1
 
 contains
 
@@ -32,7 +32,7 @@ contains
     subroutine useit(x, y)
         integer, allocatable, intent(in)  :: x(:)
         integer, allocatable, intent(out) :: y(:)
-        if (allocated(y)) call abort()
+        if (allocated(y)) stop 1
         call init(y)
         y = x
     end subroutine useit

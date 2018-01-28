@@ -20,10 +20,10 @@ program fg
     print*,a, b, c, d
   end if
 
-  if (abs(10. - a) > 1e-5) call abort
-  if (abs(20. - b) > 1e-5) call abort
-  if (abs(30. - c) > 1e-5) call abort
-  if (abs(40. - d) > 1e-5) call abort
+  if (abs(10. - a) > 1e-5) stop 1
+  if (abs(20. - b) > 1e-5) stop 1
+  if (abs(30. - c) > 1e-5) stop 1
+  if (abs(40. - d) > 1e-5) stop 1
 
   a = 0
   b = 0
@@ -32,10 +32,10 @@ program fg
   write (buff,'(a)') '10.,20.,30.,40.'
   read(buff,*) a, b, c, d
 
-  if (abs(10. - a) > 1e-5) call abort
-  if (abs(20. - b) > 1e-5) call abort
-  if (abs(30. - c) > 1e-5) call abort
-  if (abs(40. - d) > 1e-5) call abort
+  if (abs(10. - a) > 1e-5) stop 1
+  if (abs(20. - b) > 1e-5) stop 1
+  if (abs(30. - c) > 1e-5) stop 1
+  if (abs(40. - d) > 1e-5) stop 1
 
   if (debug) then
     print*,buff
@@ -49,10 +49,10 @@ program fg
   write (buff,'(a)') '10.0,20.0,30.0,40.0'
   read(buff,*) a, b, c, d
                                                                                 
-  if (abs(10. - a) > 1e-5) call abort
-  if (abs(20. - b) > 1e-5) call abort
-  if (abs(30. - c) > 1e-5) call abort
-  if (abs(40. - d) > 1e-5) call abort
+  if (abs(10. - a) > 1e-5) stop 1
+  if (abs(20. - b) > 1e-5) stop 1
+  if (abs(30. - c) > 1e-5) stop 1
+  if (abs(40. - d) > 1e-5) stop 1
 
   if (debug) then 
     print*,buff
@@ -67,10 +67,10 @@ program fg
   write (buff,'(a)') '10.0,,30.0,40.0'
   read(buff,*) a, b, c, d
                                                                                 
-  if (abs(10. - a) > 1e-5) call abort
-  if (abs(-99. - b) > 1e-5) call abort
-  if (abs(30. - c) > 1e-5) call abort
-  if (abs(40. - d) > 1e-5) call abort
+  if (abs(10. - a) > 1e-5) stop 1
+  if (abs(-99. - b) > 1e-5) stop 1
+  if (abs(30. - c) > 1e-5) stop 1
+  if (abs(40. - d) > 1e-5) stop 1
 
   if (debug) then
     print*,buff
@@ -93,9 +93,9 @@ subroutine abc
   write (buff,'(a)') '10,-20,30,-40'
   read(buff,*) a, b, c, d
 
-  if (abs(10. - a) > 1e-5) call abort
-  if (abs(-20. - b) > 1e-5) call abort
-  if (abs(30. - c) > 1e-5) call abort
-  if (abs(-40. - d) > 1e-5) call abort
+  if (abs(10. - a) > 1e-5) stop 1
+  if (abs(-20. - b) > 1e-5) stop 1
+  if (abs(30. - c) > 1e-5) stop 1
+  if (abs(-40. - d) > 1e-5) stop 1
 
 end subroutine abc

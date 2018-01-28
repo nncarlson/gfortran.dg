@@ -29,23 +29,23 @@ program main
   character(len=3), parameter :: cm4 = maxval (c, c<"g")
   character(len=3), dimension(3), parameter :: cm5 = maxval(c,dim=1,mask=c<"p")
 
-  if (any (im1 /= [ 2, 5, 11])) call abort
-  if (im2 /= -1) call abort
-  if (any (im3 /= [ -1,11])) call abort
-  if (im4 /= -3) call abort
-  if (any (im5 /= [-huge(im5)-1, -3, -7])) call abort ! { dg-warning "Integer outside symmetric range" }
-  if (any (im6 /= [-1, -huge(im6)-1])) call abort ! { dg-warning "Integer outside symmetric range" }
+  if (any (im1 /= [ 2, 5, 11])) stop 1
+  if (im2 /= -1) stop 1
+  if (any (im3 /= [ -1,11])) stop 1
+  if (im4 /= -3) stop 1
+  if (any (im5 /= [-huge(im5)-1, -3, -7])) stop 1 ! { dg-warning "Integer outside symmetric range" }
+  if (any (im6 /= [-1, -huge(im6)-1])) stop 1 ! { dg-warning "Integer outside symmetric range" }
 
-  if (any (rm1 /= [ 2., 5., 11.])) call abort
-  if (rm2 /= -1.) call abort
-  if (any (rm3 /= [ -1.,11.])) call abort
-  if (rm4 /= -3.) call abort
-  if (any (rm5 /= [-huge(rm5), -3., -7.])) call abort
-  if (any (rm6 /= [-1.,-huge(rm6)])) call abort
+  if (any (rm1 /= [ 2., 5., 11.])) stop 1
+  if (rm2 /= -1.) stop 1
+  if (any (rm3 /= [ -1.,11.])) stop 1
+  if (rm4 /= -3.) stop 1
+  if (any (rm5 /= [-huge(rm5), -3., -7.])) stop 1
+  if (any (rm6 /= [-1.,-huge(rm6)])) stop 1
 
-  if (cm1 /= "zui") call abort
-  if (any (cm2 /= ["fgh", "qwe", "zui" ])) call abort
-  if (any (cm3 /= ["qwe", "zui" ])) call abort
-  if (cm4 /= "fgh") call abort
-  if (any(cm5 /= [ "fgh", "jkl", "ert" ] )) call abort
+  if (cm1 /= "zui") stop 1
+  if (any (cm2 /= ["fgh", "qwe", "zui" ])) stop 1
+  if (any (cm3 /= ["qwe", "zui" ])) stop 1
+  if (cm4 /= "fgh") stop 1
+  if (any(cm5 /= [ "fgh", "jkl", "ert" ] )) stop 1
 end program main

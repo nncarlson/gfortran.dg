@@ -17,23 +17,23 @@ program test_move_alloc
     x = [ 42, 77 ]
 
     call move_alloc (x, y)
-    if (allocated(x)) call abort()
-    if (.not.allocated(y)) call abort()
-    if (any(y /= [ 42, 77 ])) call abort()
+    if (allocated(x)) stop 1
+    if (.not.allocated(y)) stop 1
+    if (any(y /= [ 42, 77 ])) stop 1
 
     a = [ "abcd", "efgh" ]
     call move_alloc (a, b)
-    if (allocated(a)) call abort()
-    if (.not.allocated(b)) call abort()
-    if (any(b /= [ "abcd", "efgh" ])) call abort()
+    if (allocated(a)) stop 1
+    if (.not.allocated(b)) stop 1
+    if (any(b /= [ "abcd", "efgh" ])) stop 1
 
     ! Now one of the intended applications of move_alloc; resizing
 
     call move_alloc (y, temp)
     allocate (y(6), stat=i)
-    if (i /= 0) call abort()
+    if (i /= 0) stop 1
     y(1:2) = temp
     y(3:) = 99
     deallocate(temp)
-    if (any(y /= [ 42, 77, 99, 99, 99, 99 ])) call abort()
+    if (any(y /= [ 42, 77, 99, 99, 99, 99 ])) stop 1
 end program test_move_alloc

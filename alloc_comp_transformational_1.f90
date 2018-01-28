@@ -31,24 +31,24 @@ contains
     end do
     a1(1:2) = pack (a2, [.true., .false., .true., .false.])
     do i = 1, 4
-      if (.not.allocated (a1(i)%entry)) call abort
+      if (.not.allocated (a1(i)%entry)) stop 1
       if (i .gt. 2) then
-        if (any (a1(i)%entry .ne. [1,2])) call abort
+        if (any (a1(i)%entry .ne. [1,2])) stop 1
       else
-        if (any (a1(i)%entry .ne. [3,4])) call abort
+        if (any (a1(i)%entry .ne. [3,4])) stop 1
       end if
     end do
 !
 ! Now check unpack
 !
     a1 = unpack (a1, [.true., .true., .false., .false.], a3)
-    if (any (a1%index .ne. [1,3,3,4])) call abort
+    if (any (a1%index .ne. [1,3,3,4])) stop 1
     do i = 1, 4
-      if (.not.allocated (a1(i)%entry)) call abort
+      if (.not.allocated (a1(i)%entry)) stop 1
       if (i .gt. 2) then
-        if (any (a1(i)%entry .ne. [4,5])) call abort
+        if (any (a1(i)%entry .ne. [4,5])) stop 1
       else
-        if (any (a1(i)%entry .ne. [3,4])) call abort
+        if (any (a1(i)%entry .ne. [3,4])) stop 1
       end if
     end do
   end subroutine
@@ -71,8 +71,8 @@ contains
     a1 = transpose (a2)
     do i = 1, 2
       do j = 1, 2
-        if (a1(i,j)%index .ne. i + (j - 1)*2) call abort
-        if (any (a1(i,j)%entry .ne. [j,i])) call abort
+        if (a1(i,j)%index .ne. i + (j - 1)*2) stop 1
+        if (any (a1(i,j)%entry .ne. [j,i])) stop 1
       end do
     end do
   end subroutine

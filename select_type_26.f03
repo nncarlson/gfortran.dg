@@ -30,9 +30,9 @@
   allocate(m%foo(3), source = [(t0(n), n = 1,3)])
   select type(bar => m%foo)
     type is(t0)
-      if (any (bar%j .ne. [1,2,3])) call abort
+      if (any (bar%j .ne. [1,2,3])) stop 1
     type is(t1)
-      call abort
+      stop 1
   end select
 
   deallocate(m%foo)
@@ -41,48 +41,48 @@
 ! Then with m%foo of another dynamic type.
   select type(bar => m%foo)
     type is(t0)
-      call abort
+      stop 1
     type is(t1)
-      if (any (bar%k .ne. [40,50,60])) call abort
+      if (any (bar%k .ne. [40,50,60])) stop 1
   end select
 
 ! Try it with a selector array section.
   select type(bar => m%foo(2:3))
     type is(t0)
-      call abort
+      stop 1
     type is(t1)
-      if (any (bar%k .ne. [50,60])) call abort
+      if (any (bar%k .ne. [50,60])) stop 1
   end select
 
 ! Try it with a selector array element.
   select type(bar => m%foo(2))
     type is(t0)
-      call abort
+      stop 1
     type is(t1)
-      if (bar%k .ne. 50) call abort
+      if (bar%k .ne. 50) stop 1
   end select
 
 ! Now try class is and a selector which is an array section of an associate name.
   select type(bar => m%foo)
     type is(t0)
-      call abort
+      stop 1
     class is (t1)
-      if (any (bar%j .ne. [4,5,6])) call abort
+      if (any (bar%j .ne. [4,5,6])) stop 1
       select type (foobar => bar(3:2:-1))
         type is (t1)
-          if (any (foobar%k .ne. [60,50])) call abort
+          if (any (foobar%k .ne. [60,50])) stop 1
         end select
   end select
 
 ! Now try class is and a selector which is an array element of an associate name.
   select type(bar => m%foo)
     type is(t0)
-      call abort
+      stop 1
     class is (t1)
-      if (any (bar%j .ne. [4,5,6])) call abort
+      if (any (bar%j .ne. [4,5,6])) stop 1
       select type (foobar => bar(2))
         type is (t1)
-          if (foobar%k .ne. 50) call abort
+          if (foobar%k .ne. 50) stop 1
         end select
   end select
 
@@ -97,14 +97,14 @@
   end do
   select type(bar => m1(3)%foo)
     type is(t0)
-      if (bar%j .ne. 297) call abort
+      if (bar%j .ne. 297) stop 1
     type is(t1)
-      call abort
+      stop 1
   end select
   select type(bar => m1(1)%foo)
     type is(t0)
-      call abort
+      stop 1
     type is(t1)
-      if (bar%k .ne. 999) call abort
+      if (bar%k .ne. 999) stop 1
   end select
 end

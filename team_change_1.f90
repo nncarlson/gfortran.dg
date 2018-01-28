@@ -12,7 +12,7 @@
 
   form team (new_team,team)
     change team (team)
-    if (team_number()/=new_team) call abort
+    if (team_number()/=new_team) stop 1
   end team
 
 end

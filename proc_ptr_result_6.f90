@@ -27,15 +27,15 @@ contains
     procedure(sub) :: s
     integer :: b
     call s(b)
-    if (b /= 42)  call abort()
+    if (b /= 42)  stop 1
   end subroutine
   subroutine caller2(f)
     procedure(integer) :: f
-    if (f() /= 42)  call abort()
+    if (f() /= 42)  stop 1
   end subroutine
   subroutine caller3(f)
     procedure(func),pointer :: f
-    if (f() /= 42) call abort()
+    if (f() /= 42) stop 1
   end subroutine
   function getPtr1()
     procedure(sub), pointer :: getPtr1

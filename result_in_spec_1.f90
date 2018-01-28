@@ -29,18 +29,18 @@ program test
   use test1
   implicit none
 ! Original problem
-  if (len(test2(10)) .ne. 21) call abort ()
+  if (len(test2(10)) .ne. 21) stop 1
 ! Check non-intrinsic calls are OK and check that fix does
 ! not confuse result variables.
-  if (any (myfunc (test2(1)) .ne. "ABC")) call abort ()
+  if (any (myfunc (test2(1)) .ne. "ABC")) stop 1
 contains
   function myfunc (ch) result (chr)
     character (*) :: ch(:)
     character(len(ch)) :: chr(4)
-    if (len (ch) .ne. 3) call abort ()
-    if (any (ch .ne. "ABC")) call abort ()
+    if (len (ch) .ne. 3) stop 1
+    if (any (ch .ne. "ABC")) stop 1
     chr = test2 (1)
-    if (len(test2(len(chr))) .ne. 7) call abort ()
+    if (len(test2(len(chr))) .ne. 7) stop 1
   end function myfunc
 end program test
 

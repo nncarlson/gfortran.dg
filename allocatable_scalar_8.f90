@@ -6,11 +6,11 @@
 !
 program test
   implicit none
-  if (func () /= 'abc') call abort ()
+  if (func () /= 'abc') stop 1
 contains
   function func() result (str)
     character(len=3), allocatable :: str
-    if (allocated (str)) call abort ()
+    if (allocated (str)) stop 1
     allocate (str)
     str = 'abc'
   end function func

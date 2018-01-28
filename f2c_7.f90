@@ -28,9 +28,9 @@ interface
 end interface
 complex z(5)
 z = c()
-if (any(z /= 0.)) call abort ()
+if (any(z /= 0.)) stop 1
 z = d()
-if (any(z /= 1.)) call abort ()
+if (any(z /= 1.)) stop 1
 end subroutine test_without_result
 
 subroutine test_with_result
@@ -46,9 +46,9 @@ interface
 end interface
 complex z(5)
 z = c()
-if (any(z /= 0.)) call abort ()
+if (any(z /= 0.)) stop 1
 z = d()
-if (any(z /= 1.)) call abort ()
+if (any(z /= 1.)) stop 1
 end subroutine test_with_result
 
 call test_without_result

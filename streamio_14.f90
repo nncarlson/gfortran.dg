@@ -7,16 +7,16 @@ program main
   write (10) '1234567890abcde'
   c = ''
   read (10,pos=1) c
-  if (c /= '1234567890') call abort
+  if (c /= '1234567890') stop 1
   c = ''
   read (10,pos=6) c
-  if (c /= '67890abcde') call abort
+  if (c /= '67890abcde') stop 1
   write (10,pos=3) 'AB'
   c = ''
   read (10,pos=1) c
-  if (c /= '12AB567890') call abort
+  if (c /= '12AB567890') stop 1
   c = ''
   read (10,pos=6) c
-  if (c /= '67890abcde') call abort
+  if (c /= '67890abcde') stop 1
   close (10,status="delete")
 end program main

@@ -25,11 +25,11 @@ contains
   subroutine check
     select type (z => a%x)
       type is (real(8))
-        if (any (z .ne. r)) call abort
+        if (any (z .ne. r)) stop 1
       type is (character(kind = 1, len = *))
-        if (any(z .ne. chr1)) call abort
+        if (any(z .ne. chr1)) stop 1
       type is (character(kind = 4, len = *))
-        if (any(z .ne. chr4)) call abort
+        if (any(z .ne. chr4)) stop 1
     end select
     deallocate (a%x)
   end subroutine

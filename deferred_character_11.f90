@@ -31,8 +31,8 @@ program main
    obj%string = 'foo'
    p => toPointer(obj)
 
-   If (len (p) .ne. 3) call abort
-   If (p .ne. "foo") call abort
+   If (len (p) .ne. 3) stop 1
+   If (p .ne. "foo") stop 1
 
 end program main
 

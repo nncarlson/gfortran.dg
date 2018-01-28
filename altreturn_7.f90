@@ -27,6 +27,6 @@ END MODULE
 
   USE TT
   CALL M(1,*2)
-  CALL ABORT()
+  stop 1
 2 CONTINUE
 END

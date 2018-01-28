@@ -17,8 +17,8 @@ end module m
   class(c), pointer :: px => x
   class(c), pointer :: py => y
 
-  if (.not. associated(px, x))   call abort()
-  if (.not. same_type_as(px, x)) call abort()
-  if (.not. associated(py, y))   call abort()
-  if (.not. same_type_as(py, y)) call abort()
+  if (.not. associated(px, x))   stop 1
+  if (.not. same_type_as(px, x)) stop 1
+  if (.not. associated(py, y))   stop 1
+  if (.not. same_type_as(py, y)) stop 1
 end 

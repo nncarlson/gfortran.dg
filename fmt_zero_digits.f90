@@ -9,22 +9,22 @@ program test
   50 FORMAT (1PD20.0)
   astr = ""
   write(astr,50) -8.0D0
-  if (astr.ne."             -8.D+00") call abort
+  if (astr.ne."             -8.D+00") stop 1
   write(astr,50) 8.0D0
-  if (astr.ne."              8.D+00") call abort
+  if (astr.ne."              8.D+00") stop 1
   write(astr, '(E15.0)', iostat=istat) 1e5
-  if (istat /= 5006) call abort
+  if (istat /= 5006) stop 1
   write(astr, '(D15.0)', iostat=istat) 1e5
-  if (istat /= 5006) call abort
+  if (istat /= 5006) stop 1
   write(astr, '(G15.0)', iostat=istat) 1e5
-  if (istat /= 5006) call abort
+  if (istat /= 5006) stop 1
   write(astr, '(2PE15.0)', iostat=istat) 1e5
-  if (istat /= 5006) call abort
+  if (istat /= 5006) stop 1
   write(astr, '(0PE15.0)', iostat=istat) 1e5
-  if (istat /= 5006) call abort
+  if (istat /= 5006) stop 1
   write(astr, '(1PE15.0)', iostat=istat) 1e5
-  if (istat /= 0) call abort
+  if (istat /= 0) stop 1
   write(astr, '(F15.0)', iostat=istat) 1e5
-  if (astr.ne."        100000.") call abort
-  if (istat /= 0) call abort
+  if (astr.ne."        100000.") stop 1
+  if (istat /= 0) stop 1
 end program test

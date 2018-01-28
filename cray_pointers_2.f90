@@ -36,12 +36,12 @@ program craytest
   do i=13,400
      if (errors(i)) then
 !        print *,"Test",i,"failed."
-        call abort()
+        stop 1
      endif
   end do
   if (foo.eq.0) then
 !     print *,"Test did not run correctly."
-     call abort()
+     stop 1
   endif
 end program craytest
 
@@ -3608,7 +3608,7 @@ subroutine donothing(ii,jj)
      ii = -1
      jj = 1
 !     print *,"Test did not run correctly"
-     call abort()
+     stop 1
   endif
 end subroutine donothing
 

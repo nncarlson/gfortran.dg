@@ -14,9 +14,9 @@ program main
   a%i = 0
   print *, a
   a%i = (/ 12, 2/)
-  if (any (a%c .ne. (/"uvw", "xyz"/))) call abort ()
-  if (any (a%i .ne. (/12, 2/))) call abort ()
+  if (any (a%c .ne. (/"uvw", "xyz"/))) stop 1
+  if (any (a%i .ne. (/12, 2/))) stop 1
   a%i = b%i
-  if (any (a%c .ne. (/"uvw", "xyz"/))) call abort ()
-  if (any (a%i .ne. (/101, 102/))) call abort ()
+  if (any (a%c .ne. (/"uvw", "xyz"/))) stop 1
+  if (any (a%i .ne. (/101, 102/))) stop 1
 end program main

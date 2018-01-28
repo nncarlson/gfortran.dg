@@ -19,15 +19,15 @@ program gfcbu84_main
 
   q = 0
   call tq_tvgh (q(k_lev:), p(k_lev:))
-  if (any (p /= q)) call abort
+  if (any (p /= q)) stop 1
 
   q = 0
   call tq_tvgh (q(k_lev:), (p(k_lev:)))
-  if (any (p /= q)) call abort
+  if (any (p /= q)) stop 1
 
   q = 0
   call tq_tvgh (q(k_lev:), (p(p(k_lev:))))
-  if (any (p(p) /= q)) call abort
+  if (any (p(p) /= q)) stop 1
 
   deallocate (q)
 

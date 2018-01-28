@@ -24,10 +24,10 @@ program f2c_4
   !  Return COMPLEX arg - call C routines from Fortran 
   c = cmplx(1234.0,5678.0)
   z = dcmplx(1234.0d0,5678.0d0)
-  if ( c .ne. f2c_4k(c) )   call abort
-  if ( c .ne. f2c_4l(i,c) ) call abort
-  if ( z .ne. f2c_4m(z) )   call abort
-  if ( z .ne. f2c_4n(i,z) ) call abort
+  if ( c .ne. f2c_4k(c) )   stop 1
+  if ( c .ne. f2c_4l(i,c) ) stop 1
+  if ( z .ne. f2c_4m(z) )   stop 1
+  if ( z .ne. f2c_4n(i,z) ) stop 1
 
 end
 

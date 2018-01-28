@@ -13,14 +13,14 @@ call bar()
 contains
   subroutine foo()
     class(t), allocatable :: x
-    if(allocated(x)) call abort()
-    if(.not.same_type_as(x,y)) call abort()
+    if(allocated(x)) stop 1
+    if(.not.same_type_as(x,y)) stop 1
     allocate (t2 :: x)
   end
   subroutine bar()
     class(t), allocatable :: x(:)
-    if(allocated(x)) call abort()
-    if(.not.same_type_as(x,y)) call abort()
+    if(allocated(x)) stop 1
+    if(.not.same_type_as(x,y)) stop 1
     allocate (t2 :: x(4))
   end
 end

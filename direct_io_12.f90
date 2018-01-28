@@ -21,11 +21,11 @@ end do
 
 do i = 1, 10
   read(99,rec=i) dummy
-  if (any (dummy /= vec1(:,i))) call abort()
+  if (any (dummy /= vec1(:,i))) stop 1
   read(99,rec=i+10) dummy
-  if (any (dummy /= vec1(:,i+10))) call abort()
+  if (any (dummy /= vec1(:,i+10))) stop 1
   read(99,rec=i+20) dummy
-  if (any (dummy /= vec1(:,i+20))) call abort() ! << aborted here for rec = 21
+  if (any (dummy /= vec1(:,i+20))) stop 1 ! << aborted here for rec = 21
 end do
 
 close(99, status='delete')

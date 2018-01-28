@@ -11,16 +11,16 @@ include "default_format_1.inc"
 program main
   use test_default_format
 
-  if (test (1.0_4, 0) /= 0) call abort
-  if (test (tiny(0.0_4), 1) /= 0) call abort
-  if (test (-tiny(0.0_4), -1) /= 0) call abort
-  if (test (huge(0.0_4), -1) /= 0) call abort
-  if (test (-huge(0.0_4), 1) /= 0) call abort
+  if (test (1.0_4, 0) /= 0) stop 1
+  if (test (tiny(0.0_4), 1) /= 0) stop 1
+  if (test (-tiny(0.0_4), -1) /= 0) stop 1
+  if (test (huge(0.0_4), -1) /= 0) stop 1
+  if (test (-huge(0.0_4), 1) /= 0) stop 1
 
-  if (test (1.0_8, 0) /= 0) call abort
-  if (test (tiny(0.0_8), 1) /= 0) call abort
-  if (test (-tiny(0.0_8), -1) /= 0) call abort
-  if (test (huge(0.0_8), -1) /= 0) call abort
-  if (test (-huge(0.0_8), 1) /= 0) call abort
+  if (test (1.0_8, 0) /= 0) stop 1
+  if (test (tiny(0.0_8), 1) /= 0) stop 1
+  if (test (-tiny(0.0_8), -1) /= 0) stop 1
+  if (test (huge(0.0_8), -1) /= 0) stop 1
+  if (test (-huge(0.0_8), 1) /= 0) stop 1
 end program main
 !

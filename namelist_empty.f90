@@ -16,5 +16,5 @@
       rewind(7)
       read(7,NML=input)
       close(7)
-      if (var.ne.'') call abort
+      if (var.ne.'') stop 1
       end

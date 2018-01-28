@@ -17,14 +17,14 @@ program main
   n = n + 1; if ('b' // c > 'a' // d) call yes
   n = n + 1; if (c // 'b' > c // 'a') call yes
 
-  if ('a' // c /= 'a' // c) call abort
-  if ('a' // c // 'b' == 'a' // c // 'a') call abort
-  if ('b' // c == 'a' // c) call abort
-  if (c // 'a' ==  c // 'b') call abort
-  if (c // 'a ' /=  c // 'a') call abort
-  if (c // 'b' /=  c // 'b ') call abort
+  if ('a' // c /= 'a' // c) stop 1
+  if ('a' // c // 'b' == 'a' // c // 'a') stop 1
+  if ('b' // c == 'a' // c) stop 1
+  if (c // 'a' ==  c // 'b') stop 1
+  if (c // 'a ' /=  c // 'a') stop 1
+  if (c // 'b' /=  c // 'b ') stop 1
 
-  if (n /= i) call abort
+  if (n /= i) stop 1
 end program main
 
 subroutine yes

@@ -12,24 +12,24 @@ program large_real_kind_form_io_2
   b(:) = huge(0.0_k)
   write (tmp, *) b
   read (tmp, *) a, c
-  if (a /= b(1)) call abort ()
-  if (c /= b(2)) call abort ()
+  if (a /= b(1)) stop 1
+  if (c /= b(2)) stop 1
 
   b(:) = -huge(0.0_k)
   write (tmp, *) b
   read (tmp, *) a, c
-  if (a /= b(1)) call abort ()
-  if (c /= b(2)) call abort ()
+  if (a /= b(1)) stop 1
+  if (c /= b(2)) stop 1
 
   b(:) = nearest(tiny(0.0_k),1.0_k)
   write (tmp, *) b
   read (tmp, *) a, c
-  if (a /= b(1)) call abort ()
-  if (c /= b(2)) call abort ()
+  if (a /= b(1)) stop 1
+  if (c /= b(2)) stop 1
 
   b(:) = nearest(-tiny(0.0_k),-1.0_k)
   write (tmp, *) b
   read (tmp, *) a, c
-  if (a /= b(1)) call abort ()
-  if (c /= b(2)) call abort ()
+  if (a /= b(1)) stop 1
+  if (c /= b(2)) stop 1
 end program large_real_kind_form_io_2
