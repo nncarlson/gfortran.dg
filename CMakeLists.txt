@@ -125,6 +125,12 @@ foreach(file IN LISTS FILE_LIST)
       string(APPEND options " -Tf")
       string(APPEND addoptions " -free")
     endif()
+    if (FC MATCHES "nagfor")
+      # make nagfor use the same kind parameter values as gfortran
+      string(APPEND options "-kind=byte")
+      # add location of .inc include files to search path
+      string(APPEND addoptions "-I ${CMAKE_SOURCE_DIR}")
+    endif()
     math(EXPR count "${count}+1")
     message(STATUS "${count} : ${file} : ${addsources} : ${options} : ${addoptions}")
     # create the subdir in which the test is run
