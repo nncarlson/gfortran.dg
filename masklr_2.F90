@@ -5,10 +5,10 @@
 ! { dg-require-effective-target fortran_integer_16 }
 
 #define CHECK(I,KIND,FUNCL,FUNCR,RESL,RESR) \
-  if (maskl(I,KIND) /= RESL) stop 1 ; \
-  if (FUNCL(I) /= RESL) stop 1 ; \
-  if (maskr(I,KIND) /= RESR) stop 1 ; \
-  if (FUNCR(I) /= RESR) stop 1
+  if (maskl(I,KIND) /= RESL) STOP 1; \
+  if (FUNCL(I) /= RESL) STOP 2; \
+  if (maskr(I,KIND) /= RESR) STOP 3; \
+  if (FUNCR(I) /= RESR) STOP 4
 
   CHECK(0,16,run_maskl16,run_maskr16,0_16,0_16)
   CHECK(1,16,run_maskl16,run_maskr16,-huge(0_16)-1_16,1_16)

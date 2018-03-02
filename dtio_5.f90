@@ -269,7 +269,7 @@ program stack_demo
       case(4)
         print *, "too few values in stack"
     end select
-    stop 1
+    STOP 1
   end if
 
   close(10)

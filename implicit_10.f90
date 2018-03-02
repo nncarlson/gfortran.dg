@@ -26,7 +26,7 @@
       INTEGER i
       dimension di(5)
       i = 1
-      if (fun(di(i),1,2).NE.5) stop 1
+      if (fun(di(i),1,2).NE.5) STOP 1
       call sub(di(i),i)
-      if (i.NE.4) stop 1
+      if (i.NE.4) STOP 2
       end

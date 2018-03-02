@@ -9,5 +9,5 @@ PROGRAM c_assoc
   type(c_ptr) :: x
   x = c_null_ptr
   print *, C_ASSOCIATED(x) ! <<< was ICEing here
-  if (C_ASSOCIATED(x)) stop 1
+  if (C_ASSOCIATED(x)) STOP 1
 END PROGRAM c_assoc

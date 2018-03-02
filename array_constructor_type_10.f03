@@ -17,7 +17,7 @@ CONTAINS
     INTEGER :: n
     arr = [ character(len=n) :: s, s ]
     IF (arr(1) /= shouldBe .OR. arr(2) /= shouldBe) THEN
-      stop 1
+      STOP 1
     END IF
   END SUBROUTINE foo
 END PROGRAM test

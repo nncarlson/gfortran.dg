@@ -14,5 +14,5 @@
     end team
   end associate
 
-  if (team_number()/=standard_initial_value) stop 1
+  if (team_number()/=standard_initial_value) STOP 1
 end

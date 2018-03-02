@@ -11,8 +11,8 @@ type(t), allocatable :: x, y(:)
 x = t()
 y = [ t :: ]
 
-if (.not. allocated (x)) stop 1
-if (.not. allocated (y)) stop 1
+if (.not. allocated (x)) STOP 1
+if (.not. allocated (y)) STOP 2
 end
 
 ! { dg-final { scan-tree-dump "x = \\(struct t .\\) __builtin_malloc \\(1\\);" "original" } }

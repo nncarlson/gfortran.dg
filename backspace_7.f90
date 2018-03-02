@@ -7,5 +7,5 @@
        backspace(10)
        backspace(10)
        read(10,*)I
-       if (I.NE.199) stop 1
+       if (I.NE.199) STOP 1
        end

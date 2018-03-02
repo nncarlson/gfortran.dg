@@ -1,7 +1,7 @@
 ! { dg-do run }
 
 program main
-  if (bug() /= "abcdefghij") stop 1
+  if (bug() /= "abcdefghij") STOP 1
 contains
   function bug()
     character(len=10) :: bug

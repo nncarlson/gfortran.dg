@@ -13,6 +13,6 @@
   end type
 
   type(desc_type)  :: desc
-  if (allocated(desc%indxmap)) stop 1
+  if (allocated(desc%indxmap)) STOP 1
 
 end

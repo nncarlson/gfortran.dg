@@ -10,7 +10,7 @@
 subroutine one()
   integer :: i
   common i
-  if (i/=5) stop 1
+  if (i/=5) STOP 1
 end subroutine one
 
 program test

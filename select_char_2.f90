@@ -1,15 +1,15 @@
 ! { dg-do run }
 ! { dg-options "-O -fdump-tree-original" }
 
-  if (foo ('E') .ne. 1) stop 1
-  if (foo ('e') .ne. 1) stop 1
-  if (foo ('f') .ne. 2) stop 1
-  if (foo ('g') .ne. 2) stop 1
-  if (foo ('h') .ne. 2) stop 1
-  if (foo ('Q') .ne. 3) stop 1
-  if (foo (' ') .ne. 4) stop 1
-  if (bar ('e') .ne. 1) stop 1
-  if (bar ('f') .ne. 3) stop 1
+  if (foo ('E') .ne. 1) STOP 1
+  if (foo ('e') .ne. 1) STOP 2
+  if (foo ('f') .ne. 2) STOP 3
+  if (foo ('g') .ne. 2) STOP 4
+  if (foo ('h') .ne. 2) STOP 5
+  if (foo ('Q') .ne. 3) STOP 6
+  if (foo (' ') .ne. 4) STOP 7
+  if (bar ('e') .ne. 1) STOP 8
+  if (bar ('f') .ne. 3) STOP 9
 contains
   function foo (c)
     character :: c

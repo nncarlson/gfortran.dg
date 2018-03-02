@@ -16,10 +16,10 @@ contains
   type(t) :: y
   if(present(x)) then
     print *, 'foo', x%i, y%i
-    if (mod(x%i+y%i,3)/=2) stop 1
+    if (mod(x%i+y%i,3)/=2) STOP 1
   else
     print *, 'foo', y%i
-    if (mod(y%i,3)/=1) stop 1
+    if (mod(y%i,3)/=1) STOP 2
   end if
  end subroutine foo
 end module m

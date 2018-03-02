@@ -19,7 +19,7 @@ implicit none
 
   x = f()
 
-  if (ctr /= 1) stop 1
+  if (ctr /= 1) STOP 1
 
 contains
 

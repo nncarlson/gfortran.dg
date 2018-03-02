@@ -28,7 +28,7 @@ end module
 program testspecexpr
   use recur
   implicit none
-  if (usef(1) /= '*')      stop 1
-  if (usef(2) /= '**')     stop 1
-  if (usef(3) /= '******') stop 1
+  if (usef(1) /= '*')      STOP 1
+  if (usef(2) /= '**')     STOP 2
+  if (usef(3) /= '******') STOP 3
 end

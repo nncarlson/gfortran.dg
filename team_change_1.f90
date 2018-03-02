@@ -12,7 +12,7 @@
 
   form team (new_team,team)
     change team (team)
-    if (team_number()/=new_team) stop 1
+    if (team_number()/=new_team) STOP 1
   end team
 
 end

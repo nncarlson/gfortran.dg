@@ -22,22 +22,22 @@
 
   allocate(b%a[lb:*])
   b%a%i = 7
-  if (b%a%i /= 7) stop 1
-  if (any (lcobound(b%a) /= (/ lb /))) stop 1
-  if (ucobound(b%a, dim=1) /= num_images() + lb - 1) stop 1
-  if (any (lcobound(b%a%i) /= (/ lb /))) stop 1
-  if (ucobound(b%a%i, dim=1) /= num_images() + lb - 1) stop 1
+  if (b%a%i /= 7) STOP 1
+  if (any (lcobound(b%a) /= (/ lb /))) STOP 2
+  if (ucobound(b%a, dim=1) /= num_images() + lb - 1) STOP 3
+  if (any (lcobound(b%a%i) /= (/ lb /))) STOP 4
+  if (ucobound(b%a%i, dim=1) /= num_images() + lb - 1) STOP 5
   allocate(c%a(la)[lc:*])
   c%a%i = init
-  if (any(c%a%i /= init)) stop 1
-  if (any (lcobound(c%a) /= (/ lc /))) stop 1
-  if (ucobound(c%a, dim=1) /= num_images() + lc - 1) stop 1
-  if (any (lcobound(c%a%i) /= (/ lc /))) stop 1
-  if (ucobound(c%a%i, dim=1) /= num_images() + lc - 1) stop 1
-  if (c%a(2)%i /= init(2)) stop 1
-  if (any (lcobound(c%a(2)) /= (/ lc /))) stop 1
-  if (ucobound(c%a(2), dim=1) /= num_images() + lc - 1) stop 1
-  if (any (lcobound(c%a(2)%i) /= (/ lc /))) stop 1
-  if (ucobound(c%a(2)%i, dim=1) /= num_images() + lc - 1) stop 1
+  if (any(c%a%i /= init)) STOP 6
+  if (any (lcobound(c%a) /= (/ lc /))) STOP 7
+  if (ucobound(c%a, dim=1) /= num_images() + lc - 1) STOP 8
+  if (any (lcobound(c%a%i) /= (/ lc /))) STOP 9
+  if (ucobound(c%a%i, dim=1) /= num_images() + lc - 1) STOP 10
+  if (c%a(2)%i /= init(2)) STOP 11
+  if (any (lcobound(c%a(2)) /= (/ lc /))) STOP 12
+  if (ucobound(c%a(2), dim=1) /= num_images() + lc - 1) STOP 13
+  if (any (lcobound(c%a(2)%i) /= (/ lc /))) STOP 14
+  if (ucobound(c%a(2)%i, dim=1) /= num_images() + lc - 1) STOP 15
   deallocate(b%a, c%a)
 end

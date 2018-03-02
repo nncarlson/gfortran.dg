@@ -5,7 +5,7 @@ program main
   character(2), dimension(2) :: a, b
   a = 'ok'
   b = fun(a)
-  if (.not.all(b == 'ok')) stop 1
+  if (.not.all(b == 'ok')) STOP 1
 contains
   elemental function fun(a) 
     character(*), intent(in) :: a

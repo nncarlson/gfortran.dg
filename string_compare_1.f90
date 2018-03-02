@@ -20,6 +20,6 @@ PROGRAM main
   PRINT '(L1)', tmp2
 
   IF (.NOT. tmp(1) .OR. .NOT. tmp2(1)) THEN
-    stop 1
+    STOP 1
   END IF
 END PROGRAM main

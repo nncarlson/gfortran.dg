@@ -26,8 +26,8 @@ program pure_byref_3
     integer :: a(3)
 
     a = huj()
-    if (.not. all(a == (/1, 2, 3/))) stop 1
+    if (.not. all(a == (/1, 2, 3/))) STOP 1
 
     a = hoj()
-    if (.not. all(a == (/1, 2, 3/))) stop 1
+    if (.not. all(a == (/1, 2, 3/))) STOP 2
 end program pure_byref_3

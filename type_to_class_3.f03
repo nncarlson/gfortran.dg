@@ -24,9 +24,9 @@
 
   select type (y => testList%test)    ! Check vptr set
     type is (Test)
-      if (any(x%i .ne. y%i)) stop 1
+      if (any(x%i .ne. y%i)) STOP 1
     class default
-      stop 1
+      STOP 2
   end select
 end
 

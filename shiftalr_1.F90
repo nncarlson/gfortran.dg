@@ -29,16 +29,16 @@
   end interface
 
 #define CHECK(I,SHIFT,RESA,RESL,RESR) \
-  if (shifta(I,SHIFT) /= RESA) stop 1 ; \
-  if (shiftr(I,SHIFT) /= RESR) stop 1 ; \
-  if (shiftl(I,SHIFT) /= RESL) stop 1 ; \
-  if (run_shifta(I,SHIFT) /= RESA) stop 1 ; \
-  if (run_shiftr(I,SHIFT) /= RESR) stop 1 ; \
-  if (run_shiftl(I,SHIFT) /= RESL) stop 1 ; \
-  if (ishft(I,SHIFT) /= RESL) stop 1 ; \
-  if (ishft(I,-SHIFT) /= RESR) stop 1 ; \
-  if (run_ishft(I,SHIFT) /= RESL) stop 1 ; \
-  if (run_ishft(I,-SHIFT) /= RESR) stop 1
+  if (shifta(I,SHIFT) /= RESA) STOP 1; \
+  if (shiftr(I,SHIFT) /= RESR) STOP 2; \
+  if (shiftl(I,SHIFT) /= RESL) STOP 3; \
+  if (run_shifta(I,SHIFT) /= RESA) STOP 4; \
+  if (run_shiftr(I,SHIFT) /= RESR) STOP 5; \
+  if (run_shiftl(I,SHIFT) /= RESL) STOP 6; \
+  if (ishft(I,SHIFT) /= RESL) STOP 7; \
+  if (ishft(I,-SHIFT) /= RESR) STOP 8; \
+  if (run_ishft(I,SHIFT) /= RESL) STOP 9; \
+  if (run_ishft(I,-SHIFT) /= RESR) STOP 10
 
   CHECK(0_1,0,0_1,0_1,0_1)
   CHECK(11_1,0,11_1,11_1,11_1)

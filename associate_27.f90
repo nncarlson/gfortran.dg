@@ -16,8 +16,8 @@ program p
  x%text(2) = "defgh"
 
  associate( c => x%text )
-   if (c(1)(:maxval(len_trim(c))) .ne. trim (x%text(1))) stop 1
-   if (c(2)(:maxval(len_trim(c))) .ne. trim (x%text(2))) stop 1
+   if (c(1)(:maxval(len_trim(c))) .ne. trim (x%text(1))) STOP 1
+   if (c(2)(:maxval(len_trim(c))) .ne. trim (x%text(2))) STOP 2
  end associate
 
 end program p

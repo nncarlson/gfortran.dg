@@ -24,6 +24,6 @@
   READ(11,*) a
   CLOSE(11)
 
-  if (a /= "alls_well") stop 1
+  if (a /= "alls_well") STOP 1
 
 END

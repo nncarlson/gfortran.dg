@@ -41,9 +41,9 @@ contains
   subroutine copyFromClassArray(classarray)
     class (Foo), intent(in) :: classarray(:)
 
-    if (lbound(classarray, 1) .ne. 1) stop 1
-    if (ubound(classarray, 1) .ne. 2) stop 1
-    if (size(classarray) .ne. 2) stop 1
+    if (lbound(classarray, 1) .ne. 1) STOP 1
+    if (ubound(classarray, 1) .ne. 2) STOP 2
+    if (size(classarray) .ne. 2) STOP 3
   end subroutine
 
   subroutine AddArray(P)
@@ -54,46 +54,46 @@ contains
 
     select type (P)
       type is (double precision)
-        if (abs(P(1)-3.d0) .gt. 1.d-8) stop 1
-        if (abs(P(2)-4.d0) .gt. 1.d-8) stop 1
+        if (abs(P(1)-3.d0) .gt. 1.d-8) STOP 4
+        if (abs(P(2)-4.d0) .gt. 1.d-8) STOP 5
       class default
-        stop 1
+        STOP 6
     end select
 
     select type (Pt)
       type is (double precision)
-        if (abs(Pt(1)-3.d0) .gt. 1.d-8) stop 1
-        if (abs(Pt(2)-4.d0) .gt. 1.d-8) stop 1
+        if (abs(Pt(1)-3.d0) .gt. 1.d-8) STOP 7
+        if (abs(Pt(2)-4.d0) .gt. 1.d-8) STOP 8
       class default
-        stop 1
+        STOP 9
     end select
   end subroutine
 
   subroutine W(ar)
     class(*), intent(in) :: ar(:)
 
-    if (lbound(ar, 1) /= 1) stop 1
+    if (lbound(ar, 1) /= 1) STOP 10
     select type (ar)
       type is (integer)
         ! The indeces 1:2 are essential here, or else one would not
         ! note, that the array internally starts at 0, although the
         ! check for the lbound above went fine.
-        if (any (ar(1:2) .ne. [3, 4])) stop 1
+        if (any (ar(1:2) .ne. [3, 4])) STOP 11
       class default
-        stop 1
+        STOP 12
     end select
   end subroutine
 
   subroutine WtwoD(ar)
     class(*), intent(in) :: ar(:,:)
 
-    if (any (lbound(ar) /= [1, 1])) stop 1
+    if (any (lbound(ar) /= [1, 1])) STOP 13
     select type (ar)
       type is (integer)
         if (any (reshape(ar(1:2,1:3), [6]) .ne. [3, 4, 5, 5, 6, 7])) &
-        stop 1
+        STOP 14
       class default
-        stop 1
+        STOP 15
     end select
   end subroutine
 end program class_array_20

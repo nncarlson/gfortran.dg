@@ -12,13 +12,13 @@
       i = -1
 ! gfortran created a 'fort.-1' file and wrote "Hello" in it
       write (unit=i, fmt=*, iostat=j) "Hello"
-      if (j <= 0) stop 1
+      if (j <= 0) STOP 1
       
       i = -11
       open (unit=i, file="xxx", iostat=j)
-      if (j <= 0) stop 1
+      if (j <= 0) STOP 2
 
       i = -42
       inquire (unit=i, exist=l)
-      if (l) stop 1
+      if (l) STOP 3
       end

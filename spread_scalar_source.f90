@@ -18,35 +18,35 @@
 ! Test constant sources.
 
   j = spread ("z", 1 , 10)
-  if (any (j /= "z")) stop 1
+  if (any (j /= "z")) STOP 1
   jj = spread (19, 1 , 10)
-  if (any (jj /= 19)) stop 1
+  if (any (jj /= 19)) STOP 2
 
 ! Test variable sources.
 
   j = spread (i, 1 , 10)
-  if (any (j /= "w")) stop 1
+  if (any (j /= "w")) STOP 3
   jj = spread (ii, 1 , 10)
-  if (any (jj /= 42)) stop 1
+  if (any (jj /= 42)) STOP 4
   jjj = spread (iii, 1 , 10)
-  if (any (jjj%x /= 41.9999_8)) stop 1
-  if (any (jjj%i /= 77)) stop 1
-  if (any (jjj%ch /= "test_of_spread_")) stop 1
+  if (any (jjj%x /= 41.9999_8)) STOP 5
+  if (any (jjj%i /= 77)) STOP 6
+  if (any (jjj%ch /= "test_of_spread_")) STOP 7
 
 ! Check that spread != 1 is OK.
 
   jj(2:10:2) = spread (1, 1, 5)
-  if (any (jj(1:9:2) /= 42) .or. any (jj(2:10:2) /= 1)) stop 1
+  if (any (jj(1:9:2) /= 42) .or. any (jj(2:10:2) /= 1)) STOP 8
 
 ! Finally, check that temporaries and trans-io.c work correctly.
 
   write (buffer, '(4a1)') spread (i, 1 , 4)
-  if (trim(buffer) /= "wwww") stop 1
+  if (trim(buffer) /= "wwww") STOP 9
   write (buffer, '(4a1)') spread ("r", 1 , 4)
-  if (trim(buffer) /= "rrrr") stop 1
+  if (trim(buffer) /= "rrrr") STOP 10
   write (buffer, '(4i2)') spread (ii, 1 , 4)
-  if (trim(buffer) /= "42424242") stop 1
+  if (trim(buffer) /= "42424242") STOP 11
   write (buffer, '(4i2)') spread (31, 1 , 4)
-  if (trim(buffer) /= "31313131") stop 1
+  if (trim(buffer) /= "31313131") STOP 12
 
   end

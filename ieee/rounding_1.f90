@@ -23,15 +23,15 @@
 
   ! We should support at least C float and C double types
   if (ieee_support_rounding(ieee_nearest)) then
-    if (.not. ieee_support_rounding(ieee_nearest, 0.)) stop 1
-    if (.not. ieee_support_rounding(ieee_nearest, 0.d0)) stop 1
+    if (.not. ieee_support_rounding(ieee_nearest, 0.)) STOP 1
+    if (.not. ieee_support_rounding(ieee_nearest, 0.d0)) STOP 2
   end if
 
   ! The initial rounding mode should probably be NEAREST
   ! (at least on the platforms we currently support)
   if (ieee_support_rounding(ieee_nearest, 0.)) then
     call ieee_get_rounding_mode (mode)
-    if (mode /= ieee_nearest) stop 1
+    if (mode /= ieee_nearest) STOP 3
   end if
 
 
@@ -121,7 +121,7 @@ contains
     real, intent(in) :: x, y
     if (x /= y) then
       print *, x, y
-      stop 1
+      STOP 4
     end if
   end subroutine
 
@@ -129,7 +129,7 @@ contains
     double precision, intent(in) :: x, y
     if (x /= y) then
       print *, x, y
-      stop 1
+      STOP 5
     end if
   end subroutine
 
@@ -137,7 +137,7 @@ contains
     real, intent(in) :: x, y
     if (x == y) then
       print *, x, y
-      stop 1
+      STOP 6
     end if
   end subroutine
 
@@ -145,7 +145,7 @@ contains
     double precision, intent(in) :: x, y
     if (x == y) then
       print *, x, y
-      stop 1
+      STOP 7
     end if
   end subroutine
 

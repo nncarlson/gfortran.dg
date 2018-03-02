@@ -7,8 +7,8 @@
   a(2) = a(2) - 1
   a(3) = a(3) - 1
   n = maxloc (a, dim = 1)
-  if (n .ne. 1) stop 1
+  if (n .ne. 1) STOP 1
   a(2) = -huge(n)
   n = maxloc (a, dim = 1)
-  if (n .ne. 2) stop 1
+  if (n .ne. 2) STOP 2
 end

@@ -11,7 +11,7 @@ CALL T(A,B)
 contains
 SUBROUTINE T(A,B)
 CHARACTER*(*) A,B
-if(len(a)/=10) stop 1
-if(len(b)/=8) stop 1
+if(len(a)/=10) STOP 1
+if(len(b)/=8) STOP 2
 END SUBROUTINE
 end

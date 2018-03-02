@@ -28,5 +28,5 @@ program test
   type(u) :: b
   a%c = 'something'
   call a%get (a = b%c)
-  if (b%c .ne. 'something') stop 1
+  if (b%c .ne. 'something') STOP 1
 end program test

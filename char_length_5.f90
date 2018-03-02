@@ -33,28 +33,28 @@ program xjoin
   character (len=5) :: words(5:8) = (/"two  ","three","four ","five "/), sep = "^#^"
   character (len=5) :: words2(4) = (/"bat  ","ball ","goal ","stump"/), sep2 = "&"
 
-  if (join (words, sep) .ne. "two^#^three^#^four^#^five") stop 1
-  if (len (join (words, sep)) .ne. 25) stop 1
+  if (join (words, sep) .ne. "two^#^three^#^four^#^five") STOP 1
+  if (len (join (words, sep)) .ne. 25) STOP 2
 
-  if (join (words(5:6), sep) .ne. "two^#^three") stop 1
-  if (len (join (words(5:6), sep)) .ne. 11) stop 1
+  if (join (words(5:6), sep) .ne. "two^#^three") STOP 3
+  if (len (join (words(5:6), sep)) .ne. 11) STOP 4
 
-  if (join (words(7:8), sep) .ne. "four^#^five") stop 1
-  if (len (join (words(7:8), sep)) .ne. 11) stop 1
+  if (join (words(7:8), sep) .ne. "four^#^five") STOP 5
+  if (len (join (words(7:8), sep)) .ne. 11) STOP 6
 
-  if (join (words(5:7:2), sep) .ne. "two^#^four") stop 1
-  if (len (join (words(5:7:2), sep)) .ne. 10) stop 1
+  if (join (words(5:7:2), sep) .ne. "two^#^four") STOP 7
+  if (len (join (words(5:7:2), sep)) .ne. 10) STOP 8
 
-  if (join (words(6:8:2), sep) .ne. "three^#^five") stop 1
-  if (len (join (words(6:8:2), sep)) .ne. 12) stop 1
+  if (join (words(6:8:2), sep) .ne. "three^#^five") STOP 9
+  if (len (join (words(6:8:2), sep)) .ne. 12) STOP 10
 
-  if (join (words2, sep2) .ne. "bat&ball&goal&stump") stop 1
-  if (len (join (words2, sep2)) .ne. 19) stop 1
+  if (join (words2, sep2) .ne. "bat&ball&goal&stump") STOP 11
+  if (len (join (words2, sep2)) .ne. 19) STOP 12
 
-  if (join (words2(1:2), sep2) .ne. "bat&ball") stop 1
-  if (len (join (words2(1:2), sep2)) .ne. 8) stop 1
+  if (join (words2(1:2), sep2) .ne. "bat&ball") STOP 13
+  if (len (join (words2(1:2), sep2)) .ne. 8) STOP 14
 
-  if (join (words2(2:4:2), sep2) .ne. "ball&stump") stop 1
-  if (len (join (words2(2:4:2), sep2)) .ne. 10) stop 1
+  if (join (words2(2:4:2), sep2) .ne. "ball&stump") STOP 15
+  if (len (join (words2(2:4:2), sep2)) .ne. 10) STOP 16
 
 end program xjoin

@@ -49,7 +49,7 @@ contains
 
   subroutine testme(x,y,z)
     integer :: x, y, z
-    if (x /= y) stop 1
-    if (x /= z) stop 1
+    if (x /= y) STOP 1
+    if (x /= z) STOP 2
   end subroutine testme
 end

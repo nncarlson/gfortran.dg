@@ -54,5 +54,5 @@ end submodule
   use A
   integer :: i = 1
   incr = 1
-  if (a3(i) .ne. 11) stop 1
+  if (a3(i) .ne. 11) STOP 1
 end

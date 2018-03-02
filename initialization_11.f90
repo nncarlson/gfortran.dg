@@ -11,7 +11,7 @@ program test
   call set(d)
   if(d%i /= 2) then
      print *, 'Expect: 2, got: ', d%i
-     stop 1
+     STOP 1
   end if
 contains
   subroutine set(x1)

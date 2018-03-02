@@ -6,5 +6,5 @@
   INTEGER, PARAMETER :: b(1,n) = TRANSPOSE(a)
   INTEGER, PARAMETER :: c(n,1) = TRANSPOSE(b)
 
-  IF (ANY(c /= a)) stop 1
+  IF (ANY(c /= a)) STOP 1
 END

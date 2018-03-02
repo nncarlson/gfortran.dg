@@ -16,26 +16,26 @@
         idata(  1011)   = -708
        write(11)idata
        read(11,end=        1000 )idata
-       stop 1
+       STOP 1
  1000  continue
        rewind 11
        read(11,end=        1001 )idata
-        if(idata(1).ne. -705.or.idata(  1011).ne. -706)stop 1
+        if(idata(1).ne. -705.or.idata(  1011).ne. -706)STOP 2
  1001  continue
        close(11,status='keep')        
       open(unit=11,form='unformatted')
       rewind 11
       read(11)idata
       if(idata(1).ne.-705)then
-      stop 1
+      STOP 3
       endif
       read(11)idata
       if(idata(1).ne.-706)then
-      stop 1
+      STOP 4
       endif
       read(11)idata
       if(idata(1).ne.-707)then
-      stop 1
+      STOP 5
       endif
       close(11,status='delete')  
       stop

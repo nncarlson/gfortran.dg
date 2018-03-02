@@ -15,6 +15,6 @@ end module
 
 program p
    use m
-   if (f(1) /= 1) stop 1
-   if (e(1) /= 1.0) stop 1
+   if (f(1) /= 1) STOP 1
+   if (e(1) /= 1.0) STOP 2
 end

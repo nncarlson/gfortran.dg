@@ -26,7 +26,7 @@ program allocate_with_source_6
   deallocate(a)
   allocate(a, source=c)
   allocate(m, source=[(I, I=1, num_params_used)])
-  if (any(m /= [(I, I=1, num_params_used)])) stop 1
+  if (any(m /= [(I, I=1, num_params_used)])) STOP 1
   deallocate(a,b,m)
   call testArrays()
 
@@ -45,9 +45,9 @@ contains
     select type (R => Y%X)
       type is (real)
         if (any(reshape(R, [15]) /= [5,5,5,5,5, 5,5,5,5,5, 5,5,5,5,5])) &
-          stop 1
+          STOP 2
       class default
-        stop 1
+        STOP 3
     end select
     deallocate(Y%X)
 
@@ -55,9 +55,9 @@ contains
     select type (R => Y%X)
       type is (real)
         if (any(reshape(R, [4]) /= [5,5,5,5])) &
-          stop 1
+          STOP 4
       class default
-        stop 1
+        STOP 5
     end select
     deallocate(Y%X)
 
@@ -65,14 +65,14 @@ contains
     select type (R => o%v)
       type is (real)
         if (any(R /= [5,5])) &
-          stop 1
+          STOP 6
       class default
-        stop 1
+        STOP 7
     end select
     deallocate(o%v)
 
     allocate(v, source=arr(2,1:5))
-    if (any(v /= [5,5,5,5,5])) stop 1
+    if (any(v /= [5,5,5,5,5])) STOP 8
     deallocate(v)
   end subroutine testArrays
 end

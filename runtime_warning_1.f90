@@ -12,6 +12,6 @@
      rewind (42)
      read (42,'(A)') c
      close (42)
-     if (c /= 'abcde') stop 1
+     if (c /= 'abcde') STOP 1
      end
 

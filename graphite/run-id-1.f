@@ -41,7 +41,7 @@
       end if
 
       if (w1(1,1).ne.21.0d0) then
-        stop 1
+        STOP 1
       end if
 
       end

@@ -32,12 +32,12 @@ program testje
     read(10, nml=namtoptrc)
     close (10)
 
-    if (getal /= 7) stop 1
-    if (tracer(1)%sname /= 'DIC     ') stop 1
-    if (tracer(2)%sname /= 'Alkalini') stop 1
-    if (tracer(3)%sname /= 'O2      ') stop 1
-    if (.not. tracer(1)%lini) stop 1
-    if (.not. tracer(2)%lini) stop 1
-    if (.not. tracer(3)%lini) stop 1
+    if (getal /= 7) STOP 1
+    if (tracer(1)%sname /= 'DIC     ') STOP 2
+    if (tracer(2)%sname /= 'Alkalini') STOP 3
+    if (tracer(3)%sname /= 'O2      ') STOP 4
+    if (.not. tracer(1)%lini) STOP 5
+    if (.not. tracer(2)%lini) STOP 6
+    if (.not. tracer(3)%lini) STOP 7
 
 end program testje

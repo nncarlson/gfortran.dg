@@ -160,9 +160,10 @@ contains
 
     r1 = (/ a == b, a /= b, a <  b, a <= b, a >  b, a >= b /)
     r2 = (/ a.eq.b, a.ne.b, a.lt.b, a.le.b, a.gt.b, a.ge.b /)
-    if (any (r1.neqv.r2)) stop 1
+    if (any (r1.neqv.r2)) STOP 1
     if (any (r1.neqv. &
-         (/ .false.,.true.,.true., .true., .false.,.false. /) )) stop 1
+         (/ .false.,.true.,.true., .true., .false.,.false. /) )) call&
+         & abort
   end subroutine checkt
 
   subroutine checku
@@ -174,8 +175,9 @@ contains
 
     r1 = (/ a == b, a /= b, a <  b, a <= b, a >  b, a >= b /)
     r2 = (/ a.eq.b, a.ne.b, a.lt.b, a.le.b, a.gt.b, a.ge.b /)
-    if (any (r1.neqv.r2)) stop 1
+    if (any (r1.neqv.r2)) STOP 2
     if (any (r1.neqv. &
-         (/ .false.,.true.,.true., .true., .false.,.false. /) )) stop 1
+         (/ .false.,.true.,.true., .true., .false.,.false. /) )) call&
+         & abort
   end subroutine checku
 end program main

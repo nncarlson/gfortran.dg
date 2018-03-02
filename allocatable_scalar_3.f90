@@ -16,10 +16,10 @@ allocate(x%i)
 
 x%i = 13
 print *,x%i
-if (.not. allocated(x%i)) stop 1
+if (.not. allocated(x%i)) STOP 1
 
 deallocate(x%i)
 
-if (allocated(x%i)) stop 1
+if (allocated(x%i)) STOP 2
 
 end

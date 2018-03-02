@@ -28,7 +28,7 @@ c     ERFC  - complementary error function
       call c_d(ERFC(dx),da,'ERFC(double)')
       call c_d(DERFC(dx),da,'DERFC(double)')
 
-      if ( fail ) stop 1
+      if ( fail ) STOP 1
       end
 
       subroutine failure(label)

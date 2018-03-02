@@ -13,7 +13,7 @@
     Type(t),Target :: x
     Call sub(x)
     Print *,x%c
-    if (x%c /= 3) stop 1
+    if (x%c /= 3) STOP 1
   Contains
     Subroutine sub(p)
       Class(t),Pointer,Intent(In) :: p

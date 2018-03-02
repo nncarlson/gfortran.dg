@@ -76,15 +76,15 @@ program main
 
 ! Test the reported problem.
   infant0 = new_child()
-  if (infant0%parent%foo%i .ne. 20) stop 1
+  if (infant0%parent%foo%i .ne. 20) STOP 1
 
 ! Test the case of comment #1 of the PR.
   infant1 = newchild1
-  if (infant1%foo%i .ne. 21) stop 1
+  if (infant1%foo%i .ne. 21) STOP 2
 
 ! Test the case of comment #2 of the PR.
   infant2 = newchild2
-  if (infant2%foo%i .ne. 2) stop 1
+  if (infant2%foo%i .ne. 2) STOP 3
 end
 
 

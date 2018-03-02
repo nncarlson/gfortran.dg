@@ -20,16 +20,16 @@ program boz
    integer(2), parameter :: z2 = z'00ab'
    integer(4), parameter :: z4 = z'0000dead'
 
-   if (b1 /= 15_1) stop 1
-   if (b2 /= 28912_2) stop 1
-   if (b4 /= 1894838512_4) stop 1
+   if (b1 /= 15_1) STOP 1
+   if (b2 /= 28912_2) STOP 2
+   if (b4 /= 1894838512_4) STOP 3
 
-   if (o1 /= 10_1) stop 1
-   if (o2 /= 2257_2) stop 1
-   if (o4 /= 9245173_4) stop 1
+   if (o1 /= 10_1) STOP 4
+   if (o2 /= 2257_2) STOP 5
+   if (o4 /= 9245173_4) STOP 6
 
-   if (z1 /= 10_1) stop 1
-   if (z2 /= 171_2) stop 1
-   if (z4 /= 57005_4) stop 1
+   if (z1 /= 10_1) STOP 7
+   if (z2 /= 171_2) STOP 8
+   if (z4 /= 57005_4) STOP 9
 
 end program boz

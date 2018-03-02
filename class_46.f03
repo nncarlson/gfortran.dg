@@ -12,5 +12,5 @@ end module m
 
 use m
 implicit none
-if (allocated(x)) stop 1
+if (allocated(x)) STOP 1
 end 

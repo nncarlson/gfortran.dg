@@ -27,27 +27,27 @@
   pp => x%ppc
 
   call sub(1)
-  if (sum/=1) stop 1
+  if (sum/=1) STOP 1
   call pp(2)
-  if (sum/=3) stop 1
+  if (sum/=3) STOP 2
   call x%ppc(3)
-  if (sum/=6) stop 1
+  if (sum/=6) STOP 3
 
   ! calling object as argument
   x%proc => sub2
   call x%proc(x)
-  if (x%i/=7) stop 1
+  if (x%i/=7) STOP 4
 
   ! type extension
   x%proc => sub
   call x%proc(4)
-  if (sum/=10) stop 1
+  if (sum/=10) STOP 5
   x2%proc => sub
   call x2%proc(5)
-  if (sum/=15) stop 1
+  if (sum/=15) STOP 6
   x2%proc2 => sub
   call x2%proc2(6)
-  if (sum/=21) stop 1
+  if (sum/=21) STOP 7
 
 contains
 

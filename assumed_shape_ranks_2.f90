@@ -33,13 +33,13 @@ end module mod1
 
   i = 0
   call foo (1e0, i)
-  if (i .ne. 1) stop 1
+  if (i .ne. 1) STOP 1
 
   i = 0
   call foo (bar(1), i)
-  if (i .ne. 1) stop 1
+  if (i .ne. 1) STOP 2
 
   i = 0
   call foo (bar, i)
-  if (i .ne. 2) stop 1
+  if (i .ne. 2) STOP 3
 end

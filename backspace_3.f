@@ -7,14 +7,14 @@
        open(unit=11,status='scratch',form='unformatted')
        write(11)data
        read(11,end=        1000 )data
-       stop 1
+       STOP 1
  1000  continue
        backspace 11
        backspace 11
        backspace 11
        read(11,end=        1001 )data
  1001  continue
-       if (data.ne.-1) stop 1
+       if (data.ne.-1) STOP 1
        close(11)
        end
 

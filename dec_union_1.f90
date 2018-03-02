@@ -9,7 +9,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  stop 1
+  STOP 1
 end subroutine
 
 subroutine sub ()
@@ -60,7 +60,7 @@ do while (i < siz)
 end do
 
 if ( r6_canary .ne. 0 ) then
-  stop 1s ('copied decls: overflow')
+  call aborts ('copied decls: overflow')
 endif
 
 end

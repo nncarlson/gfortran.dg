@@ -9,30 +9,29 @@ program foo
    ! This works.
    s = 'abc'
    associate(t => s)
-      if (trim(t) /= 'abc') stop 1
+      if (trim(t) /= 'abc') STOP 1
    end associate
 
    ! This failed.
    associate(u => 'abc')
-      if (trim(u) /= 'abc') stop 1
+      if (trim(u) /= 'abc') STOP 2
    end associate
 
    ! This failed.
    a = s // 'abc'
    associate(v => s // 'abc')
-      if (trim(v) /= trim(a)) stop 1
+      if (trim(v) /= trim(a)) STOP 3
    end associate
 
    ! This failed.
-   ! This still doesn't work correctly, see PR 83344
-!   a = trim(s) // 'abc'
-!   associate(w => trim(s) // 'abc')
-!      if (trim(w) /= trim(a)) stop 1
-!   end associate
+   a = trim(s) // 'abc'
+   associate(w => trim(s) // 'abc')
+      if (trim(w) /= trim(a)) STOP 4
+   end associate
 
    ! This failed.
    associate(x => trim('abc'))
-      if (trim(x) /= 'abc') stop 1
+      if (trim(x) /= 'abc') STOP 5
    end associate
 
 end program foo

@@ -10,6 +10,6 @@
   integer(8) :: a, b
 
   i = 0; j = 1; a = i; b = j
-  if (i ** j /= a ** b) stop 1
+  if (i ** j /= a ** b) STOP 1
 
 end

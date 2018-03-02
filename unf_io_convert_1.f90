@@ -50,7 +50,7 @@ program main
      if (debug) then
         print '(A,Z8)','m(1) incorrect.  m(1) = ',m(1)
      else
-        stop 1
+        STOP 1
      endif
   endif
   
@@ -58,7 +58,7 @@ program main
      if (debug) then
         print '(A,Z8)','m(2) incorrect.  m(2) = ',m(2)
      else
-        stop 1
+        STOP 2
      endif
   endif
   
@@ -66,7 +66,7 @@ program main
      if (debug) then
         print '(A,Z8)','n incorrect.  n = ',n
      else
-        stop 1
+        STOP 3
      endif
   endif
   
@@ -75,7 +75,7 @@ program main
         if (debug) then
            print*,'element ',i,' was ',r(i),' should be ',i
         else
-           stop 1
+           STOP 4
         endif
      endif
   end do
@@ -83,7 +83,7 @@ program main
      if (debug) then
         print *,'str incorrect, str = ', str
      else
-        stop 1
+        STOP 5
      endif
   end if
   ! use hexdump to look at the file "fort.9"

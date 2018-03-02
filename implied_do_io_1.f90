@@ -50,7 +50,7 @@ program main
   rewind (10)
   do i=1,linenum
      read (10,'(A)') line
-     if (line .ne. res(i)) stop 1
+     if (line .ne. res(i)) STOP 1
   end do
   close(10,status="delete")
 1000 format (A2,100I4)

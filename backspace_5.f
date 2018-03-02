@@ -20,16 +20,16 @@
         idata(  datasize)   =  -5
        write(11)idata
        read(11,end=        1000 )idata
-       stop 1
+       STOP 1
  1000  continue
        backspace 11
        backspace 11
        backspace 11
        read(11,end=        1001 )idata
-       if(idata(1).ne.-3 .or. idata(datasize).ne.-4) stop 1
+       if(idata(1).ne.-3 .or. idata(datasize).ne.-4) STOP 2
        stop
  1001  continue
-       stop 1
+       STOP 3
  1010  stop
        end
 

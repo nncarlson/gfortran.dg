@@ -9,9 +9,9 @@
 program test
   logical l
   call up("abc", l)
-  if (l) stop 1
+  if (l) STOP 1
   call up(3habc, l) ! { dg-warning "Legacy Extension" }
-  if (.not. l) stop 1
+  if (.not. l) STOP 2
 contains
   subroutine up(x, l)
     class(*) :: x

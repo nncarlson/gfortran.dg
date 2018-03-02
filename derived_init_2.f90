@@ -24,9 +24,9 @@ contains
         use dt
         type(drv), intent(out) :: fa
 
-        if (any(fa%a /= [ 1, 2, 3 ])) stop 1
-        if (fa%s /= "abc") stop 1
-        if (associated(fa%p)) stop 1
+        if (any(fa%a /= [ 1, 2, 3 ])) STOP 1
+        if (fa%s /= "abc") STOP 2
+        if (associated(fa%p)) STOP 3
     end subroutine sub
 end module subs
 

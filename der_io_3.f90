@@ -32,9 +32,9 @@ contains
     b % i = 255
     
     write(c,*) a
-    if (trim(adjustl(c)) /= "31337") stop 1
+    if (trim(adjustl(c)) /= "31337") STOP 1
     write(c,*) b
-    if (trim(adjustl(c)) /= "255") stop 1
+    if (trim(adjustl(c)) /= "255") STOP 2
   end subroutine test
 end module m2
 

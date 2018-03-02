@@ -56,9 +56,9 @@ program test_assign
 
   select type (item2)
     type is (myItem)
-      if (item2%name /= 'abc') stop 1
+      if (item2%name /= 'abc') STOP 1
     class default
-      stop 1
+      STOP 2
   end select
 
 end

@@ -15,22 +15,22 @@ program prog
   p  => a
   p2 => p
   if((lbound(p, dim=1) /= -10) .or. (ubound(p, dim=1) /= 10)) &
-    stop 1
+    STOP 1
   if((lbound(p2,dim=1) /= -10) .or. (ubound(p2,dim=1) /= 10)) &
-    stop 1
+    STOP 2
   do i = -10, 10
-    if(p(i) /= real(i)) stop 1
-    if(p2(i) /= real(i)) stop 1
+    if(p(i) /= real(i)) STOP 3
+    if(p2(i) /= real(i)) STOP 4
   end do
   p => a(:)
   p2 => p
   if((lbound(p, dim=1) /= 1) .or. (ubound(p, dim=1) /= 21)) &
-    stop 1
+    STOP 5
   if((lbound(p2,dim=1) /= 1) .or. (ubound(p2,dim=1) /= 21)) &
-    stop 1
+    STOP 6
   p2 => p(:)
   if((lbound(p2,dim=1) /= 1) .or. (ubound(p2,dim=1) /= 21)) &
-    stop 1
+    STOP 7
   call multdim()
 contains
   subroutine multdim()
@@ -49,11 +49,11 @@ contains
     if((lbound(ptr,dim=1) /= -5) .or. (ubound(ptr,dim=1) /=  5) .or. &
        (lbound(ptr,dim=2) /= 10) .or. (ubound(ptr,dim=2) /= 20) .or. &
        (lbound(ptr,dim=3) /=  0) .or. (ubound(ptr,dim=3) /=  3))     &
-      stop 1
+      STOP 8
     do i = 0, 3
       do j = 10, 20
         do k = -5, 5
-          if(ptr(k,j,i) /= real(i+10*j+100*k)) stop 1
+          if(ptr(k,j,i) /= real(i+10*j+100*k)) STOP 9
         end do
       end do
     end do
@@ -61,6 +61,6 @@ contains
     if((lbound(ptr,dim=1) /= 1) .or. (ubound(ptr,dim=1) /= 11) .or. &
        (lbound(ptr,dim=2) /= 1) .or. (ubound(ptr,dim=2) /= 11) .or. &
        (lbound(ptr,dim=3) /= 1) .or. (ubound(ptr,dim=3) /=  4))     &
-      stop 1
+      STOP 10
   end subroutine multdim
 end program prog

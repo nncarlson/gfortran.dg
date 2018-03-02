@@ -13,5 +13,5 @@ do i=1,10
   read(10,*,iostat=badness)
   if (badness/=0) exit
 enddo
-if (i /= 4) stop 1
+if (i /= 4) STOP 1
 end

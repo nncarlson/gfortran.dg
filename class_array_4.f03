@@ -21,5 +21,5 @@ end module m
   type(t) :: x(3)
   integer :: n(3) = [0,100,200]
   call x(:)%foo(n)
-  if (any(n .ne. [99,199,299])) stop 1
+  if (any(n .ne. [99,199,299])) STOP 1
 end

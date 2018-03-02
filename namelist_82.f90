@@ -21,12 +21,12 @@ rewind(99)
 read (99, nml=naml1)
 close (99, status="delete")
 
-if (tracer(1)%sname.ne.'aa') stop 1
-if (.not.tracer(1)%lini) stop 1
-if (tracer(2)%sname.ne.'bb') stop 1
-if (.not.tracer(2)%lini) stop 1
-if (tracer(3)%sname.ne.'XX') stop 1
-if (tracer(3)%lini) stop 1
+if (tracer(1)%sname.ne.'aa') STOP 1
+if (.not.tracer(1)%lini) STOP 2
+if (tracer(2)%sname.ne.'bb') STOP 3
+if (.not.tracer(2)%lini) STOP 4
+if (tracer(3)%sname.ne.'XX') STOP 5
+if (tracer(3)%lini) STOP 6
 
 !write (*, nml=naml1)
 

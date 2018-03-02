@@ -12,7 +12,7 @@ read(str,'(G15.7)') y
 print *, y
 
 if (abs (x - should_be) > eps .or. abs (y - should_be) > eps) then
-  stop 1
+  STOP 1
 end if
 
 end

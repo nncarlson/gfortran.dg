@@ -20,8 +20,8 @@ program bug18
   allocate(foo :: afab)
   afab%i = 8
   call move_alloc(afab, bb%bf)
-  if (.not. allocated(bb%bf)) stop 1
-  if (allocated(afab)) stop 1
-  if (bb%bf%i/=8) stop 1
+  if (.not. allocated(bb%bf)) STOP 1
+  if (allocated(afab)) STOP 2
+  if (bb%bf%i/=8) STOP 3
 
 end program bug18

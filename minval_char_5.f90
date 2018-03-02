@@ -8,11 +8,11 @@ program tminmaxval
   character(len=*), parameter :: s(3) = (/"a", "b", "c"/)
 
   if (minval(s) /= b) then
-    stop 1
+    STOP 1
   end if
   
   if (maxval(s) /= e) then
-    stop 1
+    STOP 2
   end if
 
 end program tminmaxval

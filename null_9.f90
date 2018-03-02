@@ -19,7 +19,7 @@ CONTAINS
     TYPE(tb) :: b
 
     b = tb(null())
-    if (allocated( b%b_comp )) stop 1
+    if (allocated( b%b_comp )) STOP 1
   END SUBROUTINE proc
 END MODULE fold_convert_loc_ice
 

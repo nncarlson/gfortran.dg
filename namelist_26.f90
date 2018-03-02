@@ -43,6 +43,6 @@ program gfcbug58
      if (ios /= 0) exit
      iuse = iuse + 1
   end do
-  if (iuse /= 1) stop 1
+  if (iuse /= 1) STOP 1
 
 end program gfcbug58

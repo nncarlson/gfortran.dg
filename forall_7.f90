@@ -12,5 +12,5 @@
   end forall
   tot = sum(a(:,:))
 ! print *, tot
-  if (tot .ne. 200) stop 1
+  if (tot .ne. 200) STOP 1
 end

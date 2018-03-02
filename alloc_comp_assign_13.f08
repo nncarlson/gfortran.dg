@@ -15,11 +15,11 @@ program test_allocatable_components
 
     Me= A(X= 1, Y= 2, C="correctly allocated")
 
-    if (Me%X /= 1) stop 1
-    if (.not. allocated(Me%y) .or. Me%y /= 2) stop 1
-    if (.not. allocated(Me%c)) stop 1
-    if (len(Me%c) /= 19) stop 1
-    if (Me%c /= "correctly allocated") stop 1
+    if (Me%X /= 1) STOP 1
+    if (.not. allocated(Me%y) .or. Me%y /= 2) STOP 2
+    if (.not. allocated(Me%c)) STOP 3
+    if (len(Me%c) /= 19) STOP 4
+    if (Me%c /= "correctly allocated") STOP 5
 
     ! Now check explicitly allocated components.
     Ea%X = 9
@@ -28,16 +28,16 @@ program test_allocatable_components
     ! Implicit allocate on assign in the next line
     Ea%c = "13 characters"
 
-    if (Ea%X /= 9) stop 1
-    if (.not. allocated(Ea%y) .or. Ea%y /= 42) stop 1
-    if (.not. allocated(Ea%c)) stop 1
-    if (len(Ea%c) /= 13) stop 1
-    if (Ea%c /= "13 characters") stop 1
+    if (Ea%X /= 9) STOP 6
+    if (.not. allocated(Ea%y) .or. Ea%y /= 42) STOP 7
+    if (.not. allocated(Ea%c)) STOP 8
+    if (len(Ea%c) /= 13) STOP 9
+    if (Ea%c /= "13 characters") STOP 10
 
     deallocate(Ea%y)
     deallocate(Ea%c)
-    if (allocated(Ea%y)) stop 1
-    if (allocated(Ea%c)) stop 1
+    if (allocated(Ea%y)) STOP 11
+    if (allocated(Ea%c)) STOP 12
 end program
 
 ! vim:ts=4:sts=4:sw=4:

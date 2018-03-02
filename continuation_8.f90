@@ -5,5 +5,5 @@ character (len=50) :: str
 str = "hello world &
 &    &
 &!"
-if (str.ne."hello world     !") stop 1
+if (str.ne."hello world     !") STOP 1
 end program print_ascertain

@@ -13,6 +13,6 @@ end type
 
 type(two) :: wo = two(6)
 
-if (wo%a /= 6) stop 1
+if (wo%a /= 6) STOP 1
 
 end

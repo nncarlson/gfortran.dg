@@ -30,10 +30,10 @@ program alloc_comp
 
   sync all
 
-  if(me == 1 .and. o%coo[np]%x(10) /= 11 ) stop 1
+  if(me == 1 .and. o%coo[np]%x(10) /= 11 ) STOP 1
 
   ! Check the whole array is correct.
-  if (me == 1 .and. any( o%coo[np]%x /= [(i, i=2, 101)] ) ) stop 1
+  if (me == 1 .and. any( o%coo[np]%x /= [(i, i=2, 101)] ) ) STOP 2
 
   deallocate(o%coo%x)
 

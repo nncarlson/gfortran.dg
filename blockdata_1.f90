@@ -23,6 +23,6 @@ common /a/ x(3)
 common /b/ y
 common i
 
-if (any(x /= 1.)) stop 1
-if (y /= 1. .or. i /= 1) stop 1
+if (any(x /= 1.)) STOP 1
+if (y /= 1. .or. i /= 1) STOP 2
 end

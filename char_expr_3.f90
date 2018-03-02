@@ -12,8 +12,8 @@ program main
   xx(1)      = ""
   xx(2)      = "dog"
   call foo ((xx),xx)
-  if (trim (xx(1)) .ne. "dog") stop 1
-  if (size (xx, 1) .ne. 1) stop 1
+  if (trim (xx(1)) .ne. "dog") STOP 1
+  if (size (xx, 1) .ne. 1) STOP 2
 contains
   subroutine foo (xx,yy)
   character(len=*), intent(in)               :: xx(:)

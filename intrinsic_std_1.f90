@@ -19,7 +19,7 @@ SUBROUTINE no_implicit
   REAL :: asinh ! { dg-warning "Fortran 2008" }
 
   ! abort is a GNU extension
-  stop 1 ! { dg-warning "extension" }
+  CALL abort () ! { dg-warning "extension" }
 
   ! ASINH is an intrinsic of F2008
   ! The warning should be issued in the declaration above where it is declared

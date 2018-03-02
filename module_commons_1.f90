@@ -12,7 +12,7 @@ end module m2
 
 subroutine foo ()
   use m2
-  if (a.ne.99.0) stop 1
+  if (a.ne.99.0) STOP 1
 end subroutine foo
 
 program collision

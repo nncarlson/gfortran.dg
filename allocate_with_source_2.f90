@@ -10,7 +10,7 @@ program helloworld
   character(:),allocatable::string
   real::rnd
   call hello(5, string)
-  if (string /= 'hello' .or. len(string) /= 5) stop 1
+  if (string /= 'hello' .or. len(string) /= 5) STOP 1
 contains
   subroutine hello (n,string)
     character(:),allocatable,intent(out)::string

@@ -28,8 +28,8 @@ contains
 end module
 
   use a
-  if (b (1.0) .ne. 1.0) stop 1
-  if (b (1  ) .ne. 2.0) stop 1
-  if (e (1.0) .ne. 3.0) stop 1
-  if (f (1  ) .ne. 4.0) stop 1
+  if (b (1.0) .ne. 1.0) STOP 1
+  if (b (1  ) .ne. 2.0) STOP 2
+  if (e (1.0) .ne. 3.0) STOP 3
+  if (f (1  ) .ne. 4.0) STOP 4
 end

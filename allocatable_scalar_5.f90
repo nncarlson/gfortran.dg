@@ -10,28 +10,28 @@ program test
   integer, allocatable :: a
   integer :: b
 
-  if (allocated (a)) stop 1
+  if (allocated (a)) STOP 1
   b = 7
   b = func(.true.)
-  if (b /= 5332) stop 1 
+  if (b /= 5332) STOP 2 
   b = 7
   b = func(.true.) + 1
-  if (b /= 5333) stop 1 
+  if (b /= 5333) STOP 3 
    
   call intout (a, .false.)
-  if (allocated (a)) stop 1
+  if (allocated (a)) STOP 4
   call intout (a, .true.)
-  if (.not.allocated (a)) stop 1
-  if (a /= 764) stop 1
+  if (.not.allocated (a)) STOP 5
+  if (a /= 764) STOP 6
   call intout2 (a)
-  if (allocated (a)) stop 1
+  if (allocated (a)) STOP 7
 
 contains
 
   function func (alloc)
     integer, allocatable ::  func
     logical :: alloc
-    if (allocated (func)) stop 1
+    if (allocated (func)) STOP 8
     if (alloc) then
       allocate(func)
       func = 5332
@@ -42,7 +42,7 @@ contains
     implicit none
     integer, allocatable,intent(out) :: dum
     logical :: alloc
-    if (allocated (dum)) stop 1
+    if (allocated (dum)) STOP 9
     if (alloc) then
       allocate (dum)
       dum = 764

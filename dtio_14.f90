@@ -47,18 +47,18 @@ PROGRAM test
   answer = chairman
 ! KIND=1 test
   write (str1, *) chairman
-  if (trim(str1).ne."  Charlie                       62") stop 1
+  if (trim(str1).ne."  Charlie                       62") STOP 1
   chairman%name="Bogus"
   chairman%age=99
   read (str1, *) chairman
-  if (chairman%name.ne.answer%name) stop 1
-  if (chairman%age.ne.answer%age) stop 1
+  if (chairman%name.ne.answer%name) STOP 2
+  if (chairman%age.ne.answer%age) STOP 3
 ! KIND=4 test
   write (str4, *) chairman
-  if (trim(str4).ne.4_"  Charlie                       62") stop 1
+  if (trim(str4).ne.4_"  Charlie                       62") STOP 4
   chairman%name="Bogus"
   chairman%age=99
   read (str4, *) chairman
-  if (chairman%name.ne.answer%name) stop 1
-  if (chairman%age.ne.answer%age) stop 1
+  if (chairman%name.ne.answer%name) STOP 5
+  if (chairman%age.ne.answer%age) STOP 6
 END PROGRAM test

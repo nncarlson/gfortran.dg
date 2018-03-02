@@ -19,9 +19,9 @@
     ElementTable%Data(2) = Compound(2,"two")
     ElementTable%L_size  = 2 
 
-    if (elementtable%data(1)%count /= 1) stop 1
-    if (elementtable%data(2)%count /= 2) stop 1
-    if (elementtable%data(1)%name /= "one ") stop 1
-    if (elementtable%data(2)%name /= "two ") stop 1
-    if (elementtable%l_size /= 2) stop 1
+    if (elementtable%data(1)%count /= 1) STOP 1
+    if (elementtable%data(2)%count /= 2) STOP 2
+    if (elementtable%data(1)%name /= "one ") STOP 3
+    if (elementtable%data(2)%name /= "two ") STOP 4
+    if (elementtable%l_size /= 2) STOP 5
   end program Array_List

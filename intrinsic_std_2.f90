@@ -8,7 +8,7 @@ PROGRAM main
   IMPLICIT NONE
 
   ! abort is a GNU extension
-  stop 1 ! { dg-bogus "extension" }
+  CALL abort () ! { dg-bogus "extension" }
 
   ! ASINH is an intrinsic of F2008
   WRITE (*,*) ASINH (1.) ! { dg-bogus "Fortran 2008" }

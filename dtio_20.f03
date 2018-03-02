@@ -27,5 +27,5 @@ PROGRAM p
   
   TYPE(t) :: x
   WRITE (str, "(DT'a''b')") x
-  if (str.ne."DTa'b") stop 1
+  if (str.ne."DTa'b") STOP 1
 END PROGRAM p

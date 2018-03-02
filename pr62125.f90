@@ -14,11 +14,11 @@ module m
 contains
  subroutine s(u)
   class(t1), intent(in) :: u
-  if(.not.u%l) stop 1
+  if(.not.u%l) STOP 1
    select type(u); class is(t2)
-     if(u%i.ne.2) stop 1
+     if(u%i.ne.2) STOP 2
      select type(u); class is(t3)
-       if(u%x.ne.3.5) stop 1
+       if(u%x.ne.3.5) STOP 3
      end select
    end select
  end subroutine s

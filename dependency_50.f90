@@ -7,6 +7,6 @@ program dusty_corner
 
   words=[character(len=3) :: 'one', 'two']
   words=[character(len=5) :: words, 'three']
-  if (any(words /= [ "one  ", "two  ", "three"])) stop 1
+  if (any(words /= [ "one  ", "two  ", "three"])) STOP 1
 
 end program dusty_corner

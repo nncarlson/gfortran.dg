@@ -15,10 +15,10 @@
   real, target, dimension(10) :: rt
 
   my_ast_obs%geopos => rt
-  if (.not.associated (my_ast_obs%geopos)) stop 1
+  if (.not.associated (my_ast_obs%geopos)) STOP 1
 
   call get_null_ast_obs (my_ast_obs)
-  if (associated (my_ast_obs%geopos)) stop 1
+  if (associated (my_ast_obs%geopos)) STOP 2
 
 CONTAINS
 

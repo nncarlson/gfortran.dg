@@ -22,7 +22,7 @@ x%p => a
 
 pp => x%p()
 
-if (pp(-3) /= 3) stop 1
+if (pp(-3) /= 3) STOP 1
 
 contains
 

@@ -11,7 +11,7 @@ program main
   data res2 /158., -353./
 
   c3 = matmul(bp,a)
-  if (size(c3,1) /= 2) stop 1
-  if (any(c3 /= res2)) stop 1
+  if (size(c3,1) /= 2) STOP 1
+  if (any(c3 /= res2)) STOP 2
 
 end program main

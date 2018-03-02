@@ -41,7 +41,7 @@ C
       DIMENSION  WORK(*)
 
       if (XSTART .NE. 201.0) then
-       stop 1
+       STOP 1
       endif
 
       LHELPA = 1

@@ -13,7 +13,7 @@
        if (l.ne.' -9223372036854775808') then
 !                ^
 !         the space is required before a number
-          stop 1
+          STOP 1
        endif 
        end
 

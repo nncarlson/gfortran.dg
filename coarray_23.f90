@@ -9,5 +9,5 @@
 
   subroutine test
     complex, save :: z[*]
-    if (z /= cmplx (0.0, 0.0)) stop 1
+    if (z /= cmplx (0.0, 0.0)) STOP 1
   end subroutine test

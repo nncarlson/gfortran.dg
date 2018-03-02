@@ -11,7 +11,7 @@ SUBROUTINE N
   TYPE(T), POINTER :: P
   TYPE(T), TARGET  :: Q
   P => Q
-  if (P%I.ne.99) stop 1
+  if (P%I.ne.99) STOP 1
 END SUBROUTINE N
 
 program test_pr15975

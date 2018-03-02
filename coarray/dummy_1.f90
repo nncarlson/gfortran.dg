@@ -33,38 +33,38 @@
   subroutine sub(A,n)
     integer :: n
     integer :: A(n:)[n:2*n,3*n:*]
-    if (lbound(A,dim=1) /= n) stop 1
-    if (any (lcobound(A) /= [n, 3*n])) stop 1
-    if (ucobound(A, dim=1) /= 2*n) stop 1
+    if (lbound(A,dim=1) /= n) STOP 1
+    if (any (lcobound(A) /= [n, 3*n])) STOP 2
+    if (ucobound(A, dim=1) /= 2*n) STOP 3
   end subroutine sub
 
   subroutine sub2(A,n)
     integer :: n
     integer :: A(:)[-n:*]
-    if (lbound(A,dim=1) /= 1) stop 1
-    if (lcobound(A, dim=1) /= -n) stop 1
+    if (lbound(A,dim=1) /= 1) STOP 4
+    if (lcobound(A, dim=1) /= -n) STOP 5
   end subroutine sub2
 
   subroutine sub3(A)
     integer :: A(:)[0,*]
-    if (lbound(A,dim=1) /= 1) stop 1
-    if (lcobound(A, dim=1) /= 1) stop 1
-    if (ucobound(A, dim=1) /= 0) stop 1
-    if (lcobound(A, dim=2) /= 1) stop 1
+    if (lbound(A,dim=1) /= 1) STOP 6
+    if (lcobound(A, dim=1) /= 1) STOP 7
+    if (ucobound(A, dim=1) /= 0) STOP 8
+    if (lcobound(A, dim=2) /= 1) STOP 9
   end subroutine sub3
 
   subroutine sub4(A)
     integer :: A(:)[*]
-    if (lbound(A,dim=1) /= 1) stop 1
-    if (lcobound(A, dim=1) /= 1) stop 1
+    if (lbound(A,dim=1) /= 1) STOP 10
+    if (lcobound(A, dim=1) /= 1) STOP 11
   end subroutine sub4
 
   subroutine sub5(A)
     integer, allocatable :: A(:)[:,:]
 
-    if (lbound(A,dim=1) /= 1) stop 1
-    if (lcobound(A, dim=1) /= 2) stop 1
-    if (ucobound(A, dim=1) /= 3) stop 1
-    if (lcobound(A, dim=2) /= 5) stop 1
+    if (lbound(A,dim=1) /= 1) STOP 12
+    if (lcobound(A, dim=1) /= 2) STOP 13
+    if (ucobound(A, dim=1) /= 3) STOP 14
+    if (lcobound(A, dim=2) /= 5) STOP 15
   end subroutine sub5
   end

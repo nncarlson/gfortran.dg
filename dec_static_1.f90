@@ -9,7 +9,7 @@ subroutine assert(s, i1, i2)
   character(*), intent(in) :: s
   if (i1 .ne. i2) then
     print *, s, ": expected ", i2, " but was ", i1
-    stop 1
+    STOP 1
   endif
 endsubroutine assert
 

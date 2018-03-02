@@ -27,5 +27,5 @@ program main
 !  write (*, *) 'y: ', y
 !  write (*, *)
 
-  if ( any (b /= y) ) stop 1
+  if ( any (b /= y) ) STOP 1
 end program main

@@ -19,13 +19,13 @@ program gfcbug115
   do j = 1, nboxes
      pes(j) = modulo (j-1, nprocs)
   end do
-  if (any(nbx /= 1)) stop 1
+  if (any(nbx /= 1)) STOP 1
   do j = 0, nprocs-1
-     if (.not. all(spread (pes==j,dim=1,ncopies=n_obstype))) stop 1
+     if (.not. all(spread (pes==j,dim=1,ncopies=n_obstype))) STOP 2
      ! The two following tests used to fail
      if (any(shape(sum(nbx,dim=2,mask=spread (pes==j,dim=1,ncopies=n_obstype))) &
-             /= (/ 2 /))) stop 1
+             /= (/ 2 /))) STOP 3
      if (any(sum (nbx,dim=2,mask=spread (pes==j,dim=1,ncopies=n_obstype)) &
-             /= (/ 1, 1 /))) stop 1
+             /= (/ 1, 1 /))) STOP 4
   end do
 end program gfcbug115

@@ -20,12 +20,12 @@ program p
    type(pdt_t(k = kind (c), l=12)) :: foo_4
 
    foo%s = "Hello World!"
-   if (foo%s .ne. "Hello World!") stop 1
-   if (KIND (foo%s) .ne. 1) stop 1
-   if (len (foo%s) .ne. 12) stop 1
+   if (foo%s .ne. "Hello World!") STOP 1
+   if (KIND (foo%s) .ne. 1) STOP 2
+   if (len (foo%s) .ne. 12) STOP 3
 
    foo_4%s = hello
-   if (foo_4%s .ne. hello) stop 1
-   if (KIND (foo_4%s) .ne. 4) stop 1
-   if (len (foo_4%s) .ne. 12) stop 1
+   if (foo_4%s .ne. hello) STOP 4
+   if (KIND (foo_4%s) .ne. 4) STOP 5
+   if (len (foo_4%s) .ne. 12) STOP 6
 end program

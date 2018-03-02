@@ -12,12 +12,12 @@ PROGRAM test
 
  ! Passing the function works
  g=greater(4.,add(1.,2.))
- if (.not. g) stop 1
+ if (.not. g) STOP 1
 
  ! Passing the procedure pointer fails
  f => add
  g=greater(4.,f(1.,2.))
- if (.not. g) stop 1
+ if (.not. g) STOP 2
 
 CONTAINS
 

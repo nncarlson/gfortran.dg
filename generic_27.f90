@@ -26,7 +26,7 @@ program test
   implicit none
   intrinsic :: cos
 
-  if (testIF(2.0)/=2.0) stop 1
-  if (testIF(cos)/=1.0) stop 1
+  if (testIF(2.0)/=2.0) STOP 1
+  if (testIF(cos)/=1.0) STOP 2
 
 end program

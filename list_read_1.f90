@@ -12,11 +12,11 @@ program list_read_1
   rewind(11)
 
   read (11, *) i
-  if (i .ne. 42) stop 1
+  if (i .ne. 42) STOP 1
   read (11, *) i
-  if (i .ne. 43) stop 1
+  if (i .ne. 43) STOP 2
   read (11, *) i
-  if (i .ne. 44) stop 1
+  if (i .ne. 44) STOP 3
   close (11)
 end
 

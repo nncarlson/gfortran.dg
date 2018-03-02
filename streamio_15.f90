@@ -10,7 +10,7 @@ program main
   write(20,"()")
   inquire(20,pos=newline_length)
   newline_length = newline_length - 1
-  if (newline_length < 1 .or. newline_length > 2) stop 1
+  if (newline_length < 1 .or. newline_length > 2) STOP 1
   close(20)
 
   open(20,file="foo_streamio_15.txt",form="formatted",access="stream")
@@ -20,13 +20,13 @@ program main
   rewind 20
   ! Skip over the first line
   read(20,'(A)') c
-  if (c.ne.'123456') stop 1
+  if (c.ne.'123456') STOP 2
   ! Save the position
   inquire(20,pos=i)
-  if (i.ne.7+newline_length) stop 1
+  if (i.ne.7+newline_length) STOP 3
   ! Read in the complete line...
   read(20,'(A)') c
-  if (c.ne.'abcdef') stop 1
+  if (c.ne.'abcdef') STOP 4
   ! Write out the first four characters
   write(20,'(A)',pos=i,advance="no") 'ASDF'
   ! Fill up the rest of the line.  Here, we know the length.  If we
@@ -36,10 +36,10 @@ program main
   rewind 20
   c = ""
   read(20,'(A)') c
-  if (c.ne.'123456') stop 1
+  if (c.ne.'123456') STOP 5
   read(20,'(A)') c
-  if (c.ne.'ASDFef') stop 1
+  if (c.ne.'ASDFef') STOP 6
   read(20,'(A)', iostat=i) c
-  if (i /= -1) stop 1
+  if (i /= -1) STOP 7
   close (20, status="delete")
 end program main

@@ -13,7 +13,7 @@ program main
     end interface
 
     call foo(a)
-    if (any(a /= [ 1, 2, 3 ])) stop 1
+    if (any(a /= [ 1, 2, 3 ])) STOP 1
 
 end program
 

@@ -12,12 +12,12 @@
   type(r) :: y = r (3, 42)
 
   x = y
-  if (x%i /= 3) stop 1
+  if (x%i /= 3) STOP 1
   select type(x)
     class is (r)
-      if (x%r /= 42.0) stop 1
+      if (x%r /= 42.0) STOP 2
     class default
-      stop 1
+      STOP 3
   end select
 end
 

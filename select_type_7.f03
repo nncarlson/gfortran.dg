@@ -24,9 +24,9 @@
      cp%b = 76
      call s(cp)
      print *,cp%a,cp%b
-     if (cp%a /= cp%b) stop 1
+     if (cp%a /= cp%b) STOP 1
    class default
-     stop 1
+     STOP 2
  end select
 
 contains

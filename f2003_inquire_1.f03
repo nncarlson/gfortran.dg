@@ -11,11 +11,11 @@ inquire(unit=10, round=sround, sign=ssign, size=vsize, id=vid, &
 & pending=vpending, asynchronous=sasynchronous, decimal=sdecimal, &
 & encoding=sencoding)
 
-if (ssign.ne."PLUS") stop 1
-if (sasynchronous.ne."YES") stop 1
-if (sdecimal.ne."COMMA") stop 1
-if (sencoding.ne."UTF-8") stop 1
-if (vpending) stop 1
+if (ssign.ne."PLUS") STOP 1
+if (sasynchronous.ne."YES") STOP 2
+if (sdecimal.ne."COMMA") STOP 3
+if (sencoding.ne."UTF-8") STOP 4
+if (vpending) STOP 5
 
 close(10, status="delete")
 end

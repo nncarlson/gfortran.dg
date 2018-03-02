@@ -11,10 +11,10 @@ program test_iso
   type(ivs) :: v_str
   integer :: i
   call foo(v_str, i)
-  if (v_str%chars(1) .ne. "a") stop 1
-  if (i .ne. 0) stop 1
+  if (v_str%chars(1) .ne. "a") STOP 1
+  if (i .ne. 0) STOP 2
   call foo(flag = i)
-  if (i .ne. 1) stop 1
+  if (i .ne. 1) STOP 3
 contains
   subroutine foo (arg, flag)
     type(ivs), optional, intent(out) :: arg

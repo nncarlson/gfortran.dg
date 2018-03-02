@@ -14,13 +14,13 @@ contains
     integer, intent(in) :: no
     integer, allocatable, save :: a
     if (no == 0) then
-      if (allocated (a)) stop 1
+      if (allocated (a)) STOP 1
       allocate (a)
     else if (no == 1) then
-      if (.not. allocated (a)) stop 1
+      if (.not. allocated (a)) STOP 2
       deallocate (a)
     else
-      if (allocated (a)) stop 1
+      if (allocated (a)) STOP 3
     end if
   end subroutine sub
 end program test

@@ -11,9 +11,9 @@ contains
   subroutine test (expected, x)
     integer, dimension (:) :: x
     integer :: i, expected
-    if (size (x, 1) .ne. expected) stop 1
+    if (size (x, 1) .ne. expected) STOP 1
     do i = 1, expected
-      if (x (i) .ne. i * 100) stop 1
+      if (x (i) .ne. i * 100) STOP 2
     end do
   end subroutine test
 

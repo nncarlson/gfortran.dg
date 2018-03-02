@@ -10,7 +10,7 @@
       IF (ex) THEN
          OPEN(unit=k)
          INQUIRE(unit=j, opened=op)
-         IF (op) stop 1
+         IF (op) STOP 1
       ENDIF
       print *, k
       close(k)

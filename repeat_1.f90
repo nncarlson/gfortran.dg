@@ -4,7 +4,7 @@
   integer :: i
   i = -1
   write(str,"(a)") repeat ("a", f())
-  if (trim(str) /= "aaaa") stop 1
+  if (trim(str) /= "aaaa") STOP 1
   write(str,"(a)") repeat ("a", i)
 
 contains

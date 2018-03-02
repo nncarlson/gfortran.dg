@@ -14,10 +14,10 @@ end type t2
 class(t), allocatable :: a
 allocate(a, source=t2(1,2))
 print *,a%i
-if(a%i /= 1) stop 1
+if(a%i /= 1) STOP 1
 select type (a)
   type is (t2)
      print *,a%j
-     if(a%j /= 2) stop 1
+     if(a%j /= 2) STOP 2
 end select
 end

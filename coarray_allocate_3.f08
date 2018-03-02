@@ -17,10 +17,10 @@
 
     allocate(some_local_object, source=foobar)
 
-    if (.not. allocated(foobar)) stop 1
-    if (lbound(foobar, 1) /= 1 .OR. ubound(foobar, 1) /= 10) stop 1
-    if (.not. allocated(some_local_object)) stop 1
-    if (any(some_local_object(:)%bar /= [99, 99,  99, 99, 99, 99, 99, 99, 99, 99])) stop 1
+    if (.not. allocated(foobar)) STOP 1
+    if (lbound(foobar, 1) /= 1 .OR. ubound(foobar, 1) /= 10) STOP 2
+    if (.not. allocated(some_local_object)) STOP 3
+    if (any(some_local_object(:)%bar /= [99, 99,  99, 99, 99, 99, 99, 99, 99, 99])) STOP 4
 
     deallocate(some_local_object)
     deallocate(foobar)
