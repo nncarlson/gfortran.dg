@@ -28,8 +28,8 @@ contains
   subroutine my_obp_sub(w,x)
     integer :: w
     class(t) :: x
-    if (x%name/="doodoo") stop 1
-    if (w/=32) stop 1
+    if (x%name/="doodoo") STOP 1
+    if (w/=32) STOP 2
   end subroutine
 
 end

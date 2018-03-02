@@ -12,9 +12,9 @@
 
   type(treeNode) :: n
 
-  if (associated(RightOf(n))) stop 1
+  if (associated(RightOf(n))) STOP 1
   allocate(n%right)
-  if (.not.associated(RightOf(n))) stop 1
+  if (.not.associated(RightOf(n))) STOP 2
   deallocate(n%right)
   
 contains

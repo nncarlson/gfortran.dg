@@ -9,7 +9,7 @@
       aval = 0.0
       str = "xyz"
       read(input,fmtstr) aval, str
-      if (aval.ne.1234.0) stop 1
-      if (str.ne."abcdef") stop 1
+      if (aval.ne.1234.0) STOP 1
+      if (str.ne."abcdef") STOP 2
       end
 

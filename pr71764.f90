@@ -9,12 +9,12 @@ program p
    nullptr = c_null_ptr
    c = nullptr
    rls = c_associated(c)
-   if (rls) stop 1
-   if (c_associated(c)) stop 1
+   if (rls) STOP 1
+   if (c_associated(c)) STOP 2
    c = c_loc(rls)
-   if (.not. c_associated(c)) stop 1
+   if (.not. c_associated(c)) STOP 3
    c = nullptr
-   if (c_associated(c)) stop 1
+   if (c_associated(c)) STOP 4
    c = c_loc(t)
    k => t
    call association_test(k, c)
@@ -27,7 +27,7 @@ contains
     if(c_associated(b, c_loc(a))) then
        return
     else
-       stop 1
+       STOP 5
     end if
   end subroutine association_test
 end

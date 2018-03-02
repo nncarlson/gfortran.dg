@@ -22,15 +22,15 @@ PROGRAM test
   str1 = 'x'
   str4 = 'xyzz'
   str1 = cdir()
-  if(str1 /= '/') stop 1
+  if(str1 /= '/') STOP 1
   str4 = cdir()
-  if(str4 /= '/' .or. ichar(str4(2:2)) /= 32) stop 1
+  if(str4 /= '/' .or. ichar(str4(2:2)) /= 32) STOP 2
   i   = ICHAR(cdir())
-  if (i /= 47) stop 1
+  if (i /= 47) STOP 3
   str4 = 'xyzz'
   WRITE(str4,'(a)') cdir()
-  if(str4 /= '/' .or. ichar(str4(2:2)) /= 32) stop 1
+  if(str4 /= '/' .or. ichar(str4(2:2)) /= 32) STOP 4
   str4 = 'xyzz'
   WRITE(str4,'(i0)') ICHAR(cdir())
-  if(str4 /= '47' .or. ichar(str4(3:3)) /= 32) stop 1
+  if(str4 /= '47' .or. ichar(str4(3:3)) /= 32) STOP 5
 END PROGRAM

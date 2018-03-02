@@ -9,7 +9,7 @@ program main
     enumerator :: red, black = 127
     enumerator blue
   end enum
-  if (red /= 0) stop 1
-  if (black /= 127) stop 1
-  if (blue /= 128) stop 1
+  if (red /= 0) STOP 1
+  if (black /= 127) STOP 2
+  if (blue /= 128) STOP 3
 end program main

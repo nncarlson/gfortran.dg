@@ -13,7 +13,7 @@ k = %loc(j)
 
 if (i .ne. k) then
   print *, "bad %loc value"
-  stop 1
+  STOP 1
 endif
 
 end

@@ -44,13 +44,13 @@ contains
         type(data_all_t2) :: dum2
 
         if (associated(dum%my_data%head)) then
-          stop 1
+          STOP 1
         else
             print *, 'OK: do_job my_data%head is NOT associated'
         end if
 
         if (dum2%my_data%head%a /= 77) &
-          stop 1
+          STOP 2
     end subroutine
 end module
 !***************

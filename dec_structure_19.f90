@@ -23,16 +23,16 @@ x.i = "12"
 x.j = "34"
 
 if (y.buf(1) .ne. '1') then
-  stop 1
+  STOP 1
 endif
 if (y.buf(2) .ne. '2') then
-  stop 1
+  STOP 2
 endif
 if (y.buf(5) .ne. '3') then
-  stop 1
+  STOP 3
 endif
 if (y.buf(6) .ne. '4') then
-  stop 1
+  STOP 4
 endif
 
 end

@@ -6,7 +6,7 @@
 !
 program test_elemental
 
-if (any (transfer_size((/0.,0./),(/'a','b'/)) .ne. [4 ,4])) stop 1
+if (any (transfer_size((/0.,0./),(/'a','b'/)) .ne. [4 ,4])) STOP 1
 
 contains
 

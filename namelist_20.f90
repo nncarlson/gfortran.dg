@@ -17,19 +17,19 @@ program namelist_20
 
   ier=0
   read(10, a, iostat=ier)
-  if (ier == 0) stop 1
+  if (ier == 0) STOP 1
   ier=0
   read(10, a, iostat=ier)
-  if (ier == 0) stop 1
+  if (ier == 0) STOP 2
   ier=0
   read(10, a, iostat=ier)
-  if (ier == 0) stop 1
+  if (ier == 0) STOP 3
 
   ier=0
   read(10, a, iostat=ier)
-  if (ier /= 0) stop 1
+  if (ier /= 0) STOP 4
   do i = -4,-2
-    if (x(i) /= i) stop 1
+    if (x(i) /= i) STOP 5
   end do
 
 end program namelist_20 

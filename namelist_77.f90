@@ -42,8 +42,8 @@ program error_namelist
     read(10, nml=error_params)
     close (10)
 
-    if (beam_init%chars(1) /= 'JUNK') stop 1
-    if (beam_init%grid(1)%n_x /= 3) stop 1
-    if (beam_init%grid(1)%n_px /= 2) stop 1
+    if (beam_init%chars(1) /= 'JUNK') STOP 1
+    if (beam_init%grid(1)%n_x /= 3) STOP 2
+    if (beam_init%grid(1)%n_px /= 2) STOP 3
 
 end program

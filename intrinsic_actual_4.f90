@@ -8,7 +8,7 @@
       external proc
       integer proc
       character*(*) chr
-      if (proc (chr) .ne. 6) stop 1
+      if (proc (chr) .ne. 6) STOP 1
       end subroutine sub
 
       implicit none

@@ -11,8 +11,8 @@ program main
   i = 0
   c = 'abcd'
   d = 'efgh'
-  if (c // 'a' >= d // 'a') stop 1
-  if ('a' // c >= 'a' // d) stop 1
+  if (c // 'a' >= d // 'a') STOP 1
+  if ('a' // c >= 'a' // d) STOP 2
 end program main
 
 ! { dg-final { scan-tree-dump-times "gfortran_concat_string" 0 "original" } }

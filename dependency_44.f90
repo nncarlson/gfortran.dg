@@ -32,5 +32,5 @@ program prgm3
     res2 = y(k,:)
 !    print *, res1
 !    print *, res2
-    if (any(res1 /= res2)) stop 1
+    if (any(res1 /= res2)) STOP 1
 end program prgm3

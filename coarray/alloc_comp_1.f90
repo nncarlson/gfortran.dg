@@ -8,9 +8,9 @@ end type t
 type(t) :: a
 allocate (a%caf[3:*])
 a%caf = 7
-if (a%caf /= 7) stop 1
+if (a%caf /= 7) STOP 1
 if (any (lcobound (a%caf) /= [ 3 ]) &
     .or. ucobound (a%caf, dim=1) /= this_image ()+2)  &
-  stop 1
+  STOP 2
 deallocate (a%caf)
 end

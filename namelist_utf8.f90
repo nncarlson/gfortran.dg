@@ -18,13 +18,13 @@ str = 4_'XXXX'
 str2 = 4_'YYYY'
 read(99,nml=nml)
 read(99, *) str2
-if (str2 /= str) stop 1
+if (str2 /= str) STOP 1
 rewind(99)
 
 read(99,'(A)') str3
-if (str3 /= 4_'&nml str = "' // str // 4_'" /') stop 1
+if (str3 /= 4_'&nml str = "' // str // 4_'" /') STOP 2
 read(99,*) str3
-if (str3 /= str) stop 1
+if (str3 /= str) STOP 3
 
 close(99, status='delete')
 end

@@ -16,6 +16,6 @@
   a%comp = 3
   x => a
   print *,x%comp
-  if (x%comp/=3) stop 1
+  if (x%comp/=3) STOP 1
 
 end

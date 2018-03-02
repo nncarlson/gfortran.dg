@@ -8,8 +8,8 @@ program pointer_init_1
   real, pointer :: b => NULL()
   character, pointer :: c => NULL()
   integer, pointer, dimension(:) :: d => NULL()
-  if (associated(a)) stop 1
-  if (associated(b)) stop 1
-  if (associated(c)) stop 1
-  if (associated(d)) stop 1
+  if (associated(a)) STOP 1
+  if (associated(b)) STOP 2
+  if (associated(c)) STOP 3
+  if (associated(d)) STOP 4
 end

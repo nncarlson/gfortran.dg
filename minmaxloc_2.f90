@@ -21,8 +21,8 @@ PROGRAM ERR_MINLOC
     K(I) = MAXLOC (ABS (A - B), 1)
   END DO
 
-  if (any (J .NE. (/1,2,3,4,5,6,7/))) stop 1
-  if (any (K .NE. (/7,7,1,1,1,1,1/))) stop 1
+  if (any (J .NE. (/1,2,3,4,5,6,7/))) STOP 1
+  if (any (K .NE. (/7,7,1,1,1,1,1/))) STOP 2
 
   STOP
 

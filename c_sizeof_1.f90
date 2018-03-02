@@ -11,34 +11,34 @@ integer(c_intptr_t) :: iptr
 
 ! Using F2008's C_SIZEOF
 i = c_sizeof(i)
-if (i /= 4) stop 1
+if (i /= 4) STOP 1
 
 i = c_sizeof(j)
-if (i /= 40) stop 1
+if (i /= 40) STOP 2
 
 i = c_sizeof(str2)
-if (i /= 4) stop 1
+if (i /= 4) STOP 3
 
 i = c_sizeof(str2(1))
-if (i /= 1) stop 1
+if (i /= 1) STOP 4
 
 write(*,*) c_sizeof(cptr), c_sizeof(iptr), c_sizeof(C_NULL_PTR)
 
 ! Using GNU's SIZEOF
 i = sizeof(i)
-if (i /= 4) stop 1
+if (i /= 4) STOP 5
 
 i = sizeof(j)
-if (i /= 40) stop 1
+if (i /= 40) STOP 6
 
 i = sizeof(str)
-if (i /= 4) stop 1
+if (i /= 4) STOP 7
 
 i = sizeof(str(1))
-if (i /= 4) stop 1
+if (i /= 4) STOP 8
 
 i = sizeof(str(1)(1:3))
-if (i /= 3) stop 1
+if (i /= 3) STOP 9
 
 end
 

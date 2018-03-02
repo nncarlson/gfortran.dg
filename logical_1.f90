@@ -19,6 +19,6 @@ program logical_1
   write(t(4),*) t8
   write(f(4),*) f8
 
-  if (any(t .ne. " T")) stop 1
-  if (any(f .ne. " F")) stop 1
+  if (any(t .ne. " T")) STOP 1
+  if (any(f .ne. " F")) STOP 2
 end

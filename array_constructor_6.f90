@@ -17,9 +17,9 @@ contains
     integer, dimension (:) :: values
     integer :: order, i
 
-    if (size (values, dim = 1) .ne. order) stop 1
+    if (size (values, dim = 1) .ne. order) STOP 1
     do i = 1, order
-      if (values (i) .ne. i * 2) stop 1
+      if (values (i) .ne. i * 2) STOP 2
     end do
   end subroutine test
 end program main

@@ -42,13 +42,13 @@ contains
     end function c1
 end module foo
     use foo
-    if (n1(9) .ne. 729) stop 1
-    if (n2(2) .ne. 324) stop 1
-    if (n3(19) .ne. 200564019) stop 1
-    if (c1("lmno") .ne. "lmno") stop 1
-    if (c1("abcd") .ne. "ABCD") stop 1
-    if (c2("lmno") .ne. "lmno") stop 1
-    if (c2("wxyz") .ne. "WXYZ") stop 1
-    if (z1((3,4)) .ne. (-5, 10)) stop 1
-    if (z2((5,6)) .ne. (-9, 38)) stop 1
+    if (n1(9) .ne. 729) STOP 1
+    if (n2(2) .ne. 324) STOP 2
+    if (n3(19) .ne. 200564019) STOP 3
+    if (c1("lmno") .ne. "lmno") STOP 4
+    if (c1("abcd") .ne. "ABCD") STOP 5
+    if (c2("lmno") .ne. "lmno") STOP 6
+    if (c2("wxyz") .ne. "WXYZ") STOP 7
+    if (z1((3,4)) .ne. (-5, 10)) STOP 8
+    if (z2((5,6)) .ne. (-9, 38)) STOP 9
  end

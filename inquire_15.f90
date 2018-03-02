@@ -4,10 +4,10 @@ character(len=20) :: str
 str = "abcdefg"
 inquire(file="abcddummy", stream=str)
 !print *, "str=",str
-if (str /= "UNKNOWN") stop 1
+if (str /= "UNKNOWN") STOP 1
 inquire(99, stream=str)
 !print *, "str=",str
-if (str /= "UNKNOWN") stop 1
+if (str /= "UNKNOWN") STOP 2
 open(99,access="stream")
 inquire(99, stream=str)
 !print *, "str=",str
@@ -25,5 +25,5 @@ if (str /= "NO") goto 10
 close(99, status="delete")
 stop
 10 close(99, status="delete")
-stop 1
+STOP 3
 end

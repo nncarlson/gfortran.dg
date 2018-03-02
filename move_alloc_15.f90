@@ -77,9 +77,9 @@ contains
     integer :: i
     do i = 1, OLDSIZE
       if (.not.flag .and. allocated (myarray(i)%i)) then
-        if (any (myarray(i)%i .ne. [1,2,3,4,5])) stop 1
+        if (any (myarray(i)%i .ne. [1,2,3,4,5])) STOP 1
       else
-        if (.not.flag) stop 1
+        if (.not.flag) STOP 2
       end if
     end do
   end subroutine

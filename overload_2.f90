@@ -15,7 +15,7 @@ subroutine test()
   character :: str
   external len
   call len(str)
-  if(str /= "X") stop 1
+  if(str /= "X") STOP 1
 end subroutine test
 
 PROGRAM VAL
@@ -23,5 +23,5 @@ PROGRAM VAL
  external test
  intrinsic len
  call test()
- if(len(" ") /= 1) stop 1
+ if(len(" ") /= 1) STOP 2
 END

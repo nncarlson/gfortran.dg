@@ -3,7 +3,7 @@
 ! { dg-options "-flto" }
 ! PR 78867, test case adapted from gfortran.dg/string_length_1.f90
 program pr78867
-  if (len(bar(2_8)) /= 2) stop 1
+  if (len(bar(2_8)) /= 2) STOP 1
 contains
 
   function bar(i)

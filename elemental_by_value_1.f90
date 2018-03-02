@@ -17,6 +17,6 @@ end function
     end function
   end interface
 
-  if (foo(42) .ne. 43) stop 1
-  if (any (foo([0,1]) .ne. [1,2])) stop 1
+  if (foo(42) .ne. 43) STOP 1
+  if (any (foo([0,1]) .ne. [1,2])) STOP 2
 end

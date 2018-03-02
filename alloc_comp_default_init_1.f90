@@ -12,13 +12,13 @@ program boh
   call mah (1, c2)
   call mah (2, c3)
   !
-  if (c1 /= c2) stop 1
-  if (c1 /= c3) stop 1
+  if (c1 /= c2) STOP 1
+  if (c1 /= c3) STOP 1
   !
   call mah0 (c4) ! These calls deal with PR34704
   call mah1 (c5)
   !
-  if (c4 /= c5) stop 1
+  if (c4 /= c5) STOP 2
   !
 end program boh
 !

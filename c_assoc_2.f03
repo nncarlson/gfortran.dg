@@ -9,27 +9,27 @@ contains
     integer :: my_integer
     
     if(.not. c_associated(my_c_ptr)) then
-       stop 1
+       STOP 1
     end if
     
     if(.not. c_associated(my_c_ptr, my_c_ptr)) then
-       stop 1
+       STOP 2
     end if
 
     if(.not. c_associated(my_c_ptr, my_c_ptr, my_c_ptr)) then ! { dg-error "Too many arguments in call" }
-       stop 1
+       STOP 3
     end if
 
     if(.not. c_associated()) then ! { dg-error "Missing actual argument" }
-       stop 1
+       STOP 4
     end if
 
     if(.not. c_associated(my_c_ptr_2)) then
-       stop 1
+       STOP 5
     end if
 
     if(.not. c_associated(my_integer)) then ! { dg-error "shall have the type TYPE.C_PTR. or TYPE.C_FUNPTR." }
-       stop 1
+       STOP 6
     end if
   end subroutine sub0
 

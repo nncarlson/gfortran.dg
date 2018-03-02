@@ -6,7 +6,7 @@
   integer :: b(48)
   logical :: l
   if (allocated (a)) then
-    stop 1
+    STOP 1
     call bla(b)
   end if
 !$omp parallel private (a) reduction (.or.:l)

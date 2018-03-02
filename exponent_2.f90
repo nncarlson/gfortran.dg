@@ -5,7 +5,7 @@
 integer i
 real x
 x = 3.0
-if (2 /= exponent(x)) stop 1
+if (2 /= exponent(x)) STOP 1
 i = exponent (x)
-if (i /= 2) stop 1
+if (i /= 2) STOP 2
 end

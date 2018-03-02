@@ -27,5 +27,5 @@ use ISO_FORTRAN_ENV
       end if
     end if
   end do
-  if (n /= 0) stop 1
+  if (n /= 0) STOP 1
 end program

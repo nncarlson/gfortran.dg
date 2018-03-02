@@ -11,5 +11,5 @@
       rewind(1)
       x = 0
       read(1,casein)
-      if (x.ne.1) stop 1
+      if (x.ne.1) STOP 1
       end

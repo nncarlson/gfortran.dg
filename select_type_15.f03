@@ -62,13 +62,13 @@ program bug20
   class(d_base_sparse_mat), allocatable  :: a
 
   allocate(x_base_sparse_mat :: a)
-  if (a%get_fmt()/="XBASE") stop 1
+  if (a%get_fmt()/="XBASE") STOP 1
 
   select type(a)
   type is (d_base_sparse_mat)
-    stop 1
+    STOP 2
   class default
-    if (a%get_fmt()/="XBASE") stop 1
+    if (a%get_fmt()/="XBASE") STOP 3
   end select
 
 end program bug20

@@ -15,7 +15,7 @@ c
       integer a(2), b, c, d
       COMMON /foo/ a
       EQUIVALENCE (a(1),b), (c, a(2))
-      if (b.ne.101) stop 1
-      if (c.ne.102) stop 1
+      if (b.ne.101) STOP 1
+      if (c.ne.102) STOP 2
       END
 

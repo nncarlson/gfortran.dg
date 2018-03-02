@@ -10,7 +10,7 @@ program strtest
 
   my_str = fstr(slen)
   if (slen /= slen_init .or. len(my_str) /= slen .or. my_str /= ' ') then
-    stop 1
+    STOP 1
   endif
 
 contains

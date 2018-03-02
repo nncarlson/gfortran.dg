@@ -50,14 +50,14 @@ read (99, nml=nml)
 !write (*, nml=nml)
 close (99, status="delete")
 
-  if (r1 /= 43) stop 1
-  if (r2 /= 43) stop 1
-  if (r3 /= r3 .or. r3 <= huge(r3)) stop 1
-  if (r4 == r4) stop 1
-  if (r5 /= 300000) stop 1
-  if (c /= cmplx(4,2)) stop 1
-  if (.not. ll) stop 1
-  if (c1 /= "a") stop 1
-  if (c2 /= "bc") stop 1
-  if (c3 /= "ax") stop 1
+  if (r1 /= 43) STOP 1
+  if (r2 /= 43) STOP 2
+  if (r3 /= r3 .or. r3 <= huge(r3)) STOP 3
+  if (r4 == r4) STOP 4
+  if (r5 /= 300000) STOP 5
+  if (c /= cmplx(4,2)) STOP 6
+  if (.not. ll) STOP 7
+  if (c1 /= "a") STOP 8
+  if (c2 /= "bc") STOP 9
+  if (c3 /= "ax") STOP 10
 end

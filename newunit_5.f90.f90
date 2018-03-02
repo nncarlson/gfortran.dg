@@ -8,7 +8,7 @@ program main
   
   message = "12"
   read(message, *) this
-  if (this.ne.12) stop 1
+  if (this.ne.12) STOP 1
   
   open(newunit=funit, status="scratch")
   write(funit, *) "13"
@@ -16,5 +16,5 @@ program main
   read(funit, *) another
   !write(*,*) another
   close(funit)
-  if (another.ne.13) stop 1
+  if (another.ne.13) STOP 2
 end

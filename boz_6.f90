@@ -8,8 +8,8 @@ program test
   data io, jo /o'234', '234'o/
   data iz, jz /z'abc', 'abc'z/
   data ix, jx /x'abc', 'abc'x/
-  if (ib /= jb) stop 1
-  if (io /= jo) stop 1
-  if (iz /= jz) stop 1
-  if (ix /= jx) stop 1
+  if (ib /= jb) STOP 1
+  if (io /= jo) STOP 2
+  if (iz /= jz) STOP 3
+  if (ix /= jx) STOP 4
 end program test

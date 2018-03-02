@@ -53,8 +53,8 @@ program p
   read(10, nml)
   write(str,*) w
   if (str.ne." jr jr jr jr jr jr jr jr jr jr jr jr jr jr kr kr kr jr jr jr jr jr jr jr jr jr jr jr jr jr") &
-      & stop 1
+      & STOP 1
   str = ""
   write(str,"(*(DT))") w
-  if (str.ne."jrjrjrjrjrjrjrjrjrjrjrjrjrjrkrkrkrjrjrjrjrjrjrjrjrjrjrjrjrjr") stop 1
+  if (str.ne."jrjrjrjrjrjrjrjrjrjrjrjrjrjrkrkrkrjrjrjrjrjrjrjrjrjrjrjrjrjr") STOP 2
 end program p

@@ -14,7 +14,7 @@ PROGRAM test
 
  o%f => add
  g=greater(4.,o%f(1.,2.))
- if (.not. g) stop 1
+ if (.not. g) STOP 1
 
 CONTAINS
 

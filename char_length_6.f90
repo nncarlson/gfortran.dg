@@ -6,11 +6,11 @@ program test
 
   c = "aa"
   l = c .eq. "aa"
-  if (any (.not. l)) stop 1
+  if (any (.not. l)) STOP 1
 
   call foo ([c(1)])
   l = c .eq. "aa"
-  if (any (.not. l)) stop 1
+  if (any (.not. l)) STOP 2
 
 contains
 

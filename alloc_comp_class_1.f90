@@ -23,7 +23,7 @@ end module d_mat_mod
   allocate (b%a)
   b%a%i = 42
   call bug14 (b)
-  if (allocated (b%a)) stop 1
+  if (allocated (b%a)) STOP 1
 contains
   subroutine bug14(a)
     implicit none

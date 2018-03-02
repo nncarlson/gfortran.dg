@@ -26,7 +26,7 @@ program bugTest
   testObj%test => returnMat
   testCatch = testObj%test(2,2)
   print *,testCatch
-  if (sum(testCatch)/=4) stop 1
+  if (sum(testCatch)/=4) STOP 1
   print *,testObj%test(3,3)
-  if (sum(testObj%test(3,3))/=9) stop 1
+  if (sum(testObj%test(3,3))/=9) STOP 2
 end program bugTest

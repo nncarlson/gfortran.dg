@@ -58,20 +58,20 @@ program main
   n = 5
   a = 0
   call foo1(a,n)
-  if (any(a /= b)) stop 1
+  if (any(a /= b)) STOP 1
 
   n = 5
   a = 0
   call foo2(a,n)
-  if (any(a /= b)) stop 1
+  if (any(a /= b)) STOP 2
 
   n = 5
   a = 0
   call foo3(a,n)
-  if (any(a /= b)) stop 1
+  if (any(a /= b)) STOP 3
 
   n = 5
   a = 0
   call foo4(a,n)
-  if (any(a /= 1)) stop 1
+  if (any(a /= 1)) STOP 4
 end program main

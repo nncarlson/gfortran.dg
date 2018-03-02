@@ -41,7 +41,7 @@ program test_pr61337
   call add_item(a_list, [.true., .false.])
   call add_item(a_list, ["foo", "bar", "baz"])
 
-  if (size(a_list) /= 4) stop 1
+  if (size(a_list) /= 4) STOP 1
   do i = 1, size(a_list)
           call checkarr(a_list(i))
   end do
@@ -56,19 +56,19 @@ contains
     if (allocated(c%items)) then
       select type (x=>c%items)
         type is (integer)
-          if (any(x /= [1, 2])) stop 1
+          if (any(x /= [1, 2])) STOP 2
         type is (real(kind=8))
-          if (any(x /= [3.0_8, 4.0_8])) stop 1
+          if (any(x /= [3.0_8, 4.0_8])) STOP 3
         type is (logical)
-          if (any(x .neqv. [.true., .false.])) stop 1
+          if (any(x .neqv. [.true., .false.])) STOP 4
         type is (character(len=*))
-          if (len(x) /= 3) stop 1
-          if (any(x /= ["foo", "bar", "baz"])) stop 1
+          if (len(x) /= 3) STOP 5
+          if (any(x /= ["foo", "bar", "baz"])) STOP 6
         class default
-          stop 1
+          STOP 7
       end select
     else
-        stop 1
+        STOP 8
     end if
   end subroutine
 end

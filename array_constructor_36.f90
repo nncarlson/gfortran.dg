@@ -15,7 +15,7 @@ program main
   q = 'xy'
   i = 2
   write (buffer, fmt) (/ trim(q), 'ae' /)//'c'
-  if (buffer .ne. test) stop 1
+  if (buffer .ne. test) STOP 1
   write (buffer, FMT) (/ q(1:i), 'ae' /)//'c'
-  if (buffer .ne. test) stop 1
+  if (buffer .ne. test) STOP 2
 end program main

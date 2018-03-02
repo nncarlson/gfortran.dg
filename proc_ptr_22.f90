@@ -21,7 +21,7 @@ program bugTest
   implicit none
   procedure(returnMat), pointer :: pp
   pp => returnMat
-  if (sum(pp(2,2))/=4) stop 1
+  if (sum(pp(2,2))/=4) STOP 1
   pp2 => returnMat
-  if (sum(pp2(3,2))/=6) stop 1
+  if (sum(pp2(3,2))/=6) STOP 2
 end program bugTest

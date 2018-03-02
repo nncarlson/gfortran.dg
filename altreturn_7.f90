@@ -27,6 +27,6 @@ END MODULE
 
   USE TT
   CALL M(1,*2)
-  stop 1
+  STOP 1
 2 CONTINUE
 END

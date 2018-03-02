@@ -26,7 +26,7 @@
       EXTERNAL R
       character(3) res
       call PHLOAD (R, 1, res)
-      if (res .ne. "one") stop 1
+      if (res .ne. "one") STOP 1
       CALL PHLOAD (R, 2, res)
-      if (res .ne. "two") stop 1
+      if (res .ne. "two") STOP 2
       END

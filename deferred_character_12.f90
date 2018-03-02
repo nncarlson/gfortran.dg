@@ -31,7 +31,7 @@ program test
   type(wrapper) :: mywrapper
 
   call sub2(mywrapper%string)
-  if (.not. allocated(mywrapper%string)) stop 1
-  if (trim(mywrapper%string) .ne. "test") stop 1
+  if (.not. allocated(mywrapper%string)) STOP 1
+  if (trim(mywrapper%string) .ne. "test") STOP 2
 
 end program test

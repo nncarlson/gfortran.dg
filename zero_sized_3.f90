@@ -13,7 +13,7 @@
       mask(:) = (mm == 0)
       j = count (mask)
       print *, pack (mm, mask)
-      if (size (pack (mm, mask)) /= j) stop 1
+      if (size (pack (mm, mask)) /= j) STOP 1
       deallocate (mm, mask)
     end do
   end do

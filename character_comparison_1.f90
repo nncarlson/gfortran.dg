@@ -16,13 +16,13 @@ program main
   n = n + 1 ; if (c .eq. c) call yes
   n = n + 1 ; if (c .ge. c) call yes
   n = n + 1 ; if (c .le. c) call yes
-  if (c /= c) stop 1
-  if (c > c) stop 1
-  if (c < c) stop 1
-  if (c .ne. c) stop 1
-  if (c .gt. c) stop 1
-  if (c .lt. c) stop 1
-  if (n /= i) stop 1
+  if (c /= c) STOP 1
+  if (c > c) STOP 2
+  if (c < c) STOP 3
+  if (c .ne. c) STOP 4
+  if (c .gt. c) STOP 5
+  if (c .lt. c) STOP 6
+  if (n /= i) STOP 7
 end program main
 
 subroutine yes

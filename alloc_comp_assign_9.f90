@@ -16,5 +16,5 @@ PROGRAM X
   T1%A = 23
   T2 = T1
   T1%A = 42
-  if (T2%A(1) .NE. 23) stop 1
+  if (T2%A(1) .NE. 23) STOP 1
 END PROGRAM X

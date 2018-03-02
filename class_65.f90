@@ -26,9 +26,9 @@ Program p
   Type Is (t)
     Continue
   Class Is (t)
-    stop 1
+    STOP 1
   Class Default
-    stop 1
+    STOP 2
   End Select
 !  Print *, 'ok'
 End Program

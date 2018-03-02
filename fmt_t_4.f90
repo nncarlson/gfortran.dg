@@ -12,7 +12,7 @@
        read(10,*) b
        read(10,*) c
        close(10)
-       if (a.ne.b) stop 1
-       IF (b.ne.c) stop 1
+       if (a.ne.b) STOP 1
+       IF (b.ne.c) STOP 2
        end
 

@@ -10,8 +10,8 @@
   real, parameter :: x3(1) = -(/ x /)
   real, parameter :: x4(2) = (/ x, 1. /) + (/ 2, (/3/) /)
 
-  if (any (x1 /= (/43./))) stop 1
-  if (any (x2 /= (/43./))) stop 1
-  if (any (x3 /= (/-42./))) stop 1
-  if (any (x4 /= (/44., 4./))) stop 1
+  if (any (x1 /= (/43./))) STOP 1
+  if (any (x2 /= (/43./))) STOP 2
+  if (any (x3 /= (/-42./))) STOP 3
+  if (any (x4 /= (/44., 4./))) STOP 4
 end

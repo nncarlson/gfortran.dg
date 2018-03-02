@@ -28,7 +28,7 @@
           if (dbg) write(*,mynml1)
        else
           if (dbg) print *, 'expected 16 32 got ',num1,num2
-          stop 1
+          STOP 1
        endif
        num3 = -1
        num4 = -1
@@ -37,7 +37,7 @@
           if (dbg) write(*,mynml2)
        else
           if (dbg) print *, 'expected 42 56 got ',num3,num4
-          stop 1
+          STOP 2
        endif
 
        close(10)

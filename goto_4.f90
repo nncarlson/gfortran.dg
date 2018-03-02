@@ -7,5 +7,5 @@
            if(i == 2) goto 10
            j = j+1
 10      enddo
-        if (j/=2) stop 1
+        if (j/=2) STOP 1
       end

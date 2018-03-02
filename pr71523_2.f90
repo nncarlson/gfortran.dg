@@ -22,17 +22,17 @@ end function
 
   val = set(1, 5)
   if (val .ne. 12345) then
-    stop 1
+    STOP 1
   endif
 
   val = set(1, 10)
   if (val .ne. 5) then
-    stop 1
+    STOP 2
   endif
 
   val = set(1, 100)
   if (val .ne. 10) then
-    stop 1
+    STOP 3
   endif
 
 end

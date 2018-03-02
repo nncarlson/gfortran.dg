@@ -32,9 +32,9 @@ program func_derived_2
   type (mytype), pointer ::       y
   x = mytype (42)
   y => get (x)
-  if (y%i.ne.42) stop 1
+  if (y%i.ne.42) STOP 1
 
   x = mytype (112)
   y => get2 (x)
-  if (y%i.ne.112) stop 1
+  if (y%i.ne.112) STOP 2
 end program func_derived_2

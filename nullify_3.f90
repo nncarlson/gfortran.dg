@@ -20,7 +20,7 @@ program test
         nullify(p(i)%ket)
   end do
   do i = 1, 2
-        if (associated (p(i)%bra)) stop 1
-        if (associated (p(i)%ket)) stop 1
+        if (associated (p(i)%bra)) STOP 1
+        if (associated (p(i)%ket)) STOP 2
   end do
 end program

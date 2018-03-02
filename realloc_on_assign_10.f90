@@ -12,7 +12,7 @@ program gf
   b(1,2,3) = one
   allocate (a(size (b, 3), size (b, 2), size (b, 1)))
   a = reshape (b, shape (a), order = [3, 2, 1])
-  if (any (a(:, 2, 1) .ne. [zero, zero, one, zero, zero])) stop 1
-  if (a(3, 2, 1) /= one) stop 1
-  if (sum (abs (a)) /= one) stop 1
+  if (any (a(:, 2, 1) .ne. [zero, zero, one, zero, zero])) STOP 1
+  if (a(3, 2, 1) /= one) STOP 1
+  if (sum (abs (a)) /= one) STOP 2
 end program

@@ -18,5 +18,5 @@
        do i = 1,14
           sum = sum + a(i)
        end do
-       if (sum.ne.105) stop 1
+       if (sum.ne.105) STOP 1
        end

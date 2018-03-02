@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  stop 1
+  STOP 1
 end subroutine
 
 structure /s3/
@@ -30,23 +30,23 @@ r3.recrd_a(2).i = 1
 r3.recrd_a(2).j = 0
 
 if (r3.p .ne. 1.3579) then
-  stop 1s("r3.p")
+  call aborts("r3.p")
 endif
 
 if (r4.i .ne. 0) then
-  stop 1s("r4.i")
+  call aborts("r4.i")
 endif
 
 if (r4.j .ne. 1) then
-  stop 1s("r4.j")
+  call aborts("r4.j")
 endif
 
 if (r3.recrd.i .ne. 0 .or. r3.recrd.j .ne. 1) then
-  stop 1s("r3.recrd")
+  call aborts("r3.recrd")
 endif
 
 if (r3.recrd_a(2).i .ne. 1 .or. r3.recrd_a(2).j .ne. 0) then
-  stop 1s("r3.recrd_a(2)")
+  call aborts("r3.recrd_a(2)")
 endif
 
 end

@@ -10,7 +10,7 @@ contains
   end subroutine b
 
   subroutine c(m)
-    if (m/=1) stop 1
+    if (m/=1) STOP 1
   end subroutine c
 end subroutine a
 

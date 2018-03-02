@@ -57,11 +57,11 @@ contains
     type(c_ptr), value :: my_c_ptr_2
 
     if(.not. c_associated(my_c_ptr_1)) then
-       stop 1
+       STOP 1
     else if(.not. c_associated(my_c_ptr_2)) then
-       stop 1
+       STOP 2
     else if(.not. c_associated(my_c_ptr_1, my_c_ptr_2)) then
-       stop 1
+       STOP 3
     endif
   end subroutine verify_assoc
   

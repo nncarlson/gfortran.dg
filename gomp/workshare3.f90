@@ -30,7 +30,7 @@ program foo
   do j=1,n
      if (abs(a(j)-c(j)) > eps) then
         print *,1,j,a(j), c(j)
-        stop 1
+        STOP 1
      end if
   end do
 

@@ -12,7 +12,7 @@ end type
 
 Type(A) :: Me = A(X=1)
 
-if (allocated(Me%y)) stop 1
-if (allocated(Me%z)) stop 1
+if (allocated(Me%y)) STOP 1
+if (allocated(Me%z)) STOP 2
 
 end

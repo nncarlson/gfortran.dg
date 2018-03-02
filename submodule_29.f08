@@ -47,10 +47,10 @@ program test_submod_variable
   i = 42
   call write_i
   read (buffer, *) j
-  if (i .ne. 42) stop 1
-  if (j .ne. 137) stop 1
+  if (i .ne. 42) STOP 1
+  if (j .ne. 137) STOP 2
   call write_i_2
   read (buffer, *) j
-  if (i .ne. 42) stop 1
-  if (j .ne. 1037) stop 1
+  if (i .ne. 42) STOP 3
+  if (j .ne. 1037) STOP 4
 end program

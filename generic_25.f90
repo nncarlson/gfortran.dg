@@ -12,8 +12,8 @@
   integer, allocatable :: a1
   integer, pointer :: a2
 
-  if (.not.test(a1)) stop 1
-  if (test(a2)) stop 1
+  if (.not.test(a1)) STOP 1
+  if (test(a2)) STOP 2
   
 contains
 

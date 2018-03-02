@@ -24,12 +24,12 @@ use m0, only : sub, s
 procedure(sub) :: sub2, pp
 pointer :: pp
 pp => sub2
-if (.not. associated(pp)) stop 1
-if (.not. associated(pp,sub2)) stop 1
+if (.not. associated(pp)) STOP 1
+if (.not. associated(pp,sub2)) STOP 2
 call s(pp, .true.)
 pp => null()
-if (associated(pp)) stop 1
-if (associated(pp,sub2)) stop 1
+if (associated(pp)) STOP 3
+if (associated(pp,sub2)) STOP 4
 call s(pp, .false.)
 end
 
@@ -38,8 +38,8 @@ subroutine s(ss, isassoc)
   logical :: isassoc
   procedure(sub), pointer, intent(in) :: ss
   procedure(sub) :: sub2
-  if (isassoc .neqv. associated(ss)) stop 1
-  if (isassoc .neqv. associated(ss,sub2)) stop 1
+  if (isassoc .neqv. associated(ss)) STOP 5
+  if (isassoc .neqv. associated(ss,sub2)) STOP 6
 end subroutine s
 
 subroutine sub2

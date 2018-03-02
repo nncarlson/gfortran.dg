@@ -8,7 +8,7 @@ end module m
 
   use m
   character(len=20) :: s
-  if (a /= 'H\0z') stop 1
-  if (ichar(a(2:2)) /= 0) stop 1
+  if (a /= 'H\0z') STOP 1
+  if (ichar(a(2:2)) /= 0) STOP 2
   write (s,"(A)") a
 end

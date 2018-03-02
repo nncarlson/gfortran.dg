@@ -23,7 +23,7 @@ subroutine invalid(x)
   logical :: x
   if(x) call sndInvalid()
   print *, 'BUG'
-  stop 1
+  STOP 1
 end subroutine invalid
 
 subroutine sndInvalid()

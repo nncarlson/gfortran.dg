@@ -10,5 +10,5 @@ program p
   implicit none
   intrinsic sin
   procedure(sin) :: t
-  if (t(1.0) /= 1.0) stop 1
+  if (t(1.0) /= 1.0) STOP 1
 end program

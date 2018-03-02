@@ -77,7 +77,7 @@
        message = that%greeting
 
 ! Check that descendant module procedure is correctly processed
-       if (intf (77) .ne. factor*77) stop 1
+       if (intf (77) .ne. factor*77) STOP 1
      end subroutine
 
      module function realf (arg) result (res)
@@ -137,33 +137,33 @@
 
    call clear_messages
    call bar%greet ! typebound call
-   if (trim (message) .ne. "Hello, world!") stop 1
+   if (trim (message) .ne. "Hello, world!") STOP 2
 
    call clear_messages
    bar%greeting = "G'day, world!"
    call say_hello(bar) ! Checks use association of 'say_hello'
-   if (trim (message) .ne. "G'day, world!") stop 1
+   if (trim (message) .ne. "G'day, world!") STOP 3
 
    call clear_messages
    bar%greeting = "Hi, world!"
    call bye(bar) ! Checks use association in another submodule
-   if (trim (message) .ne. "Hi, world!") stop 1
-   if (trim (message2) .ne. "adieu, world!") stop 1
+   if (trim (message) .ne. "Hi, world!") STOP 4
+   if (trim (message2) .ne. "adieu, world!") STOP 5
 
    call clear_messages
    call smurf ! Checks host association of 'say_hello'
-   if (trim (message) .ne. "Hello, world!") stop 1
+   if (trim (message) .ne. "Hello, world!") STOP 6
 
    call clear_messages
    bar%greeting = "farewell     "
    call bar%farewell
-   if (trim (message) .ne. "farewell") stop 1
-   if (trim (message2) .ne. "adieu, world!") stop 1
+   if (trim (message) .ne. "farewell") STOP 7
+   if (trim (message2) .ne. "adieu, world!") STOP 8
 
-   if (realf(2.0) .ne. 4.0) stop 1 ! Check module procedure with explicit result
-   if (intf(2) .ne. 10) stop 1     ! ditto
-   if (realg(3.0) .ne. 9.0) stop 1 ! Check module procedure with function declaration result
-   if (intg(3) .ne. 9) stop 1      ! ditto
+   if (realf(2.0) .ne. 4.0) STOP 9! Check module procedure with explicit result
+   if (intf(2) .ne. 10) STOP 10! ditto
+   if (realg(3.0) .ne. 9.0) STOP 11! Check module procedure with function declaration result
+   if (intg(3) .ne. 9) STOP 12! ditto
  contains
    subroutine clear_messages
      message = ""

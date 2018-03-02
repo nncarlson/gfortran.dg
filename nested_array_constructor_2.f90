@@ -16,7 +16,7 @@ c = (/ (/ trim(c(1)), 'a' /)//'c', 'cd' /)
 print *, c
 
 if (c(1) /= 'ac' .or. c(2) /= 'ac' .or. c(3) /= 'cd') then
-  stop 1
+  STOP 1
 end if
 
 end

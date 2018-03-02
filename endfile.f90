@@ -24,8 +24,8 @@
         read (10,'(I4)',end=99) j 
       end do
       ! should never get here
-      stop 1
+      STOP 1
   99  continue ! end of file
-      if (j.ne.10) stop 1   
+      if (j.ne.10) STOP 2
       close(10,status='delete')
       end

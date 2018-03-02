@@ -32,7 +32,7 @@
   FLAGS_STRING(s) ; \
   if (s /= expected) then ; \
     write (*,"(A,I0,A,A)") "Flags at line ", __LINE__, ": ", s ; \
-    stop 1 ; \
+    STOP 1; \
   end if ; \
   call check_flag_sub
 
@@ -150,7 +150,7 @@ contains
 
     if (any(l)) then
       print *, "Flags not cleared in subroutine"
-      stop 1
+      STOP 2
     end if
   end subroutine
 

@@ -10,9 +10,9 @@ real, allocatable :: scalar
 allocate(scalar)
 scalar = exp(1.)
 print *,scalar
-if (.not. allocated(scalar)) stop 1
+if (.not. allocated(scalar)) STOP 1
 deallocate(scalar)
-if (allocated(scalar)) stop 1
+if (allocated(scalar)) STOP 2
 
 end
 

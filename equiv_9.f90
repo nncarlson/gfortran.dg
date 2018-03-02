@@ -17,5 +17,5 @@ end program
 subroutine another()
    use constant, only : x2
    implicit none
-   if (x2 /= 2) stop 1
+   if (x2 /= 2) STOP 1
 end subroutine

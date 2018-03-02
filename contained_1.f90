@@ -21,7 +21,7 @@ subroutine sub (proc, var)
   external proc1
   integer var
 
-  if (var .ne. 42) stop 1
+  if (var .ne. 42) STOP 1
   call proc
 end subroutine
 
@@ -29,5 +29,5 @@ program contained_1
   use contained_1_mod
   i = 0
   call a
-  if (i .ne. 1) stop 1
+  if (i .ne. 1) STOP 2
 end program

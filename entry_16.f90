@@ -38,6 +38,6 @@ END MODULE complex
   type(cx) :: a = cx (1, 2), c, d
   logical :: f
   integer :: b = 3
-  if (.not.((a + b) .eq. (b + a))) stop 1
-  if (.not.((a + b) .eq. cx (4, 2))) stop 1
+  if (.not.((a + b) .eq. (b + a))) STOP 1
+  if (.not.((a + b) .eq. cx (4, 2))) STOP 2
 end

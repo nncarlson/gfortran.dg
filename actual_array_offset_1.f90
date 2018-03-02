@@ -151,12 +151,12 @@ program test_quicksort
     array%value = int (1000000 * values)
 
 ! It would be pretty perverse if this failed!
-    if (check (array)) stop 1
+    if (check (array)) STOP 1
 
     call quicksort( array )
 
 ! Check the the array is correctly ordered
-    if (.not.check (array)) stop 1
+    if (.not.check (array)) STOP 2
 contains
      logical function check (arg)
          type(mysortable), dimension(:) :: arg

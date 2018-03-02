@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  stop 1
+  STOP 1
 end subroutine
 
 ! Initialization expressions
@@ -29,7 +29,7 @@ record /s3/ r3
 ! Initialized unions
 if ( r3.x .ne. 1600 .or. r3.y .ne. 1800) then
   r3.x = r3.y ! If r3 isn't used the initializations are optimized out
-  stop 1s ("union initialization")
+  call aborts ("union initialization")
 endif
 
 end

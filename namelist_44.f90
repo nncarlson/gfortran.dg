@@ -24,6 +24,6 @@ program gfcbug77
   rewind(nnml)
   read (nnml, nml=BLACKLIST)
   close(nnml,status="delete")
-  if(file /= "myfile" .or. default) stop 1
+  if(file /= "myfile" .or. default) STOP 1
 !  write (*,nml=BLACKLIST)
 end program gfcbug77

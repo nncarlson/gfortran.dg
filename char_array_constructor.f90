@@ -7,8 +7,8 @@ end module
 
 program y
   use z
-  if (a(1) /= 'main  ') stop 1
-  if (a(2) /= 'main  ') stop 1
-  if (b(1) /= 'abcd  ') stop 1
-  if (b(2) /= 'efghij') stop 1
+  if (a(1) /= 'main  ') STOP 1
+  if (a(2) /= 'main  ') STOP 2
+  if (b(1) /= 'abcd  ') STOP 3
+  if (b(2) /= 'efghij') STOP 4
 end program y

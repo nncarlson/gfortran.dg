@@ -12,8 +12,8 @@ subroutine real_test
   real r1
   real r2(10)
   dimension r3(10,10)
-  if (r1 .le. 0 .or. r1 .ne. 2*r1) stop 1
-  if (r2(2) .le. 0 .or. r2(2) .ne. 2*r2(2)) stop 1
-  if (r3(5,5) .le. 0 .or. r3(5,5) .ne. 2*r3(5,5)) stop 1
-  if (r4 .le. 0 .or. r4 .ne. 2*r4) stop 1
+  if (r1 .le. 0 .or. r1 .ne. 2*r1) STOP 1
+  if (r2(2) .le. 0 .or. r2(2) .ne. 2*r2(2)) STOP 2
+  if (r3(5,5) .le. 0 .or. r3(5,5) .ne. 2*r3(5,5)) STOP 3
+  if (r4 .le. 0 .or. r4 .ne. 2*r4) STOP 4
 end subroutine real_test

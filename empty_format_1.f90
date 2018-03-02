@@ -14,10 +14,10 @@ program main
   write (io_unit, '(A)') "Line3"
   rewind (io_unit)
   read (io_unit,'(A)') str
-  if (str .ne. "Line1") stop 1
+  if (str .ne. "Line1") STOP 1
   read (io_unit,'()')
   read (io_unit,'(A)') str
-  if (str .ne. "Line3") stop 1
+  if (str .ne. "Line3") STOP 2
   close(unit=io_unit)
 end
 

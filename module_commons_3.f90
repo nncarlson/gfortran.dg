@@ -19,7 +19,7 @@ MODULE TEST4
 CONTAINS
   subroutine FOOBAR (CHECK)
     CHARACTER(LEN=80) :: CHECK
-    IF (TESTCHAR .NE. CHECK) stop 1
+    IF (TESTCHAR .NE. CHECK) STOP 1
   end subroutine
 END MODULE TEST4
 
@@ -41,8 +41,8 @@ contains
   end subroutine
   subroutine BAR (CHECK)
     CHARACTER(LEN=80) :: CHECK
-    IF (TESTCHAR .NE. CHECK) stop 1
-    IF (CHR .NE. CHECK) stop 1
+    IF (TESTCHAR .NE. CHECK) STOP 2
+    IF (CHR .NE. CHECK) STOP 3
   end subroutine
 END MODULE TEST2
 

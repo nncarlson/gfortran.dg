@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  stop 1
+  STOP 1
 end subroutine
 
 ! Unions with arrays
@@ -35,7 +35,7 @@ if (     r5.s(1) .ne. 'A' &
     .or. r5.s(3) .ne. 'C' &
     .or. r5.s(4) .ne. 'D' &
     .or. r5.s(5) .ne. 'E') then
-  stop 1s ("arrays")
+  call aborts ("arrays")
 endif
 
 end

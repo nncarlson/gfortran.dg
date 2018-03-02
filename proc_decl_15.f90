@@ -15,6 +15,6 @@ program test
     end function
   end interface
   procedure(ai) :: f
-  if(any(f() /= [9,8,7])) stop 1
-  if(size(f()) /= 3) stop 1
+  if(any(f() /= [9,8,7])) STOP 1
+  if(size(f()) /= 3) STOP 2
 end

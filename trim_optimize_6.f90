@@ -20,6 +20,6 @@ program main
   b(1) = 'a'
   b(2) = 'bc'
   write(unit=line,fmt='(A,A)') trim(b(f())), "X"
-  if (line /= "aX          ") stop 1
-  if (f() .ne. 2) stop 1
+  if (line /= "aX          ") STOP 1
+  if (f() .ne. 2) STOP 2
 end program main

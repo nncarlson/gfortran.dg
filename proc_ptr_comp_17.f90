@@ -23,7 +23,7 @@ use m
  x%ptr => abc
  print *,x%ptr(str)
  strptr => x%ptr(str)
- if (strptr/='abcde') stop 1
+ if (strptr/='abcde') STOP 1
  str = 'fghij'
- if (strptr/='fghij') stop 1
+ if (strptr/='fghij') STOP 2
 end

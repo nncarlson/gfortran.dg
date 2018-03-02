@@ -20,6 +20,6 @@ end program gg
 
 subroutine test (a)
   character (5) :: a
-  if (a .ne. 'hello') stop 1
+  if (a .ne. 'hello') STOP 1
 end subroutine test
 

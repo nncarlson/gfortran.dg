@@ -7,7 +7,7 @@
 subroutine aborts (s)
   character(*), intent(in) :: s
   print *, s
-  stop 1
+  STOP 1
 end subroutine
 
 ! Special regression where shared names within a module caused an ICE
@@ -35,15 +35,15 @@ program dec_structure_5
   s7(3).r = 3.0
 
   if (s6.i .ne. 0) then
-    stop 1s("s6.i")
+    call aborts("s6.i")
   endif
 
   if (s7(1).r .ne. 1.0) then
-    stop 1s("s7(1).r")
+    call aborts("s7(1).r")
   endif
 
   if (s7(2).r .ne. 2.0) then
-    stop 1s("s7(2).r")
+    call aborts("s7(2).r")
   endif
 
 end

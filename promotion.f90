@@ -6,8 +6,8 @@ program a
    integer i
    real x
    double precision d
-   if (kind(l) /= 8) stop 1
-   if (kind(i) /= 8) stop 1
-   if (kind(x) /= 8) stop 1
-   if (kind(d) /= 8) stop 1
+   if (kind(l) /= 8) STOP 1
+   if (kind(i) /= 8) STOP 2
+   if (kind(x) /= 8) STOP 3
+   if (kind(d) /= 8) STOP 4
 end program a

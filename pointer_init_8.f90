@@ -17,8 +17,8 @@ end module m
   class(c), pointer :: px => x
   class(c), pointer :: py => y
 
-  if (.not. associated(px, x))   stop 1
-  if (.not. same_type_as(px, x)) stop 1
-  if (.not. associated(py, y))   stop 1
-  if (.not. same_type_as(py, y)) stop 1
+  if (.not. associated(px, x))   STOP 1
+  if (.not. same_type_as(px, x)) STOP 2
+  if (.not. associated(py, y))   STOP 3
+  if (.not. same_type_as(py, y)) STOP 4
 end 

@@ -30,7 +30,7 @@ program streamtest
   do i=1,lines
     do j=0,9
       read(10,"(i5)") k
-      if (k.ne.j) stop 1
+      if (k.ne.j) STOP 1
     end do
   end do
 

@@ -18,27 +18,27 @@ program main
    
    read( unit=10, fmt='(64A)', advance='NO', iostat=iostat,          &
          size=n_chars_read ) buffer
-   if (n_chars_read.ne.1) stop 1
-   if (any(buffer(1:n_chars_read).ne."a")) stop 1
-   if (.not.is_iostat_eor(iostat)) stop 1
+   if (n_chars_read.ne.1) STOP 1
+   if (any(buffer(1:n_chars_read).ne."a")) STOP 2
+   if (.not.is_iostat_eor(iostat)) STOP 3
 
    read( unit=10, fmt='(64A)', advance='NO', iostat=iostat,          &
          size=n_chars_read ) buffer
-   if (n_chars_read.ne.1) stop 1
-   if (any(buffer(1:n_chars_read).ne."b")) stop 1
-   if (.not.is_iostat_eor(iostat)) stop 1
+   if (n_chars_read.ne.1) STOP 4
+   if (any(buffer(1:n_chars_read).ne."b")) STOP 5
+   if (.not.is_iostat_eor(iostat)) STOP 6
 
    read( unit=10, fmt='(64A)', advance='NO', iostat=iostat,          &
          size=n_chars_read ) buffer
-   if (n_chars_read.ne.1) stop 1
-   if (any(buffer(1:n_chars_read).ne."c")) stop 1
-   if (.not.is_iostat_eor(iostat)) stop 1
+   if (n_chars_read.ne.1) STOP 7
+   if (any(buffer(1:n_chars_read).ne."c")) STOP 8
+   if (.not.is_iostat_eor(iostat)) STOP 9
 
    read( unit=10, fmt='(64A)', advance='NO', iostat=iostat,          &
          size=n_chars_read ) buffer
-   if (n_chars_read.ne.0) stop 1
-   if (any(buffer(1:n_chars_read).ne."a")) stop 1
-   if (.not.is_iostat_end(iostat)) stop 1
+   if (n_chars_read.ne.0) STOP 10
+   if (any(buffer(1:n_chars_read).ne."a")) STOP 11
+   if (.not.is_iostat_end(iostat)) STOP 12
    close(10, status="delete")
 
    ! Set up the test file with normal file end.
@@ -56,9 +56,9 @@ program main
    
 100 continue
    close(10, status="delete")
-   stop 1
+   STOP 13
 
 101 continue
    close(10, status="delete")
-   if (u(1:len_trim(u)).ne."no end of line marker") stop 1
+   if (u(1:len_trim(u)).ne."no end of line marker") STOP 14
 end program main

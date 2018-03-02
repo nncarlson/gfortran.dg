@@ -11,8 +11,8 @@
   type(parent), target :: t
   class(parent), pointer :: cp => null()
 
-  if (associated(cp)) stop 1
+  if (associated(cp)) STOP 1
   cp => t
-  if (.not. associated(cp)) stop 1
+  if (.not. associated(cp)) STOP 2
 
 end

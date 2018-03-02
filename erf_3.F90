@@ -48,7 +48,7 @@ contains
   subroutine check (a, b)
     real(kind=qp), intent(in) :: a, b
     print *, abs(a-b) / spacing(a)
-    if (abs(a - b) > 10 * spacing(a)) stop 1
+    if (abs(a - b) > 10 * spacing(a)) STOP 1
   end subroutine
 
 end program test

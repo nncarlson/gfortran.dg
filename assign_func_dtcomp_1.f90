@@ -26,13 +26,13 @@ program assign_func_dtcomp
  z(:)%y = foo (b)
 
 
- if (any(z%x.ne.a).or.any(z%y.ne.b)) stop 1
+ if (any(z%x.ne.a).or.any(z%y.ne.b)) STOP 1
 
 ! Make sure we did not break anything on the way.
  w%x(:) = foo (b)
  a = foo (b)
 
- if (any(w%x.ne.b).or.any(a.ne.b)) stop 1
+ if (any(w%x.ne.b).or.any(a.ne.b)) STOP 2
 
 contains
 

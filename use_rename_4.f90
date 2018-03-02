@@ -17,6 +17,6 @@ PROGRAM main
   j = 5
 
   IF (i /= j) THEN
-    stop 1
+    STOP 1
   END IF
 END PROGRAM main
